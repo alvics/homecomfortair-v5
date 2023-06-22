@@ -1,0 +1,293 @@
+#navbar {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 1.5em;
+}
+
+.backGroundColor-topNav {
+    /* background: rgb(0, 117, 201); */
+    background: rgb(0, 117, 201);
+}
+
+nav {
+    display: grid;
+    min-height: 100px;
+    padding: 0 40px;
+    background-color: #fcfcfc;
+    -webkit-box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1);
+    -moz-box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1);
+    box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1);
+}
+
+.logo .gatsby-image-wrapper {
+    padding-bottom: 2px;
+    padding-left: 3px;
+}
+
+
+@media (min-width: 992px) and (max-width: 1399px) {
+    #logo {
+        display: block;
+        margin-top: 60px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    #logo {
+        display: block;
+        margin-top: 55px !important;
+    }
+}
+
+.logo span {
+    color: rgb(0, 117, 201);
+}
+
+svg:hover {
+    fill: rgb(0, 117, 201) !important;
+}
+
+#links {
+    display: grid;
+    justify-content: left;
+    align-content: center;
+    grid-auto-flow: column;
+    grid-gap: 1.5em;
+    margin-top: 53px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#links a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    transition: 300ms;
+}
+
+#links a:hover {
+    color: rgb(0, 117, 201);
+}
+
+
+/* NAV MENU HEADER */
+
+.phone-nav a,
+.service-area {
+    font-size: 14px;
+    color: #fff !important;
+    margin-top: 5px;
+}
+
+.phone-nav a:hover {
+    color: rgb(0, 196, 179) !important;
+}
+
+#navbar a {
+    color: #2d3136;
+}
+
+.dropbtn {
+    border: none;
+}
+
+.dropdown-- {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    white-space: nowrap;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown--:hover .dropdown-content {
+    display: block;
+}
+
+@media (max-width: 992px) {
+    #links {
+        display: none;
+    }
+}
+
+
+/* =======================
+******* Mobile Menu ******
+========================*/
+
+.menu-wrapper-mobile ul {
+    margin-top: -100px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #fff;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+a {
+    font-family: "Open Sans", sans-serif;
+}
+
+#menu-icon-- {
+    position: fixed;
+    top: 3rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: transparent;
+    border: none;
+    border-style: none !important;
+    cursor: pointer;
+    z-index: 8;
+}
+
+
+/* Mobile  */
+
+@media (max-width: 450px) {
+    .phone-num {
+        display: none;
+    }
+    .phone-nav {
+        margin-right: -15px;
+    }
+    .service-area {
+        padding-top: 7px !important;
+        letter-spacing: 1px !important;
+        font-weight: 600 !important;
+        padding-left: 0 !important;
+        font-size: 12px !important;
+        margin-top: 7px;
+    }
+    #menu-icon-- {
+        top: 3.7rem !important;
+    }
+    .call-icon {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        border-radius: 8px !important;
+    }
+    #menu-wrapper-mobile ul {
+        padding-right: 30px;
+    }
+    /* headerNew__MenuIcon-dDtNuh fzrXwh" */
+}
+
+
+/* Mobile to Tablet  */
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #links,
+    .mobile-menu {
+        display: none;
+    }
+    #logo {
+        display: inline-grid;
+        grid-template-columns: auto auto;
+        grid-gap: 70px;
+    }
+}
+
+
+/* to lg Tablet */
+
+@media (min-width: 320px) and (max-width: 992px) {
+    .mobile-nav .gatsby-image-wrapper {
+        max-width: 240px !important;
+        max-height: 48px !important;
+    }
+    #daikin-dealer-logo {
+        display: none !important;
+    }
+}
+
+
+/* Tablet to Desktop */
+
+@media (min-width: 768px) {
+    .mobile-btn {
+        display: none;
+    }
+    #menu-icon-- {
+        position: fixed;
+        top: 3.2rem;
+        right: 2rem;
+    }
+    .phone-nav a {
+        padding: 4px 20px !important;
+    }
+    .service-area {
+        letter-spacing: 0.1em;
+        font-weight: 600;
+    }
+}
+
+@media (min-width: 1400px) {
+    .phone-nav a {
+        padding: 4px 20px !important;
+        background-color: rgb(0, 117, 201) !important;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 992px) {
+    #daikin-dealer-logo {
+        display: none !important;
+    }
+}
+
+
+/* @media (min-width: 1024px) and (max-width: 1366px) {
+    #daikin-dealer-logo {
+        display: block;
+    }
+} */
