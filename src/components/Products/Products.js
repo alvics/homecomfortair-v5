@@ -56,7 +56,7 @@ const Products = () => {
   return (
     <div className="container shop-page">
       <div className="row">
-        <div className="col-sm col-md-3 col-lg-2 col-xl-2 hide-side">
+        <div className="col-sm col-md-3 col-lg-2 col-xl-2 hide-side mt-2">
           <div className="by-white">
             <div className="position-fixed bg-white p-4 min-vh-75 rounded border left-side-menu">
               <h4 className="fsz-16 mb-3 fw-700">
@@ -169,7 +169,7 @@ const Products = () => {
           </div>
         </div>
 
-        <div className="col-sm-12 col-md-8 col-lg-8 col-xl-8 bg-white p-3">
+        <div className="col-sm-12 col-md-8 col-lg-8 col-xl-8 bg-white mt-2 p-3 border rounded">
           <div className="d-md-flex justify-between">
             <h1 className="fsz-21">Shop for Split System Air Conditioning</h1>
             
@@ -178,7 +178,7 @@ const Products = () => {
           {/* Dropdown Button */}
           <div className="dropdown">
             <button
-              className="mt-3 pr-2 btn-orange-- dropdown-toggle me-sm-3 text-black"
+              className="mt-3 border border-dark px-2 pt-1 pb-1 fsz-14 gallery-btn dropdown-toggle me-sm-3 text-black"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"

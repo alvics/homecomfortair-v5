@@ -1,15 +1,12 @@
 import React from 'react'
-import { Link, Script } from "gatsby"
-import {
-  Dropdown,
-  Ripple,
-  initTE,
-} from "tw-elements";
+import { Link } from "gatsby"
+import TopNavBar from '../Ui/topDesktopNavMenu'
 
 export default function NavbarMain() {
   return (
     
     <div>
+    <TopNavBar />
 <nav id="desktop-nav" className="fixed-top ">
         <div className="container" id="navbar">
           <div id="logo" className="reverse">

@@ -36,9 +36,7 @@ export const query = graphql`
         image {
           url
         }
-        image2 {
-          url
-        }
+        
         title
         description {
           data {

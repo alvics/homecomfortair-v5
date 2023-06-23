@@ -2,7 +2,7 @@
 // Use graphql query to render page
 // import ButtonGroup from '../components/Products/ButtonGroup';
 
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { graphql, Link } from 'gatsby'
 import { useLocation } from '@reach/router';
@@ -11,6 +11,7 @@ import ReactMarkdown from 'react-markdown'
 import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
 import GoldStars from '../components/Products/GoldStars';
+import DesktopNav from '../components/Sections/DesktopNav'
 // import KwAccordion from '../components/Products/KwAccordion';
 
 
@@ -49,16 +50,18 @@ const location = useLocation();
 
  console.log(data, 'From Product-Template!!');
   return (
-    <div className='container-lg container-fluid-md container-fluid-sm'>
-       <div className="row">
+  <Fragment>
+  <DesktopNav />
+    <div className='container-lg container-fluid-md container-fluid-sm pt-5' style={{marginTop:'65px'}}>
+       <div className="row single-product-row">
 
 
-    <div className="col-md-7 bg-white text-center p-4 scrollable-column">
+    <div className="col-md-8 bg-white text-center p-4 scrollable-column">
         <div aria-label="breadcrumb" className='my-4 fsz-14'>
   <ol className="breadcrumb">
     <li className="breadcrumb-item"><Link to='/'>Home</Link></li>
     <li className="breadcrumb-item"><Link to="/products">Products</Link></li>
-    <li className="breadcrumb-item active" aria-current="page">Split-systems</li>
+    <li className="breadcrumb-item active" aria-current="page">Split-systems / {brand}-{model}</li>
   </ol>
 </div>
     <div className='gallery-img-container'>
@@ -72,10 +75,10 @@ const location = useLocation();
 </div>
 
 
-    <div className="col-md-5 bg-white p-4 product-page-description">
-    <h3 className='text-uppercase fw-400'>{ brand }</h3>
-    <div className="mt-5">
-    <h1 className="h5 fw-700">{title}</h1>
+    <div className="col-md-4 bg-white p-4 product-page-description">
+    <div className='single-product-right-col'>
+    <div className="mt-5 text-wrap single-product-right-col-text">
+    <h1 className="h5 fw-700 text-wrap">{title}</h1>
    <GoldStars />
     <div className='pt-2'>
     <div className='text-capitalize'><span className='fw-600'>Brand:</span> {brand}</div>
@@ -87,7 +90,7 @@ const location = useLocation();
    
 <div>
   <div className="btn-group mt-1">
-    <button type="button" className="border border-dark px-2 pt-1 pb-1 text-black fsz-16 gallery-btn dropdown-toggle-split d-flex justify-between fw-400" data-bs-toggle="dropdown" style={{ width: '250px' }}>
+    <button type="button" className="border border-dark px-2 pt-1 pb-1 text-black fsz-16 gallery-btn dropdown-toggle-split d-flex justify-between fw-400" data-bs-toggle="dropdown" style={{ width: '220px' }}>
       {cool_capacity} <span className='pt-1 pb-1'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className="bi bi-chevron-down" viewBox="0 0 16 16">
   <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" strokeWidth="1" />
 </svg>
@@ -133,9 +136,10 @@ const location = useLocation();
       <span>{cool_capacity} cooling capacity</span>
       <span>{heat_capacity} heating capacity</span>
       </div>
-      <p className='short-description fsz-16'> {title} will suit a room size of approximately {room_size}m². <br /> <span className='fsz-14'>*Price is based on a back to back installation (maximum pipe length 3 metres).</span></p>
+      <p className='short-description fsz-16 single-product-right-col-text'> {title} will suit a room size of approximately {room_size}m². <br /> <span className='fsz-14'>*Price is based on a back to back installation (maximum pipe length 3 metres).</span></p>
      </div>
-     <button className='btn-- btn-orange--'>ENQUIRE NOW</button>
+     <button className='btn-- btn-orange-- '>ENQUIRE NOW</button>
+     </div>
      <div>
    
     
@@ -144,36 +148,59 @@ const location = useLocation();
     </div>
    
   {/* Second row */}
-     <div className="row">
+     <div className="row single-product-row">
       
      <div className="col-md-8">
-       <div className="bg-white p-3 header-nav pt-5 ">
-    <div className="d-flex flex-row mb-3 border-bottom">
+       <div className="bg-white p-3 header-nav pt-5" >
+    <div className="d-flex flex-row border-bottom" >
     <div className='header-nav-item fw-bold'> <Link to='#'>Gallery<span></span></Link>
     </div>
-    <div className='header-nav-item fw-bold'><Link to='#'>Description</Link><span></span></div>
+    <div className='header-nav-item fw-bold'><Link to='#description'>Description</Link><span></span></div>
     <div className='header-nav-item fw-bold'><Link to='#reviews'>Reviews</Link><span></span></div>
     </div>
 
    
      
-    
-     <ReactMarkdown children={description} className='border-right'/>
-     <div className='' id='reviews'>This is my reviews
-     <p></p>
+    <div className='border-end pt-3'><div id='description'></div><ReactMarkdown children={description} /></div>
+     
+     <div className='' id='reviews'>
+     <p>This is my reviews </p>
      </div>
     </div>
      </div>
 
      <div className="col-md-4 bg-white">
-     <h4>Col 4</h4>
+     <div className='single-product-right-col right-form'>
+     
+     
+     <div className='p-3'>
+     <h4 className='fsz-18'>Get your installation quote</h4>
+     <form className='border p-2'>
+     
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+    
+    </div>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+
+  <button type="submit" class="btn btn-primary--">Submit</button>
+</form>
      </div>
+     </div>
+     </div> 
+
      
      </div>
     
   
    
     </div>
+    </Fragment>
   )
 }
 
@@ -192,9 +219,7 @@ query GetProducts($slug: String, $brand: String) {
         description
       }
     }
-    image2 {
-      url
-    }
+    
     gallery {
       url
     }

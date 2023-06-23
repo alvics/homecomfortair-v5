@@ -4,7 +4,7 @@ import React from 'react'
 import Layout from '../components/Layouts/layout'
 import SplitSystems from '../components/Products/Products'
 import { graphql } from 'gatsby';
-import TopNavMenu from '../components/Ui/topDesktopNavMenu';
+
 import DesktopNav from '../components/Sections/DesktopNav';
 
 const Products = ({ 
@@ -16,8 +16,7 @@ const Products = ({
   return (
 
     <Layout>
-     <TopNavMenu />
-     <DesktopNav />
+      <DesktopNav />
       <SplitSystems products={products} />
     </Layout>
   )

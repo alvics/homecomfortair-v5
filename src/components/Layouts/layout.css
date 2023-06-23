@@ -11,7 +11,7 @@ html {
 
 body {
     margin: 0;
-    background-color: #f7f7f7;
+    background-color: #EAE8E8;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -933,6 +933,11 @@ background-color: rgb(109, 154, 223)!important;
     }
 }
 
+@media (max-width:844px) {
+    .right-form {
+        margin-top: 30px;
+    }
+}
 
 /* GRID LAYOUTS */
 
@@ -1016,6 +1021,27 @@ background-color: rgb(109, 154, 223)!important;
     .CTA-btn {
         text-align: center;
     }
+
+        
+         
+
+   
+}
+
+@media (max-width:1400px) {
+    /* .single-product-right-col-text {
+            max-width: 380px;
+    
+        } */
+        body {
+            background-color: #ffffff;
+        }
+            
+}
+
+.single-product-right-col-text {
+    max-width: 380px;
+    padding-right: 10px;
 }
 
 
@@ -1124,6 +1150,13 @@ nav.breadcrumb {
 }
 .dropdown .btn-orange--:hover {
     color: #f7f7f7 !important;
+}
+
+@media (min-width: 768px) {
+    .single-product-right-col {
+            position: fixed;
+        }
+   
 }
 
 
@@ -2221,7 +2254,9 @@ body div#hubspot-messages-iframe-container .hqnutI {
     }
 }
 
-
+.container-lg {
+    max-width: 1260px !important;
+}
 
 .dropdown-item---.active > a {
     font-weight: bold !important;
@@ -2259,7 +2294,7 @@ body div#hubspot-messages-iframe-container .hqnutI {
 
 
 .left-side {
-                flex: 1 1 25%;
+            flex: 1 1 25%;
               position: fixed;
                 top: 0;
                 bottom: 0;
@@ -2355,4 +2390,10 @@ li {
 .archive-dropdown {
     font-size: 14px;
     background-color: #f7f7f7;
+}
+
+.single-product-row {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .16), 0 2px 3px rgba(0, 0, 0, .12);
+    background: #fff;
+    border-radius: 4px !important;
 }
