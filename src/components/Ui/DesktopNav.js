@@ -8,13 +8,13 @@ import { Link } from "gatsby"
 
 import { graphql, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
-import ShopMegaMenu from "../Ui/shopMegaMenu"
-import OurServicesMenu from "../Ui/ourServicesMenu"
-import TopNavMenu from "../Ui/topDesktopNavMenu"
+import ShopMegaMenu from "./shopMegaMenu"
+import OurServicesMenu from "./ourServicesMenu"
+import TopNavMenu from "./topDesktopNavMenu"
 // import AboutNavMenu from "./aboutNavBtn"
 // import FacebookIcon from "@material-ui/icons/Facebook"
-import StaticImg from "./../StaticQueryImages"
-import BrandNavMenu from "../Ui/brandsNav"
+import StaticImg from "../StaticQueryImages"
+import BrandNavMenu from "./brandsNav"
 
 const getImage = graphql`
   {
@@ -45,7 +45,7 @@ const Header = () => {
     
     <TopNavMenu />
 
-      <nav id="desktop-nav" className="fixed-top ">
+      <nav id="desktop-nav d-sm-none" className="fixed-top ">
         <div className="container" id="navbar">
           <div id="logo" className="reverse">
             <div className="logo">

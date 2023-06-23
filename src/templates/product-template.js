@@ -11,7 +11,8 @@ import ReactMarkdown from 'react-markdown'
 import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
 import GoldStars from '../components/Products/GoldStars';
-import DesktopNav from '../components/Sections/DesktopNav'
+// import DesktopNav from '../components/Ui/DesktopNav'
+import Layout from '../components/Layouts/layout';
 // import KwAccordion from '../components/Products/KwAccordion';
 
 
@@ -51,17 +52,17 @@ const location = useLocation();
  console.log(data, 'From Product-Template!!');
   return (
   <Fragment>
-  <DesktopNav />
-    <div className='container-lg container-fluid-md container-fluid-sm pt-5' style={{marginTop:'65px'}}>
+  <Layout>
+    <div className='container-lg container-fluid-md container-fluid-sm pt-2 '>
        <div className="row single-product-row">
 
 
     <div className="col-md-8 bg-white text-center p-4 scrollable-column">
-        <div aria-label="breadcrumb" className='my-4 fsz-14'>
+        <div aria-label="breadcrumb" className='my-4'>
   <ol className="breadcrumb">
-    <li className="breadcrumb-item"><Link to='/'>Home</Link></li>
-    <li className="breadcrumb-item"><Link to="/products">Products</Link></li>
-    <li className="breadcrumb-item active" aria-current="page">Split-systems / {brand}-{model}</li>
+    <li className="breadcrumb-item fsz-12 capitalize"><Link to='/'>Home</Link></li>
+    <li className="breadcrumb-item fsz-12 capitalize"><Link to="/products">Products</Link></li>
+    <li className="breadcrumb-item active fsz-12 capitalize" aria-current="page">Split-systems  /  {brand}-{model}</li>
   </ol>
 </div>
     <div className='gallery-img-container'>
@@ -78,19 +79,19 @@ const location = useLocation();
     <div className="col-md-4 bg-white p-4 product-page-description">
     <div className='single-product-right-col'>
     <div className="mt-5 text-wrap single-product-right-col-text">
-    <h1 className="h5 fw-700 text-wrap">{title}</h1>
+    <h1 className="fsz-18 fw-700 text-wrap shrink-text lh-sm">{title}</h1>
    <GoldStars />
     <div className='pt-2'>
-    <div className='text-capitalize'><span className='fw-600'>Brand:</span> {brand}</div>
-      <span><span className='fw-600'>Model:</span> {model}</span>
+    <div className='text-capitalize shrink-text fsz-16'><span className='fw-600 fsz-16'>Brand:</span> {brand}</div>
+      <div className='shrink-text fsz-16'><span className='fw-600 fsz-16'>Model:</span> {model}</div>
     </div>
      
     </div>
      
    
 <div>
-  <div className="btn-group mt-1">
-    <button type="button" className="border border-dark px-2 pt-1 pb-1 text-black fsz-16 gallery-btn dropdown-toggle-split d-flex justify-between fw-400" data-bs-toggle="dropdown" style={{ width: '220px' }}>
+  <div className="btn-group mt-1 shrink-text">
+    <button type="button" className="border border-light--- px-2 pt-1 pb-1 text-black fsz-16 gallery-btn dropdown-toggle-split d-flex justify-between fw-400" data-bs-toggle="dropdown" style={{ width: '220px' }}>
       {cool_capacity} <span className='pt-1 pb-1'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className="bi bi-chevron-down" viewBox="0 0 16 16">
   <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" strokeWidth="1" />
 </svg>
@@ -131,14 +132,14 @@ const location = useLocation();
 
      <div className="mt-3">
      <p className=''>Supplied & installed</p>
-      <span className="fsz-38 fw-700"><span>$</span>{price} <span className='fsz-14 fw-400'>incl GST</span>  </span>
-      <div className='fw-bold fs-6 d-flex flex-column my-3'>
+      <span className="fsz-38 fw-700 shrink-text position-relative"><span className='fsz-16 position-absolute top-0 start-0 fx-700' style={{marginTop: '5px'}}>$</span><span  className='ml-2'>{price}</span> <span className='fsz-12 fw-400' data-bs-toggle="tooltip" data-bs-placement="top" title="This is the standard retail price at which this exclusive product is offered for sale by home comfort air."><del>SRP {price + 100}</del></span>  </span>
+      <div className='fw-bold fsz-16 d-flex flex-column my-3 shrink-text'>
       <span>{cool_capacity} cooling capacity</span>
       <span>{heat_capacity} heating capacity</span>
       </div>
-      <p className='short-description fsz-16 single-product-right-col-text'> {title} will suit a room size of approximately {room_size}m². <br /> <span className='fsz-14'>*Price is based on a back to back installation (maximum pipe length 3 metres).</span></p>
+      <p className='short-description fsz-16 single-product-right-col-text shrink-text lh-base'> {title} will suit a room size of approximately {room_size}m². <br /> <span className='fsz-14'>*Price is based on a back to back installation (maximum pipe length 3 metres).</span></p>
      </div>
-     <button className='btn-- btn-orange-- '>ENQUIRE NOW</button>
+     <button className='btn-- btn-orange-- shrink-text'>ENQUIRE NOW</button>
      </div>
      <div>
    
@@ -200,6 +201,7 @@ const location = useLocation();
   
    
     </div>
+    </Layout>
     </Fragment>
   )
 }

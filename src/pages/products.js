@@ -1,11 +1,9 @@
-import React from 'react'
-// import MideaSplitSystems from '../../components/Products/MideaSplitsSystems'
-// import HaierSplitSystems from '../../components/Products/HaierSplitsSystems'
-import Layout from '../components/Layouts/layout'
-import SplitSystems from '../components/Products/Products'
+import React from 'react';
+import Layout from '../components/Layouts/layout';
+import SplitSystems from '../components/Products/Products';
 import { graphql } from 'gatsby';
-
-import DesktopNav from '../components/Sections/DesktopNav';
+// import MobileNav from '../components/Ui/mobileNav';
+// import DesktopNav from '../components/Ui/DesktopNav';
 
 const Products = ({ 
   data: {
@@ -16,8 +14,8 @@ const Products = ({
   return (
 
     <Layout>
-      <DesktopNav />
-      <SplitSystems products={products} />
+   
+     <SplitSystems products={products} />
     </Layout>
   )
 }

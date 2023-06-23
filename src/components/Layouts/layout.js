@@ -1,13 +1,20 @@
 
-import React from "react"
+import React, { Fragment } from "react"
 import "../Layouts/header.css"
 import "../Layouts/layout.css"
 
 
+ import DesktopNav from '../Ui/DesktopNav'
+ import MobileNav from '../Ui/mobileNav'
+
 export default function Layout({ children }) {
   return (
-  
-     <div
+  <Fragment>
+    
+    <DesktopNav />
+     <MobileNav />
+      <div
+      className="layout-site"
         style={{
           margin: `110px auto 0 auto`,
           maxWidth: 1584,
@@ -16,6 +23,7 @@ export default function Layout({ children }) {
       >
         <main>{children}</main>
       </div>
+      </Fragment>
     
   )
 }
