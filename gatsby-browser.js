@@ -4,8 +4,14 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
   import "bootstrap/dist/css/bootstrap.min.css"
-  import "bootstrap/dist/js/bootstrap.min"
   import './src/styles/global.css'
+  
+  // import "react/umd/react.production.min.js"
+  // import "react-dom/umd/react-dom.production.min.js"
+  import "react-bootstrap/dist/react-bootstrap.min.js"
+  // import "@popperjs/core/dist/esm"
+  // import "@popperjs/core"
+  import "bootstrap/dist/js/bootstrap.min"
+  
 
-// import '@fortawesome/fontawesome-free/css/all.min.css';
-// import 'bootstrap-css-only/css/bootstrap.min.css';
+ import '@fortawesome/fontawesome-free/css/all.min.css';

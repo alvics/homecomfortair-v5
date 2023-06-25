@@ -2,7 +2,7 @@
 // Use graphql query to render page
 // import ButtonGroup from '../components/Products/ButtonGroup';
 
-import React, { Fragment } from 'react';
+import React, { Fragment, useState,  useRef } from 'react';
 
 import { graphql, Link } from 'gatsby'
 import { useLocation } from '@reach/router';
@@ -13,11 +13,11 @@ import 'react-gallery-carousel/dist/index.css';
 import GoldStars from '../components/Products/GoldStars';
 // import DesktopNav from '../components/Ui/DesktopNav'
 import Layout from '../components/Layouts/layout';
+import Accordion from 'react-bootstrap/Accordion';
+import { useAccordionButton } from 'react-bootstrap/AccordionButton';
+
+
 // import KwAccordion from '../components/Products/KwAccordion';
-
-
-
-
 
 
 const SingleProduct = ({ data }) => {
@@ -25,15 +25,43 @@ const SingleProduct = ({ data }) => {
 const location = useLocation();
   const { pathname } = location;
 
+  const [activeAccordion, setActiveAccordion] = useState('installation');
+  
+  const toggleAccordion = (eventKey, event) => {
+    if (event) {
+    event.stopPropagation();
+    }
 
- 
+    if (activeAccordion === eventKey) {
+      setActiveAccordion(null);
+    } else {
+      setActiveAccordion(eventKey);
+    }
+  };
 
-
-
-  const { description } = data.strapiProduct.description.data
+  
+   const { description } = data.strapiProduct.description.data
    const { title, price, heat_capacity,room_size, model, cool_capacity } = data.strapiProduct
    const  brand = data.strapiProduct.sub_categories[0]?.title || '';
     // const  image2  = data.strapiProduct.image2.url
+
+    function CustomToggle({ children, eventKey }) {
+    const decoratedOnClick = useAccordionButton(eventKey, () =>
+    console.log('totally custom!'),
+  );
+
+  return (
+    <button
+      type="button"
+      className='mt-3'
+      style={{ backgroundColor: 'transparent', marginRight:'20px' }}
+      onClick={decoratedOnClick}
+    >
+      {children}
+    </button>
+  );
+}
+
 
    const gallery = data.strapiProduct.gallery
  
@@ -153,16 +181,105 @@ const location = useLocation();
       
      <div className="col-md-8">
        <div className="bg-white p-3 header-nav pt-5" >
-    <div className="d-flex flex-row border-bottom" >
+    <div className="d-flex flex-row" >
     <div className='header-nav-item fw-bold'> <Link to='#'>Gallery<span></span></Link>
     </div>
-    <div className='header-nav-item fw-bold'><Link to='#description'>Description</Link><span></span></div>
+    <div className='header-nav-item fw-bold'><Link to='#description' variant="link" onClick={() => toggleAccordion('description')} >Description</Link><span></span></div>
     <div className='header-nav-item fw-bold'><Link to='#reviews'>Reviews</Link><span></span></div>
     </div>
 
+ 
+
+    {/*  Accordion  */}
+
+     <Accordion defaultActiveKey="0" activeKey={activeAccordion}>
+      <Accordion.Item eventKey="installation" activeKey={activeAccordion}>
+        <Accordion.Header onClick={(event) => toggleAccordion('installation',event)}>Installation</Accordion.Header>
+        <Accordion.Body>
+         
+        
+        <h5 className='fsz-18'>What's included:</h5>
+        <p>Your new <span className='text-capitalize'>{ brand }</span> { model } air conditioning system includes standard single storey back to back installation. This package includes:</p>
+         
+         <div>
+            <ul className="pl-3">
+        <li>* Licensed Installers.</li>
+        <li>* Up to 3 meters of pipework connecting indoor to outdoor unit.</li>
+
+        {cool_capacity <= "5.4" ? ( 
+        <li>* Up to 20 meters of electrical cable run in the roof to an existing and available circuit.</li>
+        ) : ( <span></span>  )}
+
+
+        {cool_capacity <= "5.4" ? (
+        <li>* New mounted weatherproof safety isolation.</li> ) : (
+        <li>* New mounted weatherproof safety isolation switch to existing circuit. <small>(For replacement units only, does NOT include new electrical circuit added. Additional charges may apply).</small> </li> )}
+        <li>* PVC ducting to conceal pipe connection and electrical work.</li>
+        <li>  {brand === "Toshiba"  ? "* 7 year manufacturer warranty." : "* 5 year manufacturer warranty."}</li> 
+        <li>* 5 year Installation warranty.</li>
+        </ul>
+         </div>
+
+        {/* Additional Charges */}
+
+              <Accordion className='custom-accordion'>
+        <Accordion.Item eventKey="add">
+          <Accordion.Header id="add-charges">
+            <CustomToggle className="custom-btn" onClick={(event) => toggleAccordion('add', event)}>Additional charges may apply <i class="fa-solid fa-chevron-down"></i></CustomToggle>
+          </Accordion.Header>
+          <Accordion.Body>
+            <div className="mb-4">
+              <p>The requirements for installation may vary depending on the layout and structure of your house. As a result, some additional costs may apply.</p>
+              <p>The most common reasons for additional costs are:</p>
+              <ul className="pl-3">
+                <li>* Double storey properties.</li>
+                <li>* Non back to back installations.</li>
+                <li>* Extra piping.</li>
+                <li>* Poly slab Installation (if not already present).</li>
+                <li>* Brackets (e.g. wall or roof).</li>
+                <li>* Mounting blocks.</li>
+                <li>* Electrical work (e.g new circuit).</li>
+              </ul>
+              <small>Note: your installer will explain the reasons and requirements for the additional charges (if there are any) before proceeding.</small>
+            </div>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+        {/* End Additional Charges */}
+
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="description">
+        <Accordion.Header onClick={(event) => toggleAccordion('description',event)}>Description</Accordion.Header>
+        <Accordion.Body>
+         <div className='pt-3 description-container'><div id='description'></div><ReactMarkdown children={description} /></div>
+        </Accordion.Body>
+      </Accordion.Item>
+       <Accordion.Item eventKey="spec">
+        <Accordion.Header onClick={(event) => toggleAccordion('spec',event)}>Specifications</Accordion.Header>
+        <Accordion.Body>
+         Here is the PDF for your system
+        </Accordion.Body>
+      </Accordion.Item>
+
+       <Accordion.Item eventKey="warranty">
+        <Accordion.Header onClick={(event) => toggleAccordion('warranty',event)}>Warranty</Accordion.Header>
+        <Accordion.Body>
+         <p>*5 Year manufacturer warranty</p>
+         <p>*5 Year installation warranty</p>
+         
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
+
+    
+
+
+    {/*  END Accordion  */}
+
    
      
-    <div className='border-end pt-3'><div id='description'></div><ReactMarkdown children={description} /></div>
+    
      
      <div className='' id='reviews'>
      <p>This is my reviews </p>
@@ -195,7 +312,10 @@ const location = useLocation();
      </div>
      </div> 
 
-     
+     {/* Product Recommended List */}
+
+
+      {/* Product Recommended List */}
      </div>
     
   

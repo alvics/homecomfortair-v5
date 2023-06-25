@@ -2310,6 +2310,9 @@ body div#hubspot-messages-iframe-container .hqnutI {
     max-width: 290px !important;
     /* Adjust the width as per your requirement */
 }
+.collapse {
+    visibility: visible;
+}
 
 
 
@@ -2426,8 +2429,10 @@ li {
 p,li {
     font-size: 16px !important;
     color: rgb(4, 21, 33) !important;
-    
-}
+    }
+                .description-container {
+            padding: 10px;
+        }
 
 .breadcrumb-item {
     font-size: 12px !important;
@@ -2436,4 +2441,35 @@ p,li {
 
 .border-light--- {
     border-color: hsl(0, 0%, 70%) !important;
+}
+.custom-accordion .accordion-button::after {
+    display: none;
+}
+
+.custom-accordion .accordion-item {
+    border: none;
+}
+
+ button .accordion-button:focus {
+    font-weight: 700 !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color:rgb(4, 21, 33);
+    background-color: #fff;
+}
+
+button .accordion-button, button .accordion-button::after {
+    color: rgb(4, 21, 33) !important;
+    
+    }
+    
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0, 0, 0, .125);
+}
+
+.single-product-row .accordion {
+    margin-left: -19px;
 }
