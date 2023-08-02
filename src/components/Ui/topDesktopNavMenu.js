@@ -2,7 +2,7 @@
 // import PropTypes from "prop-types"
 import React from "react"
 import { Link } from "gatsby"
-
+import Search from "../Search"
 // import FacebookIcon from "@material-ui/icons/Facebook"
 
 
@@ -14,18 +14,20 @@ import { Link } from "gatsby"
  
  
  <div
-        style={{ zIndex: 99999 }}
-        className="container-fluid bg-blue-500 fixed-top "
+        style={{ zIndex: 999999 }}
+        className="container-fluid fixed-top py-3"
       >
         <div className="container text-white">
           <div className="row">
-            <div className="col d-flex-justify-content-start align-items-center service-area text-shadow-1">
-              <span className="headerLink"><Link  to="/ipswich-air-conditioning">Ipswich</Link></span> | <span className="headerLink"><Link  to="/brisbane-air-conditioning">Brisbane</Link></span> | <span className="headerLink"><Link  to="/gold-coast-air-conditioning">Gold Coast</Link></span>
+            <div className="col d-flex-justify-content-start align-items-center service-area text-shadow-1 text-black d-none d-lg-block d-xl-block d-xxl-block">
+              <span className="headerLink"><Link to="/ipswich-air-conditioning">Ipswich</Link></span> | <span className="headerLink"><Link  to="/brisbane-air-conditioning">Brisbane</Link></span> | <span className="headerLink"><Link  to="/gold-coast-air-conditioning">Gold Coast</Link></span>
+              
             </div>
+            <div className="col"><Search /></div>
 
             <div
               style={{ PaddingBottom: 5 }}
-              className="col-4 d-flex justify-content-end phone-nav"
+              className="col d-flex justify-content-end phone-nav"
             >
               <a
                 style={{ fontSize: 14 }}

@@ -45,7 +45,7 @@ const Header = () => {
     
     <TopNavMenu />
 
-      <nav id="desktop-nav d-sm-none" className="fixed-top ">
+      <nav id="desktop-nav d-sm-none" className="fixed-top pt-3 pb-2">
         <div className="container" id="navbar">
           <div id="logo" className="reverse">
             <div className="logo">

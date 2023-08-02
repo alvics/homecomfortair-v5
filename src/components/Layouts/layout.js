@@ -6,6 +6,7 @@ import "../Layouts/layout.css"
 
  import DesktopNav from '../Ui/DesktopNav'
  import MobileNav from '../Ui/mobileNav'
+ import Footer from "../Footer"
 
 export default function Layout({ children }) {
   return (
@@ -23,6 +24,7 @@ export default function Layout({ children }) {
       >
         <main>{children}</main>
       </div>
+      <Footer />
       </Fragment>
     
   )

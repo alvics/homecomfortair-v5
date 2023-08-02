@@ -38,6 +38,7 @@ export const query = graphql`
         }
        
         title
+        price
         description {
           data {
             description

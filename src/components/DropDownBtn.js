@@ -5,8 +5,7 @@ import { Link } from "gatsby"
 const DropdownBtn = () => {
   return (
     <div className="dropdown">
-      <button
-        style={{ fontFamily: `Open Sans, sans-serif`, fontSize: 24 }}
+      <a
         className="fw-400 px-0 dropdown-toggle"
         type="button"
         id="dropdownMenuButton1 "
@@ -14,12 +13,16 @@ const DropdownBtn = () => {
         aria-expanded="false"
       >
         Our Services
-      </button>
+      </a>
       <ul
         className="dropdown-menu px-3"
         aria-labelledby="dropdownMenuButton"
         style={{ whiteSpace: `nowrap` }}
       >
+       <li>
+          <Link to="/service-areas">Service Area's</Link>
+        </li>
+        <div className="dropdown-divider"></div>
         <li>
           <Link to="/split-systems">Split Systems</Link>
         </li>

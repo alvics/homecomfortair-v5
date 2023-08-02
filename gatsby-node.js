@@ -1,17 +1,12 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require(`path`);
 
-// You can delete this file if you're not using it
-
- const path = require(`path`)
-
-// RETURN STRAPI API PAGES DYNAMICALLY
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-  const result = await graphql(`
+  const { createPage } = actions;
+  const productTemplate = path.resolve(`src/templates/product-template.js`);
+  const serviceAreaTemplate = path.resolve(`src/templates/serviceArea-template.js`);
+
+  // Query for products
+  const productResult = await graphql(`
     query GetProducts {
       products: allStrapiProduct {
         nodes {
@@ -19,21 +14,38 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
-  const productTemplate = path.resolve(`src/templates/product-template.js`)
-
-  result.data.products.nodes.forEach(product => {
+  // Create product pages
+  productResult.data.products.nodes.forEach((product) => {
     createPage({
       path: `/products/${product.slug}`,
       component: productTemplate,
       context: {
         slug: product.slug,
       },
-    })
-  })
-}
+    });
+  });
 
+  // Query for service areas
+  const serviceAreaResult = await graphql(`
+    query GetServiceAreas {
+      serviceAreas: allStrapiServiceArea {
+        nodes {
+          slug
+        }
+      }
+    }
+  `);
 
-
- 
+  // Create service area pages
+  serviceAreaResult.data.serviceAreas.nodes.forEach((serviceArea) => {
+    createPage({
+      path: `/service-areas/${serviceArea.slug}`,
+      component: serviceAreaTemplate,
+      context: {
+        slug: serviceArea.slug,
+      },
+    });
+  });
+};

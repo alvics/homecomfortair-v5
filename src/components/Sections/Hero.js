@@ -1,21 +1,98 @@
-import React from 'react'
+import React from 'react';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import StaticImage from "../StaticQueryImages"
+import MyForm from '../heroForm';
 
-export default function Hero() {
+const Hero = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      heroImage: file(relativePath: { eq: "homecomfort-2.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+        }
+      }
+    }
+  `);
+
+  const image = getImage(data.heroImage);
+
   return (
-   <section className="flex flex-col xl:flex-row ">
-  <div className="w-full xl:w-1/2  flex items-center justify-center">
-    <div className="w-full  bg-blue-500 z-10 px-48 py-5">
-      <h1 className="tracking-tight font-light text-gray-500 text-2xl text-white">Keep in comfort this winter</h1>
-        <h1 className="text-4xl md:text-4xl tracking-tight leading-none font-bold text-cyan-500">Air Conditioning</h1>
-        <p className="text-lg text-gray-500 mt-2 text-white">Residential air conditioning specialists, we supply and install all major brands throughout south east Queensland, from Ipswich, Brisbane and the Gold Coast.</p>
-        <a href="#" className="inline-block bg-cyan-500 hover:bg-pink-600 mt-3 px-6 py-3 rounded-md text-white">Learn More</a>
+    <div style={{ height: '650px', position: 'relative' }}>
+      <GatsbyImage image={image} alt="Hero Image" style={{ height: '100%', objectPosition: 'top center' }} />
+      <div
+        style={{
+          
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(255, 255, 255, 0.3)', // Change opacity here (0.6 means 60% opacity)
+        }}
+      ></div>
+
+       <div className="container" >
+      <div className="row hero-text-form">
+      <div className="col-sm-12 col-md-12 col-lg-8"> <div className="hero-box py-3 m-auto">
+                  <StaticImage
+                    filename="HCA-2-avatar.png"
+                    alt="home comfort air image"
+                  />
+                  <h1 className="text-center hero-heading">
+                    <span
+                      className="hero-heading-primary cap"
+                      style={{ color: `rgb(35,31,32)` }}
+                    >
+                      Home<span style={{ fontWeight: 600 }}>Comfort</span>Air
+                    </span>
+                  </h1>
+                  <h2 className="hero-heading-h2">
+                    <span
+                      className="hero-heading-secondary"
+                      style={{ fontFamily: `'Caveat', cursive` }}
+                    >
+                      The smart choice in air conditioning
+                    </span>
+                  </h2>
+                  <p className="px-5">
+                    Residential air conditioning specialists, we supply and
+                    install all major brands throughout south east Queensland,
+                    from Ipswich, Brisbane and the Gold Coast.
+                  </p>
+                  <div className="pb-3">
+                    <Link to="/products">
+                      <button className="btn-- btn-green--">Shop A/C</button>
+                    </Link>
+
+                    <Link to="/split-systems">
+                      <button className="btn-- btn-primary-- ml-2">
+                        Split Systems
+                      </button>
+                    </Link>
+                  </div>
+                </div></div>
+
+      <div className="col-sm-12 col-md-12 col-lg-4"><div className="form-overlay p-4">
+                  <span
+                    className="h3 fw-600 d-flex justify-content-center"
+                    style={{ color: `#2d3136` }}
+                  >
+                    Request a quote
+                  </span>
+                  <i className="text-center text-blue">
+                     Air conditioning Installations
+                  </i>
+                  <div id="hero-form">
+                    <MyForm />
+                  </div>
+                </div>
+                </div>
+      </div>
+</div>
+
     </div>
-  </div>
+  );
+};
 
-  <div className="w-full xl:w-1/2 h-4/5 z-30">
-    <img className="object-cover w-full" src="https://res.cloudinary.com/ewebdesigns/image/upload/v1587023644/samsungc_wk4svi.jpg" alt="home comfort air hero" />
-  </div>
-</section>
-
-  )
-}
+export default Hero;

@@ -13,5 +13,5 @@
   // import "@popperjs/core"
   import "bootstrap/dist/js/bootstrap.min"
   
-
+import "@material-ui/icons"
  import '@fortawesome/fontawesome-free/css/all.min.css';

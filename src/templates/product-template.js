@@ -2,7 +2,7 @@
 // Use graphql query to render page
 // import ButtonGroup from '../components/Products/ButtonGroup';
 
-import React, { Fragment, useState,  useRef } from 'react';
+import React, { Fragment, useState,  useRef, useEffect } from 'react';
 
 import { graphql, Link } from 'gatsby'
 import { useLocation } from '@reach/router';
@@ -11,17 +11,63 @@ import ReactMarkdown from 'react-markdown'
 import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
 import GoldStars from '../components/Products/GoldStars';
-// import DesktopNav from '../components/Ui/DesktopNav'
+import MitsubishiArticle from '../components/Mitsubishi-md-query'
 import Layout from '../components/Layouts/layout';
 import Accordion from 'react-bootstrap/Accordion';
 import { useAccordionButton } from 'react-bootstrap/AccordionButton';
+// import RelativeProducts from '../components/Products/Product'
 
 
 // import KwAccordion from '../components/Products/KwAccordion';
 
 
 const SingleProduct = ({ data }) => {
+  const rightSideRef = useRef(null);
+  const otherDivRef = useRef(null);
+  const scrollPosition = 500;
+  const [isFixed, setIsFixed] = useState(false);
+  
 
+  useEffect(() => {
+    function handleScroll() {
+      const currentScroll = window.scrollY || document.documentElement.scrollTop;
+      setIsFixed(currentScroll < scrollPosition);
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isFixed) {
+      const handleResize = () => {
+        const rightSideElement = rightSideRef.current;
+        const otherDivElement = otherDivRef.current;
+
+        if (rightSideElement && otherDivElement) {
+          const rightSideHeight = rightSideElement.offsetHeight;
+          const otherDivPosition = otherDivElement.offsetTop;
+
+          if (otherDivPosition <= rightSideHeight) {
+            setIsFixed(false);
+          }
+        }
+      };
+
+      window.addEventListener('resize', handleResize);
+      window.addEventListener('scroll', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        window.removeEventListener('scroll', handleResize);
+      };
+    }
+  }, [isFixed]);
+
+/////////////////////////////
 const location = useLocation();
   const { pathname } = location;
 
@@ -68,8 +114,7 @@ const location = useLocation();
  const images = gallery.map((item) => ({
     src: item.url,
     alt: title,
-    
-  }));
+ }));
 
  
 
@@ -88,9 +133,9 @@ const location = useLocation();
     <div className="col-md-8 bg-white text-center p-4 scrollable-column">
         <div aria-label="breadcrumb" className='my-4'>
   <ol className="breadcrumb">
-    <li className="breadcrumb-item fsz-12 capitalize"><Link to='/'>Home</Link></li>
-    <li className="breadcrumb-item fsz-12 capitalize"><Link to="/products">Products</Link></li>
-    <li className="breadcrumb-item active fsz-12 capitalize" aria-current="page">Split-systems  /  {brand}-{model}</li>
+    <li className="breadcrumb-item fsz-12 text-uppercase text-sm-start"><Link to='/'>Home</Link></li>
+    <li className="breadcrumb-item fsz-12 text-uppercase text-sm-start"><Link to="/products">Products</Link></li>
+    <li className="breadcrumb-item active fsz-12 text-uppercase text-sm-start" aria-current="page">Split-systems  /  {brand}-{model}</li>
   </ol>
 </div>
     <div className='gallery-img-container'>
@@ -105,7 +150,7 @@ const location = useLocation();
 
 
     <div className="col-md-4 bg-white p-4 product-page-description">
-    <div className='single-product-right-col'>
+    <div className={isFixed ? 'single-product-right-col' : ''} ref={rightSideRef} id='right-side-element'>
     <div className="mt-5 text-wrap single-product-right-col-text">
     <h1 className="fsz-18 fw-700 text-wrap shrink-text lh-sm">{title}</h1>
    <GoldStars />
@@ -199,15 +244,15 @@ const location = useLocation();
          
         
         <h5 className='fsz-18'>What's included:</h5>
-        <p>Your new <span className='text-capitalize'>{ brand }</span> { model } air conditioning system includes standard single storey back to back installation. This package includes:</p>
+        <p>Your new <span className='text-capitalize'>{ brand }</span> { cool_capacity + " " + model } air conditioning package includes:</p>
          
          <div>
-            <ul className="pl-3">
-        <li>* Licensed Installers.</li>
-        <li>* Up to 3 meters of pipework connecting indoor to outdoor unit.</li>
+        <ul className="pl-3">
+         <li>* Licensed Installers.</li>
+         <li>* Back to back installation, up to 3 meters of pipework connecting indoor to outdoor unit for a single story home.</li>
 
         {cool_capacity <= "5.4" ? ( 
-        <li>* Up to 20 meters of electrical cable run in the roof to an existing and available circuit.</li>
+         <li>* Up to 20 meters of electrical cable run in the roof to an existing and available circuit.</li>
         ) : ( <span></span>  )}
 
 
@@ -252,7 +297,10 @@ const location = useLocation();
       <Accordion.Item eventKey="description">
         <Accordion.Header onClick={(event) => toggleAccordion('description',event)}>Description</Accordion.Header>
         <Accordion.Body>
-         <div className='pt-3 description-container'><div id='description'></div><ReactMarkdown children={description} /></div>
+         <div className='pt-3 description-container'>
+         <div id='description'></div>
+         {model === "MSZ-AP" ? <MitsubishiArticle />  : <ReactMarkdown children={description} />}
+         </div>
         </Accordion.Body>
       </Accordion.Item>
        <Accordion.Item eventKey="spec">
@@ -281,44 +329,65 @@ const location = useLocation();
      
     
      
-     <div className='' id='reviews'>
+     <div className='' id='reviews'   ref={otherDivRef}>
+<div id="other-div"></div>
+     
      <p>This is my reviews </p>
      </div>
     </div>
      </div>
 
-     <div className="col-md-4 bg-white">
-     <div className='single-product-right-col right-form'>
-     
-     
-     <div className='p-3'>
-     <h4 className='fsz-18'>Get your installation quote</h4>
-     <form className='border p-2'>
-     
-    <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Name</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
     
-    </div>
-    <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-
-  <button type="submit" class="btn btn-primary--">Submit</button>
-</form>
-     </div>
-     </div>
-     </div> 
 
      {/* Product Recommended List */}
+
+
+
+
+
+
+
+
 
 
       {/* Product Recommended List */}
      </div>
     
-  
+      {/* Product Related List */}
+      
+  <div className='related-products'>
+  <h3>Related Products:</h3>
+  <div className="container bg-white">
+  <div className="row">
+    {data.relatedProducts.nodes
+      .filter((relatedProduct) =>
+        relatedProduct.sub_categories[0]?.title === brand
+      )
+      .map((relatedProduct) => (
+        <div key={relatedProduct.id} className="col-md-2 mb-4">
+        <Link to={`/products/${relatedProduct.slug}`} key={relatedProduct.id}>
+          <div className="card archive">
+          <div className='archive-img' style={{ display: `flex`, justifyContent: `center` }}>  
+          <img
+              
+              src={relatedProduct.image.url}
+              className="rounded-t-lg"
+              alt={relatedProduct.title}
+              loading="lazy" height="250" width="250"
+            /></div>
+          
+            <div className="card-body">
+              <h5 className="card-title">{relatedProduct.title}</h5>
+              <p className="card-text">Price: ${relatedProduct.price}</p>
+            </div>
+          </div>
+          </Link>
+        </div>
+        
+      ))}
+  </div>
+  </div>
+</div>
    
     </div>
     </Layout>
@@ -342,8 +411,8 @@ query GetProducts($slug: String, $brand: String) {
       }
     }
     
-    gallery {
-      url
+      gallery {
+         url
     }
     heat_capacity
     cool_capacity
@@ -361,12 +430,16 @@ query GetProducts($slug: String, $brand: String) {
     ) {
       nodes {
         id
+        title
         slug
         cool_capacity
         price
          sub_categories {
           title
         }
+         image {
+      url
+    }
       }
     }
   }

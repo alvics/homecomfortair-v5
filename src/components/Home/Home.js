@@ -5,9 +5,14 @@ import CardHome from "../Sections/CardHome";
 const Home = () => {
 
 return (
-   <div>
-     <h4 className="text-center">Browse our product range... </h4>
+   <div className="mt-5">
+     <h4 className="text-center">Browse our product range!!... </h4>
      <CardHome />
+     {/* Air Conditioning Solutions For Your Home  */}
+
+     {/* Air Conditioning Solutions For Your Home  */}
+
+     
    </div>
       
 

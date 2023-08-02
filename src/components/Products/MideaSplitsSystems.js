@@ -16,7 +16,7 @@ const MideaProducts = () => {
 
   return (
     <section>
-      <div className="product-grid midea">
+      <div className="product-grid midea p-2">
         {products.map(product => {
           return <Product key={product.id} {...product} />
         })}
@@ -38,6 +38,8 @@ export const query = graphql`
         }
         
         title
+        price
+        slug
         description {
           data {
             description

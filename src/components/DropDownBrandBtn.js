@@ -5,8 +5,7 @@ import { Link } from "gatsby"
 const DropdownBrandBtn = () => {
   return (
     <div className="dropdown">
-      <button
-        style={{ fontFamily: `Open Sans, sans-serif`, fontSize: 24 }}
+      <a
         className="fw-400 px-0 dropdown-toggle"
         type="button"
         id="dropdownMenuButton1 "
@@ -14,33 +13,36 @@ const DropdownBrandBtn = () => {
         aria-expanded="false"
       >
         Brands
-      </button>
+      </a>
       <ul
         className="dropdown-menu px-3"
         aria-labelledby="dropdownMenuButton"
         style={{ whiteSpace: `nowrap` }}
       >
        <li>
-           <Link to="/products/midea-air-conditioning">Midea Air Conditioning</Link>
+           <Link to="/products/midea-split-system-air-conditioning">Midea Air Conditioning</Link>
         </li>
         <div className="dropdown-divider"></div>
         <li>
-           <Link to="/products/haier-air-conditioning">Haier Air Conditioning</Link>
+           <Link to="/products/haier-split-system-air-conditioning">Haier Air Conditioning</Link>
         </li>
         <div className="dropdown-divider"></div>
         <li>
-          <Link to="/products/carrier-air-conditioning">Carrier Air Conditioning</Link>
+          <Link to="/products/carrier-split-system-air-conditioning">Carrier Air Conditioning</Link>
         </li>
         <div className="dropdown-divider"></div>
         <li>
-           <Link to="/products/samsung-air-conditioning" >Samsung Air Conditioning</Link>
+           <Link to="/products/samsung-split-system-air-conditioning" >Samsung Air Conditioning</Link>
         </li>
         <div className="dropdown-divider"></div>
         <li>
-         <Link to="/products/toshiba-air-conditioning" >Toshiba Air Conditioning</Link>
+         <Link to="/products/toshiba-split-system-air-conditioning" >Toshiba Air Conditioning</Link>
         </li>
          <li>
-         <Link to="/products/daikin-air-conditioning">Daikin Air Conditioning</Link>
+         <Link to="/products/daikin-split-system-air-conditioning">Daikin Air Conditioning</Link>
+        </li>
+          <li>
+         <Link to="/products/mitsubishi-split-system-electric-air-conditioning">Mitsubishi Electric Air Conditioning</Link>
         </li>
       </ul>
     </div>

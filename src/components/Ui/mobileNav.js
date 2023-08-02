@@ -8,7 +8,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import Image from "gatsby-image"
 import DropdownBtn from "../DropDownBtn"
-import DropdownShopBtn from "../DropDownShopBtn"
+// import DropdownShopBtn from "../DropDownShopBtn"
 import DropDownBrand from "../DropDownBrandBtn"
 
 
@@ -31,7 +31,7 @@ const MenuIcon = styled.button`
 
   div {
     width: 1.5rem;
-    height: 0.2rem;
+    height: 0.3rem;
     background: rgb(65, 64, 66);
     border-radius: 5px;
     transform-origin: 1px;
@@ -66,7 +66,7 @@ const MenuLinks = styled.nav`
   width: 100%;
   background: #fff;
   position: absolute;
-  top: 0;
+  top: 30px;
   right: 0;
   transition: transform 300ms;
   transform: ${({ nav }) => (nav ? "translateX(0)" : "translateX(100%)")};
@@ -101,17 +101,23 @@ const MobileNav = () => {
   const [nav, showNav] = useState(false)
   return (
     <Wrapper
-      className="mobile-nav fixed-top d-lg-none d-xl-none d-xxl-none
+      className="mobile-nav bg-red fixed-top d-lg-none d-xl-none d-xxl-none
     "
+    
     >
-      <Logo>
-        <Image fluid={data.fluid.childImageSharp.fluid} alt="logo" />
-      </Logo>
-      <MenuIcon id="menu-icon--" nav={nav} onClick={() => showNav(!nav)}>
+    <div className="">
+      
+      <span className="menu-icon" style={{paddingTop:'40px'}}>
+       <MenuIcon id="menu-icon--" nav={nav} onClick={() => showNav(!nav)}>
         <div />
         <div />
         <div />
       </MenuIcon>
+      </span>
+      <Logo>
+        <Image fluid={data.fluid.childImageSharp.fluid} alt="home comfort air logo" />
+      </Logo>
+     </div>
       <MenuLinks id="menu-wrapper-mobile" nav={nav}>
         <ul className="" style={{ marginTop: '-150px'}}>
           <li>
@@ -123,7 +129,7 @@ const MobileNav = () => {
           </li>
           <div class="dropdown-divider"></div>
           <li>
-            <DropdownShopBtn />
+            <Link to="/products">Shop</Link>
           </li>
           <div class="dropdown-divider"></div>
           <DropdownBtn />

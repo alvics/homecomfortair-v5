@@ -26,26 +26,26 @@ const BrandNavMenu = () => {
                  </span>
                </span>
                <div className="dropdown-content brands-nav">
-                  <Link className='border' to="/products/midea-air-conditioning"><div style={{maxWidth:100, border:0, textAlign:"center"}} ><StaticImage filename="midea-logo.jpg" width={width} height={height} 
+                  <Link className='border' to="/products/midea-split-system-air-conditioning"><div style={{maxWidth:100, border:0, textAlign:"center"}} ><StaticImage filename="midea-logo.jpg" width={width} height={height} 
                 alt="home comfort air image" /></div>Midea Air Conditioning</Link>
 
-                  <Link className='border' to="/products/haier-air-conditioning"><div style={{maxWidth:100, border:0, textAlign:"center"}} ><StaticImage filename="haier.jpg"
+                  <Link className='border' to="/products/haier-split-system-air-conditioning"><div style={{maxWidth:100, border:0, textAlign:"center"}} ><StaticImage filename="haier.jpg"
                 alt="home comfort air image" /></div>Haier Air Conditioning</Link>
 
-                    <Link className='border'to="/products/mitsubishi-air-conditioning"><div style={{maxWidth:100, border:0}}><StaticImage filename="mitsubishi-electric.jpg"
+                    <Link className='border'to="/products/mitsubishi-electric-split-system-air-conditioning"><div style={{maxWidth:100, border:0}}><StaticImage filename="mitsubishi-electric.jpg"
                 alt="home comfort air image" /></div>Mitsubishi Air Conditioning</Link>
 
-                  <Link className='border' to="/products/samsung-air-conditioning" ><div style={{maxWidth:100, border:0}}><StaticImage filename="samsung.jpg"
+                  <Link className='border' to="/products/samsung-split-system-air-conditioning" ><div style={{maxWidth:100, border:0}}><StaticImage filename="samsung.jpg"
                 alt="home comfort air image" /></div>Samsung Air Conditioning</Link>
                   
-                  <Link className='border' to="/products/toshiba-air-conditioning" ><div style={{maxWidth:100, border:0}}><StaticImage filename="toshiba.jpg"
+                  <Link className='border' to="/products/toshiba-split-system-air-conditioning" ><div style={{maxWidth:100, border:0}}><StaticImage filename="toshiba.jpg"
                 alt="home comfort air image" /></div>Toshiba Air Conditioning</Link>
 
-                  <Link className='border' to="/products/daikin-air-conditioning"><div style={{maxWidth:100, border:0}}><StaticImage filename="daikin.jpg"
+                  <Link className='border' to="/products/daikin-split-system-air-conditioning"><div style={{maxWidth:100, border:0}}><StaticImage filename="daikin.jpg"
                 alt="home comfort air image" /></div>Daikin Air Conditioning</Link>
 
               
-                <Link className='border' to="/products/carrier-air-conditioning"><div style={{maxWidth:80, border:0, marginBottom:5, marginTop:5}}><StaticImage filename="carrier.png"
+                <Link className='border' to="/products/carrier-split-system-air-conditioning"><div style={{maxWidth:80, border:0, marginBottom:5, marginTop:5}}><StaticImage filename="carrier.png"
                 alt="home comfort air image" /></div>Carrier Air Conditioning</Link>
 
                  <Link className='border' to="/products/hisense-2.5kw-j-series-reverse-cycle-split-system-specials-jan-2023-HAWJ9KR"><div style={{maxWidth:80, border:0, marginBottom:15, marginTop:15}}><StaticImage filename="hisense.png"
