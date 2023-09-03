@@ -188,7 +188,7 @@ const Products = () => {
       <div className="row">
         <div className="col-sm-12 col-md-3 col-lg-2 col-xl-2 hide-side mt-2 by-white" >
           <div className="" >
-            <div className="position-fixed bg-white p-2 min-vh-75 rounded border left-side-menu sidebar-main">
+            <nav className="position-fixed bg-white p-2 min-vh-75 rounded border left-side-menu sidebar-main">
             <div className="pt-4">
               <h4 className="fsz-16 mb-3 fw-700">
   <u>Shop by Brand</u>
@@ -267,7 +267,8 @@ const Products = () => {
                 Clear Filters
               </button>
             </div>
-          </div></div>
+          </nav>
+          </div>
         </div>
 
         <div className="col-sm-12 col-md-8 col-lg-18 col-xl-8 bg-white mt-2 p-3 border rounded shop shop-board">

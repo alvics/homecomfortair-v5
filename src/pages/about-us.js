@@ -13,8 +13,8 @@ const ProductsPage = () => {
   return (
     <Layout>
 
-      <div className="container  body-wrapper">
-        <div className="contact pt-2" style={{ textAlign: "center" }}>
+      <div className="container  body-wrapper pt-4">
+        <div className="contact pt-2 border rounded-3" style={{ textAlign: "center" }}>
           <StaticImage
             filename="Home-Comfort-Air-COL-03-650.png"
             alt="home comfort air image"
@@ -43,8 +43,8 @@ const ProductsPage = () => {
               for over a decade. Everything from{" "}
               <Link to="/split-systems">high wall split</Link> and{" "}
               <Link to="/multi-head-systems">multi head systems</Link> with
-              major brands, Daikin, Haier, Kelvinator, Toshiba, Acrton, Braemar,
-              Carrier, Midea, LG, Mitsubishi and Samsung as well as{" "}
+              major brands, <Link to='/products/daikin-split-system-air-conditioning/'> Daikin</Link>, <Link to='/products/haier-split-system-air-conditioning/'>Haier</Link>, Kelvinator, <Link to='/products/toshiba-split-system-air-conditioning/'>Toshiba</Link>, Acrton, Braemar,
+              <Link to='/products/carrier-split-system-air-conditioning/'> Carrier</Link>, <Link to='/products/midea-split-system-air-conditioning/'>Midea</Link>, LG, <Link to='/products/mitsubishi-split-system-air-conditioning/'> Mitsubishi</Link> and <Link to='/products/samsung-split-system-air-conditioning/'>Samsung</Link> as well as{" "}
               <Link to="/ducted-systems">ducted residential</Link> and
               commercial systems with Daikin and Actron air conditioners.
               Furthermore, experienced working in Queensland schools installing

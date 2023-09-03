@@ -28,7 +28,7 @@ const MitsubishiElectricSplits = () => {
 export const query = graphql`
   {
     allStrapiProduct(
-      filter: {sub_categories: {elemMatch: {title: {eq: "mitsubishi"}}}}
+      filter: {sub_categories: {elemMatch: {title: {eq: "mitsubishi electric"}}}}
       sort: {price: ASC}
     ) {
       nodes {

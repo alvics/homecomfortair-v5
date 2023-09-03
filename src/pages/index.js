@@ -4,7 +4,7 @@ import Home from "../components/Home/Home";
 // import Navbar from "../components/Ui/DesktopNav"
 // import MobileNav from '../components/Ui/mobileNav'
 import HeroSection from "../components/Sections/Hero"
-import ProductsList from "../components/Products/Products";
+import GoogleReviewsCarousel from "../components/Sections/GoogleReviewsCarousel";
 
 
 const HomePage = () => {
@@ -16,7 +16,8 @@ return (
       <Layout>
         <div className="container-fluid px-5 mt-5">
         <Home />
-        <ProductsList />
+        <GoogleReviewsCarousel />
+        
         </div>
       </Layout>
   </div>

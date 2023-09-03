@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import StaticImage from '../components/StaticQueryImages';
 import ReactMarkdown from 'react-markdown';

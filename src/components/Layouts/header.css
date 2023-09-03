@@ -11,12 +11,23 @@
 
 nav {
     display: grid;
-    min-height: 100px;
+    min-height: 50px;
     padding: 0 40px;
     background-color: #fcfcfc;
     -webkit-box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1);
     -moz-box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1);
     box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1);
+    z-index: 1 !important;
+}
+
+nav:hover {
+    display: grid;
+    min-height: 100px;
+    padding: 0 40px;
+    background-color: #fcfcfc;
+    -webkit-box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1) !important;
+    -moz-box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1) !important;
+    box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1) !important;
 }
 
 .logo .gatsby-image-wrapper {
@@ -24,6 +35,9 @@ nav {
     padding-left: 3px;
 }
 
+.gTDLTK {
+    margin: 88px 0px 0px 20px;
+}
 
 @media (min-width: 992px) and (max-width: 1399px) {
     #logo {
@@ -245,7 +259,9 @@ a {
         min-height: 130px;
         padding-top:20px;
     }
-  
+  .gTDLTK {
+    margin: 65px 0px 0px 20px;
+  }
   
     /* headerNew__MenuIcon-dDtNuh fzrXwh" */
 }
@@ -284,10 +300,10 @@ a {
 
 /* CSS styles specifically for Firefox */
 @-moz-document url-prefix() {
-   .h3-search{
+   /* .h3-search{
     padding-top: 12px !important;
     
-   }
+   } */
 
    .ul-search{
     display: block;
@@ -297,10 +313,10 @@ a {
 
 /* GOOGLE CHROME BROWSER  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-.h3-search {
+/* .h3-search {
         padding-top: 14px !important;
 
-    }
+    } */
          .ul-search {
              display: block;
              padding-right: 20px;

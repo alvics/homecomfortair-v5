@@ -18,7 +18,7 @@ export default function splitAcInstallationCost() {
       description={ `Discover how split ac installation cost from $450. We supply and install split system air conditioners from $1,099 throughout Gold Coast, Brisbane, Ipswich area's.`}
       keywords={[ `ac,installation,cost,split,system,air, conditioner`, ]} /> */} 
 
-     <div className="body-wrapper ducted-systems">
+     <div className="body-wrapper ducted-systems pt-3">
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">

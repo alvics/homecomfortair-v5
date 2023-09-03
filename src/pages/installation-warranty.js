@@ -19,7 +19,7 @@ const InstallationWarrantyPage = () => {
       description={ `Why our 5-Year Installation Warranty sets us apart, The importance of a 5-Year installation warranty for your air conditioning system. Ensuring Quality Workmanship!`}
       keywords={[ `warranty,workmanship,5 year warranty, installation`, ]} /> */}
 
-     <div className="body-wrapper ducted-systems">
+     <div className="body-wrapper ducted-systems pt-3">
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">

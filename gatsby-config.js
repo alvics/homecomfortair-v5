@@ -31,6 +31,15 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
+    {
+    resolve: `gatsby-source-google-reviews-en`,
+    options: {
+
+      placeId: process.env.place_id,
+      apiKey: process.env.GOOGLE_API_KEY,
+    },
+
+    },
       {
       resolve: `gatsby-plugin-styled-components`,
       options: {

@@ -96,12 +96,12 @@ const Search = () => {
               className="product-image"
             />
           </div>
-          <h3 className="h3-search text-capitalize">
-            {product.node.sub_categories[0].title}
-          </h3>
-          <p className="cooling-capacity pl-1 d-flex">
-            {product.node.cool_capacity}
-            <span className="price fw-600"> ${product.node.price}</span>
+          <p className="h3-search text-capitalize d-flex pt-2">
+            <span className='fw-600'>{product.node.sub_categories[0].title}</span>
+          
+          <span className="cooling-capacity pl-1">
+            {product.node.cool_capacity}</span>
+            <span className="search-price fw-600 pl-2"> ${product.node.price}</span>
           </p>
         </Link>
       </li>

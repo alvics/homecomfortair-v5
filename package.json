@@ -27,6 +27,7 @@
     "gatsby-plugin-sharp": "^5.8.1",
     "gatsby-plugin-styled-components": "^6.11.0",
     "gatsby-source-filesystem": "^5.8.0",
+    "gatsby-source-google-reviews-en": "^2.0.0",
     "gatsby-source-strapi": "^3.2.0",
     "gatsby-transformer-remark": "^6.10.0",
     "gatsby-transformer-sharp": "^5.8.0",

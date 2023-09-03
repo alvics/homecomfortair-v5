@@ -15,6 +15,8 @@ import ToshibaProducts from "../components/Products/ToshibaSplitSystems"
 import HaierProducts from "../components/Products/HaierSplitSystems"
 import MideaPDF from "../images/Midea.pdf"
 import ToshibaPDF from "../images/Toshiba.pdf"
+import DaikinPDF from "../images/daikin.pdf"
+import HaierPDF from "../images/haier-tempo.pdf"
 import Cta from "../components/CTA"
 // import GoogleReviews from "../components/GoogleReviews"
 import BrandsBtn from "../components/BrandsBtn"
@@ -34,7 +36,7 @@ Split,systems,service,supply,install`,
       property="og:image"
       content="https://res.cloudinary.com/ewebdesigns/image/upload/v1587019232/install_h0mq9m.jpg"
     ></meta>
-    <div className="body-wrapper split-systems">
+    <div className="body-wrapper split-systems pt-3">
       <section className="px-3">
         <div className="pt-2 split-systems-avatar heading-box-color rounded ">
           <h1 className="h1 cam text-center text-white fw-600 p-3">
@@ -203,6 +205,7 @@ Split,systems,service,supply,install`,
             <div className="px-3">
               <DaikinProducts />
             </div>
+           
           
 
             <div className="grid-col-2 col-panel pt-20">
@@ -214,7 +217,20 @@ Split,systems,service,supply,install`,
                   reputation for technology and innovations is one of the best
                   in the air conditioning world. Daikin Split Systems are ideal for air conditioning one room or a specific area of a home. A wide variety of models are offered to suit your requirements and are available in either wall mounted or floor standing type.
                 </p>
+
+  <div className='mt-4 d-flex'>
+           <p className='p-2'>
+                    Daikin brochure {" "} </p>
+                   <a href={DaikinPDF} target="_blank" rel="noreferrer">
+                    {" "}
+                     <span class="pr-2 d-flex"> <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
+</svg> <span className='fsz-16 ml-2 mt-2' style={{color: "rgb(4, 21, 33)!important"}}><u>here</u></span></span>
+                  </a>
+               
+                </div>
               </div>
+              
                 
                 <div className="pr-3 text-center img-fluid video-frame">
                   <iframe
@@ -255,13 +271,17 @@ Split,systems,service,supply,install`,
                   Commercial equipment including the coveted SMMS VRF suite of
                   products will come with a 7-year warranty.{" "}
                 </p>
-                <p>
-                  Toshiba range, download brochure{" "}
-                  <a href={ToshibaPDF} target="_blank" rel="noreferrer">
+                  <div className='mt-4 d-flex'>
+           <p className='p-2'>
+                    Toshiba brochure {" "} </p>
+                   <a href={ToshibaPDF} target="_blank" rel="noreferrer">
                     {" "}
-                    <span class="material-icons">picture_as_pdf</span> here
+                     <span class="pr-2 d-flex"> <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
+</svg> <span className='fsz-16 ml-2 mt-2' style={{color: "rgb(4, 21, 33)!important"}}><u>here</u></span></span>
                   </a>
-                </p>
+               
+                </div>
               </div>
               <div className="tabs-img">
                 <StaticImage
@@ -291,6 +311,17 @@ Split,systems,service,supply,install`,
 <p>
 One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With the Haier Air app, you can conveniently control and monitor your air conditioner from anywhere using your smartphone or tablet. Whether you're at work, on vacation, or simply relaxing on the couch, you have full control over your indoor climate at your fingertips.
                 </p>
+                  <div className='mt-4 d-flex'>
+           <p className='p-2'>
+                    Haier brochure {" "} </p>
+                   <a href={HaierPDF} target="_blank" rel="noreferrer">
+                    {" "}
+                     <span class="pr-2 d-flex"> <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
+</svg> <span className='fsz-16 ml-2 mt-2' style={{color: "rgb(4, 21, 33)!important"}}><u>here</u></span></span>
+                  </a>
+               
+                </div>
             
               </div>
               <div className="tabs-img">
@@ -323,12 +354,17 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
                   will withstand the Australian harsh conditions, and the whole
                   Aurora series is backed by a 5-year warranty.
                 </p>
-                <p>
-                  Midea range, download brochure{" "}
-                  <a href={MideaPDF}>
-                    <span class="material-icons">picture_as_pdf</span> here
+               <div className='mt-4 d-flex'>
+           <p className='p-2'>
+                    Midea brochure {" "} </p>
+                   <a href={MideaPDF} target="_blank" rel="noreferrer">
+                    {" "}
+                     <span class="pr-2 d-flex"> <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
+</svg> <span className='fsz-16 ml-2 mt-2' style={{color: "rgb(4, 21, 33)!important"}}><u>here</u></span></span>
                   </a>
-                </p>
+               
+                </div>
               </div>
             </div>
           </Panel>

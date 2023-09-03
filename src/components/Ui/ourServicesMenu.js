@@ -4,7 +4,7 @@
 
 import React, { Fragment } from "react"
 import { Link } from "gatsby"
-
+import StaticImage from "../StaticQueryImages"
 
 
 const Header = () => {
@@ -22,13 +22,40 @@ const Header = () => {
                   </span>
                 </span>
                 <div className="dropdown-content">
-                   <Link to="/service-areas">Service area's</Link>
-                  <Link to="/split-systems">Split Systems</Link>
-                  <Link to="/ducted-systems">Ducted Systems</Link>
-                  <Link to="/multi-head-systems">Multi-Head Systems </Link>
-                  <Link to="/installation-warranty">Installation Warranty</Link>
-                  <Link to="/split-ac-installation-cost">Split A/C Installation Cost</Link>
-                  <Link to="/split-system-replacement">Split System Replacement</Link>
+                   <Link to="/service-areas" className='text-center'><div className="split-systems-avatar-2 "><StaticImage
+                filename="map.png"
+                alt="home comfort air map icon"
+              /></div>Service area's</Link>
+
+                  <Link to="/split-systems" className='text-center'> <div className="split-systems-avatar-2 "><StaticImage
+                filename="air-conditioner.png"
+                alt="home comfort air aie conditioner icon"
+              /></div>Split Systems</Link>
+
+                  <Link to="/ducted-systems" className='text-center'><div className="split-systems-avatar-2"><StaticImage
+                filename="ducted.png"
+                alt="home comfort air ducted icon"
+              /></div>Ducted Systems</Link>
+
+                  <Link to="/multi-head-systems" className='text-center'><div className="split-systems-avatar-2"><StaticImage
+                filename="smart-house-2.png"
+                alt="home comfort air ducted icon"
+              /></div>Multi-Head Systems </Link>
+
+                  <Link to="/installation-warranty" className='text-center'><div className="split-systems-avatar-2"><StaticImage
+                filename="warranty.png"
+                alt="home comfort air ducted icon"
+              /></div>Installation Warranty</Link>
+
+                  <Link to="/split-ac-installation-cost"><div className="split-systems-avatar-2"><StaticImage
+                filename="house-cost.png"
+                alt="home comfort air ducted icon"
+              /></div>Split A/C Installation Cost</Link>
+
+                  <Link to="/split-system-replacement" className='text-center'><div className="split-systems-avatar-2"><StaticImage
+                filename="maintenance.png"
+                alt="home comfort air ducted icon"
+              /></div>Split System Replacement</Link>
                    
                 </div>
               </span>

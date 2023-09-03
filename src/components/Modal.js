@@ -1,6 +1,7 @@
 import React from "react"
 import StaticImage from "../components/StaticQueryImages"
-// import LogoImage from "../components/Queries/LogoImg"
+import PageURL from "../components/PageUrl"
+
 // import OrderForm from "./OrderForm"
 // import ProductTemplate from "../templates/product-template"
 
@@ -14,15 +15,13 @@ export default class Modal extends React.Component {
     }
   }
 
-  
-
   render() {
     const { status } = this.state
 
     /* const queryString = window.location.href
-          .replace(/(^\w+:|^)\/\//, "")
-          .split("localhost:8000/products/")
-          .join("") */
+      .replace(/(^\w+:|^)\/\//, "")
+      .split("localhost:8000/products/")
+      .join("") */
 
     return (
       <div
@@ -54,14 +53,13 @@ export default class Modal extends React.Component {
                 >
                   <div className="my-3">
                     <StaticImage
-                      style={{ width: "200% !important", height: "200%" }}
                       filename="Home-Comfort-Air-logo-650.png"
                       alt="home comfort avatar logo"
                     />
                   </div>
 
                   <span style={{ fontSize: 20 }} className="mt-3">
-                    *Quote Form 
+                    *Air Conditioning Installation
                   </span>
                 </div>
               </div>
@@ -72,7 +70,7 @@ export default class Modal extends React.Component {
                 style={{ marginTop: `-25px`, paddingBottom: 15 }}
                 className="font-italic border-bottom mb-4"
               >
-                We'll contact you within 24 hours to confirm details.
+                Complete our form and we'll return to you by email or phone.
               </p>
 
               <form
@@ -81,6 +79,7 @@ export default class Modal extends React.Component {
                 action="https://formspree.io/mleppppp"
                 method="POST"
               >
+                <PageURL />
                 <input
                   type="text"
                   name="first_name"
@@ -104,24 +103,18 @@ export default class Modal extends React.Component {
                 />
                 {status === "SUCCESS" ? (
                   <p className="bg-info text-white p-1 rounded">
-                    Thanks, your form was successfully submitted, we'll get back
-                    to you shortly.
+                    Thank you, your form was successfully submitted, we'll get
+                    back to you shortly.
                   </p>
                 ) : (
                   <div>
-                    <button className="btn-- btn-primary-- mb-3">
-                      Receive a Quote
+                    <button className="btn-- btn-orange-- mb-3">
+                      Send Enquiry
                     </button>
-                    <div className="text-dark mt-2 lh-sm" style={{ fontSize: 12 }}>
-                      <small>
-                      *If you have any questions or concerns, don't hesitate to reach out to us through our live chat feature on our website. Our team of experts is available to provide you with fast, accurate information and help you schedule an appointment or service call. We are happy to assist you any time you need it.
-                      <br />
-                     
-                      *Please note when submitting our form we do not share your
+                    <div className="text-dark mt-2" style={{ fontSize: 12 }}>
+                      *Please note when sending an enquiry we do not share your
                       details with any third party, and we'll not spam your
                       inbox.{" "}
-                      </small>
-                      
                     </div>
                   </div>
                 )}

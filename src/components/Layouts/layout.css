@@ -833,6 +833,8 @@ img.mitsubishi {
     }
     .sidebar-main {
         min-width: 200px;
+        top: 7rem;
+        overflow-y: auto;
         width:auto;
 
     }
@@ -1151,6 +1153,9 @@ input[type="checkbox"]+span::before {
     padding-right: 10px;
 }
 
+.shop-banners-2 {
+   width: 60%;
+}
 
 /* Products grid */
 
@@ -1278,7 +1283,7 @@ nav.breadcrumb {
 @media (min-width: 768px) {
     .single-product-right-col {
         
-            position: fixed;
+            
             z-index: 999;
             transform: translateY(10%);
            
@@ -1406,15 +1411,22 @@ aside {
 }
 
 .header-nav-item {
-    font-size: 16px;
+    font-size: 14px;
+    color: rgb(4, 21, 33);
     padding: 8px;
     cursor: pointer;
     position: relative;
 }
 
+.header-nav-item:hover {
+    display: block;
+   color: #0474bc;
+  
+}
+
 
 .header-nav-item a {
-    color: #000;
+    color: rgb(4, 21, 33);
     text-decoration: none;
 }
 
@@ -1435,6 +1447,11 @@ aside {
 .header-nav-item+.header-nav-item {
     margin-left: 25px;
 }
+
+.accordion-item{
+    border-left-style: none !important;
+    border-left-color: #fff !important;
+    }
 
 
 /* body {
@@ -1496,7 +1513,16 @@ aside {
 .slick-slide img {
     margin: auto;
 }
-
+/* Carousel Card */
+.carousel-card {
+       border-radius: 8px;
+        margin: 0 auto;
+        padding: 20px;
+       -webkit-transition: -webkit-box-shadow 0.2s;
+        transition: -webkit-box-shadow 0.2s;
+        transition: box-shadow 0.2s;
+        transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
+}
 
 /* CARD CSS */
 
@@ -1533,6 +1559,9 @@ aside {
     margin-top: 25px;
     margin-bottom: 25px;
     
+}
+gatsby-image-wrapper {
+    border-radius: 8px;
 }
 
 .modal-top-logo .gatsby-image-wrapper {
@@ -1741,7 +1770,7 @@ aside {
     color: rgb(4, 21, 33);
 }
 .fsz-16 {
-    font-size: 16px;
+    font-size: 16px !important;
     font-family: "Nunito Sans",
         sans-serif;
     color: rgb(4, 21, 33);
@@ -1875,15 +1904,14 @@ aside {
 
 .ul-search {
     list-style: none;
-    
     background-color: #fff;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    
     position: absolute;
     top: 100%;
     left: 0;
     border-radius: 4px;
     padding-top: 8px ;
+    margin-top: -10px;
     
 
 }
@@ -1894,7 +1922,7 @@ aside {
 
 .li-search a {
     display: block;
-    padding: 8px;
+    
     /* Add padding to the link inside the list items */
     text-decoration: none;
     /* Remove underline from links */
@@ -2001,24 +2029,28 @@ aside {
 
 /* GOOGLE CHROME BROWSER  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-.cooling-capacity {
+/* .cooling-capacity {
         margin-top: 6px;
+    } */
+
+    .accordion-header button {
+       font-size: 16px !important;
     }
 
-        .h3-search {
+       /*  .h3-search {
             margin: 0;
             font-size: 16px;
             color: #333;
             cursor: pointer;
             padding-top: 8px;
-        }
+        } */
 }
 
 /* CSS styles specifically for Firefox */
 @-moz-document url-prefix() {
-.cooling-capacity {
+/* .cooling-capacity {
         margin-top: 9px;
-    }
+    } */
 }
 /* HERO SECTION   */
 
@@ -2031,8 +2063,15 @@ aside {
   font-weight: bold;
 }
 
+.carousel .control-dots {
+     bottom: 0px;
+     
+}
 
 
+.carousel .carousel-status {
+    display: none;
+}
 
 @media (min-width: 767px) and (max-width: 991px) {
     .special-section {
@@ -2338,6 +2377,15 @@ select {
 .enquiry-form .gatsby-image-wrapper {
     max-width: 245px;
     margin: 0 auto;
+}
+
+.ducted-systems-avatar-2 .gatsby-image-wrapper{
+    max-width: 245px;
+    
+}
+.split-systems-avatar-2 .gatsby-image-wrapper {
+max-width: 40px;
+margin: 0 auto;
 }
 
 .split-systems-top-col .gatsby-image-wrapper {
@@ -2769,14 +2817,20 @@ li {
     border-radius: 4px !important;
 }
 
+.single-product-row:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .16), 0 2px 3px rgba(0, 0, 0, .12) !important;
+    
+}
+
 #description, h4 {
-    font-size: 18px !important;
+    font-size: 1px !important;
 }
 
 #description,
 p,li {
-    font-size: 16px !important;
+    font-size: 15px !important;
     color: rgb(4, 21, 33) !important;
+    line-height: 24px;
     }
                 .description-container {
             padding: 10px;

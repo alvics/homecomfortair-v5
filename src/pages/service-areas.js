@@ -21,8 +21,8 @@ Split,systems,Ipswich,Brisbane,service`,
         ]}
       />  */}
 
-      <div className="container  body-wrapper">
-        <div className="contact pt-2" style={{ textAlign: "center" }}>
+      <div className="container  body-wrapper pt-4">
+        <div className="contact pt-2 border rounded-3" style={{ textAlign: "center" }}>
           <StaticImage
             filename="Home-Comfort-Air-COL-03-650.png"
             alt="home comfort air image"
@@ -78,7 +78,7 @@ Split,systems,Ipswich,Brisbane,service`,
 
             <div className="mt-2">
               <MideaProducts />
-               <button className="mt-2 btn-- btn-orange--">
+               <button className="mt-2 btn-- btn-primary--">
           <Link to="/products" style={{color:'white', fontSize:'14px'}}>View all split systems ></Link>
         </button>
             </div>

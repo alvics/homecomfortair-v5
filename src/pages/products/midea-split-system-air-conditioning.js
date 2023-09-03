@@ -39,7 +39,15 @@ const MideaProductsPage = () => {
         </section>
 
         <section>
-        <h2 className="h5 cap fw-600 mt-3">Midea Split System Air Conditioner</h2>
+        <div className="ducted-systems-avatar-2 ml-4" style={{textAlign: `center`}}> 
+              <StaticImage
+                filename="midea_logo-blue.png"
+                alt="midea air conditioning logo"
+                
+              />
+        </div>
+         
+        <h2 className="h5 cap fw-600 mt-2">Midea Split System Air Conditioner</h2>
         <p className="lead-20 mt-3">
         Midea is a global leader in the air conditioning industry, with a reputation for producing some of the most innovative and <Link to="/ducted-systems">energy-efficient</Link> air conditioners available today. The company, which was founded in 1968 in China, has grown to become one of the world's largest manufacturers of air conditioning units and appliances.
         </p>

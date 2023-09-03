@@ -17,7 +17,7 @@ const DuctedPage = () => (
 Split,systems,Ipswich,Brisbane,Specials`,
       ]}
     /> */} 
-    <div className="body-wrapper ducted-systems">
+    <div className="body-wrapper ducted-systems pt-3">
       <section className="px-3">
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color mx-0 ">
           <h1 className="h1 cam text-center text-white fw-600  p-3">

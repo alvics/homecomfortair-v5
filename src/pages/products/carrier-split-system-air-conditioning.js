@@ -40,6 +40,13 @@ const CarrierProductsPage = () => {
         </section>
 
         <section>
+         <div className="ducted-systems-avatar-2 mt-3 pl-2 ml-5" style={{textAlign: `center`}}> 
+              <StaticImage
+                filename="carrier.png"
+                alt="carrier air conditioning logo"
+                
+              />
+        </div>
         <h2 className="h5 cap fw-600 mt-3">Carrier Air Conditioner</h2>
         <p className="lead-20 mt-3">
         Carrier is a well-known and respected brand in the air conditioning industry, known for producing high-performance and energy-efficient systems. Their split systems are an excellent choice for anyone looking to keep their home or office comfortable all year round.

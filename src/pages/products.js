@@ -4,7 +4,8 @@ import SplitSystems from '../components/Products/Products';
 import { graphql } from 'gatsby';
 import MobileNav from '../components/Ui/mobileNav';
 import DesktopNav from '../components/Ui/DesktopNav';
-import ShopHero from "../components/ShopHero"
+import Footer from '../components/Footer';
+
 
 
 const Products = ({ 
@@ -18,8 +19,9 @@ const Products = ({
     <div>
    <DesktopNav />
    <MobileNav />
-   <ShopHero />
+   
      <SplitSystems products={products} />
+     <div className='mt-3'><Footer /></div>
     
     </div>
   )

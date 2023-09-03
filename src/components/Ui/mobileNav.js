@@ -103,7 +103,7 @@ const MobileNav = () => {
     <Wrapper
       className="mobile-nav bg-red fixed-top d-lg-none d-xl-none d-xxl-none
     "
-    
+    style={{minHeight:140, borderBottom: '3px solid rgb(0, 117, 201)'}}
     >
     <div className="">
       

@@ -39,7 +39,15 @@ const MitsubishiProductsPage = () => {
         </section>
 
         <section>
-        <h2 className="h5 cap fw-600 mt-4">Mitsubishi Air Conditioner: The Ultimate Solution to Stay Cool</h2>
+         <div className="ducted-systems-avatar-2 ml-4" style={{textAlign: `center`}}> 
+              <StaticImage
+                filename="mitsubishi-electric.jpg"
+                alt="mitsubishi-electric air conditioning logo"
+                
+              />
+        </div>
+        <div className='pt-1' style={{marginTop:`-30px`}}> <h2 className="h5 cap fw-600 mt-4">Mitsubishi Air Conditioner: The Ultimate Solution to Stay Cool</h2></div>
+       
         <p className="lead-20 mt-3">
         <Link to="/products/#mitsubishi">Mitsubishi</Link> Electric is a well-known and reputable brand in the air conditioning industry, offering a wide range of high-quality split system air conditioners for both residential and commercial use. These systems are designed to provide optimal comfort and energy efficiency, making them a great choice for any home or office.
         </p>
@@ -119,7 +127,11 @@ const MitsubishiProductsPage = () => {
         <div>
         <h3 className='h6 cap fw-600'>Mitsubishi MSZ-AP Series Split System Air Conditioning</h3>
         </div>
+        <div>
+        
         <MitsubishiProducts />
+        </div>
+        
             <div className='mt-4 d-flex'>
                 <p className='p-2 '>
                     Mitsubishi Electric brochure{" "} </p>

@@ -47,7 +47,7 @@ export default class MyForm extends React.Component {
         {status === "SUCCESS" ? (
           <p>Thanks for submitting your form, we'll get back to you shortly.</p>
         ) : (
-          <button className="btn-- btn-orange--">Submit</button>
+          <button className="btn-- btn-primary--">Submit</button>
         )}
         {status === "ERROR" && <p>Ooops! There was an error.</p>}
       </form>

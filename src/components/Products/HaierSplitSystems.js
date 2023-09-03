@@ -36,7 +36,7 @@ export const query = graphql`
         image {
           url
         }
-       
+       slug
         title
         price
         description {

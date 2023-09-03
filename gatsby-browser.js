@@ -15,3 +15,4 @@
   
 import "@material-ui/icons"
  import '@fortawesome/fontawesome-free/css/all.min.css';
+ import "react-responsive-carousel/lib/styles/carousel.min.css";

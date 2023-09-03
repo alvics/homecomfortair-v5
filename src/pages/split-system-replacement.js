@@ -19,7 +19,7 @@ export default function SplitSystemReplacement() {
                 Split,systems,replacement,reverse,cycle`,
       ]}
     /> */}
-    <div className="body-wrapper multi-systems">
+    <div className="body-wrapper multi-systems pt-3">
      <section>
        <div className="pt-2 multi-systems-avatar heading-box-color rounded">
           <h1 className="h1 cam text-center text-white fw-600 p-3">
