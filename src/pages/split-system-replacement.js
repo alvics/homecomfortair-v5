@@ -72,35 +72,35 @@ export default function SplitSystemReplacement() {
     </div>
 
     <div>
-     <h4 className='h6 fw-600 px-20 cap mt-3'>Step 4: Install the New Indoor Unit</h4>
+     <h3 className='h6 fw-600 px-20 cap mt-3'>Step 4: Install the New Indoor Unit</h3>
      <p className="lead-20 px-20 lh-base">
       We will attach the new indoor unit to the wall bracket, securing it in place with screws. Our team will then connect the refrigerant lines to the new unit, ensuring a tight and secure connection.
      </p>
     </div>
 
     <div>
-    <h4 className='h6 fw-600 px-20 cap mt-3'>Step 5: Install the New Outdoor Unit</h4>
+    <h3 className='h6 fw-600 px-20 cap mt-3'>Step 5: Install the New Outdoor Unit</h3>
      <p className="lead-20 px-20 lh-base">
       We will mount the new outdoor unit on a level surface and secure it in place. Our team will then connect the refrigerant lines between the indoor and outdoor units, ensuring that they are properly sealed.
      </p>
     </div>
 
      <div>
-    <h4 className='h6 fw-600 px-20 cap mt-3'>Step 6: Install the Electrical Wiring</h4>
+    <h3 className='h6 fw-600 px-20 cap mt-3'>Step 6: Install the Electrical Wiring</h3>
      <p className="lead-20 px-20 lh-base">
       Our team will connect the electrical wiring between the indoor and outdoor units, following the manufacturer’s instructions to ensure a safe and effective installation.
      </p>
     </div>
 
      <div>
-    <h4 className='h6 fw-600 px-20 cap mt-3'>Step 7: Vacuum Down and Charge Refrigerant</h4>
+    <h3 className='h6 fw-600 px-20 cap mt-3'>Step 7: Vacuum Down and Charge Refrigerant</h3>
      <p className="lead-20 px-20 lh-base">
       We will vacuum down the system to remove any contaminants and then open the refrigerant lines to charge the system with the correct amount of refrigerant, as specified by the manufacturer.
      </p>
     </div>
 
      <div>
-    <h4 className='h6 fw-600 px-20 cap mt-3'>Step 8: Test the New System</h4>
+    <h3 className='h6 fw-600 px-20 cap mt-3'>Step 8: Test the New System</h3>
      <p className="lead-20 px-20 lh-base">
       Finally, we will turn on the power to the new air conditioner and test it to make sure it is working properly. If everything is working as it should, you can enjoy your newly installed air conditioner!
      </p>

@@ -30,7 +30,7 @@ const ToshibaProductsPage = () => {
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Toshiba Split System Air Conditioning
+            Toshiba Split System Air Conditioning Supplied & Installed
           </h1>
           <div className="pb-3">
             <Cta />
@@ -47,7 +47,7 @@ const ToshibaProductsPage = () => {
               />
         </div>
         <div className='pt-1' style={{marginTop:`-20px`}}>
-         <h2 className="h5 cap fw-600 mt-3">Toshiba Air Conditioner</h2>
+         <h2 className="h5 cap fw-600 mt-3">Toshiba SEIYA Classic Series Air Conditioner</h2>
         </div>
        
         <p className="lead-20 mt-3">
@@ -96,9 +96,22 @@ const ToshibaProductsPage = () => {
         </section>
 
         <section>
-        <div className='mb-4'>
-        <h3 className='h5 fw-600'>Toshiba SEIYA Classic Series Split System Air Conditioning</h3>
-        </div>
+      <div
+                style={{ backgroundColor: `#D01C22` }}
+                className="my-3 text-center rounded"
+                id="toshiba"
+              >
+                <h3
+                  className="h5 text-white fw-600 cap mt-2 px-3"
+                  style={{ padding: `1.3rem 0` }}
+                >
+                  Supplied and Installed Toshiba
+                  <br />{" "}
+                  <span className="lead cam text-white">
+                    <small>Air Conditioning Systems</small>
+                  </span>
+                </h3>
+              </div>
         <ToshibaProducts />
               <div className='mt-4 d-flex'>
                 <p className='p-2 '>

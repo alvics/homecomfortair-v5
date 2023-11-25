@@ -2,6 +2,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/Layouts/layout"
+import Cta from "../components/CTA"
 // import SEO from "../../components/seo"
 import StaticImage from "../components/StaticQueryImages"
 import SamsungProducts from "../components/Products/SamsungSplitSystems"
@@ -22,16 +23,22 @@ Split,systems,Ipswich,Brisbane,service`,
       />  */}
 
       <div className="container  body-wrapper pt-4">
-        <div className="contact pt-2 border rounded-3" style={{ textAlign: "center" }}>
-          <StaticImage
-            filename="Home-Comfort-Air-COL-03-650.png"
-            alt="home comfort air image"
-          />
-          <h1 className="p-3 text-dark cap fw-600 h4">Service Area's</h1>
-
-          <p className="font-italic">
-            *Residential Air Conditioning Specialists
-          </p>
+          <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
+          <h1 className="h1 cam text-center text-white fw-600  p-3">
+            <div>
+              {" "}
+              <StaticImage
+                filename="HCA-avatar-WHITE-1400.png"
+                alt="home comfort air favicon logo image"
+              />
+            </div>
+            Service Area's
+          </h1>
+          <div className="pb-3">
+           <p className="text-white text-center fsz-18">*Residential Air Conditioning Specialists</p>
+          <Cta />
+          
+          </div>
         </div>
         <div className="row about-us">
           <div className="col-lg-8 pt-3">

@@ -27,7 +27,7 @@ const HaierProductsPage = () => {
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Haier Split System Air Conditioning
+            Haier Split System Air Conditioning Supplied & Installed
           </h1>
           <div className="pb-3">
            <Cta />
@@ -44,11 +44,11 @@ const HaierProductsPage = () => {
               />
         </div>
         <div style={{marginTop:`-20px`}}>
-        <h2 className="h5 cap fw-600 mt-3" >Haier Air Conditioner</h2>
+        <h2 className="h5 cap fw-600 mt-3" >Haier Tempo Air Conditioner</h2>
         </div>
         
         <p className="lead-20 mt-3">
-        When it comes to air conditioning, Haier is a brand that should not be overlooked. Known for their innovative technology and energy-efficient systems, Haier air conditioning split systems are an excellent choice for anyone looking to keep their home or office comfortable all year round.
+        When it comes to air conditioning, Haier is a brand that should not be overlooked. Known for their innovative technology and energy-efficient systems, Haier Tempo air conditioning split systems are an excellent choice for anyone looking to keep their home or office comfortable all year round.
         </p>
         </section>
 
@@ -83,9 +83,23 @@ const HaierProductsPage = () => {
         </section>
 
         <section>
-        <div>
-        <h3 className='h5 fw-600'>Haier Tempo Series Split System Air Conditioning</h3>
-        </div>
+       <div className="mb-2 mt-2" id="haier">
+                <div
+                  className="text-center border rounded"
+                  style={{ backgroundColor: `#005AAB` }}
+                >
+                  <h3
+                    className="h5 fw-600 cap mt-2 px-3  text-white "
+                    style={{ padding: `1.3rem 0` }}
+                  >
+                    Supplied and Installed Haier
+                    <br />{" "}
+                    <span className="lead cam text-white">
+                      <small>Air Conditioning Systems</small>
+                    </span>
+                  </h3>
+                </div>
+              </div>
           <HaierProducts />
           <div className='mt-4 d-flex'>
               <p className='p-2'>

@@ -4,7 +4,9 @@ import React from "react"
 import Layout from "../components/Layouts/layout"
 // import Background from "../components/Background"
 import StaticImage from "../components/StaticQueryImages"
-import Form from "../components/ContactForm"
+// import Form from "../components/ContactForm"
+import BackgroundImage from "../components/ContactPageBackgroundImage"
+
 
 
 // import SEO from "../components/seo"
@@ -12,25 +14,30 @@ import Form from "../components/ContactForm"
 const Contact = () => (
   <Layout>
     <div className="job-order-wrapper body-wrapper py-3 contact">
-    
+      
      <section className="mb-3 px-2">
-        <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h4 cam text-center text-white fw-600 p-3">
-            <div>
+       <div className="pt-2 split-systems-avatar heading-box-color rounded ">
+          <h1 className="h1 cam text-center text-white fw-600 p-3">
+            <span>
               {" "}
               <StaticImage
-                filename="Home-Comfort-Air-WHITE-1400.png"
-                alt="home comfort air favicon logo image"
+                filename="HCA-avatar-WHITE-1400.png"
+                alt="home comfort air image"
               />
-            </div>
-            Contact us <span className="fsz-16 text-white">Give us a few details and we’ll offer the best solution.
-Connect by phone, chat or email.</span>
+            </span>
+            Connect with us
           </h1>
+          <p className="text-white text-center fsz-18">Give us a few details and we’ll offer the best solution. Connect by phone, chat or email.</p>
+          <div className="pb-3">
+            
+          </div>
         </div>
         </section>
         <div></div>
       <div id="contact-form" className="grid-300 px-2">
-    <Form />
+      <BackgroundImage />
+     
+    
       </div>
        <div className="text-dark mt-4 text-center p-3" style={{ fontSize: 12 }}>
           <small>

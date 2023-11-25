@@ -98,12 +98,12 @@ export default function splitAcInstallationCost() {
       <div>
          <h3 className="h6 fw-600 cap mt-3">Is Split AC easy to install?</h3>
         <p className="lead-20 mt-3 lh-base">The complexity of the installation process can vary depending on the size of the unit, the type of system, and the existing HVAC setup in your home. In general, split AC systems are easier to install than ducted systems, but they still require a certain level of technical skill and experience to install correctly. It's best to consult with our team of licensed HVAC professional for a more accurate assessment.</p>
-       <h4 className="h6 fw-600 cap mt-3">How long does split AC installation take?</h4>
+       <h3 className="h6 fw-600 cap mt-3">How long does split AC installation take?</h3>
        <p className="lead-20 mt-3 lh-base">The time it takes to install a split AC system will vary depending on the size of the unit, the complexity of the installation process, and the experience of the HVAC professional. On average, you can expect the installation to take anywhere from 2 hours to 4 hours on a single installation.</p>
-       <h4 className="h6 fw-600 cap mt-3">Are split systems cheaper to run?</h4>
+       <h3 className="h6 fw-600 cap mt-3">Are split systems cheaper to run?</h3>
        <p className="lead-20 mt-3 lh-base">Split AC systems are generally more energy-efficient than ducted systems, which means they can be cheaper to run. This will depend on factors such as the size of the unit, the type of system, and your energy usage habits. </p>
 
-       <h4 className="h6 fw-600 cap mt-3">What is included in Split AC installation?</h4>
+       <h3 className="h6 fw-600 cap mt-3">What is included in Split AC installation?</h3>
        <p className="lead-20 mt-3 lh-base">The cost of a split AC installation typically includes the following:</p>
        <ol className="list-group list-group-numbered mt-3">
        <li className='list-group-item'>The cost of the AC unit and any additional components (such as a remote control or wall-mounted control panel).</li>
@@ -155,7 +155,7 @@ export default function splitAcInstallationCost() {
 
         <section>
             <p className="px-20 mt-4">
-             <small>At Home Comfort Air, we are experts in the field of installing Mitsubishi air conditioning systems across the Gold Coast, Brisbane, Ipswich, and Tweed Heads regions. Our commitment to our customers is to deliver only the best in air conditioning systems, ones that are both energy-efficient and dependable.</small>
+             <small>At Home Comfort Air, we are experts in the field of installing air conditioning systems across the Gold Coast, Brisbane, Ipswich, and Tweed Heads regions. Our commitment to our customers is to deliver only the best in air conditioning systems, ones that are both energy-efficient and dependable.</small>
           </p>
         </section>
         

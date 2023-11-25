@@ -84,9 +84,27 @@ const MideaProductsPage = () => {
         </section>
 
         <section>
-        <div>
-        <h3 className='h5 fw-600 p-2 mt-2'>Midea Apollo Series Split System Air Conditioning</h3>
-        </div>
+       <div className="mt-2">
+                <div
+                  className="text-center border rounded"
+                  style={{ backgroundColor: `#7DCDFF` }}
+                >
+                  <h3
+                    className="h5 fw-600 cap mt-2 px-3  text-white "
+                    style={{ padding: `1.3rem 0` }}
+                  >
+                    Supplied and Installed Midea
+                    <br />{" "}
+                    <span className="lead cam text-white">
+                      <small>Air Conditioning Systems</small>
+                    </span>
+                  </h3>
+                </div>
+              </div>
+
+             
+             
+        
         <MideaProducts />
         <div className='mt-4 d-flex'>
                 <p className='p-2 '>

@@ -30,7 +30,7 @@ const SamsungSplitSystem = () => {
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Samsung Split System Air Conditioning
+            Samsung Split System Air Conditioning Supplied & Installed
           </h1>
           <div className="pb-3">
            <Cta /> 
@@ -86,9 +86,18 @@ const SamsungSplitSystem = () => {
         </section>
 
         <section>
-        <div>
-        <h3 className='h5 fw-600'>Samsung Bedarra Series Split System Air Conditioning</h3>
-        </div>
+       <div  className="text-center bg-dark my-3 text-center rounded" id="samsung">
+                <h3
+                  className="text-white h5 fw-600 cap mt-2 px-3"
+                  style={{ padding: `1.3rem 0` }}
+                >
+                  Supplied and Installed Samsung
+                  <br />{" "}
+                  <span className="lead cam text-white">
+                    <small>Air Conditioning Systems</small>
+                  </span>
+                </h3>
+              </div>
         <SamsungProducts />
          <div className='mt-4 d-flex'>
                 <p className='p-2 '>

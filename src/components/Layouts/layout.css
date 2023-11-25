@@ -809,6 +809,16 @@ pre tt:after {
     border: solid 1px;
 }
 
+#contact-form {
+    background-image: url('https: //res.cloudinary.com/ewebdesigns/image/upload/v1587024073/mini-split-install_stnffi.webp');
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.gatsby-image-wrapper {
+    border-radius: 10px;
+}
 
 
 /* Products Page  */
@@ -1043,6 +1053,7 @@ input[type="checkbox"]+span::before {
 }
 
 
+
 /* 2 COLUMN */
 
 @media (max-width: 480px) {
@@ -1134,6 +1145,19 @@ input[type="checkbox"]+span::before {
             display: none;
         }
 
+}
+
+@media (min-width: 765px) and (max-width:990px ){
+   #section-ac-solutions {
+    padding-top: 435px !important;
+   }
+   .form-overlay {
+    margin-top: 35px !important;
+    background-color: transparent !important;
+   }
+   .hero-box {
+    margin-right: 25px !important;
+   }
 }
 
 
@@ -1576,6 +1600,12 @@ gatsby-image-wrapper {
 .hero-box .gatsby-image-wrapper {
     max-width: 300px;
     margin: 0 auto;
+}
+
+#hero-text {
+    font-size: 18px !important;
+    color: RGB(42, 66, 91);
+   
 }
 
 .contact .gatsby-image-wrapper {
@@ -2110,7 +2140,7 @@ gatsby-image-wrapper {
 
 .form-overlay {
     background-color: rgba(255, 255, 255, 0.8);
-    padding-bottom: 45px !important;
+    padding-bottom: 41px !important;
 }
 
 @media (max-width: 480px) {
@@ -2196,6 +2226,10 @@ gatsby-image-wrapper {
 
 .section {
     margin-top: 2rem;
+}
+
+#section-ac-solutions {
+    margin-top:-110px;
 }
 
 .border-bottom {
@@ -2823,7 +2857,11 @@ li {
 }
 
 #description, h4 {
-    font-size: 1px !important;
+    font-size: 18px !important;
+}
+#description,
+h5 {
+    font-size: 18px !important;
 }
 
 #description,

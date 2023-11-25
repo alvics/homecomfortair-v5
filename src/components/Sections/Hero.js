@@ -55,7 +55,7 @@ const Hero = () => {
                       The smart choice in air conditioning
                     </span>
                   </h2>
-                  <p className="px-5">
+                  <p id="hero-text" className="px-5">
                     Residential air conditioning specialists, we supply and
                     install all major brands throughout south east Queensland,
                     from Ipswich, Brisbane and the Gold Coast.
@@ -73,7 +73,7 @@ const Hero = () => {
                   </div>
                 </div></div>
 
-      <div className="col-sm-12 col-md-12 col-lg-4"><div className="form-overlay p-4">
+      <div className="col-sm-12 col-md-12 col-lg-4"><div className="form-overlay p-4 m-auto">
                   <span
                     className="h3 fw-600 d-flex justify-content-center"
                     style={{ color: `#2d3136` }}

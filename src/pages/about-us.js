@@ -6,7 +6,7 @@ import Layout from "../components/Layouts/layout"
 import StaticImage from "../components/StaticQueryImages"
 import DaikinSplitSystems from "../components/Products/DaikinSplitSytems"
 import BrandsImages from "../components/BrandsBtn"
-
+ import Cta from "../components/CTA"
 // import BrandBtn from "../components/BrandBtn"
 
 const ProductsPage = () => {
@@ -14,16 +14,22 @@ const ProductsPage = () => {
     <Layout>
 
       <div className="container  body-wrapper pt-4">
-        <div className="contact pt-2 border rounded-3" style={{ textAlign: "center" }}>
-          <StaticImage
-            filename="Home-Comfort-Air-COL-03-650.png"
-            alt="home comfort air image"
-          />
-          <h1 className="p-3 text-dark cap fw-600 h4">About Us</h1>
-
-          <p className="font-italic">
-            *Residential Air Conditioning Specialists
-          </p>
+        <div className="pt-2 split-systems-avatar heading-box-color rounded ">
+          <h1 className="h1 cam text-center text-white fw-600 p-3">
+            <span>
+              {" "}
+              <StaticImage
+                filename="HCA-avatar-WHITE-1400.png"
+                alt="home comfort air image"
+              />
+            </span>
+            About us
+          </h1>
+          <p className="text-white text-center fsz-18">*Residential Air Conditioning Specialists</p>
+          <Cta />
+          <div className="pb-3">
+            
+          </div>
         </div>
         <div className="row about-us">
           <div className="col-lg-8 pt-3">

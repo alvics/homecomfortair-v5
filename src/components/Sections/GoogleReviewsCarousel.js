@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import StaticImage from '../StaticQueryImages';
 
 const GoogleReviewsCarousel = () => {
   const data = useStaticQuery(graphql`
@@ -26,6 +27,20 @@ const GoogleReviewsCarousel = () => {
   const reviews = data.allGoogleReview.edges;
 
   return (
+    <div>
+    <div className="heading-box-color heading-avatar heading-avatar rounded row d-flex align-items-center mb-2 mx-0">
+              <div className="col-sm-3 col-lg-2 pt-2 px-4 m-auto">
+                <StaticImage
+                  filename="HCA-avatar-WHITE-1400.png"
+                  alt="home comfort air image"
+                />
+              </div>
+              <div className="col">
+                <h3 className="h2 fw-600 mt-2">
+                   Our Customer Reviews
+                </h3>
+              </div>
+            </div>
     <Carousel autoPlay useKeyboardArrows swipeable className='bg-white carousel-card my-1'>
       {reviews.map((review) => {
     
@@ -73,6 +88,7 @@ const GoogleReviewsCarousel = () => {
         );
       })}
     </Carousel>
+    </div>
   );
 };
 

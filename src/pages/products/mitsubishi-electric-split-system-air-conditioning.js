@@ -30,7 +30,7 @@ const MitsubishiProductsPage = () => {
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Mitsubishi Electric Split System Air Conditioning
+            Mitsubishi Electric Split System Air Conditioning Supplied & Installed
           </h1>
           <div className="pb-3">
            <Cta /> 
@@ -46,7 +46,7 @@ const MitsubishiProductsPage = () => {
                 
               />
         </div>
-        <div className='pt-1' style={{marginTop:`-30px`}}> <h2 className="h5 cap fw-600 mt-4">Mitsubishi Air Conditioner: The Ultimate Solution to Stay Cool</h2></div>
+        <div className='pt-1' style={{marginTop:`-30px`}}> <h2 className="h5 cap fw-600 mt-4">Mitsubishi MSZ-AP Series Air Conditioner: The Ultimate Solution to Stay Cool</h2></div>
        
         <p className="lead-20 mt-3">
         <Link to="/products/#mitsubishi">Mitsubishi</Link> Electric is a well-known and reputable brand in the air conditioning industry, offering a wide range of high-quality split system air conditioners for both residential and commercial use. These systems are designed to provide optimal comfort and energy efficiency, making them a great choice for any home or office.
@@ -64,7 +64,7 @@ const MitsubishiProductsPage = () => {
         </section>
 
         <section>
-        <h3 className="h6 cap fw-600 mt-5">Why Mitsubishi Split System Air Conditioners are the Best Choice:</h3>
+        <h3 className="h5 cap fw-600 mt-5">Why Mitsubishi Split System Air Conditioners are the Best Choice:</h3>
         <ol className="list-group list-group-numbered mt-3">
         <li className='list-group-item'><strong>Leading Brand:</strong> Mitsubishi is a well-known and respected brand in the air conditioning industry. Known for its quality, efficiency, and durability, you can trust Mitsubishi to provide you with a top-performing air conditioner</li>
         <li className='list-group-item'><strong>Energy Efficiency:</strong> Mitsubishi split system air conditioners are designed to be energy-efficient, helping you save money on your electricity bill. The latest models come with inverter technology and eco-friendly refrigerant, making them even more efficient.</li>
@@ -79,12 +79,12 @@ const MitsubishiProductsPage = () => {
         <section>
         <div className="row">
         <div className="col-lg mt-3">
-       <h3 className="h6 cap fw-600 mt-3">Is Mitsubishi a good split system?</h3>
+       <h3 className="h5 cap fw-600 mt-3">Is Mitsubishi a good split system?</h3>
         <p className="lead-20 mt-3">
         Yes, Mitsubishi is a good split system brand. Known for its quality, efficiency, and durability, you can trust Mitsubishi to provide you with a top-performing air conditioner that will last for years to come.
         </p>
 
-        <h3 className="h6 cap fw-600 mt-3">Is Mitsubishi AC better than Daikin?</h3>
+        <h3 className="h5 cap fw-600 mt-3">Is Mitsubishi AC better than Daikin?</h3>
         <p className="lead-20 mt-3">Both Mitsubishi and Daikin are well-respected brands in the air conditioning industry, and both offer high-quality, efficient, and durable air conditioners. It's a matter of personal preference as to which brand is better, and it ultimately depends on your specific needs and budget.</p>
         </div>
 
@@ -99,15 +99,15 @@ const MitsubishiProductsPage = () => {
        
 
         <section>
-        <h4 className="h6 cap fw-600 mt-3">How long do Mitsubishi splits last? </h4>
+        <h3 className="h5 cap fw-600 mt-3">How long do Mitsubishi splits last? </h3>
         <p className="lead-20">
         With proper maintenance and regular servicing, a Mitsubishi split system air conditioner can last for 10-15 years.
         </p>
-        <h4 className="h6 cap fw-600 mt-3">What are the best split system to buy in Australia?</h4>
+        <h3 className="h5 cap fw-600 mt-3">What are the best split system to buy in Australia?</h3>
         <p className="lead-20">The best split system to buy in Australia ultimately depends on your specific needs and budget. Some of the top brands in Australia include Mitsubishi, Daikin, Fujitsu, and Toshiba.
         </p>
 
-        <h4 className="h6 cap fw-600 mt-3">How much does it cost to install a split unit?</h4>
+        <h3 className="h5 cap fw-600 mt-3">How much does it cost to install a split unit?</h3>
         <p className="lead-20">The cost of installing a split unit can vary depending on the type of unit you choose, the complexity of the installation, and the location of the unit. On average, the cost can range from $650 to $3000.</p>
         </section>
 
@@ -124,9 +124,23 @@ const MitsubishiProductsPage = () => {
         </section>
 
         <section>
-        <div>
-        <h3 className='h6 cap fw-600'>Mitsubishi MSZ-AP Series Split System Air Conditioning</h3>
-        </div>
+         <div className="mb-2" id="mitsubishi">
+                <div
+                  className="text-center border rounded"
+                  style={{ backgroundColor: `#ff0000` }}
+                >
+                  <h3
+                    className="h5 fw-600 cap mt-2 px-3  text-white "
+                    style={{ padding: `1.3rem 0` }}
+                  >
+                    Supplied and Installed Mitsubishi Electric
+                    <br />{" "}
+                    <span className="lead cam text-white">
+                      <small>Air Conditioning Systems</small>
+                    </span>
+                  </h3>
+                </div>
+              </div>
         <div>
         
         <MitsubishiProducts />

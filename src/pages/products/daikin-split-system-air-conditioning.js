@@ -31,7 +31,7 @@ const DaikinProductsPage = () => {
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Daikin Split System Air Conditioning
+            Daikin Split System Air Conditioning Supplied & Installed
           </h1>
           <div className="pb-3">
              <Cta />  
@@ -100,9 +100,23 @@ const DaikinProductsPage = () => {
         </section>
 
         <section>
-        <div>
-        <h3 className='h5 fw-600'>Daikin Cora Split System Air Conditioning </h3>
-        </div>
+         <div className="mb-2" id="daikin">
+                <div
+                  className="text-center border rounded"
+                  style={{ backgroundColor: `#00a1e5` }}
+                >
+                  <h3
+                    className="h5 fw-600 cap mt-2 px-3  text-white "
+                    style={{ padding: `1.3rem 0` }}
+                  >
+                    Supplied and Installed Daikin
+                    <br />{" "}
+                    <span className="lead cam text-white">
+                      <small>Air Conditioning Systems</small>
+                    </span>
+                  </h3>
+                </div>
+              </div>
         <DaikinProducts />
         <div className='mt-4 d-flex'>
            <p className='p-2'>

@@ -90,9 +90,26 @@ const CarrierProductsPage = () => {
         </section>
 
         <section>
-        <div className='py-3'>
-        <h3 className='h5 fw-600'>Carrier Aura Series Air Conditioners</h3>
-        </div>
+           <div
+                style={{ backgroundColor: `#004178` }}
+                className="my-3 text-center rounded"
+                id="carrier"
+              >
+                <h3
+                  className="h5 text-white fw-600 cap mt-2 px-3"
+                  style={{ padding: `1.3rem 0` }}
+                >
+                  Supplied and Installed Carrier
+                  <br />{" "}
+                  <span className="lead cam text-white">
+                    <small>Air Conditioning Systems</small>
+                  </span>
+                </h3>
+              </div>
+
+              <div className="mb-2">
+                <CarrierProducts />
+              </div>
         <CarrierProducts />
          <div className='mt-4 d-flex'>
                 <p className='p-2 '>
