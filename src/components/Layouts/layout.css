@@ -831,7 +831,7 @@ img.mitsubishi {
 .book-service-form-a {
     display: grid;
 }
-
+/*
 @media (min-width: 1279px) and (max-width: 4055px) {
     #sidebar-sticky-top {
         position: fixed;
@@ -851,7 +851,7 @@ img.mitsubishi {
 
    
 }
-
+*/
 #products-kw-menu {
        border: 1px solid #000;
         background-color: #ffffff !important;
@@ -889,7 +889,7 @@ background-color: rgb(109, 154, 223)!important;
         padding-left: 20px;
     }
 } */
-
+/*
 @media (max-width: 1199px) {
     #sidebar-sticky-top {
         position: relative;
@@ -904,7 +904,7 @@ background-color: rgb(109, 154, 223)!important;
     }
 }
 
- 
+ */
 
 .rating {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAANCAYAAACZ3F9/AAAAZklEQVR4AWL4uYWZCdAJHVMBAIJAAG1DoAtjGarYxxjqwHADnA8HFuWL3E8puH8gAqILPaB34Qq4FAQ1yoo+8ES7NRWKe6u+Ogo0XjtaCmlSd6K/4OQQOF0JKYTsMasgOIRkBfDZATita/85jgoHAAAAAElFTkSuQmCC");
@@ -1286,6 +1286,7 @@ nav.breadcrumb {
         max-width: 390px !important;
         padding: 0 !important;
     }
+          
 }
 
 .SingleProduct h2 {
@@ -1831,7 +1832,7 @@ gatsby-image-wrapper {
 }
 
 .h2 {
-    font-size: 2rem;
+    font-size: 2rem !important;
     line-height: 2;
 }
 
@@ -1845,8 +1846,9 @@ gatsby-image-wrapper {
 }
 
 .h5 {
-    font-size: 1.25rem;
+    font-size: 1.25rem !important;
     color: rgba(0, 0, 0, 0.8);
+    
 }
 
 .h6 {
@@ -1857,8 +1859,8 @@ gatsby-image-wrapper {
 .lead-400 {
     font-size: 18px !important;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.8);
-    opacity: 0.9;
+    color: #6e6e73 !important;
+    margin-top: -10px;
 }
 
 .lead {
@@ -1866,6 +1868,8 @@ gatsby-image-wrapper {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.8);
     opacity: 0.9;
+    line-height: 25px !important;
+    margin-top: -10px;
 }
 
 .lead-20, .reactMarkdown p {
@@ -1873,6 +1877,7 @@ gatsby-image-wrapper {
     font-weight: 300 !important;
     color: rgba(0, 0, 0, 0.8) !important;
     opacity: 0.8;
+    line-height: 30px !important;
 }
 
 
@@ -1901,12 +1906,12 @@ gatsby-image-wrapper {
         0 2px 3px rgba(0, 0, 0, .12);
 }
 
-.sidebar-main {
+/*.sidebar-main {
     height: 85vh;
     overflow-y: scroll;
     
 }
-
+*/
 .col-mits-script {
     padding: 0px 18px 18px 18px;
 }
@@ -2238,7 +2243,8 @@ gatsby-image-wrapper {
 
 .modal-body {
     /*  rgb(0, 196, 179) */
-    background-color: #00c4b399 !important;
+    background-color: rgba(0, 117, 201, 0.352) !important; 
+    
 }
 
 .modal-body input,

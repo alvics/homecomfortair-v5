@@ -140,7 +140,7 @@ export default function splitAcInstallationCost() {
         <div className="grid-col-2 pb-3">
           <div>
             <h5 className=" px-20 cap fw-600">Split System Quote</h5>
-            <p className="px-20">
+            <p className="px-20 lead-400">
               For new construction or existing homes.
               Need a replacement unit or a new installation? Submit your details, and we'll contact you
               back shortly.

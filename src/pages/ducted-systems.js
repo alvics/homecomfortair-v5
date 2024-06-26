@@ -125,7 +125,7 @@ Split,systems,Ipswich,Brisbane,Specials`,
           </div>
 
           <div className="text-center">
-            <h3 className="h2 fw-600 mt-2 ">Receive A free Quote</h3>
+            <h3 className="h2 fw-600 mt-2 ">Receive a Free Quote</h3>
           </div>
         </div>
         <div className="grid-col-2">
@@ -133,7 +133,7 @@ Split,systems,Ipswich,Brisbane,Specials`,
             <h5 className=" px-20 cap fw-600">
               Ducted System Installation Quotes
             </h5>
-            <p className="px-20">
+            <p className="px-20 lead-400">
               We install ducted air conditioning systems for
               new construction and existing homes.
              Need a replacement unit or a new installation? Submit your details, and we'll contact you

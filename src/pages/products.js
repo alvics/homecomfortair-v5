@@ -21,7 +21,7 @@ const Products = ({
    <MobileNav />
    
      <SplitSystems products={products} />
-     <div className='mt-3'><Footer /></div>
+     <div className='mt-3'></div>
     
     </div>
   )

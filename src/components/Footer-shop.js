@@ -89,7 +89,7 @@ const FooterShop = () => {
           {" "}
           © {new Date().getFullYear()}
           <a className="mt-2 text-white pl-1" href="https://ewebdesigns.com.au">
-            Powered by | eWebDesigns
+            Powered by | 1eWebDesigns
           </a>
         </span>
       </div>

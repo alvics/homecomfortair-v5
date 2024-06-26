@@ -22,7 +22,7 @@ Split,systems,Ipswich,Brisbane,service`,
         ]}
       />  */}
 
-      <div className="container  body-wrapper pt-4">
+      <div className="body-wrapper px-lg-5 px-md-1 pt-4">
           <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
           <h1 className="h1 cam text-center text-white fw-600  p-3">
             <div>

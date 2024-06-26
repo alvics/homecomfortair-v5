@@ -6,7 +6,10 @@ import MyForm from "../../components/QuoteForm"
 import StaticImage from "../../components/StaticQueryImages"
 import BrandsBtn from "../../components/BrandsBtn"
 // import CardHome from "../Sections/CardHome";
-
+import GoogleReviewsCarousel from "../Sections/GoogleReviewsCarousel"
+import MideaSplitSystems from "../Products/MideaSplitsSystems"
+import MitsubishiSplitSystems from "../Products/MitsubishiElectricSplits"
+import DaikinSplitSystems from "../Products/DaikinSplitSytems"
 
 const Home = () => {
 
@@ -147,12 +150,24 @@ return (
                   Split System Air Conditioning
                 </h3>
               </div>
+          </div>
+
+             <MideaSplitSystems />
+             <div className="px-2">
+            <p>*Prices include GST</p>
+            <div>
+            <Link to="/products" className="btn-- btn-primary-- text-white">
+            View Deals
+          </Link>
+          </div>
             </div>
+             
+             
             <div className="grid-2">
               <div className="span-col-3">
-                <h5 className="text-dark fw-400">
-                  Home Comfort Air
-                </h5>
+                <h4 className="text-dark fw-400">
+                  Home Comfort Air <br />Heating & Air Conditioning 
+                </h4>
                 <div className="img-fluid rounded-2">
                   <StaticImage
                       filename="ac-hero-1.jpg"
@@ -179,7 +194,17 @@ return (
                  <p className="mt-20 lead">
                   Don't hesitate to reach out to us at Home Comfort Air or call us at <a href="tel:0404602657">0404 602 657</a> to learn more about all the options available to you and to schedule your consultation today.
                 </p>
+                <h4 className="mt-3">Mitsubishi Electric AP-Series System Air Conditioning</h4>
+                <MitsubishiSplitSystems />
 
+    <div className="px-2">
+            <p>*Prices include GST</p>
+            <div>
+            <Link to="/products" className="btn-- btn-primary-- text-white">
+            View Deals
+          </Link>
+          </div>
+            </div>
               </div>
               <div className="form-quote home-page mt-5">
                 <h5 className="h6 text-center text-white fw-600 heading-box-color p-20 rounded cap">
@@ -192,9 +217,41 @@ return (
             </div>
           </section>
 
-         
+         <section>
+          <div className="heading-box-color  heading-avatar rounded row d-flex align-items-center mb-2 mx-0">
+              <div className="col-sm-3 col-lg-2 pt-2 px-4">
+                <StaticImage
+                  filename="HCA-avatar-WHITE-1400.png"
+                  alt="home comfort air image"
+                />
+              </div>
+              <div className="col">
+                <h3 className="h2 fw-600 mt-2 ">
+                   Brisbane, Ipswich, Gold Coast Air Conditioning
+                </h3>
+              </div>
+            </div>
+            <div className="row px-3">
+<div className="col-md-4">
+<h3 className="h5 pl-3 mt-3">Ipswich Air Conditioning</h3>
+<p className="lead mt-3 px-3">Are you looking for a reliable and experienced air conditioning service in the Ipswich, Queensland area? Look no further! Our team at Home Comfort Air is here to help with all of your air conditioning needs, including split system installations with top brands like Daikin, Haier, Hisense, and Midea. Read more about our air conditioning service in Ipswich <a href="/ipswich-air-conditioning">here...</a></p></div>
 
+<div className="col-md-4">
+<h3 className="h5 pl-3 mt-3">Brisbane Air Conditioning</h3>
+<p className="lead mt-3 px-3">Are you in search of a reputable air conditioning service in the Brisbane, Queensland area? Look no further than Home Comfort Air! Our team of skilled technicians is here to assist with all of your air conditioning needs, including the installation of split system units from top brands like Daikin, Haier, Hisense, and Midea. Read more about our air conditioning service in Brisbane <a href="/brisbane-air-conditioning">here...</a></p></div>
+
+<div className="col-md-4">
+<h3 className="h5 pl-3 mt-3">Gold Coast Air Conditioning</h3>
+<p className="lead mt-3 px-3">Are you looking for a new split system air conditioner to be installed in your home or space? Do you have an old worn out system that needs replacing? Here at Home Comfort Air we install wall hung and ducted split system air conditioning for Gold Coast homes here in sunny Queensland Australia. You can all benefit on our split system installations monthly specials. Read more about our air conditioning service in Gold Coast <a href="/gold-coast-air-conditioning">here...</a></p></div>
+</div>
+         </section>
+
+           <section>
            
+           
+          <GoogleReviewsCarousel />
+
+           </section>
 
           <section className="section-3">
             <div className="heading-box-color  heading-avatar rounded row d-flex align-items-center mb-2 mx-0">
@@ -210,6 +267,8 @@ return (
                 </h3>
               </div>
             </div>
+
+           
 
             <div className="row">
               <div className="col-lg-7">
@@ -296,7 +355,7 @@ return (
         </section> 
 
             <div className="why-us">
-              <ul className="bg-light p-20 mr-4">
+              <ul className="bg-light p-20 mr-4 mb-3">
                 <li className="text-blue fw-600 text-shadow-2">
                   <span className="green">✓</span> Experienced in Commercial &
                   Residential Installations{" "}
@@ -314,8 +373,8 @@ return (
                   efficient service
                 </li>
                 <li className="text-blue fw-600 text-shadow-2">
-                  <span className="green">✓</span> 5 to 7 Year Manufacture
-                  Warranty's
+                  <span className="green">✓</span> 5 to 7 Year Manufacturer
+                  Warranty
                 </li>
                 <li className="text-blue fw-600 text-shadow-2">
                   <span className="green">✓</span> 5 Year Installation Warranty
@@ -324,7 +383,12 @@ return (
                   <span className="green">✓</span> We'll beat any written quote!
                 </li>
               </ul>
+
+                
             </div>
+            <h4 className="mt-3">Daikin Cora Split System Air Conditioning</h4>
+            <DaikinSplitSystems />
+            <p>*Prices include GST</p>
           </section>
           <div
             style={{
@@ -342,7 +406,7 @@ return (
           </div>
 
           <Link to="/products" className="btn-- btn-primary-- text-white">
-            Supply & Install Split Systems
+            View All Our Deals
           </Link>
           <br />
 

@@ -4,8 +4,9 @@ import Layout from "../components/Layouts/layout"
 import StaticImage from "../components/StaticQueryImages"
 import Cta from "../components/CTA"
 import Form from "../components/QuoteForm"
-import SamsungProducts from "../components/Products/SamsungSplitSystems"
+ import SamsungProducts from "../components/Products/SamsungSplitSystems"
 import { Link } from 'gatsby'
+import MitsubishiSplits from "../components/Products/MitsubishiElectricSplits"
 
 export default function SplitSystemReplacement() {
    
@@ -52,55 +53,55 @@ export default function SplitSystemReplacement() {
     </section>
     <section>
     <div>
-    <h3 className='h6 fw-600 px-20 cap mt-3'>Step 1: Choose a New Air Conditioner</h3>
+    <h3 className='h5 fw-600 px-20 cap mt-3'>Step 1: Choose a New Air Conditioner</h3>
     <p className="lead-20 px-20 lh-base">
     The first step in replacing your split system air conditioner is to choose a new one. Our team can help you select the right air conditioner for your needs, taking into account the size of your room and your budget. We offer a wide range of air conditioners from all major brands, so you can find the one that best fits your requirements.
     </p>
     </div>
     <div>
-    <h3 className='h6 fw-600 px-20 cap mt-3'>Step 2: Turn Off the Power</h3>
+    <h3 className='h5 fw-600 px-20 cap mt-3'>Step 2: Turn Off the Power</h3>
     <p className="lead-20 px-20 lh-base">
      Before we begin the installation process, it is important to turn off the power to your existing air conditioner. This can be done by switching off the circuit breaker or unplugging it.
     </p>
     </div>
 
     <div>
-    <h3 className='h6 fw-600 px-20 cap mt-3'>Step 3: Remove the Old Unit</h3>
+    <h3 className='h5 fw-600 px-20 cap mt-3'>Step 3: Remove the Old Unit</h3>
     <p className="lead-20 px-20 lh-base">
      Our team will then remove the old unit, disconnecting the refrigerant lines and removing the mounting bracket. We will carefully remove the old air conditioner from the wall, ensuring that it is disposed of properly.
     </p>
     </div>
 
     <div>
-     <h3 className='h6 fw-600 px-20 cap mt-3'>Step 4: Install the New Indoor Unit</h3>
+     <h3 className='h5 fw-600 px-20 cap mt-3'>Step 4: Install the New Indoor Unit</h3>
      <p className="lead-20 px-20 lh-base">
       We will attach the new indoor unit to the wall bracket, securing it in place with screws. Our team will then connect the refrigerant lines to the new unit, ensuring a tight and secure connection.
      </p>
     </div>
 
     <div>
-    <h3 className='h6 fw-600 px-20 cap mt-3'>Step 5: Install the New Outdoor Unit</h3>
+    <h3 className='h5 fw-600 px-20 cap mt-3'>Step 5: Install the New Outdoor Unit</h3>
      <p className="lead-20 px-20 lh-base">
       We will mount the new outdoor unit on a level surface and secure it in place. Our team will then connect the refrigerant lines between the indoor and outdoor units, ensuring that they are properly sealed.
      </p>
     </div>
 
      <div>
-    <h3 className='h6 fw-600 px-20 cap mt-3'>Step 6: Install the Electrical Wiring</h3>
+    <h3 className='h5 fw-600 px-20 cap mt-3'>Step 6: Install the Electrical Wiring</h3>
      <p className="lead-20 px-20 lh-base">
       Our team will connect the electrical wiring between the indoor and outdoor units, following the manufacturer’s instructions to ensure a safe and effective installation.
      </p>
     </div>
 
      <div>
-    <h3 className='h6 fw-600 px-20 cap mt-3'>Step 7: Vacuum Down and Charge Refrigerant</h3>
+    <h3 className='h5 fw-600 px-20 cap mt-3'>Step 7: Vacuum Down and Charge Refrigerant</h3>
      <p className="lead-20 px-20 lh-base">
       We will vacuum down the system to remove any contaminants and then open the refrigerant lines to charge the system with the correct amount of refrigerant, as specified by the manufacturer.
      </p>
     </div>
 
      <div>
-    <h3 className='h6 fw-600 px-20 cap mt-3'>Step 8: Test the New System</h3>
+    <h3 className='h5 fw-600 px-20 cap mt-3'>Step 8: Test the New System</h3>
      <p className="lead-20 px-20 lh-base">
       Finally, we will turn on the power to the new air conditioner and test it to make sure it is working properly. If everything is working as it should, you can enjoy your newly installed air conditioner!
      </p>
@@ -140,14 +141,17 @@ export default function SplitSystemReplacement() {
               alt="mitsubishi split-replacement"
             />
      </div>
-   
+   <div>
+   <h5 className='h6 fw-600 px-20  mt-3'>Mitsubishi Electric MSZ-AP</h5>
+   <MitsubishiSplits />
+   </div>
   
 
     </div>
     </section>
      </div>
      <div className="col" style={{padding:55}}>
-     <h5 className='h6 fw-600 px-20  mt-3'>Samsung A/C</h5>
+     <h5 className='h6 fw-600 px-20  mt-3'>Samsung Bedarra</h5>
      <SamsungProducts />
      
      </div>
@@ -173,7 +177,7 @@ export default function SplitSystemReplacement() {
             <h5 className=" px-20 cap fw-600">
               Air Conditioning Replacement Quotes
             </h5>
-            <p className="px-20">
+            <p className="px-20 lead-400">
               Need a replacement unit or a new installation? Submit your details, and we'll contact you
               back shortly.
             </p>

@@ -36,8 +36,8 @@ Split,systems,service,supply,install`,
       property="og:image"
       content="https://res.cloudinary.com/ewebdesigns/image/upload/v1587019232/install_h0mq9m.jpg"
     ></meta>
-    <div className="body-wrapper split-systems pt-3">
-      <section className="px-3">
+    <div className="body-wrapper px-lg-5 px-md-2 pt-4">
+      <section >
         <div className="pt-2 split-systems-avatar heading-box-color rounded ">
           <h1 className="h1 cam text-center text-white fw-600 p-3">
             <span>
@@ -86,7 +86,7 @@ Split,systems,service,supply,install`,
 
       <section className="px-3">
         <div className="heading-box-color  heading-avatar rounded row d-flex align-items-center my-2 mx-0 py-2">
-          <div className="col-sm-3 col-lg-2 mt-1 px-2">
+          <div className="col-sm-3 col-lg-2 mt-1 px-2-lg">
             <StaticImage
               filename="HCA-avatar-WHITE-1400.png"
               alt="home comfort air image"
@@ -100,7 +100,7 @@ Split,systems,service,supply,install`,
         
 
         <Tabs>
-          <div className="grid-300 p-3">
+          <div className="grid-300">
 
             <Tab>
               <div className="card">
@@ -202,7 +202,7 @@ Split,systems,service,supply,install`,
           
           <Panel>
             <h5 className="fw-600 cap mt-3 pb-2 ml-2 pl-3">Daikin Split Systems</h5>
-            <div className="px-3">
+            <div className="px-3-lg">
               <DaikinProducts />
             </div>
            
@@ -212,7 +212,7 @@ Split,systems,service,supply,install`,
               
               <div className="p-20">
                 <h5 className="fw-600 cap">Daikin air conditioning</h5>
-                <p>
+                <p className="lead">
                   Daikin Air Conditioning is one of our top choices, it's
                   reputation for technology and innovations is one of the best
                   in the air conditioning world. Daikin Split Systems are ideal for air conditioning one room or a specific area of a home. A wide variety of models are offered to suit your requirements and are available in either wall mounted or floor standing type.
@@ -253,7 +253,7 @@ Split,systems,service,supply,install`,
             <div className="grid-col-2 pt-20">
               <div className="p-20">
                 <h5 className="fw-600 cap">Toshiba air conditioning</h5>
-                <p>
+                <p className="lead">
                   Toshiba prides themselves as being the first company to
                   release the inverter technology to air conditioners back in
                   1981 and have respectfully maintained the technical advantage
@@ -265,7 +265,7 @@ Split,systems,service,supply,install`,
                   when it comes to choosing a new system for your home or
                   office.
                 </p>
-                <p>
+                <p className="lead">
                   From the 1st of May 2020, all residential installations across
                   the entire Toshiba range of Hi-Wall, Multi Split and Light
                   Commercial equipment including the coveted SMMS VRF suite of
@@ -303,12 +303,12 @@ Split,systems,service,supply,install`,
             <div className="grid-col-2 col-panel pt-20">
               <div className="p-20">
                 <h5 className="fw-600 cap">Haier air conditioning</h5>
-                <p>
+                <p className="lead">
                  When it comes to reliable and efficient air conditioning solutions, the Haier Tempo Split System is a true standout. With its cutting-edge technology and innovative features, this air conditioning unit promises to keep your home comfortable all year round.
                  </p>
-<p>The Haier Tempo Split System is designed to deliver powerful cooling during the scorching summer months and efficient heating during chilly winters. Its advanced inverter technology ensures precise temperature control, allowing you to enjoy consistent comfort while saving on energy costs.</p>
+<p className="lead">The Haier Tempo Split System is designed to deliver powerful cooling during the scorching summer months and efficient heating during chilly winters. Its advanced inverter technology ensures precise temperature control, allowing you to enjoy consistent comfort while saving on energy costs.</p>
 
-<p>
+<p className="lead">
 One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With the Haier Air app, you can conveniently control and monitor your air conditioner from anywhere using your smartphone or tablet. Whether you're at work, on vacation, or simply relaxing on the couch, you have full control over your indoor climate at your fingertips.
                 </p>
                   <div className='mt-4 d-flex'>
@@ -343,7 +343,7 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
               </div>
               <div className="p-20">
                 <h5 className="fw-600 cap">Midea air conditioning</h5>
-                <p>
+                <p className="lead">
                   Midea have come a long way over the past 50 years with its
                   manufacturing of air conditioners at affordable prices. The
                   Aurora range is known for its pure comfort, clean, filtered
@@ -381,9 +381,9 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
         </div>
       </section>
 
-      <section className="px-3">
+      <section className="px-3-lg">
         <div className="heading-box-color heading-avatar rounded row d-flex align-items-center my-2 mx-0 py-2">
-          <div className="col-sm-3 col-lg-2 mt-1 px-2">
+          <div className="col-sm-3 col-lg-2 mt-1 px-2-lg">
           <div className="pl-3">  <StaticImage
               filename="HCA-avatar-WHITE-1400.png"
               alt="home comfort air image"
@@ -404,7 +404,7 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
             <h5 className=" px-20 cap fw-600">
               Split System Installation Service
             </h5>
-            <p className="px-20">
+            <p className="px-20 lead">
               HOME COMFORT AIR can supply and fully install all brands of split
               system air conditioners for your home or office. Whether you're a
               builder of new construction and are looking for our "rough in" and
@@ -416,7 +416,7 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
             <h5 className=" px-20 cap fw-600 mt-4">
               Replacement Split System Air Conditioning Service
             </h5>
-            <p className="px-20">
+            <p className="px-20 lead">
               Our <Link to="/split-system-replacement">replacement</Link> air conditioning service is widely used by
               property managers and home owners throughout South East
               Queensland. Our service includes the decommissioning and disposal
@@ -455,7 +455,7 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
           </div>
 
           <div className="text-center">
-            <h3 className="h2 fw-600 mt-2 ">Receive A free Quote</h3>
+            <h3 className="h2 fw-600 mt-2 ">Receive a Free Quote</h3>
           </div>
         </div>
         <div className="grid-col-2">
@@ -463,7 +463,7 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
             <h5 className=" px-20 cap fw-600">
               Split System Installation Quotes
             </h5>
-            <p className="px-20">
+            <p className="px-20 lead-400">
               For new construction and existing homes.
               Need a replacement unit or a new installation? Submit your details, and we'll contact you
               back shortly.

@@ -725,8 +725,10 @@ const location = useLocation();
     
       {/* Product Related List */}
       
-  <div className='related-products'>
-  <h3>Related Products:</h3>
+  <div className='related-products p-3'>
+  <div className='ml-2'><h3>Related Products:</h3>
+  </div>
+  
   <div className="container bg-white">
   <div className="row">
     {data.relatedProducts.nodes
@@ -734,7 +736,7 @@ const location = useLocation();
         relatedProduct.sub_categories[0]?.title === brand
       )
       .map((relatedProduct) => (
-        <div key={relatedProduct.id} className="col-md-2 mb-4">
+        <div key={relatedProduct.id} className="col-md-2 mb-4 ml-2">
         <Link to={`/products/${relatedProduct.slug}`} key={relatedProduct.id}>
           <article className="card archive">
           <div className='archive-img' style={{ display: `flex`, justifyContent: `center` }}>  

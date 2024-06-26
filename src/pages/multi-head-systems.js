@@ -134,7 +134,7 @@ const MultiHeadSystemsPage = () => (
             <h5 className=" px-20 cap fw-600">
               Multi-Head System Installation Quotes
             </h5>
-            <p className="px-20">
+            <p className="px-20 lead-400">
               We install new multi-head air conditioning systems for new construction and existing homes. 
               Need a replacement unit or a new installation? Submit your details, and we'll contact you
               back shortly.

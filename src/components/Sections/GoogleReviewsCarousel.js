@@ -41,7 +41,7 @@ const GoogleReviewsCarousel = () => {
                 </h3>
               </div>
             </div>
-    <Carousel autoPlay useKeyboardArrows swipeable className='bg-white carousel-card my-1'>
+    <Carousel autoPlay useKeyboardArrows swipeable className='bg-white carousel-card my-1 border'>
       {reviews.map((review) => {
     
 

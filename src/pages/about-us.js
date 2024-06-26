@@ -13,7 +13,7 @@ const ProductsPage = () => {
   return (
     <Layout>
 
-      <div className="container  body-wrapper pt-4">
+      <div className="body-wrapper px-lg-5 px-md-1 pt-4">
         <div className="pt-2 split-systems-avatar heading-box-color rounded ">
           <h1 className="h1 cam text-center text-white fw-600 p-3">
             <span>
@@ -33,17 +33,18 @@ const ProductsPage = () => {
         </div>
         <div className="row about-us">
           <div className="col-lg-8 pt-3">
-            <div className="wrapper-about-img">
+            <div className="wrapper-about-img p-1">
               <StaticImage
                 filename="splits-add-11-pow.png"
                 alt="home comfort air image"
               />
             </div>
+            <div className="px-3">
             <div className="mt-3">
               <h2 className="h5 cap fw-600">Our Service</h2>
             </div>
 
-            <p className="lead-20">
+            <p className="lead-20 ">
               We've been installing domestic air conditioners for family's and
               major builders around Brisbane, Gold Coast and Tweed Heads area's
               for over a decade. Everything from{" "}
@@ -77,14 +78,16 @@ const ProductsPage = () => {
               <a href="tel:0404602657">0404 602 657</a> for residential air
               conditioning solutions. Your satisfaction, is our guarantee!{" "}
             </p>
-            <div className="img-wrapper-e">
+
+            </div>
+            <div className="img-wrapper-e p-1">
               <StaticImage
                 filename="install-450.png"
                 alt="home comfort air image"
               />
             </div>
 
-            <div className="mt-2 mb-3">
+            <div className="mt-2 mb-3 about-us-daikin-products">
              <DaikinSplitSystems />
             </div>
           </div>

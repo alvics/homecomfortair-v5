@@ -16,10 +16,10 @@ return (
   <div > <HeroSection /></div>
    
       <Layout>
-        <div className="container-fluid px-5 mt-5">
+        <div className="container-fluid px-lg-5 px-md-1 mt-5">
         <Home />
          
-        <GoogleReviewsCarousel />
+        
          
         </div>
       </Layout>
