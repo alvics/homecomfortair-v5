@@ -24,7 +24,7 @@ Split,systems,Ipswich,Brisbane,service`,
 
       <div className="body-wrapper px-lg-5 px-md-1 pt-4">
           <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h1 cam text-center text-white fw-600  p-3">
+          <h1 className="h2 cap text-center text-white fw-600  p-3">
             <div>
               {" "}
               <StaticImage
@@ -42,12 +42,13 @@ Split,systems,Ipswich,Brisbane,service`,
         </div>
         <div className="row about-us">
           <div className="col-lg-8 pt-3">
-            <div className="wrapper-about-img">
+            <div className="wrapper-about-img px-2">
               <StaticImage
                 filename="splits-add-11-pow.png"
                 alt="home comfort air image"
               />
             </div>
+            <div className="px-3">
             <div className="mt-3">
               <h1 className="h5 cap fw-600">Service Area's</h1>
             </div>
@@ -57,7 +58,7 @@ Split,systems,Ipswich,Brisbane,service`,
             </p>
 
             <p className="lead-20 mt-3">
-              At HOME COMFORT AIR, we are dedicated to providing first-rate air conditioning services to South East Queensland. We specialize in installing all major brand air conditioners and offer a 5-year warranty on all new split system installations.
+              At HOME COMFORT AIR, we are dedicated to providing first-rate air conditioning services to South East Queensland. We specialise in installing all major brand air conditioners and offer a 5-year warranty on all new split system installations.
             </p>
             <p className="lead-20 mt-3">
               Our team of licensed experts are equipped to handle all of your installation and service needs, ensuring 100% customer satisfaction and quality workmanship. We cover a wide service area and will come to you if your location is within our maps.
@@ -73,10 +74,17 @@ Split,systems,Ipswich,Brisbane,service`,
             </p>
 <div className="m-3">
     {/* List of service area's  */}
+    <ul>
+    <li><Link to='/service-areas/advancetown'>Advancetown</Link></li>
+    <li><Link to='/service-areas/ashmore'>Ashmore</Link></li>
+    </ul>
 
+    
+    
+</div>
 </div>
           
-            <div className="img-wrapper-e">
+            <div className="img-wrapper-e px-2">
               <StaticImage
                 filename="splits-add.png"
                 alt="split systems from home comfort air"
@@ -85,9 +93,11 @@ Split,systems,Ipswich,Brisbane,service`,
 
             <div className="mt-2">
               <MideaProducts />
+              <div className="px-2">
                <button className="mt-2 btn-- btn-primary--">
           <Link to="/products" style={{color:'white', fontSize:'14px'}}>View all split systems ></Link>
         </button>
+        </div>
             </div>
           </div>
           <div className="col-lg-4 pt-3 px-4">
@@ -116,7 +126,10 @@ Split,systems,Ipswich,Brisbane,service`,
           </div>
         </div>
        
-        <div>
+        <div className="px-3 mt-3">
+        <div className="mb-3 mt-4">
+        <h5 className="h3 text-center">View more brands</h5>
+        </div>
          <BrandBtn />
         </div>
       </div>

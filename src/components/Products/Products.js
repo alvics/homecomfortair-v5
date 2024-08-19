@@ -186,9 +186,9 @@ const Products = () => {
     <div className="container shop-page" style={{marginTop:"120px"}}>
       {/* Sidebar */}
       <div className="row">
-        <div className="col-sm-12 col-md-3 col-lg-2 col-xl-2 hide-side mt-2 by-white" >
+        <div className="col-sm-12 col-md-3 col-lg-2 col-xl-2 hide-side mt-2 by-white" style={{maxWidth: 170, margin: 10}} >
           <div className="" >
-            <nav className="position-fixed bg-white p-2 min-vh-75 rounded border left-side-menu sidebar-main">
+            <div className="bg-white p-2 rounded border left-side-menu sidebar-main">
             <div className="pt-4">
               <h4 className="fsz-16 mb-3 fw-700">
   <u>Shop by Brand</u>
@@ -267,7 +267,7 @@ const Products = () => {
                 Clear Filters
               </button>
             </div>
-          </nav>
+          </div>
           </div>
         </div>
 

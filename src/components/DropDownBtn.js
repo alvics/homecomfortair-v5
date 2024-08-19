@@ -24,7 +24,7 @@ const DropdownBtn = () => {
         </li>
         <div className="dropdown-divider"></div>
         <li>
-          <Link to="/split-systems">Split Systems</Link>
+          <Link to="/split-system-air-conditioning">Split Systems</Link>
         </li>
         <div className="dropdown-divider"></div>
         <li>

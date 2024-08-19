@@ -23,7 +23,7 @@ const InstallationWarrantyPage = () => {
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h1 cam text-center text-white fw-600  p-3">
+          <h1 className="h2 cap text-center text-white fw-600  p-3">
             <div>
               {" "}
               <StaticImage
@@ -40,9 +40,9 @@ const InstallationWarrantyPage = () => {
         </section>
 
         <section className='p-3'>
-        <h2 className="h5 cap fw-600 mt-3">Why Our 5-Year Installation Warranty Sets Us Apart</h2>
+        <h2 className="h5 cam fw-600 mt-3">Why Our 5-Year Installation Warranty Sets Us Apart</h2>
         <p className="lead-20 mt-3 lh-base">
-        When it comes to air conditioning installation, a warranty is an important consideration. It provides peace of mind and protection for both the customer and the installer. At Home Comfort Air, we are proud to offer a 5-year installation warranty for workmanship on all of our air conditioning installations.
+        When choosing an air conditioning installation service, a warranty is crucial for ensuring peace of mind and security for both you and the installer. At Home Comfort Air, we stand behind our work with a 5-year installation warranty on all new split system air conditioning installations, demonstrating our commitment to quality and reliability.
         </p>
         </section>
 

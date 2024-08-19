@@ -20,7 +20,7 @@ Split,systems,Ipswich,Brisbane,Specials`,
     <div className="body-wrapper ducted-systems pt-3">
       <section className="px-3">
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color mx-0 ">
-          <h1 className="h1 cam text-center text-white fw-600  p-3">
+          <h1 className="h2 cap text-center text-white fw-600  p-3">
             <div>
               {" "}
               <StaticImage
@@ -28,7 +28,7 @@ Split,systems,Ipswich,Brisbane,Specials`,
                 alt="home comfort air image"
               />
             </div>
-            Ducted air conditioning systems
+            Ducted air conditioning 
           </h1>
           <div className="pb-3">
             <Cta />
@@ -37,7 +37,7 @@ Split,systems,Ipswich,Brisbane,Specials`,
 
         <div className="grid-col-2 ducted-systems-top-col">
           <div class="ducted-col mt-3">
-            <h3 className="h5 fw-600 px-20 ">ENTIRE HOME SOLUTION</h3>
+            <h3 className="h5 fw-600 px-20 cam">Entire Home Solutions</h3>
             <p className="lead-20 px-20 lh-base">
               Ducted air conditioning system provides discreet comfort all year
               round, with reverse cycle heating and cooling technology. Designed
@@ -66,7 +66,7 @@ Split,systems,Ipswich,Brisbane,Specials`,
             <StaticImage filename="multi-1.jpg" alt="ducted air image" />
           </div>
           <div>
-            <h3 className="h5 fw-600 px-20 cap">Why Ducted Air?</h3>
+            <h3 className="h5 fw-600 px-20 cam">Why Ducted Air?</h3>
             <p className="lead-20 px-20 lh-base">
               Ducted systems can be customised to suit your requirements. If
               you're looking to control the temperature of the entire home, then
@@ -85,7 +85,7 @@ Split,systems,Ipswich,Brisbane,Specials`,
       <section className="mt-5">
         <div className="grid-col-2 ducted-systems-top-col">
           <div>
-            <h3 className="h5 fw-600 px-20 mt-5 cap">
+            <h3 className="h5 fw-600 px-20 mt-5 cam">
               Cost of running a ducted system
             </h3>
             <p className="lead-20 px-20">
@@ -100,13 +100,7 @@ Split,systems,Ipswich,Brisbane,Specials`,
               <li className="fsz-18">*The temperature set</li>
             </ul>
             <p className="lead-20 px-20 lh-base">
-              Ducted air conditioning is an important investment in your home,
-              and technology plays a big part when choosing the right system. We
-              only install the leading brands for a number of reasons, energy
-              efficiency, greater life span, durability, advanced technology and
-              guaranteed support. Give us a call when you're thinking about
-              ducted air conditioning system for your home. Home Comfort Air,
-              residential air conditioning specialists.
+              Ducted air conditioning is a significant investment in your home, and selecting the right system involves careful consideration. The right choice requires thoughtful factors like your home’s layout, climate, and your personal comfort preferences. We install only the top brands because they offer energy efficiency, longevity, durability, cutting-edge technology, and reliable support. Contact us when you're ready to discuss ducted air conditioning for your home. <span className="italic">Home Comfort Air, your residential air conditioning specialists.</span>
             </p>
           </div>
           <div className="ducted-air px-3">
@@ -125,19 +119,20 @@ Split,systems,Ipswich,Brisbane,Specials`,
           </div>
 
           <div className="text-center">
-            <h3 className="h2 fw-600 mt-2 ">Receive a Free Quote</h3>
+            <h3 className="h2 fw-600 mt-2 cap">Receive a Free Quote</h3>
           </div>
         </div>
         <div className="grid-col-2">
           <div>
-            <h5 className=" px-20 cap fw-600">
+          <div className="pb-3">
+            <h5 className="h5 px-20 cam fw-600">
               Ducted System Installation Quotes
             </h5>
+            </div>
             <p className="px-20 lead-400">
               We install ducted air conditioning systems for
               new construction and existing homes.
-             Need a replacement unit or a new installation? Submit your details, and we'll contact you
-              back shortly.
+             Whether you're looking to replace an old unit or install a new one, simply provide us with your details, and we'll get in touch with you promptly.
             </p>
             <p className="font-italic px-20">
               "You could also leave the best suited time to call you back".

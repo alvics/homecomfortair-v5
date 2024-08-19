@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 
+
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showResults, setShowResults] = useState(false); 
@@ -96,13 +97,15 @@ const Search = () => {
               className="product-image"
             />
           </div>
-          <p className="h3-search text-capitalize d-flex pt-2">
+          <p id="search-brand" className="h3-search text-capitalize d-flex pt-2">
             <span className='fw-600'>{product.node.sub_categories[0].title}</span>
+           
           
           <span className="cooling-capacity pl-1">
             {product.node.cool_capacity}</span>
             <span className="search-price fw-600 pl-2"> ${product.node.price}</span>
           </p>
+           
         </Link>
       </li>
     ))}

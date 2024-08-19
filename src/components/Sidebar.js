@@ -16,7 +16,7 @@ const Sidebar = ({ categories, products, setFilteredProducts }) => {
 
   return (
     <div className="col-sm-12 col-md-4">
-      <div className="position-fixed bg-white p-4">
+      <div className=" bg-white p-4">
         {/* Sidebar content */}
         <ul>
           {categories.map((category) => (

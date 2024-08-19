@@ -29,12 +29,12 @@ return (
                 />
               </div>
               <div className="col">
-                <h3 className="h2 fw-600 mt-2">
-                  Air Conditioning Solutions For Your Home
+                <h3 className="h2 fw-600 mt-2 cap">
+                  Air Conditioning Solutions 
                 </h3>
               </div>
             </div>
-            <div className="grid-300 mb-2">
+            <div className="grid-300 mb-2 p-2">
               <div className="card">
                 <Link to="/split-systems">
                   <div className="card-top">
@@ -130,8 +130,9 @@ return (
               </div>
             </div>
 
-            <div className="mt-5">
-            <h3 className="h6 cam my-3 fw-600">Recommended leading brands</h3>
+            <div className="mt-5 mb-3">
+            <div className="px-2"><h3 className="h6 cam my-3 fw-600">Recommended leading brands</h3></div>
+            
              <BrandsBtn />
             </div>
             
@@ -146,7 +147,7 @@ return (
                 />
               </div>
               <div className="col">
-                <h3 className="h2 fw-600 mt-2 ">
+                <h3 className="h2 fw-600 mt-2 cap">
                   Split System Air Conditioning
                 </h3>
               </div>
@@ -154,19 +155,21 @@ return (
 
              <MideaSplitSystems />
              <div className="px-2">
-            <p>*Prices include GST</p>
+            <p>*Prices inc GST</p>
             <div>
             <Link to="/products" className="btn-- btn-primary-- text-white">
             View Deals
           </Link>
           </div>
             </div>
+
+           
              
-             
+            
             <div className="grid-2">
               <div className="span-col-3">
                 <h4 className="text-dark fw-400">
-                  Home Comfort Air <br />Heating & Air Conditioning 
+                  Home Comfort Air <br /><small>Air Conditioning Solutions</small>
                 </h4>
                 <div className="img-fluid rounded-2">
                   <StaticImage
@@ -194,14 +197,14 @@ return (
                  <p className="mt-20 lead">
                   Don't hesitate to reach out to us at Home Comfort Air or call us at <a href="tel:0404602657">0404 602 657</a> to learn more about all the options available to you and to schedule your consultation today.
                 </p>
-                <h4 className="mt-3">Mitsubishi Electric AP-Series System Air Conditioning</h4>
+                <h4 className="mt-3">Mitsubishi Electric MSZ-AP-Series Split System Air Conditioning</h4>
                 <MitsubishiSplitSystems />
 
     <div className="px-2">
             <p>*Prices include GST</p>
             <div>
             <Link to="/products" className="btn-- btn-primary-- text-white">
-            View Deals
+            More Deals
           </Link>
           </div>
             </div>
@@ -218,7 +221,7 @@ return (
           </section>
 
          <section>
-          <div className="heading-box-color  heading-avatar rounded row d-flex align-items-center mb-2 mx-0">
+          <div className="heading-box-color heading-avatar rounded row d-flex align-items-center my-2 mx-0">
               <div className="col-sm-3 col-lg-2 pt-2 px-4">
                 <StaticImage
                   filename="HCA-avatar-WHITE-1400.png"
@@ -263,7 +266,7 @@ return (
               </div>
               <div className="col">
                 <h3 className="h2 fw-600 mt-2 ">
-                   Air Conditioning Installation Professionals
+                    Personalised comfort solutions, from trusted professionals.
                 </h3>
               </div>
             </div>
@@ -319,7 +322,7 @@ return (
                   */} 
                 </div>
               </div>
-              <div className="col-lg-5">
+              <div className="col-lg-5 p-2">
                 <div className="home-comfort-air-img mt-3">
                   {" "}
                   <StaticImage
@@ -386,9 +389,27 @@ return (
 
                 
             </div>
-            <h4 className="mt-3">Daikin Cora Split System Air Conditioning</h4>
+
+   <div className="heading-box-color heading-avatar rounded row d-flex align-items-center my-2 mx-0">
+              <div className="col-sm-3 col-lg-2 pt-2 px-4">
+                <StaticImage
+                  filename="HCA-avatar-WHITE-1400.png"
+                  alt="home comfort air image"
+                />
+              </div>
+              <div className="col container-fluid">
+                <h3 className="h5 fw-600 mt-2 cam text-white">
+                  Quality workmanship backed by our 5 Year Installation Warranty*
+                </h3>
+              </div>
+          </div>
+
+<div className="p-2">
+ <h4 className="mt-3">Daikin Cora Split System Air Conditioning</h4>
             <DaikinSplitSystems />
             <p>*Prices include GST</p>
+</div>
+           
           </section>
           <div
             style={{

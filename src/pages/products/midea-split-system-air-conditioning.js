@@ -22,7 +22,7 @@ const MideaProductsPage = () => {
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h1 cam text-center text-white fw-600  p-3">
+          <h1 className="h2 cap text-center text-white fw-600  p-3">
             <div>
               {" "}
               <StaticImage

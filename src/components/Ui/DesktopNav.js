@@ -45,7 +45,7 @@ const Header = () => {
     
     <TopNavMenu />
 
-      <nav id="desktop-nav d-sm-none" className="fixed-top pt-3 pb-2" style={{borderBottom: '3px solid rgb(0, 117, 201)', borderTop: '1px solid rgb(0, 117, 201)'}}>
+      <nav id="desktop-nav d-sm-none" className="fixed-top pt-3 pb-2 d-none d-sm-block" style={{borderBottom: '3px solid rgb(0, 117, 201)', borderTop: '1px solid rgb(0, 117, 201)'}}>
         <div className="container" id="navbar">
           <div id="logo" className="reverse">
             <div className="logo">
@@ -74,15 +74,15 @@ const Header = () => {
             </span>
             
 
-             
+             <span id="daikin-dealer-logo" style={{width:110, marginRight: 5, position:"absolute",right:100,top:50}}>
+
+  <Link to="/products/#daikin"><StaticImg filename="daikin-logo2.png"  alt="Daikin logo" /></Link>
+ </span>
 
           </div>
          
         </div>
-         <span id="daikin-dealer-logo" style={{width:110, marginRight: 5, position:"absolute",right:100,top:50}}>
-
-  <Link to="/products/#daikin"><StaticImg filename="daikin-logo2.png"  alt="Daikin logo" /></Link>
- </span>
+ 
       </nav>
     </div>
   )

@@ -19,7 +19,7 @@ const MultiHeadSystemsPage = () => (
     <div className="body-wrapper multi-systems pt-3">
       <section>
         <div className="pt-2 multi-systems-avatar heading-box-color rounded">
-          <h1 className="h1 cam text-center text-white fw-600 p-3">
+          <h1 className="h1 cap text-center text-white fw-600 p-3">
             <span style={{ maxHeight: 305 }}>
               {" "}
               <StaticImage
@@ -36,9 +36,9 @@ const MultiHeadSystemsPage = () => (
 
         <div className="grid-col-2 multi-systems-top-col">
           <div>
-            <h3 className="h5 fw-600 px-20 cap mt-3">
+            <h2 className="h5 fw-600 px-20 cam mt-3">
               Multiple Rooms Solution
-            </h3>
+            </h2>
             <p className="lead-20 px-20 lh-base">
               Multi-head air conditioning system can connect up to five wall
               mounted indoor head units to one outdoor unit. Similar look and
@@ -72,7 +72,7 @@ const MultiHeadSystemsPage = () => (
             />
           </div>
           <div>
-            <h3 className="h5 fw-600 px-20 cap">Why Multi-Head System?</h3>
+            <h3 className="h5 fw-600 px-20 cam">Why Multi-Head System?</h3>
             <p className="lead-20 px-20 lh-base">
               If you're looking to cool individual rooms throughout your home,
               then the multi-head air conditioning system might be the right
@@ -88,7 +88,7 @@ const MultiHeadSystemsPage = () => (
       <section className="mt-5">
         <div className="row plit-systems-top-col">
           <div className="col-lg-6">
-            <h3 className="h5 fw-600 px-20 mt-5 cap">
+            <h3 className="h5 fw-600 px-20 mt-5 cam">
               Intelligent and Durable Technology
             </h3>
             <p className="lead-20 px-20 lh-base">
@@ -126,17 +126,20 @@ const MultiHeadSystemsPage = () => (
           </div>
 
           <div className="text-center">
-            <h3 className="h2 fw-600 mt-2 ">Receive A free Quote</h3>
+            <h3 className="h2 fw-600 mt-2 cap">Receive A free Quote</h3>
           </div>
         </div>
         <div className="grid-col-2">
           <div className="multi-head-quotes-text">
-            <h5 className=" px-20 cap fw-600">
+          <div className="pb-2">
+           <h4 className="h5 px-20 cam fw-600">
               Multi-Head System Installation Quotes
-            </h5>
+            </h4>
+          </div>
+           
             <p className="px-20 lead-400">
               We install new multi-head air conditioning systems for new construction and existing homes. 
-              Need a replacement unit or a new installation? Submit your details, and we'll contact you
+              Looking for a new installation or replacement unit? Submit your details, and we'll contact you
               back shortly.
             </p>
             <p className="font-italic px-20">

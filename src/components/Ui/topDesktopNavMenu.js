@@ -15,15 +15,16 @@ import Search from "../Search"
  
  <div
         style={{ zIndex: 99, borderTop: '1px solid red' , borderBottom:'1px solid red', maxHeight: 50 }}
-        className="container-fluid fixed-top py-3 bg-white"
+        className="container-fluid fixed-top py-3 bg-white Top-Nav-Desk-Top d-none d-sm-block"
       >
         <div className="container text-white">
           <div className="row">
-            <div className="col-md-3 d-xl-block d-xxl-block d-lg-block d-flex justify-content-between service-area text-shadow-1 text-black d-none d-lg-block d-xl-block d-xxl-block">
-              <span className="headerLink"><Link to="/ipswich-air-conditioning">Ipswich</Link></span> | <span className="headerLink"><Link  to="/brisbane-air-conditioning">Brisbane</Link></span> | <span className="headerLink"><Link  to="/gold-coast-air-conditioning">Gold Coast</Link></span>
+            <div className="col-md-3 d-none d-lg-block d-xl-block d-xxl-block d-flex justify-content-between service-area text-shadow-1 text-black">
+             <span className="headerLink"><Link  to="/gold-coast-air-conditioning">Gold Coast</Link></span> | <span className="headerLink"><Link  to="/brisbane-air-conditioning">Brisbane</Link></span> | 
+               <span className="headerLink"><Link to="/ipswich-air-conditioning"> Ipswich</Link></span>
               
             </div>
-            <div className="col-md-6 col-sm-6 col-xs-6"><Search /></div>
+            <div className="col-md-6 col-sm-6 col-xs-6 d-flex justify-content-between"><Search /></div>
 
             <div
               style={{ PaddingBottom: 5 }}

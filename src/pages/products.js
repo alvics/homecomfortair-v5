@@ -22,7 +22,7 @@ const Products = ({
    
      <SplitSystems products={products} />
      <div className='mt-3'></div>
-    
+    <Footer />
     </div>
   )
 }

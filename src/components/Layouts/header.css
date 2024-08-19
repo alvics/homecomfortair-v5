@@ -92,10 +92,10 @@ svg:hover {
 }
 
 .phone-nav a{
-    font-size: 13px !important;
+    font-size: 12px !important;
     background-color: #00c4b3 !important;
     color: #fff !important;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .phone-nav a:hover {
@@ -147,6 +147,13 @@ svg:hover {
     .service-area {
         padding-bottom: 10px;
     }
+}
+
+@media (max-width: 1026px) {
+   .service-area {
+        display: none !important;
+    }
+
 }
 
 
@@ -227,11 +234,91 @@ a {
 /* Mobile  */
 
 @media (max-width: 450px) {
+/*  .body-wrapper, .container-fluid, .card {
+         background-color: #2d3136 !important; 
+    }*/
+    /* .lead, .lead-20, p,small,h1,h2,h3,h4,h5,div,span, .text-dark, .text-cards-archive{
+        color: #ffffff !important;
+    }
+   .card-border, .card{
+border: solid 1px #818181 !important;
+   } */
+    .h1{
+        font-size: 1.3rem !important
+    }
+     /* .card-text-dark, .card-text{
+        color: #ffffff !important;
+    } */
+
+    .h2  {
+        font-size: 1.2rem !important;
+    }
+    .image-button{
+        padding: .25rem !important;
+        
+    }
+
+    .archive-img {
+        background: #ffffff !important;
+        border-radius: 10px;
+        }
+                .title-cards-archive{
+                    margin-top: 5px !important;
+                }
+
+    /* footer.h4, .title-cards-archive, .price, span {
+        color: rgb(4, 21, 33)!important;
+        } */
+
+        .section-2 {
+            margin-top: 25px;
+        }
+     /* .heading-box-color{
+        background-color: #2d3136 !important;
+        background:#2d3136 !important;
+    } */
     .phone-num {
         display: none;
     }
+    .logo-top{
+        background-color: rgb(0, 117, 201) !important;
+        /* background-color: #2d3136; */
+        margin-top: -20px;
+    }
+    .input-search{
+        border: solid 1px #f2f1f1 !important;
+        
+   }
+   .search-btn{
+    border: solid 1px #f2f1f1 !important;
+    background-color: #bab6b6 !important;
+   }
+   .search-icon{
+     right: 19px !important;
+     width: 15px !important;
+     height: 15px !important;
+     top: 21px !important;
+     color: #2d3136 !important;
+   }
     .phone-nav {
-        margin-right: -30px;
+        position: absolute;
+        left: 310px;
+    }
+
+    .form-overlay {
+        padding: 15px !important;
+    }
+
+    .mobile-search{
+        margin-top: 8px;
+        margin-left: 50px; 
+        max-width: 80%;
+        
+    }
+
+    .mobile-nav-logo{
+        margin-left: 50px;
+        margin-top: 20px;;
     }
     .service-area {
        display: none;
@@ -258,9 +345,19 @@ a {
         box-shadow: 0 2px 5px rgba(0, 0, 0, .16), 0 2px 3px rgba(0, 0, 0, .12);
         min-height: 130px;
         padding-top:20px;
+        background-color: #ffffff !important;
     }
   .gTDLTK {
     margin: 65px 0px 0px 20px;
+  }
+  .view-more-btn {
+    color: rgb(42, 66, 91) !important;
+  }
+
+  .breadcrumb{
+    margin-top: -30px !important;
+    margin-bottom: 3px;
+    z-index: 105 !important;
   }
   
     /* headerNew__MenuIcon-dDtNuh fzrXwh" */
@@ -269,7 +366,7 @@ a {
 /* GOOGLE CHROME BROWSER  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     #menu-icon-- {
-            top: 4rem !important;
+            top: 4rem;
             right: 13px;
         }
 }
@@ -279,24 +376,29 @@ a {
 @-moz-document url-prefix() {
 #menu-icon-- {
        
-                top: 5rem !important;
-                right: 2rem;
+                top: 1.5rem;
+                right: 1.5rem;
     }
 }
 
 /* Mobile to Tablet  */
 
-@media (min-width: 320px) and (max-width: 1026px) {
-    #links,
+@media (min-width: 320px) and (max-width: 767px) {
+    
     .mobile-menu {
         display: none;
     }
-    #logo {
-        display: inline-grid;
-        grid-template-columns: auto auto;
-        grid-gap: 70px;
-    }
+   
 
+.gallery-img-container{
+  margin-top: -40px !important;
+  z-index: 10;
+}
+
+product-page-description{
+    margin-top: -10px !important;
+    z-index: 100;
+}
 
 /* CSS styles specifically for Firefox */
 @-moz-document url-prefix() {
@@ -308,6 +410,10 @@ a {
    .ul-search{
     display: block;
     padding-right: 40px;
+   }
+
+   .font-size-mobile{
+    font-size: 16px !important;
    }
 }
 
@@ -353,7 +459,7 @@ a {
     }
     #menu-icon-- {
         position: fixed;
-        top: 3.2rem;
+        top: 3.2rem !important;
         right: 2rem;
     }
     .phone-nav a {

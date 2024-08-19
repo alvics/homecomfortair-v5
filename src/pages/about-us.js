@@ -15,7 +15,7 @@ const ProductsPage = () => {
 
       <div className="body-wrapper px-lg-5 px-md-1 pt-4">
         <div className="pt-2 split-systems-avatar heading-box-color rounded ">
-          <h1 className="h1 cam text-center text-white fw-600 p-3">
+          <h1 className="h1 cap text-center text-white fw-600 p-3">
             <span>
               {" "}
               <StaticImage
@@ -25,7 +25,7 @@ const ProductsPage = () => {
             </span>
             About us
           </h1>
-          <p className="text-white text-center fsz-18">*Residential Air Conditioning Specialists</p>
+          <p className="text-white text-center fsz-18 font-size-mobile">*Residential Air Conditioning Specialists</p>
           <Cta />
           <div className="pb-3">
             
@@ -44,9 +44,9 @@ const ProductsPage = () => {
               <h2 className="h5 cap fw-600">Our Service</h2>
             </div>
 
-            <p className="lead-20 ">
+            <p className="lead-20 lead-mobile">
               We've been installing domestic air conditioners for family's and
-              major builders around Brisbane, Gold Coast and Tweed Heads area's
+              major builders around <Link to="/brisbane-air-conditioning/">Brisbane</Link>, <Link to="/gold-coast-air-conditioning/">Gold Coast</Link>, <Link to="/ipswich-air-conditioning/">Ipswich</Link> and <Link to="/tweed-heads-air-conditioning/">Tweed Heads</Link> area's
               for over a decade. Everything from{" "}
               <Link to="/split-systems">high wall split</Link> and{" "}
               <Link to="/multi-head-systems">multi head systems</Link> with
@@ -58,7 +58,7 @@ const ProductsPage = () => {
               air conditioning systems.{" "}
             </p>
 
-            <p className="lead-20 mt-3">
+            <p className="lead-20 lead-mobile mt-3">
               HOME COMFORT AIR services South East Queensland installing all
               major brand air conditioners, if you can see your location on the
               maps in our service area, we'll come to you. Our staff are
@@ -69,10 +69,10 @@ const ProductsPage = () => {
               can be contacted between the hours of 8am and 5pm.{" "}
             </p>
 
-            <p className="lead-20 mt-3">
+            <p className="lead-20 lead-mobile mt-3">
             We stand behind our work and our commitment to providing the best service possible. Our team of highly trained and experienced technicians are dedicated to ensuring that every installation is completed correctly and to the highest standards. And with our <Link to="/installation-warranty">5-year warranty</Link>, customers can rest assured that they are protected in the event of any issues.
             </p>
-            <p className="lead-20">
+            <p className="lead-20 lead-mobile">
               If your looking for air conditioning with professional and quality
               workmanship, give HOME COMFORT AIR a call on{" "}
               <a href="tel:0404602657">0404 602 657</a> for residential air
@@ -80,7 +80,7 @@ const ProductsPage = () => {
             </p>
 
             </div>
-            <div className="img-wrapper-e p-1">
+            <div className="img-wrapper-e p-1 w-50">
               <StaticImage
                 filename="install-450.png"
                 alt="home comfort air image"
@@ -97,7 +97,7 @@ const ProductsPage = () => {
                 <h3 className="h5 cap fw-600">Servicing Area's</h3>
               </div>
               <div>Gold Coast and surrounding area's</div>
-              <div className="mb-1">
+              <div className="mb-1 w-50">
                 <StaticImage
                   filename="map-gold-coast.png"
                   alt="map-gold-coast"
@@ -105,21 +105,23 @@ const ProductsPage = () => {
                 />
               </div>
               <div>Brisbane and surrounding area's</div>
-              <StaticImage
+              <div className="w-50">  <StaticImage
                 filename="map-brisbane-distances-3.png"
                 alt="map-brisbane-distances"
-              />
+              /></div>
+            
             </div>
             
           </div>
         </div>
         <section>
       <div className="lg mb-5">
-      <h5>View all our brands</h5>
+      
       <Link className="btn-- btn-primary--" to="/products" >SHOP</Link>
       </div>
       </section>
      <div>
+     <h5 className="p-2">View all our brands</h5>
      <BrandsImages />
      </div>
 

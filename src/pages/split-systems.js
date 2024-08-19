@@ -39,7 +39,7 @@ Split,systems,service,supply,install`,
     <div className="body-wrapper px-lg-5 px-md-2 pt-4">
       <section >
         <div className="pt-2 split-systems-avatar heading-box-color rounded ">
-          <h1 className="h1 cam text-center text-white fw-600 p-3">
+          <h1 className="h2 cap text-center text-white fw-600 p-3">
             <span>
               {" "}
               <StaticImage
@@ -56,7 +56,7 @@ Split,systems,service,supply,install`,
 
         <div className="grid-col-2 split-systems-top-col">
           <div>
-            <h3 className="h5 fw-600 px-20 mt-3">SINGLE ROOM SOLUTION</h3>
+            <h3 className="h5 fw-600 px-20 mt-3">Single Room Solutions</h3>
             <p className="lead-20 px-20">
               The split system air conditioner is a reliable and flexible
               comfort solution ideal for living areas, apartments and single
@@ -111,7 +111,7 @@ Split,systems,service,supply,install`,
                   />
                 </div>
                 <div className="card-heading">
-                  <h3 className="fw-600 text-dark">Daikin Systems</h3>
+                  <h3 className="fw-600 card-text-dark">Daikin Systems</h3>
                 </div>
                 <div className="card-body--">
                   <p className="card-text lead">
@@ -120,7 +120,7 @@ Split,systems,service,supply,install`,
                   </p>
                 </div>
 
-                <div className="text-blue text-shadow-2 text-left p-0 mt-3">
+                <div className="card-text-dark text-shadow-2 text-left p-0 mt-3">
                   Learn more >
                 </div>
               </div>
@@ -201,7 +201,7 @@ Split,systems,service,supply,install`,
 
           
           <Panel>
-            <h5 className="fw-600 cap mt-3 pb-2 ml-2 pl-3">Daikin Split Systems</h5>
+            <h5 className="fw-600 cam mt-3 pb-2 ml-2 pl-3">Daikin Split Systems</h5>
             <div className="px-3-lg">
               <DaikinProducts />
             </div>
@@ -211,7 +211,9 @@ Split,systems,service,supply,install`,
             <div className="grid-col-2 col-panel pt-20">
               
               <div className="p-20">
-                <h5 className="fw-600 cap">Daikin air conditioning</h5>
+              <div className="pb-3">
+                <h5 className="fw-600 h5 cam">Daikin air conditioning</h5>
+                </div>
                 <p className="lead">
                   Daikin Air Conditioning is one of our top choices, it's
                   reputation for technology and innovations is one of the best
@@ -376,7 +378,7 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
       <h5>View all our brands</h5>
       <Link className="btn-- btn-primary--" to="/products" >SHOP</Link>
       </div>
-       <div className="mt-3 mb-3">
+       <div className="mt-3 mb-3 px-3">
            <BrandsBtn />
         </div>
       </section>
@@ -391,8 +393,8 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
           
           </div>
           <div className="col">
-            <h3 className="h2 fw-600 mt-2">
-              Residential Air Conditioning Solution
+            <h3 className="h2 fw-600 mt-2 cap">
+               Air Conditioning Solutions
             </h3>
           </div>
         </div>
@@ -401,30 +403,22 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
       <section>
         <div className="row">
           <div className=" col-lg-6 pt-3 mb-4">
-            <h5 className=" px-20 cap fw-600">
+          <div className="pb-3">
+            <h4 className="h1 px-20 cam fw-600">
               Split System Installation Service
-            </h5>
+            </h4>
+            </div>
             <p className="px-20 lead">
-              HOME COMFORT AIR can supply and fully install all brands of split
-              system air conditioners for your home or office. Whether you're a
-              builder of new construction and are looking for our "rough in" and
-              "fit off" service to an existing home needing full installation,
-              we've got air conditioning solutions for all requirements. Already
-              purchased a split system and are only looking for installation ?
-              We can provide our "installation only service" for you as well.
+              HOME COMFORT AIR offers comprehensive split system air conditioning services for both homes and offices. Whether you're a builder in need of our "rough in" and "fit off" services for new construction or a homeowner looking for a full installation, we have the perfect solution for your needs. If you've already purchased a split system and require only installation, our "installation only service" is available to assist you as well.
             </p>
-            <h5 className=" px-20 cap fw-600 mt-4">
+            <div>
+             <h5 className="h2 px-20 cam fw-600 mt-4 pb-3 pt-4">
               Replacement Split System Air Conditioning Service
             </h5>
+            </div>
+           
             <p className="px-20 lead">
-              Our <Link to="/split-system-replacement">replacement</Link> air conditioning service is widely used by
-              property managers and home owners throughout South East
-              Queensland. Our service includes the decommissioning and disposal
-              of your old air conditioning system, through to installing,
-              commissioning and testing of the new split system. Once your split
-              system has been checked and functioning correctly, we'll go
-              through and show you the use of the remote controller to operate
-              your new air conditioning system. <br />
+              Our <Link to="/split-system-replacement">replacement</Link> service is a top choice for property managers and homeowners across South East Queensland. We handle everything from decommissioning and disposing of your old system to installing, commissioning, and testing your new split system. Once your new unit is up and running, we'll guide you through using the remote controller to ensure you can operate your air conditioning system with ease. HOME COMFORT AIR—your residential air conditioning specialists. <br />
               HOME COMFORT AIR, residential air conditioning specialists.
             </p>
           </div>
@@ -455,18 +449,16 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
           </div>
 
           <div className="text-center">
-            <h3 className="h2 fw-600 mt-2 ">Receive a Free Quote</h3>
+            <h3 className="h2 fw-600 mt-2 cap">Receive a Free Quote</h3>
           </div>
         </div>
         <div className="grid-col-2">
           <div className="split-quotes-text">
-            <h5 className=" px-20 cap fw-600">
+            <h5 className="h2 px-20 cam fw-600">
               Split System Installation Quotes
             </h5>
             <p className="px-20 lead-400">
-              For new construction and existing homes.
-              Need a replacement unit or a new installation? Submit your details, and we'll contact you
-              back shortly.
+              For new builds or existing homes, whether you need a replacement unit or a fresh installation, simply submit your details, and we'll get in touch with you promptly.
             </p>
             <p className="font-italic px-20">"You could also leave the best suited time to call you back".</p>
           </div>
