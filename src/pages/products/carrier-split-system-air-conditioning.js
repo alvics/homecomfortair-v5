@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { Link } from "gatsby"
 
 import Layout from "../../components/Layouts/layout"
@@ -8,6 +8,15 @@ import Form from "../../components/QuoteForm"
 import Cta from "../../components/CTA"
 import CarrierProducts from '../../components/Products/CarrierSplitSystems'
 import CarrierPDF from "../../images/Carrier.pdf"
+
+export const Head = () => (
+  <Fragment>
+       <title>Supplied and installed Carrier Split System Air Conditioning</title>,
+       <meta name= "description" content="Find out how our supplied and installed Carrier split system air conditioning can suit your home or space."/>
+       <link rel="canonical" href="https://homecomfortair.net.au/products/carrier-split-systems-air-conditioning" />
+      
+</Fragment>
+)
 
 
 const CarrierProductsPage = () => {
@@ -31,7 +40,7 @@ const CarrierProductsPage = () => {
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Carrier Split System Air Conditioning
+            Supplied & Installed Carrier Split System Air Conditioning
           </h1>
           <div className="pb-3">
              <Cta /> 

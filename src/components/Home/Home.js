@@ -10,13 +10,15 @@ import GoogleReviewsCarousel from "../Sections/GoogleReviewsCarousel"
 import MideaSplitSystems from "../Products/MideaSplitsSystems"
 import MitsubishiSplitSystems from "../Products/MitsubishiElectricSplits"
 import DaikinSplitSystems from "../Products/DaikinSplitSytems"
+import SEO from "../../components/SEO"
+
+
+
+
 
 const Home = () => {
 
- 
-
-
-return (
+ return (
    <div id="section-ac-solutions" className="">
      <div className="body-wrapper pt-1">
        

@@ -36,11 +36,20 @@ import BrandsBtn from "../components/BrandsBtn"
 
 // import KwAccordion from '../components/Products/KwAccordion';
 
+// Using the Head API to dynamically set the title
+export const Head = ({ data }) => {
+  const { strapiProduct: product } = data;
+  return (
+    <Fragment>
+      <title>{`Supplied & installed ${product.title}`}</title>
+      <meta name= "description" content={`Supplied & installed ${product.title} for $${product.price} incl GST. Split System air conditioning by Home Comfort Air.`} />
+    </Fragment>
+  );
+}
+
 
 const SingleProduct = ({ data }) => {
  
-  
-
 /////////////////////////////
 const location = useLocation();
   const { pathname } = location;

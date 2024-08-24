@@ -1,5 +1,5 @@
 // Contact-Us Page!
-import React from "react"
+import React, { Fragment } from "react"
 
 import Layout from "../components/Layouts/layout"
 // import Background from "../components/Background"
@@ -7,9 +7,13 @@ import StaticImage from "../components/StaticQueryImages"
 // import Form from "../components/ContactForm"
 import BackgroundImage from "../components/ContactPageBackgroundImage"
 
-
-
-// import SEO from "../components/seo"
+export const Head = () => (
+  <Fragment>
+       <title>Contact Home Comfort Air | Air Conditioning Gold Coast</title>,
+       <meta name= "description" content="Contact HOME COMFORT AIR we are based in Labrador, Queensland. Residential Air Conditioning Specialist,new installations,replacement systems,preventative maintenance."/>
+       <meta name="keywords" content="Gold,Coast,Air,Conditioning,Split,systems,Ipswich,Brisbane,Specials" />
+</Fragment>
+)
 
 const Contact = () => (
   <Layout>

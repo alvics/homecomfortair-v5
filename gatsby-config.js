@@ -17,7 +17,12 @@ const strapiConfig = {
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://homecomfortair.net.au`,
+        title: `Home Comfort Air`,
+        description: `Residential air conditioning specialists, we supply and install all major brands throughout south east Queensland, from Ipswich, Brisbane and the Gold Coast.`,
+        keywords: `air conditioning, split systems, home, comfort`,
+        image: `/Home-Comfort-Air-COL-03-650.png`,
+        author: `HOME COMFORT AIR`,
+        siteUrl: `https://homecomfortair.net.au`,
   },
   plugins: [
         {

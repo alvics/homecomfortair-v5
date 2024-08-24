@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Fragment} from "react"
 // import { Tabs, Tab, Panel } from "@bumaga/tabs"
 import Layout from "../components/Layouts/layout"
 import StaticImage from "../components/StaticQueryImages"
@@ -6,11 +6,20 @@ import Form from "../components/QuoteForm"
 // import SEO from "../components/seo"
 import Cta from "../components/CTA"
 
+export const Head = () => (
+  <Fragment>
+       <title>Multi-head Split Systems | Home Comfort Air Gold Coast</title>,
+       <meta name= "description" content="Discover how HOME COMFORT AIR Multi-head air conditioning system can connect up to five wall mounted indoor head units to one outdoor unit."/>
+      <meta name="keywords" content="Gold,Coast,Air,Conditioning,
+                Split,systems,multi,head,service" />
+</Fragment>
+)
+
 const MultiHeadSystemsPage = () => (
   <Layout>
    {/* <SEO
-      title="Multi-head Split Systems | Home Comfort Air Gold Coast"
-      description={`Discover how HOME COMFORT AIR Multi-head air conditioning system can connect up to five wall mounted indoor head units to one outdoor unit.`}
+      title=""
+      description={``}
       keywords={[
         `Gold,Coast,Air,Conditioning,
                 Split,systems,multi,head,service`,

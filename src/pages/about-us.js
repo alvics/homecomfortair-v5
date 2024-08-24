@@ -1,5 +1,5 @@
 // Display the list of products
-import React from "react"
+import React, { Fragment } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/Layouts/layout"
 // import SEO from "../components/seo"
@@ -8,6 +8,15 @@ import DaikinSplitSystems from "../components/Products/DaikinSplitSytems"
 import BrandsImages from "../components/BrandsBtn"
  import Cta from "../components/CTA"
 // import BrandBtn from "../components/BrandBtn"
+
+export const Head = () => (
+  <Fragment>
+       <title>About Home Comfort Air | Gold Coast Split System Air Conditioning</title>,
+       <meta name= "description" content="Find out how Home Comfort Air has been installing new residential split system air conditioners throughout Ipswich, Brisbane and the Gold Coast area's."/>
+       <meta name="keywords" content="Gold,Coast,Air,Conditioning,Split,systems,Ipswich,Brisbane,Specials" />
+
+  </Fragment>
+)
 
 const ProductsPage = () => {
   return (

@@ -127,10 +127,11 @@ Split,systems,Ipswich,Brisbane,service`,
         </div>
        
         <div className="px-3 mt-3">
-        <div className="mb-3 mt-4">
-        <h5 className="h3 text-center">View more brands</h5>
+        <div className="mb-4 mt-4">
+        <h5 className="h3 text-center">View by brands</h5>
         </div>
-         <BrandBtn />
+        <div><BrandBtn /></div>
+         
         </div>
       </div>
     </Layout>

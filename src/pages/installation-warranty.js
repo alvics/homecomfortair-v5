@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 // import { Link } from "gatsby"
 
 import Layout from "../components/Layouts/layout"
@@ -7,7 +7,13 @@ import StaticImage from "../components/StaticQueryImages"
 import Form from "../components/QuoteForm"
 import Cta from "../components/CTA"
 
-
+export const Head = () => (
+  <Fragment>
+       <title>Our 5-Year Installation Warranty</title>,
+       <meta name= "description" content="Why our 5-Year Installation Warranty sets us apart, The importance of a 5-Year installation warranty for your air conditioning system. Ensuring Quality Workmanship!"/>
+      <meta name="keywords" content="Gold,Coast,Air,Conditioning,Split,systems,warranty,installation" />
+</Fragment>
+)
 
 
 const InstallationWarrantyPage = () => {
@@ -63,7 +69,7 @@ const InstallationWarrantyPage = () => {
         </p>
         </div>
 
-        <div className="col-lg">
+        <div className="col-lg p-2">
           <div className="ducted-air mt-2">
             <StaticImage filename="Daikin-Split-Family9.jpg" alt="daikin split system image" />
           </div>

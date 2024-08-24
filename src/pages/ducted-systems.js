@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Fragment} from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/Layouts/layout"
@@ -7,16 +7,17 @@ import StaticImage from "../components/StaticQueryImages"
 import Form from "../components/QuoteForm"
 import Cta from "../components/CTA"
 
+export const Head = () => (
+  <Fragment>
+       <title>Ducted Systems Air Conditioning | Home Comfort Air</title>,
+       <meta name= "description" content="Explore how HOME COMFORT AIR installs daikin ducted system air conditioning, throughout Ipswich, Brisbane and the Gold Coast area's."/>
+       <meta name="keywords" content="Gold,Coast,Air,Conditioning,Split,systems,Ipswich,Brisbane,ducted" />
+
+  </Fragment>
+)
+
 const DuctedPage = () => (
   <Layout>
-   {/* <SEO
-      title="Ducted Systems Air Conditioning | Home Comfort Air"
-      description={`HOME COMFORT AIR installs daikin ducted system air conditioning, throughout Ipswich, Brisbane and the Gold Coast area's.`}
-      keywords={[
-        `Gold,Coast,Air,Conditioning,
-Split,systems,Ipswich,Brisbane,Specials`,
-      ]}
-    /> */} 
     <div className="body-wrapper ducted-systems pt-3">
       <section className="px-3">
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color mx-0 ">
@@ -119,13 +120,13 @@ Split,systems,Ipswich,Brisbane,Specials`,
           </div>
 
           <div className="text-center">
-            <h3 className="h2 fw-600 mt-2 cap">Receive a Free Quote</h3>
+            <h3 className="h5 fw-600 mt-2 cap text-white">Receive a Free Quote</h3>
           </div>
         </div>
         <div className="grid-col-2">
           <div>
           <div className="pb-3">
-            <h5 className="h5 px-20 cam fw-600">
+            <h5 className="h5 px-20 cap fw-600">
               Ducted System Installation Quotes
             </h5>
             </div>

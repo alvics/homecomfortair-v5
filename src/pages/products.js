@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import SplitSystems from '../components/Products/Products';
 import { graphql } from 'gatsby';
@@ -6,6 +6,14 @@ import MobileNav from '../components/Ui/mobileNav';
 import DesktopNav from '../components/Ui/DesktopNav';
 import Footer from '../components/Footer';
 
+export const Head = () => (
+  <Fragment>
+       <title>Shop Split System Air Conditioning | Home Comfort Air Gold Coast</title>,
+       <meta name= "description" content="Search our split system air conditioning range and discover the options for cooling and heating your home or space."/>
+      <meta name="keywords" content="Gold,Coast,Air,Conditioning,
+                Split,systems,shop" />
+</Fragment>
+)
 
 
 const Products = ({ 
