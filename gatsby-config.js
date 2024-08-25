@@ -43,7 +43,23 @@ module.exports = {
       placeId: process.env.place_id,
       apiKey: process.env.GOOGLE_API_KEY,
     },
+    
 
+    },
+     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [`G-XF1GKXN75R`],
+        PluginCongig: {
+          head: true
+        }
+      },
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://homecomfortair.net.au`,
+      },
     },
       {
       resolve: `gatsby-plugin-styled-components`,

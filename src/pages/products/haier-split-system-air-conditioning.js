@@ -1,33 +1,44 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 // import { Link } from "gatsby"
 
 import Layout from "../../components/Layouts/layout"
-// import SEO from "../../components/seo"
+import Seo from '../../components/SEO-2' 
+import Schema from '../../components/Schema-2'
 import StaticImage from "../../components/StaticQueryImages"
 import Form from "../../components/QuoteForm"
 import Cta from "../../components/CTA"
 import HaierProducts from '../../components/Products/HaierSplitSystems'
 import HaierPDF from "../../images/haier-tempo.pdf"
 
+
+export const Head = () => (
+  <Fragment>
+       <title>Supplied and installed Haier Split System Air Conditioners</title>,
+       <meta name= "description" content="Check out our supplied and installed Haier split system air conditioning, Haier cooling and heating options available."/>
+       <Seo />
+       <Schema />
+</Fragment>
+)
+
+
 const HaierProductsPage = () => {
   
     return (
     <Layout>
-      
-
-     <div className="body-wrapper ducted-systems p-3">
+       <div className="body-wrapper ducted-systems p-3">
 
         <section>
-        <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h2 cap text-center text-white fw-600  p-3">
-            <div>
+          <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
+            <h1 className="h2 cap text-center text-white fw-600  p-3">
+             <div>
               {" "}
               <StaticImage
                 filename="HCA-avatar-WHITE-1400.png"
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Haier Split System Air Conditioning
+            <span className='h5 text-white fw-600'>Supplied & Installed</span>
+            Haier Split System Air Conditioners
           </h1>
           <div className="pb-3">
            <Cta />

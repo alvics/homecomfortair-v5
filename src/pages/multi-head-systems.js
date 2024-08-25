@@ -3,28 +3,23 @@ import React, {Fragment} from "react"
 import Layout from "../components/Layouts/layout"
 import StaticImage from "../components/StaticQueryImages"
 import Form from "../components/QuoteForm"
-// import SEO from "../components/seo"
+import Seo from "../components/SEO-2"
+import Schema from "../components/Schema-2"
 import Cta from "../components/CTA"
 
 export const Head = () => (
+
   <Fragment>
        <title>Multi-head Split Systems | Home Comfort Air Gold Coast</title>,
        <meta name= "description" content="Discover how HOME COMFORT AIR Multi-head air conditioning system can connect up to five wall mounted indoor head units to one outdoor unit."/>
-      <meta name="keywords" content="Gold,Coast,Air,Conditioning,
-                Split,systems,multi,head,service" />
+       <Seo />
+       <Schema />
 </Fragment>
+
 )
 
 const MultiHeadSystemsPage = () => (
   <Layout>
-   {/* <SEO
-      title=""
-      description={``}
-      keywords={[
-        `Gold,Coast,Air,Conditioning,
-                Split,systems,multi,head,service`,
-      ]}
-    /> */} 
     <div className="body-wrapper multi-systems pt-3">
       <section>
         <div className="pt-2 multi-systems-avatar heading-box-color rounded">

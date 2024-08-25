@@ -2,7 +2,8 @@ import React, {Fragment} from 'react'
 // import { Link } from "gatsby"
 
 import Layout from "../components/Layouts/layout"
-// import SEO from "../components/seo"
+import Seo from "../components/SEO-2"
+import Schema from '../components/Schema-2'
 import StaticImage from "../components/StaticQueryImages"
 import Form from "../components/QuoteForm"
 import Cta from "../components/CTA"
@@ -11,21 +12,16 @@ export const Head = () => (
   <Fragment>
        <title>Our 5-Year Installation Warranty</title>,
        <meta name= "description" content="Why our 5-Year Installation Warranty sets us apart, The importance of a 5-Year installation warranty for your air conditioning system. Ensuring Quality Workmanship!"/>
-      <meta name="keywords" content="Gold,Coast,Air,Conditioning,Split,systems,warranty,installation" />
+      <Seo />
+      <Schema />
 </Fragment>
 )
-
 
 const InstallationWarrantyPage = () => {
   
     return (
     <Layout>
-       {/* <SEO
-      title="Protecting Your Investment | Our 5-Year Installation Warranty"
-      description={ `Why our 5-Year Installation Warranty sets us apart, The importance of a 5-Year installation warranty for your air conditioning system. Ensuring Quality Workmanship!`}
-      keywords={[ `warranty,workmanship,5 year warranty, installation`, ]} /> */}
-
-     <div className="body-wrapper ducted-systems pt-3">
+      <div className="body-wrapper ducted-systems pt-3">
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
@@ -123,9 +119,7 @@ const InstallationWarrantyPage = () => {
     </div>
 </Layout>
 
-   
-    )
+ )
   }
 
-     
- export default InstallationWarrantyPage
+export default InstallationWarrantyPage

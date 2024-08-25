@@ -1,16 +1,13 @@
-import React, { Component } from 'react'
+import React from "react";
 
-export default class Schema extends Component {
-
-    
-  render() {
-
-    const Myschema = {
-      
-  "@context": "https://schema.org",
+export default function schema() {
+  return (
+    <script type="application/id+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
   "@type": ["LocalBusiness", "Air Conditioning", "Installation","Split Systems", "Website"],
   "name": "Home Comfort Air",
-  "description":"Air Conditioning Gold Coast - Sales, Installation Service. Browse our affordable reverse cycle split system range",
+  "description":"Residential Air Conditioning Specialists - Sales, Service, Installation. Browse our supplied & installed split system price range",
   "image": "https://homecomfortair.net.au/static/a480d1793c1eefd2201dfbfc149f4be9/e781a/HCA-2-avatar.png",
   "@id":  "https://homecomfortair.net.au/#website",
   "url": "https://homecomfortair.net.au/",
@@ -51,9 +48,9 @@ export default class Schema extends Component {
   },
   "sameAs": "https://www.facebook.com/profile.php?id=100067867194837" 
 
-  }
-    return (
-      <script type="application/id+json"><Myschema /></script>
-    )
-  }
+  })}
+  
+  </script>
+)
+  
 }

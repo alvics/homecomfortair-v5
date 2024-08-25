@@ -1,37 +1,42 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { Link } from "gatsby"
-
 import Layout from "../../components/Layouts/layout"
-// import SEO from "../../components/seo"
+import Seo from '../../components/SEO-2'
+import Schema from '../../components/Schema-2' 
 import StaticImage from "../../components/StaticQueryImages"
 import Form from "../../components/QuoteForm"
 import Cta from "../../components/CTA"
 import DaikinProducts from '../../components/Products/DaikinSplitSytems'
 import DaikinPDF from "../../images/daikin.pdf"
 
+export const Head = () => (
+
+  <Fragment>
+       <title>Supplied and installed Daikin Split System Air Conditioning</title>,
+       <meta name= "description" content="Explore our supplied and installed Daikin split system air conditioning, cool and heat your home with Daikin air conditioner."/>
+       <Seo />
+       <Schema />
+</Fragment>
+)
 
 const DaikinProductsPage = () => {
   
     return (
-    <Layout>
-      {/* <SEO
-      title="Daikin Split Systems | Air Conditioning Installations"
-      description={ `Daikin air conditioning from HOME COMFORT AIR. We supply and fully install Daikin split systems from $1299 throughout Ipswich, Brisbane and the Gold Coast area's.`}
-      keywords={[ `gold,coast,price,daikin,split,systems,replacement,best,specials`, ]} /> */} 
+      <Layout>
+        <div className="body-wrapper ducted-systems p-3">
 
-     <div className="body-wrapper ducted-systems p-3">
-
-        <section>
-        <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h2 cap text-center text-white fw-600  p-3">
-            <div>
-              {" "}
-              <StaticImage
+           <section>
+               <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
+                 <h1 className="h2 cap text-center text-white fw-600  p-3">
+                 <div>
+                 {" "}
+                <StaticImage
                 filename="HCA-avatar-WHITE-1400.png"
                 alt="home comfort air favicon logo image"
-              />
-            </div>
-            Daikin Split System Air Conditioning
+                 />
+                </div>
+              <span className='h5 text-white fw-600'>Supplied & Installed</span>
+               Daikin Split System Air Conditioning
           </h1>
           <div className="pb-3">
              <Cta />  
@@ -64,7 +69,7 @@ const DaikinProductsPage = () => {
         <div className="row">
         <div className="col-lg">
         <p className="lead-20 ">
-        Daikin's <Link to="/split-systems">split system</Link> air conditioners also feature advanced air filtration technology that helps to keep the air inside your home or office <Link to="/service">clean and fresh</Link>. They use multiple filters, including a high-efficiency particulate air (HEPA) filter, to remove harmful particles such as dust, pollen, and pet dander from the air. This makes them ideal for people with allergies or asthma.
+        Daikin's <Link to="/products/split-system-air-conditioning">split system</Link> air conditioners also feature advanced air filtration technology that helps to keep the air inside your home or office <Link to="/service">clean and fresh</Link>. They use multiple filters, including a high-efficiency particulate air (HEPA) filter, to remove harmful particles such as dust, pollen, and pet dander from the air. This makes them ideal for people with allergies or asthma.
         </p>
          <p className="lead-20 mt-3">
         Another advantage of Daikin's split system air conditioners is their variety of options available. They come in a range of sizes, from small units that are suitable for a single room to <Link to="/ducted-systems">larger systems</Link>  that can cool an entire house or commercial building. Additionally, Daikin offers both cooling-only and heating and cooling models, providing customers with versatile options that can be used all year round.
@@ -109,7 +114,7 @@ const DaikinProductsPage = () => {
                     className="h5 fw-600 cap mt-2 px-3  text-white "
                     style={{ padding: `1.3rem 0` }}
                   >
-                    Supplied and Installed Daikin
+                    Supplied and Installed Daikin Cora Air Conditioning
                     <br />{" "}
                     <span className="lead cam text-white">
                       <small>Air Conditioning Systems</small>

@@ -1,24 +1,30 @@
-import React from 'react'
- import { Link } from "gatsby"
- import Layout from "../components/Layouts/layout"
-// import SEO from "../components/seo"
+import React, {Fragment} from 'react'
+import { Link } from "gatsby"
+import Layout from "../components/Layouts/layout"
+import Seo from '../components/SEO-2'
+import Schema from '../components/Schema-2'
 import StaticImage from "../components/StaticQueryImages"
 import Form from "../components/QuoteForm"
 import Cta from "../components/CTA"
 import SamsungProducts from "../components/Products/SamsungSplitSystems"
 import MideaProducts from "../components/Products/MideaSplitsSystems"
 
+export const Head = () => (
+
+  <Fragment>
+       <title>Split System Air Conditioning Cost </title>,
+       <meta name= "description" content="Discover the most asked questions about split system ac installation costs. Supplied & installed prices range from ..."/>
+       <Seo />
+       <Schema />
+</Fragment>
+
+)
 
 export default function splitAcInstallationCost() {
   return (
         
-         <Layout>
-      {/* <SEO
-      title="Split AC Installation Cost: What You Need to Know"
-      description={ `Discover how split ac installation cost from $450. We supply and install split system air conditioners from $1,099 throughout Gold Coast, Brisbane, Ipswich area's.`}
-      keywords={[ `ac,installation,cost,split,system,air, conditioner`, ]} /> */} 
-
-     <div className="body-wrapper ducted-systems pt-3">
+ <Layout>
+    <div className="body-wrapper ducted-systems pt-3">
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
@@ -112,7 +118,7 @@ export default function splitAcInstallationCost() {
        <li className='list-group-item'>Any applicable taxes.</li>
        </ol>
        <p className="lead-20 mt-3 lh-base">
-         It's important to keep in mind that some HVAC professionals may offer different packages or pricing structures, so be sure to ask for a detailed quote that includes all of the costs associated with the installation. You can find our detailed <Link to="/split-systems">split system</Link> installation packages <Link to="/products/">here</Link>.
+         It's important to keep in mind that some HVAC professionals may offer different packages or pricing structures, so be sure to ask for a detailed quote that includes all of the costs associated with the installation. You can find our detailed <Link to="/products/split-system-air-conditioning">split system</Link> installation packages <Link to="/products/">compare here</Link>.
        </p>
       </div>
       </section>

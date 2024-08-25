@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Fragment} from "react"
 import { graphql, Link } from "gatsby"
 
 import Layout from "../components/Layouts/layout"
@@ -20,22 +20,21 @@ import HaierPDF from "../images/haier-tempo.pdf"
 import Cta from "../components/CTA"
 // import GoogleReviews from "../components/GoogleReviews"
 import BrandsBtn from "../components/BrandsBtn"
+import Seo from "../components/SEO-2"
+import Schema from "../components/Schema-2"
 
+export const Head = () => (
+  <Fragment>
+       <title>Split System Air Conditioning</title>,
+       <meta name= "description" content="Find out how flexible and reliable split system air conditioning is for a single room solution."/>
+      <Seo />
+      <Schema />
+</Fragment>
+)
 
 const SplitPage = ({ data: { allStrapiProduct: title } }) => (
   <Layout>
-    {/* <SEO
-      title="Split Systems A/C | Home Comfort Air Gold Coast"
-      description={`Discover HOME COMFORT AIR split system air conditioning services throughout Ipswich, Brisbane and the Gold Coast area's. New ac from $1099 incl GST.`}
-      keywords={[
-        `Gold,Coast,Air,Conditioning,
-Split,systems,service,supply,install`,
-      ]}
-    /> */}
-    <meta
-      property="og:image"
-      content="https://res.cloudinary.com/ewebdesigns/image/upload/v1587019232/install_h0mq9m.jpg"
-    ></meta>
+
     <div className="body-wrapper px-lg-5 px-md-2 pt-4">
       <section >
         <div className="pt-2 split-systems-avatar heading-box-color rounded ">

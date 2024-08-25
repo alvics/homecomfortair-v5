@@ -1,24 +1,30 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { Link } from "gatsby"
-
 import Layout from "../../components/Layouts/layout"
-// import SEO from "../../components/seo"
+import Seo from '../../components/SEO-2'
+import Schema from '../../components/Schema-2'
 import StaticImage from "../../components/StaticQueryImages"
 import Form from "../../components/QuoteForm"
 import Cta from "../../components/CTA"
 import MitsubishiProducts from '../../components/Products/MitsubishiElectricSplits'
 import MitsubishiPDF from "../../images/mitsubishi.pdf"
 
+export const Head = () => (
+
+  <Fragment>
+       <title>Supplied and Installed Mitsubishi Electric Split System Air Conditioner </title>,
+       <meta name= "description" content="Discover Mitsubishi Electric MSZ-AP series split system air conditioning for your home or space. Supplied & installed from $1599 inc GST" />
+       <Seo />
+       <Schema />
+</Fragment>
+
+)
+
 const MitsubishiProductsPage = () => {
   
     return (
     <Layout>
-    {/*  <SEO
-      title="Mitsubishi Split System Air Conditioner | Home Comfort Air"
-      description={ `Mitsubishi air conditioning from HOME COMFORT AIR. We supply and fully install Mitsubishi split system air conditioners from $1579 throughout Gold Coast area's.`}
-      keywords={[ `gold,coast,price,mitsubishi,split,system,air, conditioner`, ]} />*/ }
-
-     <div className="body-wrapper ducted-systems p-3">
+      <div className="body-wrapper ducted-systems p-3">
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
@@ -30,7 +36,9 @@ const MitsubishiProductsPage = () => {
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Mitsubishi Electric Split System Air Conditioning 
+            <span className='h5 text-white fw-600'>Supplied & Installed</span>
+            Mitsubishi Electric Split System Air Conditioner 
+            
           </h1>
           <div className="pb-3">
            <Cta /> 
@@ -52,7 +60,7 @@ const MitsubishiProductsPage = () => {
         <Link to="/products/#mitsubishi">Mitsubishi</Link> Electric is a well-known and reputable brand in the air conditioning industry, offering a wide range of high-quality split system air conditioners for both residential and commercial use. These systems are designed to provide optimal comfort and energy efficiency, making them a great choice for any home or office.
         </p>
         <p className="lead-20">
-        One of the key features of Mitsubishi Electric air conditioning <Link to="/split-systems">split systems</Link> is their advanced technology and advanced features. The air conditioners are equipped with the latest energy-saving technology which helps to reduce energy consumption, and the units are also equipped with advanced features like energy-saving modes, and sleep modes which help to improve comfort and efficiency. Additionally, the systems are known for their quiet operation, making them ideal for use in bedrooms and other quiet spaces.
+        One of the key features of Mitsubishi Electric air conditioning <Link to="/products/split-system-air-conditioning/">split systems</Link> is their advanced technology and advanced features. The air conditioners are equipped with the latest energy-saving technology which helps to reduce energy consumption, and the units are also equipped with advanced features like energy-saving modes, and sleep modes which help to improve comfort and efficiency. Additionally, the systems are known for their quiet operation, making them ideal for use in bedrooms and other quiet spaces.
         </p>
 
         <p className="lead-20">
@@ -85,7 +93,7 @@ const MitsubishiProductsPage = () => {
         </p>
 
         <h3 className="h5 cap fw-600 mt-3">Is Mitsubishi AC better than Daikin?</h3>
-        <p className="lead-20 mt-3">Both Mitsubishi and Daikin are well-respected brands in the air conditioning industry, and both offer high-quality, efficient, and durable air conditioners. It's a matter of personal preference as to which brand is better, and it ultimately depends on your specific needs and budget.</p>
+        <p className="lead-20 mt-3">Both Mitsubishi and <Link to="/products/daikin-split-system-air-conditioning/">Daikin</Link> are well-respected brands in the air conditioning industry, and both offer high-quality, efficient, and durable air conditioners. It's a matter of personal preference as to which brand is better, and it ultimately depends on your specific needs and budget.</p>
         </div>
 
         <div className="col-lg mt-3">
@@ -104,7 +112,7 @@ const MitsubishiProductsPage = () => {
         With proper maintenance and regular servicing, a Mitsubishi split system air conditioner can last for 10-15 years.
         </p>
         <h3 className="h5 cap fw-600 mt-3">What are the best split system to buy in Australia?</h3>
-        <p className="lead-20">The best split system to buy in Australia ultimately depends on your specific needs and budget. Some of the top brands in Australia include Mitsubishi, Daikin, Fujitsu, and Toshiba.
+        <p className="lead-20">The best split system to buy in Australia ultimately depends on your specific needs and budget. Some of the top brands in Australia include Mitsubishi, Daikin, Fujitsu, and <Link to="/products/toshiba-split-system-air-conditioning/">Toshiba</Link>.
         </p>
 
         <h3 className="h5 cap fw-600 mt-3">How much does it cost to install a split unit?</h3>

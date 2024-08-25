@@ -1,19 +1,21 @@
 import React, {Fragment} from "react"
 import { Link } from "gatsby"
-
 import Layout from "../components/Layouts/layout"
-// import SEO from "../components/seo"
+import Seo from "../components/SEO-2"
+import Schema from "../components/Schema-2"
 import StaticImage from "../components/StaticQueryImages"
 import Form from "../components/QuoteForm"
 import Cta from "../components/CTA"
 
 export const Head = () => (
-  <Fragment>
-       <title>Ducted Systems Air Conditioning | Home Comfort Air</title>,
-       <meta name= "description" content="Explore how HOME COMFORT AIR installs daikin ducted system air conditioning, throughout Ipswich, Brisbane and the Gold Coast area's."/>
-       <meta name="keywords" content="Gold,Coast,Air,Conditioning,Split,systems,Ipswich,Brisbane,ducted" />
 
+  <Fragment>
+       <title>Ducted Air Conditioning | Entire Home Solutions</title>,
+       <meta name= "description" content="Explore how ducted air conditioning systems can benefit your comfort in your home this summer."/>
+       <Seo />
+      <Schema />
   </Fragment>
+
 )
 
 const DuctedPage = () => (

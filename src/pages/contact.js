@@ -1,6 +1,7 @@
 // Contact-Us Page!
 import React, { Fragment } from "react"
-
+import Seo from "../components/SEO-2"
+import Schema from "../components/Schema-2"
 import Layout from "../components/Layouts/layout"
 // import Background from "../components/Background"
 import StaticImage from "../components/StaticQueryImages"
@@ -8,11 +9,13 @@ import StaticImage from "../components/StaticQueryImages"
 import BackgroundImage from "../components/ContactPageBackgroundImage"
 
 export const Head = () => (
+
   <Fragment>
-       <title>Contact Home Comfort Air | Air Conditioning Gold Coast</title>,
+       <title>Connect With Us | Contact Home Comfort Air </title>,
        <meta name= "description" content="Contact HOME COMFORT AIR we are based in Labrador, Queensland. Residential Air Conditioning Specialist,new installations,replacement systems,preventative maintenance."/>
-       <meta name="keywords" content="Gold,Coast,Air,Conditioning,Split,systems,Ipswich,Brisbane,Specials" />
-</Fragment>
+       <Seo />
+       <Schema />
+  </Fragment>
 )
 
 const Contact = () => (

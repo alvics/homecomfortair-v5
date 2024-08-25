@@ -27,9 +27,9 @@ const Header = () => {
                 alt="home comfort air map icon"
               /></div>Service area's</Link>
 
-                  <Link to="/split-system-air-conditioning" className='text-center'> <div className="split-systems-avatar-2 "><StaticImage
+                  <Link to="/products/split-system-air-conditioning" className='text-center'> <div className="split-systems-avatar-2 "><StaticImage
                 filename="air-conditioner.png"
-                alt="home comfort air aie conditioner icon"
+                alt="home comfort air air conditioner icon"
               /></div>Split Systems</Link>
 
                   <Link to="/ducted-systems" className='text-center'><div className="split-systems-avatar-2"><StaticImage

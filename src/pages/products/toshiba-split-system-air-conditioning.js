@@ -1,36 +1,44 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { Link } from "gatsby"
-
 import Layout from "../../components/Layouts/layout"
-// import SEO from "../../components/seo"
+import Seo from '../../components/SEO-2' 
+import Schema from '../../components/Schema-2'
 import StaticImage from "../../components/StaticQueryImages"
 import Form from "../../components/QuoteForm"
 import Cta from "../../components/CTA"
 import ToshibaProducts from '../../components/Products/ToshibaSplitSystems'
 import ToshibaPDF from "../../images/Toshiba.pdf"
 
+export const Head = () => (
+
+  <Fragment>
+       <title>Supplied and Installed Toshiba Split System Air Conditioner</title>,
+       <meta name= "description" content="Browse Toshiba split system air conditioning supplied & installed pricing for your home or space. Supplied & installed from $1199 inc GST" />
+       <Seo />
+       <Schema />
+</Fragment>
+
+)
+
 const ToshibaProductsPage = () => {
   
     return (
     <Layout>
-       {/* <SEO
-      title="Toshiba Split Systems | Air Conditioning Toshiba"
-      description={ `Toshiba air conditioning from HOME COMFORT AIR. We supply and fully install Toshiba split systems from $1249 throughout Brisbane and Gold Coast area's.`}
-      keywords={[ `gold,coast,price,toshiba,split,systems,,brisbane,specials`, ]} /> */}
+        <div className="body-wrapper ducted-systems p-3">
 
-     <div className="body-wrapper ducted-systems p-3">
-
-        <section>
-        <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h1 cam text-center text-white fw-600  p-3">
-            <div>
+         <section>
+           <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
+             <h1 className="h1 cap text-center text-white fw-600  p-3">
+              <div>
               {" "}
               <StaticImage
                 filename="HCA-avatar-WHITE-1400.png"
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Toshiba Split System Air Conditioning 
+            <span className='h5 text-white fw-600'>Supplied & Installed</span>
+            Toshiba Split System Air Conditioner 
+            
           </h1>
           <div className="pb-3">
             <Cta />
@@ -47,7 +55,7 @@ const ToshibaProductsPage = () => {
               />
         </div>
         <div className='pt-1' style={{marginTop:`-20px`}}>
-         <h2 className="h5 cap fw-600 mt-3">Toshiba SEIYA Classic Air Conditioner </h2>
+         <h2 className="h5 cam fw-600 mt-3">Toshiba SEIYA Classic Air Conditioner </h2>
         </div>
        
         <p className="lead-20 mt-3">
@@ -66,13 +74,13 @@ const ToshibaProductsPage = () => {
         <div className="row">
         <div className="col-lg">
         <p className="lead-20 ">
-        Toshiba's <Link to="/split-systems">split system</Link> air conditioners also feature advanced air filtration technology that helps to keep the air inside your home or office clean and fresh. They use multiple filters, including a high-efficiency particulate air (HEPA) filter, to remove harmful particles such as dust, pollen, and pet dander from the air. This makes them ideal for people with allergies or asthma.
+        Toshiba's <Link to="/products/split-system-air-conditioning">split system</Link> air conditioners also feature advanced air filtration technology that helps to keep the air inside your home or office clean and fresh. They use multiple filters, including a high-efficiency particulate air (HEPA) filter, to remove harmful particles such as dust, pollen, and pet dander from the air. This makes them ideal for people with allergies or asthma.
         </p>
         <p className="lead-20 mt-3">
         Another advantage of Toshiba's split system air conditioners is the variety of options available. They come in a range of sizes, from <Link to="/multi-head-systems">small units</Link> that are suitable for a single room to <Link to="/ducted-systems">larger systems</Link> that can cool an entire house or commercial building. Additionally, Toshiba offers both cooling-only and heating and cooling models, providing customers with versatile options that can be used all year round.
         </p>
          <p className="lead-20 mt-4">
-        In terms of design, Toshiba's split system air conditioners feature a sleek and modern look that can be easily integrated into any home or office décor. The units are built to withstand the rigors of regular use, and they come with long-term warranties to ensure your peace of mind.
+        In terms of design, Toshiba's split system air conditioners feature a sleek and modern look that can be easily integrated into any home or office décor. The units are built to withstand the rigors of regular use, and they come with a 7 year warranty to ensure your peace of mind.
         </p>
           <p className="lead-20 mt-4">
         In conclusion, Toshiba's split system air conditioners are an excellent choice for anyone looking for high-performance, energy-efficient and quiet cooling solution. With advanced inverter technology, advanced air filtration, and a wide range of options, Toshiba air conditioners are an ideal choice for keeping your home or office comfortable all year round
@@ -80,7 +88,7 @@ const ToshibaProductsPage = () => {
         </div>
 
         <div className="col-lg">
-         <div className="ducted-air mt-2">
+         <div className="ducted-air mt-2 p-2">
             <StaticImage filename="Toshiba-main.jpg" alt="toshiba air conditioning split system hero image" />
           </div>
         </div>

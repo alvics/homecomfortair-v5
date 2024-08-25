@@ -1,46 +1,46 @@
-// Display the list of products
-import React from "react"
+// Display the list of split systems
+import React, {Fragment}  from "react"
 import { Link } from "gatsby"
-
-import Layout from "../components/Layouts/layout"
-import StaticImage from "../components/StaticQueryImages"
-import Form from "../components/QuoteForm"
-// import SEO from "../components/seo"
-import MideaProducts from "../components/Products/MideaSplitsSystems"
-import CarrierProducts from "../components/Products/CarrierSplitSystems"
-import ToshibaProducts from "../components/Products/ToshibaSplitSystems"
-import SamsungProducts from "../components/Products/SamsungSplitSystems"
-import DaikinProducts from "../components/Products/DaikinSplitSytems"
-import HaierProducts from "../components/Products/HaierSplitSystems"
-import MitsubishiProducts from "../components/Products/MitsubishiElectricSplits"
-import RoomSizeTable from "../components/RoomSizeTable"
+import Layout from "../../components/Layouts/layout"
+import StaticImage from "../../components/StaticQueryImages"
+import Form from "../../components/QuoteForm"
+import Seo from "../../components/SEO-2"
+import Schema from "../../components/Schema-2"
+import MideaProducts from "../../components/Products/MideaSplitsSystems"
+import CarrierProducts from "../../components/Products/CarrierSplitSystems"
+import ToshibaProducts from "../../components/Products/ToshibaSplitSystems"
+import SamsungProducts from "../../components/Products/SamsungSplitSystems"
+import DaikinProducts from "../../components/Products/DaikinSplitSytems"
+import HaierProducts from "../../components/Products/HaierSplitSystems"
+import MitsubishiProducts from "../../components/Products/MitsubishiElectricSplits"
+import RoomSizeTable from "../../components/RoomSizeTable"
 // import SplitsHero from "../components/BackgroundSplits"
-import CTA from "../components/CTA"
-import BrandsBtn from "../components/BrandsBtn"
+import CTA from "../../components/CTA"
+import BrandsBtn from "../../components/BrandsBtn"
 // import GetCategories from "../components/Queries/GetCategories"
+
+export const Head = () => (
+
+  <Fragment>
+       <title>Split System Air Conditioning Supplied & Installed</title>,
+       <meta name= "description" content="Search our selection of split system air conditioning supplied & installed from leading brands."/>
+       <Seo />
+       <Schema />
+  </Fragment>
+
+)
 
 const ProductsPage = () => {
   return (
     <Layout>
-{/*       <SEO
-//         title="Split Systems Air | Home Comfort Air Gold Coast"
-//         description={`Visit HOME COMFORT AIR to check our prices and air conditioning specials. View our high wall split system air conditioners, supply and installation from $1090.`}
-//         keywords={[
-//           `Gold,Coast,Air,Conditioning,
-// split,systems,price,installation,specials`,
-//         ]}
-//       />
-//       <meta
-//         property="og:image"
-//         content="https://res.cloudinary.com/ewebdesigns/image/upload/v1597706415/Toshiba_lg_8ebbee010f.png"
-//       ></meta> */}
+
       <div className="container body-wrapper products-page">
        
            <div className="row">
              <div className="col-lg-10">
        
             <div className="pt-2 split-systems-avatar heading-box-color rounded">
-              <h1 className="h1 cam text-center text-white fw-600 p-3">
+              <h1 className="h1 cap text-center text-white fw-600 p-3">
                 <span>
                   {" "}
                   <StaticImage
@@ -48,7 +48,8 @@ const ProductsPage = () => {
                     alt="home comfort air image"
                   />
                 </span>
-                Choose Your Perfect Air Conditioning System
+                Split System Air Conditioning
+                <span className="h5 text-white fw-600">Supplied & Installed</span> 
               </h1>
               <div className="pb-3">
                 <CTA />
@@ -63,7 +64,7 @@ const ProductsPage = () => {
             <div className="split-system-archive products-archive p-2 mt-4" >
                  <h2 className="h5 fw-600">Browse Our Selection of High-Quality Split Systems from Leading Brands</h2>
                  <div>
-                 <p className="lead-20">Welcome to our shop page, where you'll find a wide selection of air conditioning split systems from top brands including <Link to="/products/carrier-air-conditioning">Carrier</Link>, <Link to="/products/daikin-air-conditioning">Daikin</Link>, <Link to="/products/mitsubishi-air-conditioning">Mitsubishi</Link> Electric, <Link to="/products/samsung-air-conditioning">Samsung</Link>, and <Link to="/products/toshiba-air-conditioning">Toshiba</Link>. Whether you're looking for a single room unit or a larger system for your entire home, we've got you covered. Browse through our selection to find the perfect system for your needs, and don't forget to check out our installation options as well. Our experienced technicians are ready to help you with the entire process, from selecting the right system to installing and maintaining it. Thank you for choosing Home Comfort Air for your air conditioning needs.</p>
+                 <p className="lead-20">Welcome to Home Comfort Air, where you'll find a wide selection of split system air conditioners from top brands including <Link to="/products/carrier-split-system-air-conditioning">Carrier</Link>, <Link to="/products/daikin-split-system-air-conditioning">Daikin</Link>, <Link to="/products/mitsubishi-split-system-air-conditioning">Mitsubishi Electric</Link> , <Link to="/products/samsung-split-system-air-conditioning">Samsung</Link>,<Link to="/products/midea-split-system-air-conditioning"> Midea</Link>,<Link to="/products/haier-split-system-air-conditioning"> Haier</Link>, and <Link to="/products/toshiba-split-system-air-conditioning">Toshiba</Link>. </p>
                  </div>
                  </div>
 

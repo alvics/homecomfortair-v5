@@ -2,7 +2,8 @@
 import React, { Fragment } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/Layouts/layout"
-// import SEO from "../components/seo"
+import Seo from "../components/SEO-2"
+import Schema from "../components/Schema-2"
 import StaticImage from "../components/StaticQueryImages"
 import DaikinSplitSystems from "../components/Products/DaikinSplitSytems"
 import BrandsImages from "../components/BrandsBtn"
@@ -13,8 +14,8 @@ export const Head = () => (
   <Fragment>
        <title>About Home Comfort Air | Gold Coast Split System Air Conditioning</title>,
        <meta name= "description" content="Find out how Home Comfort Air has been installing new residential split system air conditioners throughout Ipswich, Brisbane and the Gold Coast area's."/>
-       <meta name="keywords" content="Gold,Coast,Air,Conditioning,Split,systems,Ipswich,Brisbane,Specials" />
-
+       <Seo />
+       <Schema />
   </Fragment>
 )
 
@@ -57,7 +58,7 @@ const ProductsPage = () => {
               We've been installing domestic air conditioners for family's and
               major builders around <Link to="/brisbane-air-conditioning/">Brisbane</Link>, <Link to="/gold-coast-air-conditioning/">Gold Coast</Link>, <Link to="/ipswich-air-conditioning/">Ipswich</Link> and <Link to="/tweed-heads-air-conditioning/">Tweed Heads</Link> area's
               for over a decade. Everything from{" "}
-              <Link to="/split-systems">high wall split</Link> and{" "}
+              <Link to="products/split-system-air-conditioning">high wall split</Link> and{" "}
               <Link to="/multi-head-systems">multi head systems</Link> with
               major brands, <Link to='/products/daikin-split-system-air-conditioning/'> Daikin</Link>, <Link to='/products/haier-split-system-air-conditioning/'>Haier</Link>, Kelvinator, <Link to='/products/toshiba-split-system-air-conditioning/'>Toshiba</Link>, Acrton, Braemar,
               <Link to='/products/carrier-split-system-air-conditioning/'> Carrier</Link>, <Link to='/products/midea-split-system-air-conditioning/'>Midea</Link>, LG, <Link to='/products/mitsubishi-split-system-air-conditioning/'> Mitsubishi</Link> and <Link to='/products/samsung-split-system-air-conditioning/'>Samsung</Link> as well as{" "}

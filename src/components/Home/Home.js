@@ -10,11 +10,6 @@ import GoogleReviewsCarousel from "../Sections/GoogleReviewsCarousel"
 import MideaSplitSystems from "../Products/MideaSplitsSystems"
 import MitsubishiSplitSystems from "../Products/MitsubishiElectricSplits"
 import DaikinSplitSystems from "../Products/DaikinSplitSytems"
-import SEO from "../../components/SEO"
-
-
-
-
 
 const Home = () => {
 
@@ -38,7 +33,7 @@ const Home = () => {
             </div>
             <div className="grid-300 mb-2 p-2">
               <div className="card">
-                <Link to="/split-systems">
+                <Link to="/products/split-system-air-conditioning">
                   <div className="card-top">
                     <StaticImage
                       filename="ac-hero-1.jpg"
@@ -186,7 +181,7 @@ const Home = () => {
 
 
                 <p className="mt-20 lead">
-                  <Link to="/split-systems">Split system</Link> air conditioners  have come a long way in terms of technology and design, making them the most popular choice for homeowners and businesses looking for a cost-effective cooling and heating solution. With their sleek look and user-friendly features, they are perfect for single rooms or spaces, and are ideal for keeping you cool in the summer and warm in the winter.
+                  <Link to="/split-systems-air-conditioning">Split system</Link> air conditioners  have come a long way in terms of technology and design, making them the most popular choice for homeowners and businesses looking for a cost-effective cooling and heating solution. With their sleek look and user-friendly features, they are perfect for single rooms or spaces, and are ideal for keeping you cool in the summer and warm in the winter.
                 </p>
                 <p className="mt-20 lead">
                   At Home Comfort Air, we understand that choosing the right air conditioning system can be overwhelming. That's why we're here to help. With our expertise and experience, we can guide you through the process and help you find the perfect unit for your home or office space. Whether you're looking for a single room solution or a system for your entire home, we've got you covered.
@@ -285,7 +280,7 @@ const Home = () => {
                 <div>
 
                    <p className="lead mt-3 px-3">
-                   At HOME COMFORT AIR, we have been providing high-quality air conditioning installation services to families and major builders in the Brisbane, Ipswich, <Link to="/gold-coast-air-conditioning">Gold Coast</Link>, and <Link to="tweed-heads-air-conditioning">Tweed Heads</Link> regions for over a decade. We offer a wide range of options for high wall and <Link to="/multi-head-systems">multi head </Link> <Link to="/split-systems">split systems</Link>, including popular brands such as Kelvinator, Acrton, <Link to="/products/daikin-air-conditioning"> Daikin</Link>, Braemar, LG, Haier, Mitsubishi, and <Link to="/products/samsung-air-conditioning">Samsung</Link>, as well as ducted residential and commercial systems with Daikin and Actron air conditioners. Additionally, our team is experienced in installing cassette units and wall-mounted split systems in Queensland schools.
+                   At HOME COMFORT AIR, we have been providing high-quality air conditioning installation services to families and major builders in the Brisbane, Ipswich, <Link to="/gold-coast-air-conditioning">Gold Coast</Link>, and <Link to="tweed-heads-air-conditioning">Tweed Heads</Link> regions for over a decade. We offer a wide range of options for high wall and <Link to="/multi-head-systems">multi head </Link> <Link to="/split-systems-air-conditioning">split systems</Link>, including popular brands such as Kelvinator, Acrton, <Link to="/products/daikin-air-conditioning"> Daikin</Link>, Braemar, LG, Haier, Mitsubishi, and <Link to="/products/samsung-air-conditioning">Samsung</Link>, as well as ducted residential and commercial systems with Daikin and Actron air conditioners. Additionally, our team is experienced in installing cassette units and wall-mounted split systems in Queensland schools.
                    </p>
 
 

@@ -1,25 +1,29 @@
-import React from 'react'
-// import SEO from "../components/seo"
+import React, {Fragment} from 'react'
 import Layout from "../components/Layouts/layout"
 import StaticImage from "../components/StaticQueryImages"
 import Cta from "../components/CTA"
 import Form from "../components/QuoteForm"
- import SamsungProducts from "../components/Products/SamsungSplitSystems"
+import SamsungProducts from "../components/Products/SamsungSplitSystems"
 import { Link } from 'gatsby'
 import MitsubishiSplits from "../components/Products/MitsubishiElectricSplits"
+import Seo from '../components/SEO-2'
+import Schema from '../components/Schema-2'
+
+export const Head = () => (
+
+  <Fragment>
+       <title>Split System Replacement | Choose A New Air Conditioner</title>,
+       <meta name= "description" content="If you are considering replacing your split system air conditioner, our team at Home Comfort Air can help."/>
+       <Seo />
+      <Schema />
+  </Fragment>
+
+)
 
 export default function SplitSystemReplacement() {
    
   return (
       <Layout>
-    {/* <SEO
-      title="Split System Air Conditioning Replacement"
-      description={`Discover how HOME COMFORT AIR can replace your reverse cycle air conditioning system. Replacement 2.5kw split systems from $1099, browse our range.`}
-      keywords={[
-        `Gold,Coast,Air,Conditioning,
-                Split,systems,replacement,reverse,cycle`,
-      ]}
-    /> */}
     <div className="body-wrapper multi-systems pt-3">
      <section>
        <div className="pt-2 multi-systems-avatar heading-box-color rounded">
@@ -40,8 +44,8 @@ export default function SplitSystemReplacement() {
      
      </section>
 
-     <div className="row">
-     <div className="col-md-9">
+       <div className="row">
+       <div className="col-md-9">
        <section>
    
     <div>

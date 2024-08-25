@@ -1,36 +1,43 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { Link } from "gatsby"
-
 import Layout from "../../components/Layouts/layout"
-// import SEO from "../../components/seo"
+import Seo from '../../components/SEO-2' 
+import Schema from '../../components/Schema-2'
 import StaticImage from "../../components/StaticQueryImages"
 import Form from "../../components/QuoteForm"
 import Cta from "../../components/CTA"
 import SamsungProducts from "../../components/Products/SamsungSplitSystems"
 import SamsungPDF from "../../images/bedarra.pdf"
 
+export const Head = () => (
+
+  <Fragment>
+       <title>Supplied and Installed Samsung Split System Air Conditioner</title>,
+       <meta name= "description" content="Learn about Samsung split system air conditioning for your home or space. Supplied & installed from $1399 inc GST" />
+       <Seo />
+       <Schema />
+</Fragment>
+
+)
+
 const SamsungSplitSystem = () => {
   
     return (
     <Layout>
-    {/* <SEO
-      title="Samsung Air Conditioning | Split Systems Installations"
-      description={ `Samsung air conditioning from HOME COMFORT AIR. Best price on Samsung split systems Installed from $1199 throughout Brisbane and Gold Coast area's.`}
-      keywords={[ `Gold,Coast,Price,Samsung,Split,systems,Ipswich,Brisbane,Specials`, ]} /> */}   
-
-     <div className="body-wrapper ducted-systems p-3">
+       <div className="body-wrapper ducted-systems p-3">
 
         <section>
-        <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h2 cap text-center text-white fw-600  p-3">
-            <div>
+           <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
+               <h1 className="h2 cap text-center text-white fw-600  p-3">
+                <div>
               {" "}
-              <StaticImage
+                 <StaticImage
                 filename="HCA-avatar-WHITE-1400.png"
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Samsung Split System Air Conditioning Supplied & Installed
+            <span className='h5 text-white fw-600'>Supplied & Installed</span>
+            Samsung Split System Air Conditioning 
           </h1>
           <div className="pb-3">
            <Cta /> 
@@ -48,7 +55,7 @@ const SamsungSplitSystem = () => {
         </div>
         <h2 className="h5 cap fw-600 mt-3">Samsung Air Conditioner</h2>
         <p className="lead-20 mt-3">
-        Samsung is a well-known and respected brand in the world of electronics, and their air conditioning systems are no exception. Samsung's <Link to="/split-systems">split system</Link> air conditioners are known for their high performance and energy efficiency, making them a popular choice for homes and businesses.
+        Samsung is a well-known and respected brand in the world of electronics, and their air conditioning systems are no exception. Samsung's <Link to="/products/split-system-air-conditioning">split system</Link> air conditioners are known for their high performance and energy efficiency, making them a popular choice for homes and businesses.
         </p>
         </section>
 
@@ -72,7 +79,7 @@ const SamsungSplitSystem = () => {
 
 
         <div className="col-lg">
-        <div className="ducted-air mt-2">
+        <div className="ducted-air mt-2 p-3">
             <StaticImage filename="samsung-main.jpg" alt="samsung air hero images" />
           </div>
         </div>

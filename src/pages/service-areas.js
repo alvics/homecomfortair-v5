@@ -1,5 +1,5 @@
 // Display the list of products
-import React from "react"
+import React, {Fragment} from "react"
 import { Link } from "gatsby"
 import Layout from "../components/Layouts/layout"
 import Cta from "../components/CTA"
@@ -9,31 +9,35 @@ import SamsungProducts from "../components/Products/SamsungSplitSystems"
 import MideaProducts from "../components/Products/MideaSplitsSystems"
 // import Tabs from "../components/pages/Multi-Systems/MyTabs"
 import BrandBtn from "../components/BrandsBtn"
+import Seo from "../components/SEO-2"
+import Schema from "../components/Schema-2"
+
+export const Head = () => (
+
+  <Fragment>
+       <title>Service Areas | South East Queensland</title>,
+       <meta name= "description" content="We are located in Labrador, Queensland and service the surrounding ares including Ashmore, Southport, Runaway bay, Helensvale"/>
+       <Seo />
+       <Schema />
+
+  </Fragment>
+
+)
+
 
 const ServiceArea = () => {
   return (
     <Layout>
-     {/*  <SEO
-        title="Home Comfort Air | Split System Air Conditioning"
-        description={`Discover how we've been servicing south east Queensland for over 10 years installing split system air conditioning throughout Ipswich, Brisbane and the Gold Coast area's.`}
-        keywords={[
-          `Gold,Coast,Air,Conditioning,
-Split,systems,Ipswich,Brisbane,service`,
-        ]}
-      />  */}
-
-      <div className="body-wrapper px-lg-5 px-md-1 pt-4">
-          <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h2 cap text-center text-white fw-600  p-3">
-            <div>
+          <div className="body-wrapper px-lg-5 px-md-1 pt-4">
+            <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
+                <h1 className="h2 cap text-center text-white fw-600  p-3">
+                 <div>
               {" "}
-              <StaticImage
-                filename="HCA-avatar-WHITE-1400.png"
-                alt="home comfort air favicon logo image"
-              />
-            </div>
-            Service Area's
-          </h1>
+                  <StaticImage filename="HCA-avatar-WHITE-1400.png"
+                     alt="home comfort air favicon logo image" />
+                 </div>
+                    Service Area's
+                </h1>
           <div className="pb-3">
            <p className="text-white text-center fsz-18">*Residential Air Conditioning Specialists</p>
           <Cta />

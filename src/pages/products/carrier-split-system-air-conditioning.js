@@ -1,21 +1,23 @@
 import React, {Fragment} from 'react'
 import { Link } from "gatsby"
-
 import Layout from "../../components/Layouts/layout"
-// import SEO from "../../components/seo"
+import Seo from '../../components/SEO-2' 
 import StaticImage from "../../components/StaticQueryImages"
 import Form from "../../components/QuoteForm"
 import Cta from "../../components/CTA"
 import CarrierProducts from '../../components/Products/CarrierSplitSystems'
 import CarrierPDF from "../../images/Carrier.pdf"
+import Schema from '../../components/Schema-2'
 
 export const Head = () => (
+
   <Fragment>
        <title>Supplied and installed Carrier Split System Air Conditioning</title>,
        <meta name= "description" content="Find out how our supplied and installed Carrier split system air conditioning can suit your home or space."/>
-       <link rel="canonical" href="https://homecomfortair.net.au/products/carrier-split-systems-air-conditioning" />
-      
+       <Seo />
+      <Schema />
 </Fragment>
+
 )
 
 
@@ -23,12 +25,7 @@ const CarrierProductsPage = () => {
   
     return (
     <Layout>
-     {/* <SEO
-      title="Carrier Split Systems | Air Conditioning Installations"
-      description={ `Carrier air conditioning from HOME COMFORT AIR. We supply and fully install Carrier split systems from $1090 throughout Ipswich, Brisbane and the Gold Coast area's.`}
-      keywords={[ `gold,coast,price,carrier,split,systems,replacement,best,specials`, ]} /> */}  
-
-     <div className="body-wrapper ducted-systems carrier-air-con-page p-3">
+       <div className="body-wrapper ducted-systems carrier-air-con-page p-3">
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
@@ -40,7 +37,8 @@ const CarrierProductsPage = () => {
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Supplied & Installed Carrier Split System Air Conditioning
+            <span className='h5 text-white fw-600'>Supplied & Installed</span>
+            Carrier Split System Air Conditioner
           </h1>
           <div className="pb-3">
              <Cta /> 

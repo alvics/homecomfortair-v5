@@ -1,20 +1,22 @@
 import React, {Fragment} from 'react';
-
 import SplitSystems from '../components/Products/Products';
 import { graphql } from 'gatsby';
 import MobileNav from '../components/Ui/mobileNav';
 import DesktopNav from '../components/Ui/DesktopNav';
 import Footer from '../components/Footer';
+import Seo from '../components/SEO-2';
+import Schema from '../components/Schema-2';
 
 export const Head = () => (
-  <Fragment>
-       <title>Shop Split System Air Conditioning | Home Comfort Air Gold Coast</title>,
-       <meta name= "description" content="Search our split system air conditioning range and discover the options for cooling and heating your home or space."/>
-      <meta name="keywords" content="Gold,Coast,Air,Conditioning,
-                Split,systems,shop" />
-</Fragment>
-)
 
+  <Fragment>
+       <title>Shop Split System Air Conditioning | Supplied & Installed Options</title>,
+       <meta name= "description" content="Search our split system air conditioning supplied & installed range and discover cooling and heating options."/>
+       <Seo />
+       <Schema />
+  </Fragment>
+
+)
 
 const Products = ({ 
   data: {
@@ -24,14 +26,14 @@ const Products = ({
 
   return (
 
-    <div>
-   <DesktopNav />
-   <MobileNav />
-   
-     <SplitSystems products={products} />
-     <div className='mt-3'></div>
-    <Footer />
-    </div>
+    <Fragment>
+       <DesktopNav />
+       <MobileNav />
+         <SplitSystems products={products} />
+           <div className='mt-3'></div>
+       <Footer />
+    </Fragment>
+
   )
 }
 
@@ -54,5 +56,4 @@ const Products = ({
     
   `
   
-
   export default Products 

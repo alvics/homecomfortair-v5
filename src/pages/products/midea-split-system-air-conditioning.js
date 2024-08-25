@@ -1,24 +1,30 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { Link } from "gatsby"
-
 import Layout from "../../components/Layouts/layout"
-// import SEO from "../../components/seo"
+import Seo from '../../components/SEO-2'
+import Schema from '../../components/Schema-2'
 import StaticImage from "../../components/StaticQueryImages"
 import Form from "../../components/QuoteForm"
 import Cta from "../../components/CTA"
 import MideaProducts from '../../components/Products/MideaSplitsSystems'
 import MideaPDF from "../../images/Midea.pdf"
 
+export const Head = () => (
+
+  <Fragment>
+       <title>Supplied and Installed Midea Split System Air Conditioners</title>,
+       <meta name= "description" content="Discover Midea Xtreme split system air conditioning for your home or space. Supplied & installed from $1199 inc GST" />
+       <Seo />
+       <Schema />
+</Fragment>
+
+)
+
 const MideaProductsPage = () => {
   
     return (
     <Layout>
-       {/* <SEO
-      title="Midea Split Systems | Midea Air Conditioning"
-      description={ `Midea air conditioning from HOME COMFORT AIR. We supply and fully install Midea split systems from $1099 throughout Ipswich, Brisbane and the Gold Coast area's.`}
-      keywords={[ `Gold,Coast,Price,Midea,Split,systems,Ipswich,Brisbane,Specials`, ]} />
-      */}
-     <div className="body-wrapper ducted-systems p-3">
+      <div className="body-wrapper ducted-systems p-3">
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
@@ -30,60 +36,36 @@ const MideaProductsPage = () => {
                 alt="home comfort air favicon logo image"
               />
             </div>
+            <span className='h5 text-white fw-600'>Supplied & Installed</span>
             Midea Split System Air Conditioning
+            
           </h1>
           <div className="pb-3">
           <Cta /> 
           </div>
         </div>
         </section>
+        
 
         <section>
-        <div className="ducted-systems-avatar-2 ml-4" style={{textAlign: `center`}}> 
+        <div className="ducted-systems-avatar-2 ml-4 p-3" style={{textAlign: `center`}}> 
               <StaticImage
                 filename="midea_logo-blue.png"
                 alt="midea air conditioning logo"
                 
               />
         </div>
+        <section>
+         <p className="lead-20">
+        Midea is a global leader in the air conditioning industry, with a reputation for producing some of the most innovative and energy-efficient air conditioners available today. The company, which was founded in 1968 in China, has grown to become one of the world's largest manufacturers of air conditioning units and appliances.
+        </p>
+        </section>
+       
          
         <h2 className="h5 cap fw-600 mt-2">Midea Split System Air Conditioner</h2>
-        <p className="lead-20 mt-3">
-        Midea is a global leader in the air conditioning industry, with a reputation for producing some of the most innovative and <Link to="/ducted-systems">energy-efficient</Link> air conditioners available today. The company, which was founded in 1968 in China, has grown to become one of the world's largest manufacturers of air conditioning units and appliances.
-        </p>
-        </section>
 
-        <section>
-        <p className="lead-20">
-        One of the key features that sets Midea air conditioners apart from the competition is their high energy efficiency. Midea <Link to="/split-systems">air conditioners</Link> are designed with advanced inverter technology, which allows them to conserve energy and reduce running costs. This means that, not only you are enjoying a comfortable environment but also saving on your energy bill.
-        </p>
-        </section>
 
-        <section>
-        <div className="row">
-        <div className="col-lg">
-        <p className="lead-20 ">
-         In addition to energy efficiency, Midea air conditioners are also known for their quiet operation. This makes them the perfect choice for <Link to="/split-systems">bedrooms</Link>, home offices, and other spaces where you want to create a peaceful environment. They also feature a variety of convenient features, such as remote control, programmable timers, and sleep mode, to make it easy for you to control your indoor climate.
-         </p>
-          <p className="lead-20 mt-3">
-        Finally, Midea air conditioners are built to last, featuring high-quality materials and construction techniques that ensure they can withstand the rigors of regular use. They also come with long-term warranties, so you can purchase with confidence, knowing that your investment is protected.
-        </p>
-         <p className="lead-20 ">
-        In conclusion, Midea air conditioners are an excellent choice for anyone looking for a high-quality and energy-efficient cooling solution. With a wide range of options available and advanced features that make them easy to use and maintain, Midea's air conditioners are an ideal choice for keeping your home or office comfortable all year round.
-        </p>
-        </div>
-
-        <div className="col-lg">
-          <div className="ducted-air mt-2">
-            <StaticImage filename="midea-main.jpg" alt="midea split system on lounge wall" />
-          </div>
-        </div>
-
-        </div>
-       
-        </section>
-
-        <section>
+           <section>
        <div className="mt-2">
                 <div
                   className="text-center border rounded"
@@ -119,6 +101,40 @@ const MideaProductsPage = () => {
         </div>
 
         </section>
+      
+        </section>
+
+        <section>
+        <p className="lead-20">
+        One of the key features that sets Midea air conditioners apart from the competition is their high energy efficiency. Midea <Link to="/split-systems-air-conditioning">air conditioners</Link> are designed with advanced inverter technology, which allows them to conserve energy and reduce running costs. This means that, not only you are enjoying a comfortable environment but also saving on your energy bill.
+        </p>
+        </section>
+
+        <section>
+        <div className="row">
+        <div className="col-lg">
+        <p className="lead-20 ">
+         In addition to energy efficiency, Midea air conditioners are also known for their quiet operation. This makes them the perfect choice for <Link to="/split-systems-air-conditioning">bedrooms</Link>, home offices, and other spaces where you want to create a peaceful environment. They also feature a variety of convenient features, such as remote control, programmable timers, and sleep mode, to make it easy for you to control your indoor climate.
+         </p>
+          <p className="lead-20 mt-3">
+        Finally, Midea air conditioners are built to last, featuring high-quality materials and construction techniques that ensure they can withstand the rigors of regular use. They also come with long-term warranties, so you can purchase with confidence, knowing that your investment is protected.
+        </p>
+         <p className="lead-20 ">
+        In conclusion, Midea air conditioners are an excellent choice for anyone looking for a high-quality and energy-efficient cooling solution. With a wide range of options available and advanced features that make them easy to use and maintain, Midea's air conditioners are an ideal choice for keeping your home or office comfortable all year round.
+        </p>
+        </div>
+
+        <div className="col-lg">
+          <div className="ducted-air mt-2">
+            <StaticImage filename="midea-main.jpg" alt="midea split system on lounge wall" />
+          </div>
+        </div>
+
+        </div>
+       
+        </section>
+
+     
 
         <section>
          <div className="heading-box-color grid-col-2 heading-avatar rounded my-3 mx-0">
