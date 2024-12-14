@@ -737,7 +737,7 @@ const location = useLocation();
       
   <div className='related-products p-3'>
   
-  <h4>View by Brands</h4>
+  <h4>View by brands</h4>
   <BrandsBtn />
   </div>
   

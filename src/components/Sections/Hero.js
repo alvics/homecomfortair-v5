@@ -58,14 +58,14 @@ const Hero = () => {
                   <p id="hero-text" className="px-5">
                     Residential air conditioning specialists, we supply and
                     install all major brands throughout south east Queensland,
-                    from Ipswich, Brisbane and the Gold Coast.
+                    from Gold Coast, Brisbane and Ipswich.
                   </p>
                   <div className="pb-3">
                     <Link to="/products">
                       <button className="btn-- btn-green--">Shop A/C</button>
                     </Link>
 
-                    <Link to="/split-systems">
+                    <Link to="/products/split-system-air-conditioning/">
                       <button className="btn-- btn-primary-- ml-2">
                         Split Systems
                       </button>

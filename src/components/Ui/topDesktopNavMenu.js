@@ -14,7 +14,7 @@ import Search from "../Search"
  
  
  <div
-        style={{ zIndex: 99, borderTop: '1px solid red' , borderBottom:'1px solid red', maxHeight: 50 }}
+        style={{ zIndex: 99, maxHeight: 50 }}
         className="container-fluid fixed-top py-3 bg-white Top-Nav-Desk-Top d-none d-sm-block"
       >
         <div className="container text-white">

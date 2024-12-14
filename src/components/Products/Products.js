@@ -48,9 +48,9 @@ const Products = () => {
   const priceRanges = [
     { min: 1000, max: 1299 },
     { min: 1300, max: 1449 },
-    { min: 1450, max: 1579 },
-    { min: 1599, max: 1799 },
-    { min: 1800, max: 2099 },
+    { min: 1450, max: 1599 },
+    { min: 1600, max: 1899 },
+    { min: 1900, max: 2999 },
     { min: 3000, max: 999999},
   ];
 

@@ -100,7 +100,7 @@ const Footer = () => {
             <div className="text-left">
               <h4>Air Conditioning</h4>
               <p>
-                <Link to="/split-systems">Split System Air Conditioning</Link>
+                <Link to="/split-systems-air-conditioning">Split System Air Conditioning</Link>
               </p>
               <p>
                 <Link to="/ducted-systems">Ducted System Air Conditioning</Link>
@@ -130,8 +130,8 @@ const Footer = () => {
             <div className="text-left">
               <h4>Latest News</h4>
                 <p>
-                <Link to="/products/specials">
-                  Special Deals
+                <Link to="/privacy-policy">
+                  Privacy Policy
                 </Link>
               </p>
               <p>

@@ -34,7 +34,7 @@ const ProductsPage = () => {
   return (
     <Layout>
 
-      <div className="container body-wrapper products-page">
+      <div className="container body-wrapper products-page splits-page-mobile pt-3">
        
            <div className="row">
              <div className="col-lg-10">
@@ -241,7 +241,36 @@ const ProductsPage = () => {
                 ********************* Toshiba Products end/  ***************************************
                 ******************************************************************************** */} 
     </section>
+<section>
 
+                
+              {/* *******************************************************************************
+              ********************* MITSUBISHI Products banner start ********************************
+              ******************************************************************************** */} 
+
+                <div className="mb-2" id="mitsubishi">
+                <div
+                  className="text-center border rounded"
+                  style={{ backgroundColor: `#ff0000` }}
+                >
+                  <h3
+                    className="h5 fw-600 cap mt-2 px-3  text-white "
+                    style={{ padding: `1.3rem 0` }}
+                  >
+                    Supply and Install Mitsubishi
+                    <br />{" "}
+                    <span className="lead cam text-white">
+                      <small>Air Conditioning Systems</small>
+                    </span>
+                  </h3>
+                </div>
+              </div>
+
+              <MitsubishiProducts />
+              {/* *******************************************************************************
+              ********************* MITSUBISHI Products end/  ***************************************
+              ******************************************************************************** */} 
+   </section>
 
     <section>        
               {/* *******************************************************************************
@@ -275,36 +304,7 @@ const ProductsPage = () => {
               ******************************************************************************** */} 
     </section>  
 
-    <section>
-
-                
-              {/* *******************************************************************************
-              ********************* MITSUBISHI Products banner start ********************************
-              ******************************************************************************** */} 
-
-                <div className="mb-2" id="mitsubishi">
-                <div
-                  className="text-center border rounded"
-                  style={{ backgroundColor: `#ff0000` }}
-                >
-                  <h3
-                    className="h5 fw-600 cap mt-2 px-3  text-white "
-                    style={{ padding: `1.3rem 0` }}
-                  >
-                    Supply and Install Mitsubishi
-                    <br />{" "}
-                    <span className="lead cam text-white">
-                      <small>Air Conditioning Systems</small>
-                    </span>
-                  </h3>
-                </div>
-              </div>
-
-              <MitsubishiProducts />
-              {/* *******************************************************************************
-              ********************* MITSUBISHI Products end/  ***************************************
-              ******************************************************************************** */} 
-   </section>
+    
       
               <section>
 

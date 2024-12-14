@@ -27,7 +27,7 @@ const BrandsImages = () => {
     </Link>
   </div>
   <div className="image-button col col-md-3 col-6 border rounded-3" style={{maxWidth: 100}}>
-    <Link to="/products/mitsubishi-split-system-air-conditioning">
+    <Link to="/products/mitsubishi-electric-split-system-air-conditioning">
       <StaticImage filename="mitsubishi-electric.jpg" alt="mitsubishi-logo" />
     </Link>
   </div>

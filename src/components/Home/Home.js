@@ -26,7 +26,7 @@ const Home = () => {
                 />
               </div>
               <div className="col">
-                <h3 className="h2 fw-600 mt-2 cap">
+                <h3 className="h2 fw-600 mt-2">
                   Air Conditioning Solutions 
                 </h3>
               </div>
@@ -144,7 +144,7 @@ const Home = () => {
                 />
               </div>
               <div className="col">
-                <h3 className="h2 fw-600 mt-2 cap">
+                <h3 className="h2 fw-600 mt-2">
                   Split System Air Conditioning
                 </h3>
               </div>
@@ -395,7 +395,7 @@ const Home = () => {
                 />
               </div>
               <div className="col container-fluid">
-                <h3 className="h5 fw-600 mt-2 cam text-white">
+                <h3 className="h2 fw-600 mt-2  cam text-white">
                   Quality workmanship backed by our 5 Year Installation Warranty*
                 </h3>
               </div>

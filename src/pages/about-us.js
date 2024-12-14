@@ -23,7 +23,7 @@ const ProductsPage = () => {
   return (
     <Layout>
 
-      <div className="body-wrapper px-lg-5 px-md-1 pt-4">
+      <div className="body-wrapper px-lg-5 px-md-1 pt-3">
         <div className="pt-2 split-systems-avatar heading-box-color rounded ">
           <h1 className="h1 cap text-center text-white fw-600 p-3">
             <span>
@@ -131,7 +131,7 @@ const ProductsPage = () => {
       </div>
       </section>
      <div>
-     <h5 className="p-2">View all our brands</h5>
+     <h5 className="p-2">View by brands</h5>
      <BrandsImages />
      </div>
 

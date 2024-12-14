@@ -28,7 +28,7 @@ export const Head = () => (
 const ServiceArea = () => {
   return (
     <Layout>
-          <div className="body-wrapper px-lg-5 px-md-1 pt-4">
+          <div className="body-wrapper px-lg-5 px-md-1 pt-3">
             <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
                 <h1 className="h2 cap text-center text-white fw-600  p-3">
                  <div>
