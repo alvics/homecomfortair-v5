@@ -13,7 +13,7 @@ const Header = () => {
 
    
   <Fragment>
-            <Link to="/split-systems">
+            <Link to="/service-areas">
               <span className="dropdown--">
                 <span className="dropbtn d-flex">
                   <Link to="/service-areas">Our Services</Link>

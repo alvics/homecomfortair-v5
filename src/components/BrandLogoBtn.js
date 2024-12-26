@@ -10,9 +10,9 @@ const BrandsImages = () => {
     return (
           <div className="image-button-container d-flex flex-wrap justify-content-evenly">
 
-    <div className="image-button col col-md-3 col-6" style={{maxWidth: 100}}>
-    <Link to="/products/carrier-split-system-air-conditioning">
-      <StaticImage filename="carrier.jpg" alt="carrier-logo" />
+    <div className="image-button col col-md-3 col-6 pt-3" style={{maxWidth: 100}}>
+    <Link to="/products/mhi-split-system-air-conditioning">
+      <StaticImage filename="MHI-Logo.jpg" alt="mhi-logo" />
     </Link>
     </div> 
 

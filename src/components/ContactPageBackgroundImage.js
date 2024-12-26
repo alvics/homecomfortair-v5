@@ -1,3 +1,9 @@
+/*
+****************************
+Contact form page background
+****************************
+*/
+
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
@@ -34,7 +40,12 @@ const BackgroundSection = ({ className }) => {
     >
     <div className="d-grid-- just-content-center pb-2"
           style={{ backgroundColor: `rgba(255, 255, 255, 0.9)` }}>
-    <ContactForm />
+          <div className="row">
+          <div className="col"></div>
+          <div className="col"><ContactForm /></div>
+          <div className="col"></div>
+          </div>
+    
     </div>
       
     </BackgroundImage>

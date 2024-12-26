@@ -366,7 +366,7 @@ border: solid 1px #818181 !important;
 /* GOOGLE CHROME BROWSER  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     #menu-icon-- {
-            top: 4rem;
+            top: 1.5rem;
             right: 13px;
         }
 }

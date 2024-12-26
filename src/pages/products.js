@@ -33,8 +33,8 @@ const Products = ({
     <Fragment>
        <DesktopNav />
        <MobileNav />
-         <SplitSystems products={products} />
-           <div className='mt-3'></div>
+         
+           <SplitSystems products={products} />
        <Footer />
     </Fragment>
 

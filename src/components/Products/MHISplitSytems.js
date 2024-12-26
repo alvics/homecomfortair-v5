@@ -28,7 +28,7 @@ const MHIProducts = () => {
 export const query = graphql`
   {
     allStrapiProduct(
-      filter: {sub_categories: {elemMatch: {title: {eq: "mhi"}}}}
+      filter: {sub_categories: {elemMatch: {title: {eq: "mitsubishi heavy industries"}}}}
       sort: {price: ASC}
     ) {
       nodes {

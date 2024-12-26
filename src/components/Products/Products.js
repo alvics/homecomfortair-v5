@@ -1,5 +1,5 @@
 // SHOP PAGE DISPLAY FILTERED A/C's
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Product from "./Product";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import StaticImage from "../StaticQueryImages"
@@ -184,8 +184,8 @@ const Products = () => {
   };
 
   return (
-    <>
-    <div className="container shop-page" style={{marginTop:"120px"}}>
+    <Fragment>
+    <div className="container shop-page" style={{marginTop:"130px"}}>
       {/* Sidebar */}
       <div className="row">
         <div className="col-sm-12 col-md-3 col-lg-2 col-xl-2 hide-side mt-2 by-white" style={{maxWidth: 170, margin: 10}} >
@@ -365,7 +365,7 @@ const Products = () => {
     </div>
 
      
-     </>
+     </Fragment>
   );
 };
 

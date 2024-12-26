@@ -5,7 +5,7 @@ import Layout from "../components/Layouts/layout"
 import Seo from "../components/SEO-2"
 import Schema from "../components/Schema-2"
 import StaticImage from "../components/StaticQueryImages"
-import DaikinSplitSystems from "../components/Products/DaikinSplitSytems"
+import MideaSplitSystems from "../components/Products/MideaSplitsSystems"
 import BrandsImages from "../components/BrandsBtn"
  import Cta from "../components/CTA"
 // import BrandBtn from "../components/BrandBtn"
@@ -41,7 +41,7 @@ const ProductsPage = () => {
             
           </div>
         </div>
-        <div className="row about-us">
+        <div className="row about-us px-3">
           <div className="col-lg-8 pt-3">
             <div className="wrapper-about-img p-1">
               <StaticImage
@@ -90,16 +90,7 @@ const ProductsPage = () => {
             </p>
 
             </div>
-            <div className="img-wrapper-e p-1 w-50">
-              <StaticImage
-                filename="install-450.png"
-                alt="home comfort air image"
-              />
-            </div>
-
-            <div className="mt-2 mb-3 about-us-daikin-products">
-             <DaikinSplitSystems />
-            </div>
+           
           </div>
           <div className="col-lg-4 pt-3 pl-4">
             <div className="mb-2">
@@ -124,6 +115,114 @@ const ProductsPage = () => {
             
           </div>
         </div>
+
+        <div className="grid-200">
+        <div className=""><StaticImage
+                filename="serviceArea/heritage-park.jpeg"
+                alt="heritage-park-air conditioning"
+              /></div>
+        <div className=" ">
+        <StaticImage
+                filename="serviceArea/coombabah.jpeg"
+                alt="map-brisbane-distances"
+              />
+        </div>
+        <div className="">
+        <StaticImage
+                filename="serviceArea/nerang.jpeg"
+                alt="map-brisbane-distances"
+              /></div>
+               <div className=""><StaticImage
+                filename="serviceArea/hope-island.jpeg"
+                alt="map-brisbane-distances"
+              /></div>
+        </div>
+
+           <div className="grid-200">
+            <div className=""><StaticImage
+                filename="serviceArea/newport.jpeg"
+                alt="map-brisbane-distances"
+              /></div>
+        <div className=""><StaticImage
+                filename="serviceArea/redbank-plains.jpeg"
+                alt="map-brisbane-distances"
+              /></div>
+        <div className=" ">
+        <StaticImage
+                filename="underwood.jpeg"
+                alt="map-brisbane-distances"
+              />
+        </div>
+        <div className="">
+        <StaticImage
+                filename="serviceArea/ashmore.jpeg"
+                alt="map-brisbane-distances"
+              /></div>
+        </div>
+
+
+
+
+
+
+         <div className="grid-200">
+            <div className=""><StaticImage
+                filename="serviceArea/upper-coomera.jpeg"
+                alt="map-brisbane-distances"
+              /></div>
+        <div className=""><StaticImage
+                filename="serviceArea/coombabah-daikin.jpeg"
+                alt="map-brisbane-distances"
+              /></div>
+        <div className=" ">
+        <StaticImage
+                filename="mermaid-waters.jpeg"
+                alt="map-brisbane-distances"
+              />
+        </div>
+        <div className="">
+        <StaticImage
+                filename="serviceArea/runawaybay.jpeg"
+                alt="map-brisbane-distances"
+              /></div>
+        </div>
+
+
+
+
+         <div className="grid-200">
+            <div className=""><StaticImage
+                filename="serviceArea/coombabah-daikin.jpeg"
+                alt="map-brisbane-distances"
+              /></div>
+        <div className=""><StaticImage
+                filename="serviceArea/elenora.jpeg"
+                alt="map-brisbane-distances"
+              /></div>
+        <div className=" ">
+        <StaticImage
+                filename="robina.jpeg"
+                alt="map-brisbane-distances"
+              />
+        </div>
+        <div className="">
+        <StaticImage
+                filename="serviceArea/oxenford.jpeg"
+                alt="map-brisbane-distances"
+              /></div>
+        </div>
+
+<div className="mt-3">
+         <div className="img-wrapper-e p-1 w-75">
+              <StaticImage
+                filename="midea-xtreme.png"
+                alt="home comfort air image"
+              />
+            </div>
+
+            <div className="mt-2 mb-3 about-us-daikin-products">
+             <MideaSplitSystems />
+            </div>
         <section>
       <div className="lg mb-5">
       
@@ -134,7 +233,7 @@ const ProductsPage = () => {
      <h5 className="p-2">View by brands</h5>
      <BrandsImages />
      </div>
-
+</div>
       </div>
     </Layout>
   )

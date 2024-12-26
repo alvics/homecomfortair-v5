@@ -40,12 +40,13 @@ const Contact = () => (
           </div>
         </div>
         </section>
-        <div></div>
+     
+
       <div id="contact-form" className="grid-300 px-2">
       <BackgroundImage />
-     
-    
-      </div>
+     </div>
+
+
        <div className="text-dark mt-4 text-center p-3" style={{ fontSize: 12 }}>
           <small>
             *Please note when submitting our form we do not share your details

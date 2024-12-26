@@ -14,10 +14,10 @@ const BrandNavMenu = () => {
 
    
   <Fragment>
-      <Link to="/about-us">
+      <Link to="/products/split-system-air-conditioning/">
              <span className="dropdown-- ">
                <span className="dropbtn d-flex">
-                 <Link to="/about-us">Brands</Link>
+                 <Link to="/products/split-system-air-conditioning/">Brands</Link>
                  <span
                    style={{ fontSize: `inherit`, fontWeight: `bold` }}
                    className="material-icons"

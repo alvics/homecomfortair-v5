@@ -76,12 +76,11 @@ const location = useLocation();
   
    const { description } = data.strapiProduct.description.data
    const { title, price, heat_capacity,room_size, model, cool_capacity } = data.strapiProduct
-   const brand =
-  data.strapiProduct.sub_categories[0]?.title?.toLowerCase() === 'mhi'
+   /* const brand = data.strapiProduct.sub_categories[0]?.title?.toLowerCase() === 'mhi'
     ? 'Mitsubishi Heavy Industries'
-    : data.strapiProduct.sub_categories[0]?.title || '';
+    : data.strapiProduct.sub_categories[0]?.title || ''; */
     // const  image2  = data.strapiProduct.image2.url
-
+const  brand = data.strapiProduct.sub_categories[0]?.title || '';
     
 
     function CustomToggle({ children, eventKey }) {
@@ -569,7 +568,7 @@ const location = useLocation();
               Also recommended for you
             </h5>
 
-   {brand === "mhi" || "Mitsubishi Heavy Industries"  ? (
+   {brand === "mitsubishi heavy industries"   ? (
               <div className="mb-2">
                 <div className="mb-2">
                   <div
@@ -592,7 +591,7 @@ const location = useLocation();
               </div>
             ) : (
               <div></div>
-            )},
+            )}
 
             {brand === "midea" ? (
               <div className="mb-2">
@@ -758,7 +757,7 @@ const location = useLocation();
             )}
              <div className="img-wrapper-e mt-5" style={{borderRadius:8}}>
                   <StaticImage
-                filename="install-450.png"
+                filename="splits-add-11-pow-lg.png"
                 alt="home comfort air image"
               />
             </div>

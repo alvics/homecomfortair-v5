@@ -107,8 +107,34 @@ const MobileNav = () => {
     >
     <div className="logo-top container-fluid" style={{ backgroundColor: 'rgb(0, 117, 201)'}}>
      <div class="row">
+     
+     <div className="col">
+        <div
+              style={{ PaddingBottom: 5 }}
+              className="phone-nav"
+            >
+              <a
+                style={{ fontSize: 15 }}
+                className="call-icon d-flex align-items-center text-shadow-1 btn-- btn-green-- my-0 ml-5 mb-4 "
+                href="tel:0404602657"
+              >
+                <span style={{ fontSize: 22 }} className="material-icons ">
+                 <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 0 512 512">
+  <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" fill="white" />
+</svg>
 
-        <div className="mobile-nav-logo mb-3">
+                </span>{" "}
+                <span
+                  className="phone-num fw-600 ml-1"
+                  style={{ whiteSpace: `nowrap` }}
+                >
+                  Call 0404 602 657
+                </span>
+              </a>
+            </div>
+     </div>
+
+        <div className="col mobile-nav-logo mb-3">
        <Logo>
        
        <Link to="/">
@@ -142,9 +168,9 @@ const MobileNav = () => {
       <MenuLinks id="menu-wrapper-mobile" nav={nav}>
         <ul className="" style={{ marginTop: '-150px'}}>
         <li>
-          <span
+          <div
               style={{ PaddingBottom: 5 }}
-              className="phone-nav"
+              className="col  phone-nav"
             >
               <a
                 style={{ fontSize: 15 }}
@@ -164,7 +190,7 @@ const MobileNav = () => {
                   Call 0404 602 657
                 </span>
               </a>
-            </span>
+            </div>
         </li>
           <li>
             <Link to="/">Home</Link>

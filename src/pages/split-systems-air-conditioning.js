@@ -438,30 +438,34 @@ One of the key features of the Haier Tempo is its smart Wi-Fi connectivity. With
         </div>
       </section>
 
-      <section className="px-3">
-        <div className="heading-box-color grid-col-2 heading-avatar rounded my-3 mx-0 pr-2 py-2">
-          <div className="px-3">
+      <section>
+        <div className="heading-box-color grid-col-2 heading-avatar rounded py-2 my-3 mx-0">
+          <div className="">
             <StaticImage
               filename="HCA-avatar-WHITE-1400.png"
               alt="home comfort air image"
             />
           </div>
 
-          <div className="text-center">
-            <h3 className="h2 fw-600 mt-2 cap">Receive a Free Quote</h3>
+          <div className="text-start">
+            <h3 className="h5 fw-600 mt-2 cap text-white">Receive a Free Quote</h3>
           </div>
         </div>
+
         <div className="grid-col-2">
           <div className="split-quotes-text">
-            <h5 className="h2 px-20 cam fw-600">
+            <h5 className=" px-20 cap fw-600">
               Split System Installation Quotes
             </h5>
             <p className="px-20 lead-400">
-              For new builds or existing homes, whether you need a replacement unit or a fresh installation, simply submit your details, and we'll get in touch with you promptly.
+              For new builds or existing homes, whether you need a replacement unit or a new installation, simply submit your details, and we'll get in touch with you promptly.
             </p>
             <p className="font-italic px-20">"You could also leave the best suited time to call you back".</p>
           </div>
-          <Form />
+          
+          <span className="w-75"><Form /></span>
+          
+          
         </div>
        
       </section>

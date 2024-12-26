@@ -1104,6 +1104,8 @@ input[type='checkbox'] + span::before {
   max-width: 100%;
 }
 
+
+
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
