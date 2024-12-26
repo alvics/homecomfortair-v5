@@ -18,6 +18,7 @@ import { useAccordionButton } from 'react-bootstrap/AccordionButton';
 import GoogleReviewsCarousel from '../components/Sections/GoogleReviewsCarousel';
 import Form from "../components/QuoteForm"
 import StaticImage from "../components/StaticQueryImages"
+import MHIProducts from "../components/Products/MHISplitSytems"
 import MideaPDF from "../images/Midea.pdf"
 import HaierPDF from "../images/haier-tempo.pdf"
 import SamsungPDF from "../images/bedarra.pdf"
@@ -33,6 +34,8 @@ import DaikinProducts from "../components/Products/DaikinSplitSytems"
 import HaierProducts from "../components/Products/HaierSplitSystems"
 import MitsubishiProducts from "../components/Products/MitsubishiElectricSplits"
 import BrandsBtn from "../components/BrandsBtn"
+import Schema from "../components/Schema-2"
+import Seo from "../components/SEO-2"
 
 // import KwAccordion from '../components/Products/KwAccordion';
 
@@ -41,8 +44,10 @@ export const Head = ({ data }) => {
   const { strapiProduct: product } = data;
   return (
     <Fragment>
-      <title>{`Supplied & installed ${product.title}`}</title>
+      <title>{`Supplied & installed ${product.title}`} Air Conditioner</title>
       <meta name= "description" content={`Supplied & installed ${product.title} for $${product.price} incl GST. Split System air conditioning by Home Comfort Air.`} />
+        <Seo />
+      <Schema />
     </Fragment>
   );
 }
@@ -71,8 +76,13 @@ const location = useLocation();
   
    const { description } = data.strapiProduct.description.data
    const { title, price, heat_capacity,room_size, model, cool_capacity } = data.strapiProduct
-   const  brand = data.strapiProduct.sub_categories[0]?.title || '';
+   const brand =
+  data.strapiProduct.sub_categories[0]?.title?.toLowerCase() === 'mhi'
+    ? 'Mitsubishi Heavy Industries'
+    : data.strapiProduct.sub_categories[0]?.title || '';
     // const  image2  = data.strapiProduct.image2.url
+
+    
 
     function CustomToggle({ children, eventKey }) {
     const decoratedOnClick = useAccordionButton(eventKey, () =>
@@ -558,6 +568,31 @@ const location = useLocation();
             <h5 className="mt-5 h6" style={{ fontWeight: `600` }}>
               Also recommended for you
             </h5>
+
+   {brand === "mhi" || "Mitsubishi Heavy Industries"  ? (
+              <div className="mb-2">
+                <div className="mb-2">
+                  <div
+                    className="text-center border rounded"
+                    style={{ backgroundColor: `#e31f26` }}
+                  >
+                    <h3
+                      className="h6 fw-600 cap mt-2 text-white"
+                      style={{ padding: `1.3rem 0` }}
+                    >
+                      Supply and Install MHI
+                      <br />{" "}
+                      <span className="lead cam text-white">
+                        <small>Air Conditioning Systems</small>
+                      </span>
+                    </h3>
+                  </div>
+                </div>
+                <MHIProducts />
+              </div>
+            ) : (
+              <div></div>
+            )},
 
             {brand === "midea" ? (
               <div className="mb-2">

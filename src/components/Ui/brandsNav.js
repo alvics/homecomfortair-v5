@@ -45,11 +45,11 @@ const BrandNavMenu = () => {
                 alt="home comfort air image" /></div>Daikin Air Conditioning</Link>
 
               
-                <Link className='border' to="/products/carrier-split-system-air-conditioning"><div style={{maxWidth:80, border:0, marginBottom:5, marginTop:5}}><StaticImage filename="carrier.png"
-                alt="home comfort air image" /></div>Carrier Air Conditioning</Link>
+                <Link className='border' to="/products/mhi-split-system-air-conditioning"><div style={{maxWidth:80, maxHeight: 100, border:0, marginBottom:5, marginTop:18}}><StaticImage filename="MHI-Logo.jpg"
+                alt="home comfort air image" /></div>Mitsubishi Heavy Industries</Link>
 
-                 <Link className='border' to="/products/hisense-2.5kw-j-series-reverse-cycle-split-system-specials-jan-2023-HAWJ9KR"><div style={{maxWidth:80, border:0, marginBottom:15, marginTop:15}}><StaticImage filename="hisense.png"
-                alt="home comfort air image" /></div>Hisense Air Conditioning</Link>
+                 <Link className='border' to="/products/hitachi-split-system-air-conditioning"><div style={{maxWidth:80, border:0, marginBottom:-15, marginTop:-15}}><StaticImage filename="Hitachi-logo"
+                alt="home comfort air image" /></div>Hitachi Air Conditioning</Link>
 
 
                  </div>

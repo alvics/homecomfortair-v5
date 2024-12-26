@@ -1,3 +1,7 @@
+//*********************** */
+// SHOP PAGE!!!!!
+//*********************** */
+
 import React, {Fragment} from 'react';
 import SplitSystems from '../components/Products/Products';
 import { graphql } from 'gatsby';
@@ -37,22 +41,22 @@ const Products = ({
   )
 }
 
-   export const query = graphql`
-    {
-      allStrapiProduct {
-        nodes {
-          id
-          title
-          price
-          image{
-            url
-          }
-          sub_categories{
-            title
-          }
-          }
-        }
+export const query = graphql`
+ query GetProducts {
+  allStrapiProduct(filter: { sub_categories: { elemMatch: { title: { ne: "carrier" } } } }) {
+    nodes {
+      id
+      title
+      price
+      image {
+        url
       }
+      sub_categories {
+        title
+      }
+    }
+  }
+}
     
   `
   

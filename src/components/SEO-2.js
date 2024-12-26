@@ -10,7 +10,7 @@
        <meta property="og:type" content="article"/>
        <meta property="og:url" content="https://homecomfortair.net.au/"/>
        <meta property="og:site_name" content="Home Comfort Air"/>
-       <meta property="og:description" content="As residential air conditioning specialists, we supply and install all major brands across South East Queensland, including Ipswich, Brisbane, and the Gold Coast."/>
+       <meta property="og:description" content="As residential air conditioning specialists, we supply and install all major brands across South East Queensland, including Gold Coast, Brisbane, and Ipswich."/>
        <meta property="og:image" content="https://res.cloudinary.com/ewebdesigns/image/upload/v1597993348/facebook-cover-3_rzv8bs.png"/>
         <meta property="og:image:width" content="800"/>
         <meta property="og:image:height" content="300"/>

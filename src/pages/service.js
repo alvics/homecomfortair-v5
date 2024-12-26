@@ -1,12 +1,22 @@
-import React from "react"
+import React, {Fragment} from "react"
 import { Link } from "gatsby"
 
  import Layout from "../components/Layouts/layout"
-// import SEO from "../components/seo"
+import Seo from "../components/SEO-2"
+import Schema from "../components/Schema-2"
 import StaticImage from "../components/StaticQueryImages"
 import Form from "../components/QuoteForm"
 import CTA from "../components/CTA"
 import ServiceSection from "../components/ServiceSection"
+
+export const Head = () => (
+  <Fragment>
+       <title>Service, Maintenance and Replacement | Home Comfort Air</title>,
+       <meta name= "description" content="HOME COMFORT AIR operates their service throughout Brisbane, Ipswich, Gold Coast and Tweed Head's region."/>
+      <Seo />
+       <Schema />
+</Fragment>
+)
 
 const ServicePage = () => (
   <Layout>

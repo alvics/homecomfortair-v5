@@ -1,6 +1,6 @@
 // Display the list of products
 import React, {Fragment} from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from 'gatsby';
 import Layout from "../components/Layouts/layout"
 import Cta from "../components/CTA"
 // import SEO from "../../components/seo"
@@ -16,7 +16,7 @@ export const Head = () => (
 
   <Fragment>
        <title>Service Areas | South East Queensland</title>,
-       <meta name= "description" content="We are located in Labrador, Queensland and service the surrounding ares including Ashmore, Southport, Runaway bay, Helensvale"/>
+       <meta name= "description" content="We are located in Labrador, Queensland and service the surrounding ares including Ashmore, Southport, Runaway bay, Helensvale and all of Gold Coast"/>
        <Seo />
        <Schema />
 
@@ -25,7 +25,10 @@ export const Head = () => (
 )
 
 
-const ServiceArea = () => {
+
+const ServiceAreasPage = ({ data }) => {
+  const serviceAreas = data.allStrapiServiceArea.nodes;
+  
   return (
     <Layout>
           <div className="body-wrapper px-lg-5 px-md-1 pt-3">
@@ -79,9 +82,14 @@ const ServiceArea = () => {
 <div className="m-3">
     {/* List of service area's  */}
     <ul>
-    <li><Link to='/service-areas/advancetown'>Advancetown</Link></li>
-    <li><Link to='/service-areas/ashmore'>Ashmore</Link></li>
-    </ul>
+        {serviceAreas.map((serviceArea) => (
+          <li key={serviceArea.slug}>
+            <Link to={`/service-areas/${serviceArea.slug}`}>
+              {serviceArea.Heading}
+            </Link>
+          </li>
+        ))}
+      </ul>
 
     
     
@@ -142,4 +150,15 @@ const ServiceArea = () => {
   )
 }
 
-export default ServiceArea
+export const query = graphql`
+  query GetServiceAreas {
+    allStrapiServiceArea {
+      nodes {
+        Heading
+        slug
+      }
+    }
+  }
+`;
+
+export default ServiceAreasPage

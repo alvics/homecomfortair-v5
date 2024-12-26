@@ -1,12 +1,17 @@
+//*********************** */
+// NOT BEING USED PAGE!!!!!
+//*********************** */
 import React, {Fragment} from 'react'
 import SideBar from '../components/Sidebar.js'
+import Seo from "../components/SEO-2"
+import Schema from "../components/Schema-2"
 
 export const Head = () => (
   <Fragment>
-       <title>Shop Split System Air Conditioning | Home Comfort Air Gold Coast</title>,
+       <title>Shop Split System Air Conditioning | Home Comfort Air</title>,
        <meta name= "description" content="Search our split system air conditioning range and discover the options for cooling and heating your home or space."/>
-      <meta name="keywords" content="Gold,Coast,Air,Conditioning,
-                Split,systems,shop" />
+      <Seo />
+       <Schema />
 </Fragment>
 )
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import StaticImage from '../components/StaticQueryImages';
@@ -9,6 +9,22 @@ import MobileNav from '../components/Ui/mobileNav';
 import Footer from '../components/Footer';
 import Faq from '../components/FaqServiceArea';
 import MyForm from '../components/heroForm';
+import MideaProducts from '../components/Products/MideaSplitsSystems';
+import Schema from "../components/Schema-2"
+import Seo from "../components/SEO-2"
+
+// Using the Head API to dynamically set the title
+export const Head = ({ data }) => {
+  const { strapiServiceArea: serviceArea } = data;
+  return (
+    <Fragment>
+      <title>{`${serviceArea.Heading} Air Conditioning`}</title>
+      <meta name= "description" content={`We supply & install new split system air conditioners in ${serviceArea.Heading} and surrounding area's for your home. BEST prices`} />
+        <Seo />
+      <Schema />
+    </Fragment>
+  );
+}
 
 const ServiceArea = ({
   data: {
@@ -127,10 +143,10 @@ const ServiceArea = ({
             <p className="lead-20">Our complete range of service in the <span className="text-capitalize">{Heading}</span> area:</p>
             <ul className="lh-base">
               <ol class="list-group list-group-numbered">
-                <li className="fsz-18 fw-600 list-group-item">Air Conditioning Installation</li>
-                <li class="list-group-item">Split system air conditioners</li>
-                <li class="list-group-item">Ducted system air conditioners</li>
-                <li class="list-group-item">Multi head system air conditioners</li>
+                <li className="fsz-18 list-group-item"><Link to="/split-ac-installation-cost">Air Conditioning Installation</Link></li>
+                <li class="list-group-item"><Link to="/products/split-system-air-conditioning">Split system air conditioners</Link></li>
+                <li class="list-group-item"><Link to="/ducted-systems">Ducted system air conditioners</Link></li>
+                <li class="list-group-item"><Link to="/multi-head-systems">Multi head system air conditioners</Link></li>
                 <li className="fsz-18 fw-600 list-group-item">Builders service</li>
                 <li class="list-group-item">Air Conditioning rough in / fit off</li>
                 <li className="fsz-18 fw-600 list-group-item">Air Conditioning Repairs</li>
@@ -140,7 +156,7 @@ const ServiceArea = ({
               </ol>
             </ul>
           </div>
-          <div className="col-md-6 image-container flex-row flex-column img-fluid mb-3" style={{ transform: 'rotate(90deg)' }}>
+          <div className="col-md-6 flex-row flex-column img-fluid mb-3" style={{ transform: 'rotate(90deg)' }}>
             <GatsbyImage image={image} alt={Heading} />
           </div>
         </div>
@@ -201,7 +217,7 @@ const ServiceArea = ({
             </div>
             <div className="col-md-9">
               <p className="lead-20 lh-base">
-                Furthermore, we specialize in installing air conditioning systems in a wide range of settings, including houses, townhouses, units, high-rise buildings, farms, sheds, warehouses, shops, and more. No matter the location or complexity of the project, our expert team is equipped to deliver top-notch installations tailored to suit the unique needs of each space. Your comfort is our priority, and we take pride in providing reliable and efficient solutions for diverse environments.
+                Furthermore, we specialise in installing air conditioning systems in a wide range of settings, including houses, townhouses, units, high-rise buildings, farms, sheds, warehouses, shops, and more. No matter the location or complexity of the project, our expert team is equipped to deliver top-notch installations tailored to suit the unique needs of each space. Your comfort is our priority, and we take pride in providing reliable and efficient solutions for diverse environments.
               </p>
             </div>
           </div>
@@ -239,6 +255,9 @@ const ServiceArea = ({
             <p className="font-italic px-20">"You could also leave the best-suited time to call you back".</p>
           </div>
           <Form />
+        </div>
+        <div className='mt-3'>
+        <MideaProducts />
         </div>
       </div>
       <Footer />

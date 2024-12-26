@@ -1,29 +1,31 @@
 // SHOP PAGE DISPLAY FILTERED A/C's
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import StaticImage from "../StaticQueryImages"
 // import Footer from "../Footer-shop";
 
 const Products = () => {
   const query = useStaticQuery(graphql`
-    {
-      allStrapiProduct(sort: {price: ASC}) {
-        nodes {
-          id
-          title
-          price
-          slug
-          image {
-            url
-          }
-          sub_categories {
-            title
-          }
-          cool_capacity
-        }
+    { allStrapiProduct(
+    filter: { sub_categories: { elemMatch: { title: { ne: "carrier" } } } }
+    sort: { price: ASC }
+  ) {
+    nodes {
+      id
+      title
+      price
+      slug
+      image {
+        url
       }
+      sub_categories {
+        title
+      }
+      cool_capacity
     }
+  }
+}
   `);
 
   const allProducts = query.allStrapiProduct.nodes;
@@ -331,21 +333,30 @@ const Products = () => {
           
         </div>
          <div className="col-md-1 col-lg-2 col-xl-2 p-2">
-        <div className="shop-banners-2 img-thumbnail border img-fluid rounded">  <StaticImage
-                filename="side-banner-midea.png"
-                alt="home comfort air image"
+
+        <Link to="/products/midea-2.0kw-xtreme-save-reverse-cycle-split-system-MFAB20NC/">
+        <div className="shop-banners-2 img-thumbnail border img-fluid rounded mb-5">  <StaticImage
+                filename="side-banner/midea-banner-2.0.png"
+                alt="home comfort air midea split system sale banner"
                 className="rounded"
               /></div>
-          <div className="shop-banners-2 mt-3 border img-fluid rounded">    <StaticImage
-                filename="side-banner-samsung.png"
-                alt="home comfort air image"
+        </Link>
+
+        <Link to="/products/samsung-2.5kw-bedarra-reverse-cycle-inverter-hi-wall-split-system-AR09AXHQAWK/">
+          <div className="shop-banners-2 mt-3 border img-fluid rounded mb-5">    <StaticImage
+                filename="side-banner/smasung-banner.png"
+                alt="home comfort air samsung split system sale banner"
                 className="rounded"
               /></div>
+        </Link>
+
        
-              <div className="shop-banners-2 mt-3 border img-fluid rounded">  <StaticImage
-                filename="side-banner-haier.png"
-                alt="home comfort air image"
+              <Link to='/products/haier-2.5kw-inverter-reverse-cycle-wall-mount-split-system-AS25TBMHRA'>
+                <div className="shop-banners-2 mt-3 border img-fluid rounded">  <StaticImage
+                filename="side-banner/haier-banner-2.5.png"
+                alt="home comfort air haier split system air conditioner sale banner"
                 /></div>
+                </Link>
              
         </div>
      

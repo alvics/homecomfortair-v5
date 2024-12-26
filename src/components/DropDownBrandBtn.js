@@ -1,4 +1,6 @@
+/* ******************************************** */
 // Display the dropdown button in Mobile Nav Menu
+/* ******************************************** */
 import React from "react"
 import { Link } from "gatsby"
 
@@ -28,7 +30,7 @@ const DropdownBrandBtn = () => {
         </li>
         <div className="dropdown-divider"></div>
         <li>
-          <Link to="/products/carrier-split-system-air-conditioning">Carrier Air Conditioning</Link>
+          <Link to="/products/hitachi-split-system-air-conditioning">Hitachi Air Conditioning</Link>
         </li>
         <div className="dropdown-divider"></div>
         <li>

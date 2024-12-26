@@ -7,7 +7,9 @@ import Form from "../../components/QuoteForm"
 import Seo from "../../components/SEO-2"
 import Schema from "../../components/Schema-2"
 import MideaProducts from "../../components/Products/MideaSplitsSystems"
-import CarrierProducts from "../../components/Products/CarrierSplitSystems"
+// import CarrierProducts from "../../components/Products/CarrierSplitSystems"
+import MHIProducts from "../../components/Products/MHISplitSytems"
+import HitachiProducts from "../../components/Products/HitachiSplitSystems"
 import ToshibaProducts from "../../components/Products/ToshibaSplitSystems"
 import SamsungProducts from "../../components/Products/SamsungSplitSystems"
 import DaikinProducts from "../../components/Products/DaikinSplitSytems"
@@ -64,7 +66,7 @@ const ProductsPage = () => {
             <div className="split-system-archive products-archive p-2 mt-4" >
                  <h2 className="h5 fw-600">Browse Our Selection of High-Quality Split Systems from Leading Brands</h2>
                  <div>
-                 <p className="lead-20">Welcome to Home Comfort Air, where you'll find a wide selection of split system air conditioners from top brands including <Link to="/products/carrier-split-system-air-conditioning">Carrier</Link>, <Link to="/products/daikin-split-system-air-conditioning">Daikin</Link>, <Link to="/products/mitsubishi-split-system-air-conditioning">Mitsubishi Electric</Link> , <Link to="/products/samsung-split-system-air-conditioning">Samsung</Link>,<Link to="/products/midea-split-system-air-conditioning"> Midea</Link>,<Link to="/products/haier-split-system-air-conditioning"> Haier</Link>, and <Link to="/products/toshiba-split-system-air-conditioning">Toshiba</Link>. </p>
+                 <p className="lead-20">Welcome to Home Comfort Air, where you'll find a wide selection of split system air conditioners from top brands including <Link to="/products/hitachi-split-system-air-conditioning">Hitachi</Link>, <Link to="/products/daikin-split-system-air-conditioning">Daikin</Link>, <Link to="/products/mitsubishi-split-system-air-conditioning">Mitsubishi Electric</Link> , <Link to="/products/samsung-split-system-air-conditioning">Samsung</Link>,<Link to="/products/midea-split-system-air-conditioning"> Midea</Link>,<Link to="/products/haier-split-system-air-conditioning"> Haier</Link>, and <Link to="/products/toshiba-split-system-air-conditioning">Toshiba</Link>. </p>
                  </div>
                  </div>
 
@@ -107,13 +109,13 @@ const ProductsPage = () => {
 
 
               {/* ********************************************************************************
-              ********************* Carrier Products banner start ********************************
+              ********************* Hitachi Products banner start ********************************
               ******************************************************************************** */} 
 
 
         <section>    
               <div
-                style={{ backgroundColor: `#004178` }}
+                style={{ backgroundColor: `#c3002f` }}
                 className="my-3 text-center rounded"
                 id="carrier"
               >
@@ -121,7 +123,7 @@ const ProductsPage = () => {
                   className="h5 text-white fw-600 cap mt-2 px-3"
                   style={{ padding: `1.3rem 0` }}
                 >
-                  Supply and Install Carrier
+                  Supply and Install Hitachi
                   <br />{" "}
                   <span className="lead cam text-white">
                     <small>Air Conditioning Systems</small>
@@ -130,11 +132,11 @@ const ProductsPage = () => {
               </div>
 
               <div className="mb-2">
-                <CarrierProducts />
+                <HitachiProducts />
               </div>
             
                 {/* *********************************************************************************
-                ********************* Carrier Products end/ ***************************************
+                ********************* Hitachi Products end/ ***************************************
                 ******************************************************************************** */} 
       </section>  
       
@@ -241,6 +243,45 @@ const ProductsPage = () => {
                 ********************* Toshiba Products end/  ***************************************
                 ******************************************************************************** */} 
     </section>
+
+<section>
+      {/* ********************************************************************************
+              ********************* MHI Products banner start ********************************
+              ******************************************************************************** */} 
+
+              <div
+                style={{ backgroundColor: `#e31f26` }}
+                className="my-3 text-center rounded"
+                id="mhi"
+              >
+                <h3
+                  className="h5 text-white fw-600 cap mt-2 px-3"
+                  style={{ padding: `1.3rem 0` }}
+                >
+                  Supply and Install Mitsubishi Heavy Industries
+                  <br />{" "}
+                  <span className="lead cam text-white">
+                    <small>Air Conditioning Systems</small>
+                  </span>
+                </h3>
+              </div>
+
+              {/*<div className="mt-5">
+                <h5 className="range">
+                Our premium range
+                <small class="text-muted"> air conditioners</small>
+                </h5>
+            </div> */}
+              
+            <div className="mb-2">
+              <MHIProducts />
+              </div>
+                {/* ********************************************************************************
+                ********************* MHI Products end/  ***************************************
+                ******************************************************************************** */} 
+</section>
+
+
 <section>
 
                 
@@ -416,7 +457,7 @@ const ProductsPage = () => {
             </p>
             <hr />
             <p className="fs-13">
-              <Link to="#carrier">Carrier</Link>
+              <Link to="#carrier">Hitachi</Link>
             </p>
             <hr />
             <p className="fs-13">
@@ -429,6 +470,10 @@ const ProductsPage = () => {
             <hr />
             <p className="fs-13">
               <Link to="#toshiba">Toshiba</Link>
+            </p>
+            <hr />
+             <p className="fs-13">
+              <Link to="#mhi">Mitsubishi (MHI)</Link>
             </p>
             <hr />
             <p className="fs-13">

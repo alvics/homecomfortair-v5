@@ -5,7 +5,7 @@ import Seo from '../../components/SEO-2'
 import StaticImage from "../../components/StaticQueryImages"
 import Form from "../../components/QuoteForm"
 import Cta from "../../components/CTA"
-import CarrierProducts from '../../components/Products/CarrierSplitSystems'
+// import CarrierProducts from '../../components/Products/CarrierSplitSystems'
 import CarrierPDF from "../../images/Carrier.pdf"
 import Schema from '../../components/Schema-2'
 
@@ -115,7 +115,7 @@ const CarrierProductsPage = () => {
               </div>
 
               <div className="mb-2">
-                <CarrierProducts />
+               
               </div>
        
          <div className='mt-4 d-flex'>
