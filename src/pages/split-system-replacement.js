@@ -27,7 +27,7 @@ export default function SplitSystemReplacement() {
     <div className="body-wrapper multi-systems pt-3">
      <section>
        <div className="pt-2 multi-systems-avatar heading-box-color rounded">
-          <h1 className="h2 cap text-center text-white fw-600 p-3">
+          <h1 className="h2 text-center text-white fw-600 p-3">
             <span style={{ maxHeight: 305 }}>
               {" "}
               <StaticImage
@@ -37,6 +37,7 @@ export default function SplitSystemReplacement() {
             </span>
             Split System Replacement
           </h1>
+           <div> <span className="text-white text-center h3" style={{ fontFamily: `'Caveat', cursive` }}>*Out with the Old, In with the Efficient</span></div>
           <div className="pb-3">
             <Cta />
           </div>
@@ -175,14 +176,14 @@ export default function SplitSystemReplacement() {
           </div>
 
           <div className="text-center">
-            <h3 className="h5 fw-600 mt-2 cap text-white">Receive A free Quote</h3>
+            <h3 className="h5 fw-600 mt-2 text-white">Receive A free Quote</h3>
           </div>
         </div>
         <div className="grid-col-2">
           <div className="multi-head-quotes-text">
-            <h5 className=" px-20 cap fw-600">
+            <h4 className="h5 px-20 cam fw-600 mb-3">
               Air Conditioning Replacement Quotes
-            </h5>
+            </h4>
             <p className="px-20 lead-400">
               Need a replacement unit or a new installation? Submit your details, and we'll contact you
               back shortly.

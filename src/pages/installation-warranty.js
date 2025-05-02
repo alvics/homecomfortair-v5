@@ -25,7 +25,7 @@ const InstallationWarrantyPage = () => {
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h2 cap text-center text-white fw-600  p-3">
+          <h1 className="h2 text-center text-white fw-600  p-3">
             <div>
               {" "}
               <StaticImage
@@ -35,6 +35,7 @@ const InstallationWarrantyPage = () => {
             </div>
            Our 5 Year Installation Warranty
           </h1>
+          <div> <span className="text-white text-center h3" style={{ fontFamily: `'Caveat', cursive` }}>* Your comfort, our commitment</span></div>
           <div className="pb-3">
             <Cta />
           </div>
@@ -96,7 +97,7 @@ const InstallationWarrantyPage = () => {
 
         <div className="grid-col-2 pb-3">
           <div>
-            <h5 className=" px-20 cap fw-600">Split System Quote</h5>
+            <h4 className="h5 px-20 cam fw-600 mb-3">Split System Quote</h4>
             <p className="px-20 lead-400">
               For new construction or existing homes.
               Need a replacement unit or a new installation? Submit your details, and we'll contact you

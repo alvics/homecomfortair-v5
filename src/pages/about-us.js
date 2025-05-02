@@ -24,22 +24,23 @@ const ProductsPage = () => {
     <Layout>
 
       <div className="body-wrapper px-lg-5 px-md-1 pt-3">
-        <div className="pt-2 split-systems-avatar heading-box-color rounded ">
-          <h1 className="h1 cap text-center text-white fw-600 p-3">
-            <span>
+          <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
+          <h1 className="h2 text-center text-white fw-600  p-3">
+            <div>
               {" "}
               <StaticImage
                 filename="HCA-avatar-WHITE-1400.png"
-                alt="home comfort air image"
+                alt="home comfort air favicon logo image"
               />
-            </span>
-            About us
-          </h1>
-          <p className="text-white text-center fsz-18 font-size-mobile">*Residential Air Conditioning Specialists</p>
-          <Cta />
-          <div className="pb-3">
+            </div>
+            <span className='h5 text-white fw-600 cap'>Home Comfort Air</span>
+            About Us
             
+          </h1>
+          <div className="pb-3">
+           <Cta /> 
           </div>
+          <div> <span className="text-white text-center h3 pb-3" style={{ fontFamily: `'Caveat', cursive` }}>*Your Comfort, Our Expertise</span></div>
         </div>
         <div className="row about-us px-3">
           <div className="col-lg-8 pt-3">
@@ -51,7 +52,7 @@ const ProductsPage = () => {
             </div>
             <div className="px-3">
             <div className="mt-3">
-              <h2 className="h5 cap fw-600">Our Service</h2>
+              <h2 className="h5 fw-600">Our Service</h2>
             </div>
 
             <p className="lead-20 lead-mobile">
@@ -115,7 +116,7 @@ const ProductsPage = () => {
             
           </div>
         </div>
-
+<div className="pl-2 pt-3"><h4>Here's a look at some of our work.</h4></div>
         <div className="grid-200">
         <div className=""><StaticImage
                 filename="serviceArea/heritage-park.jpeg"
@@ -171,7 +172,7 @@ const ProductsPage = () => {
                 alt="map-brisbane-distances"
               /></div>
         <div className=""><StaticImage
-                filename="serviceArea/coombabah-daikin.jpeg"
+                filename="serviceArea/upper-coomera-midea.jpeg"
                 alt="map-brisbane-distances"
               /></div>
         <div className=" ">

@@ -5,7 +5,7 @@ const ServiceSection = () => {
     <Fragment>
       <section>
         <div className="px-20 mt-5">
-          <h3 className="h5 cap fw-600">Air Conditioning Servicing and Maintenance</h3>
+          <h3 className="h5 fw-600">Air Conditioning Servicing and Maintenance</h3>
         </div>
         <div>
          <p className="lead-20 px-20">

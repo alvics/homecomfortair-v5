@@ -28,7 +28,7 @@ const MideaProductsPage = () => {
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h2 cap text-center text-white fw-600  p-3">
+          <h1 className="h2 text-center text-white fw-600  p-3">
             <div>
               {" "}
               <StaticImage
@@ -40,9 +40,11 @@ const MideaProductsPage = () => {
             Midea Split System Air Conditioning
             
           </h1>
+         
           <div className="pb-3">
           <Cta /> 
           </div>
+            <div className='pb-3'> <span className="text-white text-center h3" style={{ fontFamily: `'Caveat', cursive` }}>*Midea Comfort, Made Affordable</span></div>
         </div>
         </section>
         
@@ -62,7 +64,7 @@ const MideaProductsPage = () => {
         </section>
        
          
-        <h2 className="h5 cap fw-600 mt-2">Midea Split System Air Conditioner</h2>
+        <h2 className="h5 fw-600 mt-2">Midea Split System Air Conditioner</h2>
 
 
            <section>
@@ -72,7 +74,7 @@ const MideaProductsPage = () => {
                   style={{ backgroundColor: `#7DCDFF` }}
                 >
                   <h3
-                    className="h5 fw-600 cap mt-2 px-3  text-white "
+                    className="h5 fw-600 mt-2 px-3  text-white "
                     style={{ padding: `1.3rem 0` }}
                   >
                     Supplied and Installed Midea
@@ -117,7 +119,7 @@ const MideaProductsPage = () => {
          In addition to energy efficiency, Midea air conditioners are also known for their quiet operation. This makes them the perfect choice for <Link to="/split-systems-air-conditioning">bedrooms</Link>, home offices, and other spaces where you want to create a peaceful environment. They also feature a variety of convenient features, such as remote control, programmable timers, and sleep mode, to make it easy for you to control your indoor climate.
          </p>
           <p className="lead-20 mt-3">
-        Finally, Midea air conditioners are built to last, featuring high-quality materials and construction techniques that ensure they can withstand the rigors of regular use. They also come with long-term warranties, so you can purchase with confidence, knowing that your investment is protected.
+        Finally, Midea air conditioners are built to last, featuring high-quality materials and construction techniques that ensure they can withstand the rigors of regular use. They also come with a 7 year warranty, so you can purchase with confidence, knowing that your investment is protected.
         </p>
          <p className="lead-20 ">
         In conclusion, Midea air conditioners are an excellent choice for anyone looking for a high-quality and energy-efficient cooling solution. With a wide range of options available and advanced features that make them easy to use and maintain, Midea's air conditioners are an ideal choice for keeping your home or office comfortable all year round.
@@ -152,7 +154,7 @@ const MideaProductsPage = () => {
 
         <div className="grid-col-2 pb-3">
           <div>
-            <h5 className=" px-20 cap fw-600">Split System Quote</h5>
+            <h4 className=" h5 px-20 fw-600">Split System Quote</h4>
             <p className="px-20">
               From new construction to existing homes, whether you need a replacement unit or a fresh installation, simply share your details, and we'll be in touch shortly.
             </p>

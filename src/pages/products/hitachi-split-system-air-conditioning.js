@@ -28,7 +28,7 @@ const HitachiProductsPage = () => {
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h2 cap text-center text-white fw-600  p-3">
+          <h1 className="h2 text-center text-white fw-600  p-3">
             <div>
               {" "}
               <StaticImage
@@ -43,6 +43,7 @@ const HitachiProductsPage = () => {
           <div className="pb-3">
           <Cta /> 
           </div>
+           <div> <span className="text-white text-center h3 pb-3" style={{ fontFamily: `'Caveat', cursive` }}>*Precision Cooling, Japanese Engineering</span></div>
         </div>
         </section>
         
@@ -62,7 +63,7 @@ const HitachiProductsPage = () => {
         </section>
        
          
-        <h2 className="h5 cap fw-600 mt-2">Hitachi Split System Air Conditioner</h2>
+        <h2 className="h5 fw-600 mt-2">Hitachi Split System Air Conditioner</h2>
 
 
            <section>
@@ -72,7 +73,7 @@ const HitachiProductsPage = () => {
                   style={{ backgroundColor: `#c3002f` }}
                 >
                   <h3
-                    className="h5 fw-600 cap mt-2 px-3  text-white "
+                    className="h5 fw-600 mt-2 px-3  text-white "
                     style={{ padding: `1.3rem 0` }}
                   >
                     Supplied and Installed Hitachi
@@ -154,7 +155,7 @@ A Home air conditioner that’s easy to use, makes daily life more convenient, a
 
         <div className="grid-col-2 pb-3">
           <div>
-            <h5 className=" px-20 cap fw-600">Split System Quote</h5>
+            <h5 className=" px-20 h5 fw-600">Split System Quote</h5>
             <p className="px-20">
               From new construction to existing homes, whether you need a replacement unit or a fresh installation, simply share your details, and we'll be in touch shortly.
             </p>

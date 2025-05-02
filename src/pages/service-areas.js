@@ -33,7 +33,7 @@ const ServiceAreasPage = ({ data }) => {
     <Layout>
           <div className="body-wrapper px-lg-5 px-md-1 pt-3">
             <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-                <h1 className="h2 cap text-center text-white fw-600  p-3">
+                <h1 className="h2 text-center text-white fw-600  p-2">
                  <div>
               {" "}
                   <StaticImage filename="HCA-avatar-WHITE-1400.png"
@@ -42,7 +42,7 @@ const ServiceAreasPage = ({ data }) => {
                     Service Area's
                 </h1>
           <div className="pb-3">
-           <p className="text-white text-center fsz-18">*Residential Air Conditioning Specialists</p>
+           <span className="text-white text-center h3" style={{ fontFamily: `'Caveat', cursive` }}>*Residential Air Conditioning Specialists</span>
           <Cta />
           
           </div>
@@ -57,7 +57,7 @@ const ServiceAreasPage = ({ data }) => {
             </div>
             <div className="px-3">
             <div className="mt-3">
-              <h1 className="h5 cap fw-600">Service Area's</h1>
+              <h1 className="h5 fw-600">Service Area's</h1>
             </div>
 
             <p className="lead-20">
@@ -140,7 +140,7 @@ const ServiceAreasPage = ({ data }) => {
        
         <div className="px-3 mt-3">
         <div className="mb-4 mt-4">
-        <h5 className="h3 text-center">View by brands</h5>
+        <p className="text-center">View by brands</p>
         </div>
         <div><BrandBtn /></div>
          

@@ -28,7 +28,7 @@ const MHIProductsPage = () => {
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h2 cap text-center text-white fw-600  p-3">
+          <h1 className="h2 text-center text-white fw-600  p-3">
             <div>
               {" "}
               <StaticImage
@@ -43,6 +43,7 @@ const MHIProductsPage = () => {
           <div className="pb-3">
           <Cta /> 
           </div>
+           <div> <span className="text-white text-center h3 pb-3" style={{ fontFamily: `'Caveat', cursive` }}>*Powerful Performance, Proven Reliability</span></div>
         </div>
         </section>
         
@@ -57,12 +58,13 @@ const MHIProductsPage = () => {
         </div>
         <section>
          <p className="lead-20">
-         Backed by award-winning technology, effortless performance, and unparalleled product reliability, we are dedicated to ensuring your complete satisfaction at every touchpoint.
+         Backed by award-winning innovation, seamless performance, and outstanding product reliability, we’re committed to delivering satisfaction at every stage.
+         
         </p>
         </section>
        
          
-        <h2 className="h5 cap fw-600 mt-2">Mitsubishi Heavy Industries Split System Air Conditioner</h2>
+        <h2 className="h5 fw-600 mt-2">Mitsubishi Heavy Industries Split System Air Conditioner</h2>
 
 
            <section>
@@ -72,7 +74,7 @@ const MHIProductsPage = () => {
                   style={{ backgroundColor: `#e31f26` }}
                 >
                   <h3
-                    className="h5 fw-600 cap mt-2 px-3  text-white "
+                    className="h5 fw-600 mt-2 px-3  text-white "
                     style={{ padding: `1.3rem 0` }}
                   >
                     Supplied and Installed Mitsubishi Heavy Industries
@@ -152,7 +154,7 @@ With world-class engineering and product innovation, MHI push the boundaries to 
 
         <div className="grid-col-2 pb-3">
           <div>
-            <h5 className=" px-20 cap fw-600">Split System Quote</h5>
+            <h5 className=" px-20 h5 fw-600">Split System Quote</h5>
             <p className="px-20">
               From new construction to existing homes, whether you need a replacement unit or a fresh installation, simply share your details, and we'll be in touch shortly.
             </p>

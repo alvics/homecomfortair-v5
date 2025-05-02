@@ -40,9 +40,10 @@ const ProductsPage = () => {
        
            <div className="row">
              <div className="col-lg-10">
+             
        
             <div className="pt-2 split-systems-avatar heading-box-color rounded">
-              <h1 className="h1 cap text-center text-white fw-600 p-3">
+              <h1 className="h1 text-center text-white fw-600 p-3">
                 <span>
                   {" "}
                   <StaticImage
@@ -53,6 +54,7 @@ const ProductsPage = () => {
                 Split System Air Conditioning
                 <span className="h5 text-white fw-600">Supplied & Installed</span> 
               </h1>
+           
               <div className="pb-3">
                 <CTA />
               </div>
@@ -434,7 +436,7 @@ const ProductsPage = () => {
               </div>
         </section>
 
-        <section>
+        <section className="pt-3">
                 <div className="mt-3 p-lg-3">
                 <h4>Choose the right size air conditioner for your space</h4>
                  <RoomSizeTable />  

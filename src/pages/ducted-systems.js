@@ -21,9 +21,9 @@ export const Head = () => (
 const DuctedPage = () => (
   <Layout>
     <div className="body-wrapper ducted-systems pt-3">
-      <section className="px-3">
+      <section className="px-3" >
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color mx-0 ">
-          <h1 className="h2 cap text-center text-white fw-600  p-3">
+          <h1 className="h2 text-center text-white fw-600  p-3">
             <div>
               {" "}
               <StaticImage
@@ -33,6 +33,7 @@ const DuctedPage = () => (
             </div>
             Ducted air conditioning 
           </h1>
+          <div> <span className="text-white text-center h3" style={{ fontFamily: `'Caveat', cursive` }}>*Invisible Comfort, Visible Peace of Mind</span></div>
           <div className="pb-3">
             <Cta />
           </div>
@@ -122,13 +123,13 @@ const DuctedPage = () => (
           </div>
 
           <div className="text-center">
-            <h3 className="h5 fw-600 mt-2 cap text-white">Receive a Free Quote</h3>
+            <h3 className="h5 fw-600 mt-2 text-white">Receive a Free Quote</h3>
           </div>
         </div>
         <div className="grid-col-2">
           <div>
           <div className="pb-3">
-            <h5 className="h5 px-20 cap fw-600">
+            <h5 className="h5 px-20 fw-600">
               Ducted System Installation Quotes
             </h5>
             </div>

@@ -11,7 +11,7 @@ import ServiceSection from "../components/ServiceSection"
 
 export const Head = () => (
   <Fragment>
-       <title>Service, Maintenance and Replacement | Home Comfort Air</title>,
+       <title>Service, Preventative Maintenance | Home Comfort Air</title>,
        <meta name= "description" content="HOME COMFORT AIR operates their service throughout Brisbane, Ipswich, Gold Coast and Tweed Head's region."/>
       <Seo />
        <Schema />
@@ -32,7 +32,7 @@ const ServicePage = () => (
                 alt="home comfort air favicon logo image"
               />
             </div>
-            Service, Maintenance and Replacement
+            Service & Maintenance
           </h1>
           <div className="pb-3">
             <CTA />
@@ -41,7 +41,7 @@ const ServicePage = () => (
 
         <div className="grid-col-2 ducted-systems-top-col">
           <div class="ducted-col">
-            <h3 className="h5 fw-600 px-20 cap">Split System Maintenance</h3>
+            <h3 className="h5 fw-600 px-20">Split System Maintenance</h3>
             <p className="lead-20 px-20">
               HOME COMFORT AIR operates their service throughout Brisbane, Ipswich, Gold Coast and Tweed Head's region. Our team of experts are dedicated to the complete
               service, maintenance and{" "}
@@ -70,7 +70,7 @@ const ServicePage = () => (
             />
           </div>
           <div>
-            <h3 className="h5 fw-600 px-20 cap">Why Service Split Systems?</h3>
+            <h3 className="h5 fw-600 px-20">Why Service Split Systems?</h3>
             <p className="lead-20 px-20">
               With electricity prices always on the rise, servicing your split
               systems is an important topic. Maintaining your system regularly
@@ -102,7 +102,7 @@ const ServicePage = () => (
 
         <div className="grid-col-2 pb-3">
           <div>
-            <h5 className=" px-20 cap fw-600">Split System Service Quote</h5>
+            <h5 className=" px-20 h5 fw-600">Split System Service Quote</h5>
             <p className="px-20 lead-400">
               We service and clean your air conditioning system.
               Simply submit your details, and we'll contact you back shortly.

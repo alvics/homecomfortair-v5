@@ -28,7 +28,7 @@ export default function splitAcInstallationCost() {
 
         <section>
         <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-          <h1 className="h2 cap text-center text-white fw-600  p-3">
+          <h1 className="h2 text-center text-white fw-600  p-3">
             <div>
               {" "}
               <StaticImage
@@ -38,6 +38,7 @@ export default function splitAcInstallationCost() {
             </div>
             Split AC Installation Cost
           </h1>
+          <div> <span className="text-white text-center h3" style={{ fontFamily: `'Caveat', cursive` }}>*Affordable Comfort, Expertly Installed</span></div>
           <div className="pb-3">
             <Cta />
           </div>
@@ -68,7 +69,7 @@ export default function splitAcInstallationCost() {
             />
           </div>
           <div className="col">
-            <h3 className="h2 fw-600 mt-2 cap">Common Questions about Split AC Systems</h3>
+            <h3 className="h2 fw-600 mt-2">Common Questions about Split AC Systems</h3>
           </div>
         </div>
            <div className="row p-3">
@@ -140,13 +141,13 @@ export default function splitAcInstallationCost() {
           </div>
 
           <div className="text-center">
-            <h3 className="h5 fw-600 mt-2 cap text-white">Receive A free Quote</h3>
+            <h3 className="h5 fw-600 mt-2 text-white">Receive A free Quote</h3>
           </div>
         </div>
 
         <div className="grid-col-2 pb-3">
           <div>
-            <h5 className=" px-20 cap fw-600">Split System Quote</h5>
+            <h4 className="h5 px-20 cam fw-600 mb-3">Split System Quote</h4>
             <p className="px-20 lead-400">
               For new construction or existing homes.
               Looking for new installation or a replacement system? Submit your details, and we'll contact you

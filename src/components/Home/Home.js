@@ -32,7 +32,7 @@ const Home = () => {
               </div>
             </div>
             <div className="grid-300 mb-2 p-2">
-              <div className="card">
+              <div className="card-home">
                 <Link to="/products/split-system-air-conditioning">
                   <div className="card-top">
                     <StaticImage
@@ -41,22 +41,21 @@ const Home = () => {
                       data-pin-nopin="true"
                     />
                   </div>
-                  <div className="card-heading">
+                  <div className="card-heading p-2">
                     <h3 className="fw-600 text-dark">Split Systems A/C</h3>
                   </div>
-                  <div className="card-body--">
+                  <div className="card-body-- p-2">
                     <p className="card-text lead">
-                      Cool or heat a single room or space, with split systems
-                      air conditioning...
+                      Cool or heat a single room or space, with split systems...
                     </p>
                   </div>
-                  <div className="text-blue text-shadow-2 mt-2">
+                  <div className="text-blue text-shadow-2 mt-2 fsz-learn-more p-2">
                     Learn more >>
                   </div>
                 </Link>
               </div>
 
-              <div className="card">
+              <div className="card-home">
                 <Link to="/ducted-systems">
                   <div className="card-top">
                     <StaticImage
@@ -65,22 +64,22 @@ const Home = () => {
                       data-pin-nopin="true"
                     />
                   </div>
-                  <div className="card-heading">
+                  <div className="card-heading p-2">
                     <h3 className="fw-600 text-dark">Ducted Systems A/C</h3>
                   </div>
-                  <div className="card-body--">
+                  <div className="card-body-- p-2">
                     <p className="card-text lead">
                       Cool or heat your entire home, with ducted air
                       conditioning...
                     </p>
                   </div>
-                  <div className="text-blue text-shadow-2 mt-2">
+                  <div className="text-blue text-shadow-2 mt-2 fsz-learn-more p-2">
                     Learn more >>
                   </div>
                 </Link>
               </div>
 
-              <div className="card">
+              <div className="card-home">
                 <Link to="/multi-head-systems">
                   <div className="card-top">
                     <StaticImage
@@ -89,21 +88,21 @@ const Home = () => {
                       data-pin-nopin="true"
                     />
                   </div>
-                  <div className="card-heading">
+                  <div className="card-heading p-2">
                     <h3 className="fw-600 text-dark">Multi Systems A/C</h3>
                   </div>
-                  <div className="card-body--">
+                  <div className="card-body-- p-2">
                     <p className="card-text lead">
                       Cool or heat multiple rooms with a single outdoor unit...
                     </p>
                   </div>
-                  <div className="text-blue text-shadow-2 mt-2">
+                  <div className="text-blue text-shadow-2 mt-2 fsz-learn-more p-2">
                     Learn more >>
                   </div>
                 </Link>
               </div>
 
-              <div className="card">
+              <div className="card-home">
                 <Link to="/service">
                   <div className="card-top">
                     <StaticImage
@@ -111,16 +110,16 @@ const Home = () => {
                       alt="ducted air image"
                     />
                   </div>
-                  <div className="card-heading">
+                  <div className="card-heading p-2">
                     <h3 className="fw-600 text-dark">A/C Service</h3>
                   </div>
-                  <div className="card-body--">
+                  <div className="card-body-- p-2">
                     <p className="card-text lead">
                       Fast professional service and maintenance for split
                       systems air...
                     </p>
                   </div>
-                  <div className="text-blue text-shadow-2 mt-2">
+                  <div className="text-blue text-shadow-2 mt-2 fsz-learn-more p-2">
                     Learn more >>
                   </div>
                 </Link>
@@ -128,7 +127,7 @@ const Home = () => {
             </div>
 
             <div className="mt-5 mb-3">
-            <div className="px-2"><h3 className="h6 cam my-3 fw-600">Recommended leading brands</h3></div>
+            <div className="px-2"><h3 className="h6 cam my-3 fw-600">Browse our brands...</h3></div>
             
              <BrandsBtn />
             </div>
@@ -263,7 +262,7 @@ const Home = () => {
               </div>
               <div className="col">
                 <h3 className="h2 fw-600 mt-2 ">
-                    Personalised comfort solutions, from trusted professionals.
+                    Personalised Comfort Solutions, from Trusted Professionals.
                 </h3>
               </div>
             </div>

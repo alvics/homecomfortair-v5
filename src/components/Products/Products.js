@@ -275,35 +275,41 @@ const Products = () => {
 
         <div className="col-sm-12 col-md-8 col-lg-18 col-xl-8 bg-white mt-2 p-3 border rounded shop shop-board">
           <div className="d-md-flex justify-between">
-            <h1 className="fsz-21">Shop for Split System Air Conditioning</h1>
+            <h1 className="fsz-21 mobile-heading">Shop for Split System Air Conditioning</h1>
+
             {/* Dropdown Button */}
+
             <div className="dropdown">
               <button
-                className="mt-3 border border-dark px-2 pt-1 pb-1 fsz-14 gallery-btn dropdown-toggle me-sm-3 text-black"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
+                className=" btn mt-3 border border-dark px-2 pt-1 pb-1 fsz-14 gallery-btn dropdown-toggle me-sm-3 text-black sticky-mobile-btn"
+                role="button" 
+                id="dropdownMenuLink" 
+                data-bs-toggle="dropdown" 
                 aria-expanded="false"
+                
               >
                 Sort by brand
               </button>
-              <div className="dropdown-menu archive-dropdown" aria-labelledby="dropdownMenuButton1">
-                <button
+              <ul className="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                <li
                   className="dropdown-item"
                   onClick={() => handleSortByBrand("All")}
                 >
-                  All brands
-                </button>
+                  <button>All brands</button>
+                </li>
+               
                 {allBrands.map((brand) => (
-                  <button
-                    key={brand}
+                  <li>
+                  <button key={brand}
                     className="dropdown-item"
-                    onClick={() => handleSortByBrand(brand)}
-                  >
-                    {brand}
-                  </button>
+                    
+                    onClick={() => handleSortByBrand(brand)}>{brand}</button>
+                    
+                 
+                    
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
             
           </div>
@@ -336,24 +342,24 @@ const Products = () => {
 
         <Link to="/products/midea-2.0kw-xtreme-save-reverse-cycle-split-system-MFAB20NC/">
         <div className="shop-banners-2 img-thumbnail border img-fluid rounded mb-5">  <StaticImage
-                filename="side-banner/midea-banner-2.0.png"
+                filename="side-banner/midea-2.0.png"
                 alt="home comfort air midea split system sale banner"
                 className="rounded"
               /></div>
         </Link>
 
-        <Link to="/products/samsung-2.5kw-bedarra-reverse-cycle-inverter-hi-wall-split-system-AR09AXHQAWK/">
+        <Link to="/products/haier-2.5kw-inverter-reverse-cycle-wall-mount-split-system-AS25TBMHRA/">
           <div className="shop-banners-2 mt-3 border img-fluid rounded mb-5">    <StaticImage
-                filename="side-banner/smasung-banner.png"
+                filename="side-banner/haier-banner-2.png"
                 alt="home comfort air samsung split system sale banner"
                 className="rounded"
               /></div>
         </Link>
 
        
-              <Link to='/products/haier-2.5kw-inverter-reverse-cycle-wall-mount-split-system-AS25TBMHRA'>
+              <Link to='/products/mitsubishi-heavy-industries-2.0kw-avanti-DXK06ZSA-W-hi-wall-split-system/'>
                 <div className="shop-banners-2 mt-3 border img-fluid rounded">  <StaticImage
-                filename="side-banner/haier-banner-2.5.png"
+                filename="side-banner/MHI-banner.png"
                 alt="home comfort air haier split system air conditioner sale banner"
                 /></div>
                 </Link>

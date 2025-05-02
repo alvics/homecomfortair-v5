@@ -23,7 +23,7 @@ const MultiHeadSystemsPage = () => (
     <div className="body-wrapper multi-systems pt-3">
       <section>
         <div className="pt-2 multi-systems-avatar heading-box-color rounded">
-          <h1 className="h1 cap text-center text-white fw-600 p-3">
+          <h1 className="h1 text-center text-white fw-600 p-3">
             <span style={{ maxHeight: 305 }}>
               {" "}
               <StaticImage
@@ -33,6 +33,7 @@ const MultiHeadSystemsPage = () => (
             </span>
             Multi-Head Split Systems Air Conditioning
           </h1>
+          <div> <span className="text-white text-center h3" style={{ fontFamily: `'Caveat', cursive` }}>*One Outdoor Unit, Total Indoor Comfort</span></div>
           <div className="pb-3">
             <Cta />
           </div>
@@ -130,7 +131,7 @@ const MultiHeadSystemsPage = () => (
           </div>
 
           <div className="text-center">
-            <h3 className="h2 fw-600 mt-2 cap">Receive A free Quote</h3>
+            <h3 className="h2 fw-600 mt-2">Receive A free Quote</h3>
           </div>
         </div>
         <div className="grid-col-2">

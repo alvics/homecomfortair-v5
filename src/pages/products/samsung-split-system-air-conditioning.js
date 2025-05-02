@@ -28,7 +28,7 @@ const SamsungSplitSystem = () => {
 
         <section>
            <div className="pt-2 ducted-systems-avatar rounded heading-box-color ">
-               <h1 className="h2 cap text-center text-white fw-600  p-3">
+               <h1 className="h2 text-center text-white fw-600  p-3">
                 <div>
               {" "}
                  <StaticImage
@@ -42,6 +42,7 @@ const SamsungSplitSystem = () => {
           <div className="pb-3">
            <Cta /> 
           </div>
+           <div> <span className="text-white text-center h3 pb-3" style={{ fontFamily: `'Caveat', cursive` }}>*Cooler Air, Smarter Living – Samsung</span></div>
         </div>
         </section>
 
@@ -53,49 +54,16 @@ const SamsungSplitSystem = () => {
                 
               />
         </div>
-        <h2 className="h5 cap fw-600 mt-3">Samsung Air Conditioner</h2>
+        <h2 className="h5 fw-600 mt-3">Samsung Air Conditioner</h2>
         <p className="lead-20 mt-3">
         Samsung is a well-known and respected brand in the world of electronics, and their air conditioning systems are no exception. Samsung's <Link to="/products/split-system-air-conditioning">split system</Link> air conditioners are known for their high performance and energy efficiency, making them a popular choice for homes and businesses.
         </p>
         </section>
 
-        <section>
-        <p className="lead-20">
-        In addition to high energy efficiency, Samsung's split system air conditioners also feature advanced <Link to="/service">air filtration</Link> technology that helps to keep the air inside your home or office clean and fresh. The units use multiple filters, including a high-efficiency particulate air (HEPA) filter, to remove harmful particles such as dust, pollen, and pet dander from the air. This makes them ideal for people with allergies or asthma.
-        </p>
-        </section>
-
-        <section>
-        <div className="row">
-
-        <div className="col-lg">
-         <p className="lead-20 ">
-        Another notable feature of Samsung's split system air conditioners is the variety of options available. The company offers a wide range of different types of air conditioners, including wall-mounted, cassette, and <Link to="/ducted-systems">ducted</Link> models, to suit the needs of any home or office. They also have cooling-only and heating and cooling models available, so you can choose the right option for your specific needs.
-        </p>
-        <p className="lead-20 mt-3">
-        Samsung's split system air conditioners are also known for their sleek and modern design. They can be easily integrated into any home or office décor, and feature a sleek and modern design that will complement any space. The units are also durable, built to withstand the rigors of regular use, and they come with long-term warranties to ensure your peace of mind.
-        </p>
-        </div>
-
-
-        <div className="col-lg">
-        <div className="ducted-air mt-2 p-3">
-            <StaticImage filename="samsung-main.jpg" alt="samsung air hero images" />
-          </div>
-        </div>
-        </div>
-        </section>
-
-       <section>
-        <p className="lead-20 mt-2">
-        In conclusion, Samsung's split system air conditioners are an excellent choice for anyone looking for a high-performance, energy-efficient and smart cooling solution. With advanced inverter technology, advanced air filtration, and an array of smart features, Samsung air conditioners are an excellent way to ensure that your home or office is comfortable all year round.
-        </p>
-        </section>
-
-        <section>
+ <section>
        <div  className="text-center bg-dark my-3 text-center rounded" id="samsung">
                 <h3
-                  className="text-white h5 fw-600 cap mt-2 px-3"
+                  className="text-white h5 fw-600 mt-2 px-3"
                   style={{ padding: `1.3rem 0` }}
                 >
                   Supplied and Installed Samsung
@@ -120,6 +88,41 @@ const SamsungSplitSystem = () => {
         </section>
 
         <section>
+        <p className="lead-20">
+        In addition to high energy efficiency, Samsung's split system air conditioners also feature advanced <Link to="/service">air filtration</Link> technology that helps to keep the air inside your home or office clean and fresh. The units use multiple filters, including a high-efficiency particulate air (HEPA) filter, to remove harmful particles such as dust, pollen, and pet dander from the air. This makes them ideal for people with allergies or asthma.
+        </p>
+        </section>
+
+        <section>
+        <div className="row">
+
+        <div className="col-lg">
+         <p className="lead-20 ">
+        Another standout feature of Samsung’s split system air conditioners is the built-in Wi-Fi, allowing you to control your system anytime, anywhere. Simply use the Samsung SmartThings App to manage your home’s comfort from your phone.
+        </p>
+        <p className="lead-20 mt-3">
+       Samsung’s split system air conditioners are celebrated for their sleek, modern design that blends seamlessly into any home or office décor. Built for durability and everyday use, these units not only look great but are also made to last—backed by warranties ranging from 5 to 10 years for added peace of mind.
+        </p>
+        </div>
+
+
+        <div className="col-lg">
+        <div className="ducted-air mt-2 p-3">
+            <StaticImage filename="samsung-main.jpg" alt="samsung air hero images" />
+          </div>
+        </div>
+        </div>
+        </section>
+
+       <section>
+        <p className="lead-20 mt-2">
+        In conclusion, Samsung's split system air conditioners are an excellent choice for anyone looking for a high-performance, energy-efficient and smart cooling solution. With advanced inverter technology, advanced air filtration, and an array of smart features, Samsung air conditioners are an excellent way to ensure that your home or office is comfortable all year round.
+        </p>
+        </section>
+
+       
+
+        <section>
          <div className="heading-box-color grid-col-2 heading-avatar rounded my-3 mx-0">
           <div className="p-3">
             <StaticImage
@@ -135,7 +138,7 @@ const SamsungSplitSystem = () => {
 
         <div className="grid-col-2 pb-3">
           <div>
-            <h5 className=" px-20 cap fw-600">Split System Quote</h5>
+            <h5 className="h5 px-20 fw-600">Split System Quote</h5>
             <p className="px-20">
               For new construction or existing homes.
               Need a replacement unit or a new installation? Submit your details, and we'll contact you

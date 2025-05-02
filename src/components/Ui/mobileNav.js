@@ -108,7 +108,7 @@ const MobileNav = () => {
     <div className="logo-top container-fluid" style={{ backgroundColor: 'rgb(0, 117, 201)'}}>
      <div class="row">
 
-        <div className="mobile-nav-logo mb-3">
+        <div className="mobile-nav-logo mb-3 pt-2">
        <Logo>
        
        <Link to="/">
