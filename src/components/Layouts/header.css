@@ -289,10 +289,12 @@ border: solid 1px #818181 !important;
         border: solid 1px #f2f1f1 !important;
         
    }
+/*
    .search-btn{
     border: solid 1px #f2f1f1 !important;
     background-color: #bab6b6 !important;
    }
+
    .search-icon{
      right: 19px !important;
      width: 15px !important;
@@ -300,6 +302,18 @@ border: solid 1px #818181 !important;
      top: 21px !important;
      color: #2d3136 !important;
    }
+*/
+
+.search-icon {
+    display: none;
+ 
+}
+
+.layout-site {
+margin: -30px auto 0px;
+}
+
+
     .phone-nav {
         position: absolute;
         left: 310px;
@@ -317,12 +331,16 @@ border: solid 1px #818181 !important;
     }
 
     .mobile-nav-logo{
-        margin-left: 50px;
-        margin-top: 20px;;
+        margin-left: 35px;
+        margin-top: 10px;;
     }
     .service-area {
        display: none;
     }
+
+.frpZQb {
+    margin-top: -10px;
+}
   
     .call-icon {
         padding-left: 8px !important;
@@ -366,9 +384,8 @@ border: solid 1px #818181 !important;
 /* GOOGLE CHROME BROWSER  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     #menu-icon-- {
-            top: 1.5rem;
-            right: 13px;
-        }
+            top: 1.4rem;
+            }
 }
 
 

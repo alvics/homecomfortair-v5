@@ -228,7 +228,7 @@ const ServiceArea = ({
         </div>
 
         <div className="reactMarkdown">
-          <h3 class="h5 fw-600 mt-5 cap">ABOUT <span class="h5 fw-600 mt-5 cap">{Heading}</span></h3>
+          <h3 class="h5 fw-600 mt-5 cap">For all <span class="h5 fw-600 mt-5 cap">{Heading} Air Conditioning </span></h3>
           <ReactMarkdown children={textAbout} />
         </div>
 

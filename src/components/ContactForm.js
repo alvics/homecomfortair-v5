@@ -16,7 +16,7 @@ export default class MyForm extends React.Component {
         
         className="grid-300 form-a quote-order-form contact-form"
         onSubmit={this.submitForm}
-        action="https://formspree.io/mleppppp"
+        action="https://formspree.io/f/mleppppp"
         method="POST"
       >
         <input

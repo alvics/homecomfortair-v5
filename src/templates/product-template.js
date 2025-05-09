@@ -140,7 +140,7 @@ const  brand = data.strapiProduct.sub_categories[0]?.title || '';
 
   
     
-   <Carousel images={images} index={2} hasSizeButton={false} hasMediaButton={false} hasIndexBoard={false} hasCaption={true} className='bg-white d-flex img-fluid gallery-img' /> 
+   <Carousel images={images} index={2} hasSizeButton={false} hasMediaButton={false} hasIndexBoard={false} hasCaption={true} showThumbs={false}  className='bg-white d-flex img-fluid gallery-img' /> 
 
     </div>
 

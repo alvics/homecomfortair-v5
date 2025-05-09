@@ -8,6 +8,7 @@ import StaticImage from "../components/StaticQueryImages"
 // import Form from "../components/ContactForm"
 import BackgroundImage from "../components/ContactPageBackgroundImage"
 
+
 export const Head = () => (
 
   <Fragment>
@@ -39,6 +40,8 @@ const Contact = () => (
             
           </div>
         </div>
+
+       
         </section>
      
 

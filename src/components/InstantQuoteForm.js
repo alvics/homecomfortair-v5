@@ -78,7 +78,7 @@ export default class Modal extends React.Component {
               <form
                 className="grid-300 job-order-form"
                 onSubmit={this.submitForm}
-                action="https://formspree.io/mleppppp"
+                action="https://formspree.io/f/mleppppp"
                 method="POST"
               >
                 <input

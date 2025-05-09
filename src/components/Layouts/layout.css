@@ -1091,7 +1091,7 @@ input[type='checkbox'] + span::before {
     grid-template-columns: repeat(1, 1fr) !important;
   }
     .mobile-search {
-      margin-top: -0px !important;
+      margin-top: 4px !important;
     }
 }
 
@@ -1194,12 +1194,18 @@ input[type='checkbox'] + span::before {
     font-size: 1.5rem !important;
   }
   .cIJXHi {
-   
-    padding-right: 80px;
+   padding-right: 80px;
   }
   .mobile-search {
-    margin-top: -5px;
+    margin-top: 5px;
     width: 80%;
+  }
+    .gDOFVe{
+      margin-top: 10px;
+    }
+
+  .gDOFVe{
+     height: 124px !important;
   }
   .iNWjDh,
   .gVSMFM {
@@ -1212,12 +1218,12 @@ input[type='checkbox'] + span::before {
   }
 
   #menu-icon-- {
-    top: 0.8rem !important;
+    top: 1.3rem !important;
     /* left: 1.2rem !important; */
   }
   .fJCwCW div {
     height: 4px !important;
-  }
+}
 }
 
 @media (min-width: 765px) and (max-width: 990px) {
@@ -2056,6 +2062,7 @@ gatsby-image-wrapper {
   position: relative;
   flex: 1 0 auto;
   height: 100%;
+  padding-left: 50px;
 }
 
 .ul-search {
@@ -2274,13 +2281,14 @@ gatsby-image-wrapper {
   .hero-row .col-lg-4 {
     background-color: rgba(255, 255, 255, 0.9);
   }
+
 .card{
   max-height:fit-content !important;
   margin-top: 10px;
 }
-
-
-
+.input-search {
+  min-width: none;
+}
 
   #single-room-size {
     font-size: 13px;
@@ -2290,6 +2298,54 @@ gatsby-image-wrapper {
   }
   .home-page .form-a {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+    .search-btn {
+        background-color: transparent !important;
+        border: none !important
+      }
+            .search-icon {
+              display: none;
+              
+            }
+}
+
+@media (min-width: 360px) and (max-width: 373px) {
+  .input-search {
+    right: 25px !important;
+    margin-left: -75px !important;
+  }
+
+}
+
+@media (min-width: 374px) and (max-width: 389px){
+  .input-search {
+    right: 25px !important;
+    margin-left: -75px !important;
+  }
+
+}
+
+@media (min-width: 390px) and (max-width: 411px) {
+  .input-search {
+    right: 10px !important;
+    margin-left: -60px !important;
+  }
+}
+
+@media (min-width: 412px) and (max-width: 429px) {
+  .input-search {
+    right: 10px !important;
+    margin-left: -60px !important;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 450px) {
+  .input-search {
+    right: 10px !important;
+    margin-left: -15px !important;
   }
 }
 
@@ -2410,6 +2466,13 @@ input {
 @media (max-width: 1399px) {
   .ducted-col {
     margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-btn{
+    background-color: none !important;
+    border: none !important;
   }
 }
 

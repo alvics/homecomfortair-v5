@@ -28,7 +28,7 @@ import Search from "../Search"
 
             <div
               style={{ PaddingBottom: 5 }}
-              className="col-md-3 col-sm-6 col-xs-6 
+              className="col-md-6 col-sm-6 col-xs-6 col-xl-3
               
               d-flex justify-content-end phone-nav"
             >

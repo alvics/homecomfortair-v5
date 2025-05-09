@@ -15,7 +15,7 @@ export default class QuoteForm extends React.Component {
       <form
         className="grid-300 quote-order-form"
         onSubmit={this.submitForm}
-        action="https://formspree.io/mleppppp"
+        action="https://formspree.io/f/mleppppp"
         method="POST"
       >
         <input
