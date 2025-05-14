@@ -109,7 +109,7 @@ export default class Modal extends React.Component {
                   </p>
                 ) : (
                   <div>
-                    <button className="btn-- btn-primary-- mb-3">
+                    <button className="btn-- btn-primary-- mb-3" type="submit">
                       Receive a Quote
                     </button>
                     <div className="text-dark mt-2 lh-sm" style={{ fontSize: 12 }}>

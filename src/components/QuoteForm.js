@@ -61,7 +61,7 @@ export default class QuoteForm extends React.Component {
             you shortly.
           </p>
         ) : (
-          <button className="btn-- btn-primary--">Submit</button>
+          <button className="btn-- btn-primary--" type="submit">Submit</button>
         )}
         {status === "ERROR" && <p>Ooops! There was an error.</p>}
       </form>
