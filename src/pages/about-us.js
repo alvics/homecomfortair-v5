@@ -8,6 +8,7 @@ import StaticImage from "../components/StaticQueryImages"
 import MideaSplitSystems from "../components/Products/MideaSplitsSystems"
 import BrandsImages from "../components/BrandsBtn"
  import Cta from "../components/CTA"
+import { WorkPhotos } from "../components/About/WorkPhotos"
 // import BrandBtn from "../components/BrandBtn"
 
 export const Head = () => (
@@ -116,102 +117,9 @@ const ProductsPage = () => {
             
           </div>
         </div>
-<div className="pl-2 pt-3"><h4>Here's a look at some of our work.</h4></div>
-        <div className="grid-200">
-        <div className=""><StaticImage
-                filename="serviceArea/heritage-park.jpeg"
-                alt="heritage-park-air conditioning"
-              /></div>
-        <div className=" ">
-        <StaticImage
-                filename="serviceArea/coombabah.jpeg"
-                alt="map-brisbane-distances"
-              />
-        </div>
-        <div className="">
-        <StaticImage
-                filename="serviceArea/nerang.jpeg"
-                alt="map-brisbane-distances"
-              /></div>
-               <div className=""><StaticImage
-                filename="serviceArea/hope-island.jpeg"
-                alt="map-brisbane-distances"
-              /></div>
-        </div>
 
-           <div className="grid-200">
-            <div className=""><StaticImage
-                filename="serviceArea/newport.jpeg"
-                alt="map-brisbane-distances"
-              /></div>
-        <div className=""><StaticImage
-                filename="serviceArea/redbank-plains.jpeg"
-                alt="map-brisbane-distances"
-              /></div>
-        <div className=" ">
-        <StaticImage
-                filename="underwood.jpeg"
-                alt="map-brisbane-distances"
-              />
-        </div>
-        <div className="">
-        <StaticImage
-                filename="serviceArea/ashmore.jpeg"
-                alt="map-brisbane-distances"
-              /></div>
-        </div>
+<WorkPhotos />
 
-
-
-
-
-
-         <div className="grid-200">
-            <div className=""><StaticImage
-                filename="serviceArea/upper-coomera.jpeg"
-                alt="map-brisbane-distances"
-              /></div>
-        <div className=""><StaticImage
-                filename="serviceArea/upper-coomera-midea.jpeg"
-                alt="map-brisbane-distances"
-              /></div>
-        <div className=" ">
-        <StaticImage
-                filename="mermaid-waters.jpeg"
-                alt="map-brisbane-distances"
-              />
-        </div>
-        <div className="">
-        <StaticImage
-                filename="serviceArea/runawaybay.jpeg"
-                alt="map-brisbane-distances"
-              /></div>
-        </div>
-
-
-
-
-         <div className="grid-200">
-            <div className=""><StaticImage
-                filename="serviceArea/coombabah-daikin.jpeg"
-                alt="map-brisbane-distances"
-              /></div>
-        <div className=""><StaticImage
-                filename="serviceArea/elenora.jpeg"
-                alt="map-brisbane-distances"
-              /></div>
-        <div className=" ">
-        <StaticImage
-                filename="robina.jpeg"
-                alt="map-brisbane-distances"
-              />
-        </div>
-        <div className="">
-        <StaticImage
-                filename="serviceArea/oxenford.jpeg"
-                alt="map-brisbane-distances"
-              /></div>
-        </div>
 
 <div className="mt-3">
          <div className="img-wrapper-e p-1 w-75">

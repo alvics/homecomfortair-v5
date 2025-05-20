@@ -206,7 +206,7 @@ const  brand = data.strapiProduct.sub_categories[0]?.title || '';
 
      <div className="mt-3">
      <p className=''>Supplied & installed</p>
-      <span className="fsz-38 fw-700 shrink-text position-relative"><span className='fsz-16 position-absolute top-0 start-0 fx-700' style={{marginTop: '5px'}}>$</span><span  className='ml-2'>{price}</span> <span className='fsz-12 fw-400' data-bs-toggle="tooltip" data-bs-placement="top" title="This is the standard retail price at which this exclusive product is offered for sale by home comfort air."><del>SRP {price + 100}</del></span>  </span>
+      <span className="fsz-38 fw-700 shrink-text position-relative"><span className='fsz-16 position-absolute top-0 start-0 fx-700' style={{marginTop: '5px'}}>$</span><span  className='ml-2'>{price}</span> <span className='fsz-12 fw-400' data-bs-toggle="tooltip" data-bs-placement="top" title="This is the standard retail price at which this exclusive product is offered for sale by home comfort air."><del>SRP  ${price + 100}</del></span>  </span>
       <div className='fw-bold fsz-16 d-flex flex-column my-3 shrink-text'>
       <span>{cool_capacity} cooling capacity</span>
       <span>{heat_capacity} heating capacity</span>

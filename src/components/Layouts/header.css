@@ -319,6 +319,10 @@ margin: -30px auto 0px;
         left: 310px;
     }
 
+    .ul-search {
+        padding-left: 2px;
+    }
+
     .form-overlay {
         padding: 15px !important;
     }

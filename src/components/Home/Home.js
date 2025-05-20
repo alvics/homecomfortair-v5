@@ -19,7 +19,7 @@ const Home = () => {
        
           <section className="section-1">
             <div className="heading-box-color heading-avatar heading-avatar rounded row d-flex align-items-center mb-2 mx-0">
-              <div className="col-sm-3 col-lg-2 pt-2 px-4 m-auto">
+              <div className="col-sm-3 col-lg-2 pt-2 pb-1 px-4 m-auto">
                 <StaticImage
                   filename="HCA-avatar-WHITE-1400.png"
                   alt="home comfort air image"
@@ -136,7 +136,7 @@ const Home = () => {
 
           <section className="section-2 split-system-cta">
             <div className="heading-box-color heading-avatar rounded row d-flex align-items-center mb-2 mx-0">
-              <div className="col-sm-3 col-lg-2 pt-2 px-4">
+              <div className="col-sm-3 col-lg-2 pt-2 pb-1 px-4">
                 <StaticImage
                   filename="HCA-avatar-WHITE-1400.png"
                   alt="home comfort air image"
@@ -218,7 +218,7 @@ const Home = () => {
 
          <section>
           <div className="heading-box-color heading-avatar rounded row d-flex align-items-center my-2 mx-0">
-              <div className="col-sm-3 col-lg-2 pt-2 px-4">
+              <div className="col-sm-3 col-lg-2 pt-2 pb-1 px-4">
                 <StaticImage
                   filename="HCA-avatar-WHITE-1400.png"
                   alt="home comfort air image"
@@ -254,7 +254,7 @@ const Home = () => {
 
           <section className="section-3">
             <div className="heading-box-color  heading-avatar rounded row d-flex align-items-center mb-2 mx-0">
-              <div className="col-sm-3 col-lg-2 pt-2 px-4">
+              <div className="col-sm-3 col-lg-2 pt-2 pb-1 px-4">
                 <StaticImage
                   filename="HCA-avatar-WHITE-1400.png"
                   alt="home comfort air image"
@@ -387,7 +387,7 @@ const Home = () => {
             </div>
 
    <div className="heading-box-color heading-avatar rounded row d-flex align-items-center my-2 mx-0">
-              <div className="col-sm-3 col-lg-2 pt-2 px-4">
+              <div className="col-sm-3 col-lg-2 pt-2 pb-1 px-4">
                 <StaticImage
                   filename="HCA-avatar-WHITE-1400.png"
                   alt="home comfort air image"

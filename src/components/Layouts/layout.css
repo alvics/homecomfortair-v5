@@ -1090,9 +1090,7 @@ input[type='checkbox'] + span::before {
   .split-systems-top-col {
     grid-template-columns: repeat(1, 1fr) !important;
   }
-    .mobile-search {
-      margin-top: 4px !important;
-    }
+   
 }
 
 @media (min-width: 768px) {
@@ -1798,7 +1796,7 @@ gatsby-image-wrapper {
 }
 
 .bg-light {
-  background-color: #f8f8f8;
+  background-color: #ecedee !important;
 }
 
 .pt-10 {
@@ -2175,9 +2173,7 @@ gatsby-image-wrapper {
   padding-top: 3px;
 }
 
-.price {
-  margin-left: 8px;
-}
+
 
 *:hover,
 *:focus,
