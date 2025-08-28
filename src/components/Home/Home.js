@@ -6,7 +6,7 @@ import MyForm from "../../components/QuoteForm"
 import StaticImage from "../../components/StaticQueryImages"
 import BrandsBtn from "../../components/BrandsBtn"
 // import CardHome from "../Sections/CardHome";
-import GoogleReviewsCarousel from "../Sections/GoogleReviewsCarousel"
+import GoogleReviewsCarousel from "../Sections/GoogleReviews"
 import MideaSplitSystems from "../Products/MideaSplitsSystems"
 import MitsubishiSplitSystems from "../Products/MitsubishiElectricSplits"
 import DaikinSplitSystems from "../Products/DaikinSplitSytems"
@@ -176,24 +176,58 @@ const Home = () => {
                 </div>
                
                
-                <p className="cap text-dark">Beat the heat</p>
+                <div className="heading-box-color heading-avatar rounded row d-flex align-items-center mt-3 mb-2 mx-0">
+                <div className="col-sm-3 col-lg-2 pt-2 pb-1 px-4">
+                  <StaticImage
+                    filename="HCA-avatar-WHITE-1400.png"
+                    alt="home comfort air image"
+                  />
+                </div>
+                <div className="col">
+                  <h3 className="h2 fw-600 mt-2">
+                  Split System Air Conditioning Experts on the Gold Coast
+                  </h3>
+                </div>
+            </div>
 
 
                 <p className="mt-20 lead">
-                  <Link to="/split-systems-air-conditioning">Split system</Link> air conditioners  have come a long way in terms of technology and design, making them the most popular choice for homeowners and businesses looking for a cost-effective cooling and heating solution. With their sleek look and user-friendly features, they are perfect for single rooms or spaces, and are ideal for keeping you cool in the summer and warm in the winter.
+                   Looking for reliable and energy-efficient air conditioning solutions for your home or business? At Home Comfort Air, we specialise in the supply, installation, and servicing of <Link to="/split-systems-air-conditioning">split system</Link> air conditioners across the Gold Coast and surrounding areas. Our modern split system air conditioners are designed for maximum comfort, offering powerful cooling in summer and efficient heating in winter—all while keeping energy costs low.
                 </p>
+
+                <h2 className="h5 fw-600 cam mt-3">
+                Why Choose Split System Air Conditioners?
+            </h2>
+
                 <p className="mt-20 lead">
-                  At Home Comfort Air, we understand that choosing the right air conditioning system can be overwhelming. That's why we're here to help. With our expertise and experience, we can guide you through the process and help you find the perfect unit for your home or office space. Whether you're looking for a single room solution or a system for your entire home, we've got you covered.
+                Split system air conditioners are the preferred choice for many Gold Coast homeowners and businesses. They feature sleek, compact designs and advanced technology, making them perfect for cooling or heating single rooms, offices, bedrooms, or open-plan living spaces. With easy-to-use controls and quiet operation, split systems deliver year-round comfort tailored to your needs.
                 </p>
                 
-                 <p className="mt-20 lead">
-                  We offer a range of services to help you make an informed decision. We are happy to assist you over the phone, by <a href="mailto:homecomfortair.gc@gmail.com"> email</a>, and even with a free in-home consultation. Our team of experts has over 10 years of experience, and we can provide cost comparisons to help you determine the best option for your needs and budget
-                </p>
+                <h2 className="h5 fw-600 cam mt-3">
+                Expert Advice and Personalised Service
+            </h2>
 
                  <p className="mt-20 lead">
-                  Don't hesitate to reach out to us at Home Comfort Air or call us at <a href="tel:0404602657">0404 602 657</a> to learn more about all the options available to you and to schedule your consultation today.
+                 Choosing the right air conditioning system can be confusing, but our experienced team at Home Comfort Air is here to help. With over 10 years of industry expertise, we provide honest advice and professional guidance to ensure you select the best air conditioner for your space and budget. Whether you need a single split system for a bedroom or a multi-split solution for your entire home, we’ve got you covered.
                 </p>
-                <h4 className="mt-3">Mitsubishi Electric MSZ-AP-Series Split System Air Conditioning</h4>
+                <h3 className="h5 fw-600 cam mt-3">
+                Our Services
+            </h3>
+                <ul>
+                <li><strong>* Free In-Home Consultations:</strong> We’ll assess your space and recommend the ideal air conditioning system.</li>
+                <li><strong>* Phone & Email Support:</strong> Get expert advice and answers to all your air conditioning questions.</li>
+                <li><strong>* Cost Comparisons: </strong> We help you compare brands and models to find the most cost-effective solution.</li>
+                <li><strong>* Professional Installation:</strong> Our licensed technicians ensure a seamless and safe installation process.</li>
+                </ul>
+
+          <div className="mt-4 mb-4">
+                <h3 className="h5 fw-600 cam mt-3">Contact Home Comfort Air Today</h3>
+                 <p className="mt-20 lead">
+                 Ready to enjoy year-round comfort? Contact Home Comfort Air, your trusted Gold Coast air conditioning specialists. Call us now on <a href="tel:0404602657">0404 602 657</a> or <a href="mailto:homecomfortair.gc@gmail.com"> email</a> us to book your free consultation and discover the best split system air conditioner for your home or business.
+                </p>
+            </div>
+
+                <h4 className="mt-4">Mitsubishi Electric MSZ-AP-Series Split System Air Conditioning</h4>
                 <MitsubishiSplitSystems />
 
     <div className="px-2">
@@ -279,7 +313,7 @@ const Home = () => {
                 <div>
 
                    <p className="lead mt-3 px-3">
-                   At HOME COMFORT AIR, we have been providing high-quality air conditioning installation services to families and major builders in the Brisbane, Ipswich, <Link to="/gold-coast-air-conditioning">Gold Coast</Link>, and <Link to="tweed-heads-air-conditioning">Tweed Heads</Link> regions for over a decade. We offer a wide range of options for high wall and <Link to="/multi-head-systems">multi head </Link> <Link to="/split-systems-air-conditioning">split systems</Link>, including popular brands such as Kelvinator, Acrton, <Link to="/products/daikin-air-conditioning"> Daikin</Link>, Braemar, LG, Haier, Mitsubishi, and <Link to="/products/samsung-air-conditioning">Samsung</Link>, as well as ducted residential and commercial systems with Daikin and Actron air conditioners. Additionally, our team is experienced in installing cassette units and wall-mounted split systems in Queensland schools.
+                   At HOME COMFORT AIR, we have been providing high-quality air conditioning installation services to families and major builders in the Brisbane, Ipswich, <Link to="/gold-coast-air-conditioning">Gold Coast</Link>, and <Link to="tweed-heads-air-conditioning">Tweed Heads</Link> regions for over a decade. We offer a wide range of options for high wall and <Link to="/multi-head-systems">multi head </Link> <Link to="/split-systems-air-conditioning">split systems</Link>, including popular brands such as Kelvinator, Acrton, <Link to="/products/daikin-split-system-air-conditioning/"> Daikin</Link>, <Link to="products/midea-split-system-air-conditioning/">Midea</Link>, LG, <Link to="/products/haier-split-system-air-conditioning/">Haier</Link>, <Link to="/products/mitsubishi-electric-split-system-air-conditioning">Mitsubishi</Link>, and <Link to="/products/samsung-split-system-air-conditioning/">Samsung</Link>, as well as ducted residential systems with Daikin and Actron air conditioners. Additionally, our team is experienced in installing cassette units and wall-mounted split systems in Queensland schools.
                    </p>
 
 

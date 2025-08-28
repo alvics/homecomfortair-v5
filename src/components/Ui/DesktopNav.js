@@ -16,6 +16,8 @@ import TopNavMenu from "./topDesktopNavMenu"
 import StaticImg from "../StaticQueryImages"
 import BrandNavMenu from "./brandsNav"
 
+import CartIcon from "../CartIcon"
+
 const getImage = graphql`
   {
     fluid: file(relativePath: { eq: "Home-Comfort-Air-logo-650.png" }) {
@@ -66,6 +68,11 @@ const Header = () => {
          <BrandNavMenu />
 
             <Link  to="/contact">Contact</Link>
+
+            <span>
+<CartIcon className="nav-cart" />
+</span>
+
             <span className="mt-1">
             <a href="https://www.facebook.com/Home-Comfort-Air-1713459065551004/?ref=bookmarks"
               target="blank"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-facebook mb-1" viewBox="0 0 16 16">

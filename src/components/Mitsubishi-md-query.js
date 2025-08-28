@@ -15,7 +15,7 @@ const MitsubishiArticle = () => {
    
 <div className="feature-text lead-20">
   <h4>Features and Benefits of Mitsubishi Split Systems</h4>
-Experience optimal comfort all year round with our MSZ-AP series - the perfect choice for single rooms and small spaces. Keep cool in the summer and warm in the winter with this versatile and energy efficient air conditioning system.
+Experience optimal comfort all year round with our MSZ-AP series - the perfect choice for single rooms and small spaces. Keep cool in the summer and warm in the winter with this versatile and energy efficient air conditioning system with built in Wi-Fi control.
 </div>
 <div  className="row">
   <div className="col">
@@ -85,10 +85,12 @@ Experience optimal comfort all year round with our MSZ-AP series - the perfect c
         </div>
 
 <div className="col-mits-script mb-3">
-    <h5>Wi-Fi Control</h5>
+    <h5>Built in Wi-Fi Control</h5>
     <p className="mitsi-text">
-    Experience ultimate convenience and control with the latest smart technology for heating and cooling. Connect your Mitsubishi Electric air conditioner to your smartphone, tablet, or online account and manage each unit remotely through an internet connection, no matter where you are. With just a few taps, you can adjust temperature settings, change modes, and more.
-    *Please note that a Wi-Fi adaptor is required per unit, and an internet connection and the Wi-Fi Control App is required on your smartphone or tablet with the latest operating system available. Additionally, to use Amazon Alexa or Google Assistant to control your air conditioner, you will need an Amazon Alexa Echo device or Google Home Smart speaker respectively.
+    Unlock the door to smarter heating and cooling systems, for total home comfort. This innovative technology connects your Mitsubishi Electric air conditioner to your smartphone, tablet or online account, giving you the freedom to fully control each unit on-the-go via an internet connection from anywhere in the world.
+    *1 Requires an internet connection and the App downloaded on your smartphone or tablet with the latest operating system available.
+*2 To use Amazon Alexa to control your air conditioner you will need an Amazon Alexa Echo device.
+*3 To use Google Assistant to control your air conditioner you will need a Google Home Smart speaker.
     </p>
 </div>
 

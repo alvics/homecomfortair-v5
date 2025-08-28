@@ -156,7 +156,7 @@ const ServiceArea = ({
               </ol>
             </ul>
           </div>
-          <div className="col-md-6 flex-row flex-column img-fluid mb-3" style={{ transform: 'rotate(90deg)' }}>
+          <div className="col-md-6 flex-row flex-column img-fluid mb-3" >
             <GatsbyImage image={image} alt={Heading} />
           </div>
         </div>

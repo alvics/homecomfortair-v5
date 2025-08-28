@@ -2888,6 +2888,10 @@ body div#hubspot-messages-iframe-container .hqnutI {
 }
 
 /* BS Override */
+bg-primary-- {
+  background-color: rgb(0, 117, 201) !important;
+  
+}
 
 :root {
   --dark-blue: #0d3880;
@@ -3123,4 +3127,8 @@ button .accordion-button::after {
 
 .single-product-row .accordion {
   margin-left: -19px;
+}
+
+.small-text {
+  font-size: 14.4px !important;
 }

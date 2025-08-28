@@ -11,7 +11,7 @@ import Schema from "../components/Schema-2";
 export const Head = () => (
 
   <Fragment>
-       <title>Home Comfort Air Residential Air Conditioning Specialists"</title>,
+       <title>Home Comfort Air Residential Air Conditioning Specialists</title>,
        <meta name= "description" content="Residential air conditioning specialists, we supply and install all major brands throughout south east Queensland, from Ipswich, Brisbane and the Gold Coast."/>
        <Seo />
        <Schema />

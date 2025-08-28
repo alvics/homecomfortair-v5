@@ -47,6 +47,9 @@ const ServiceAreasPage = ({ data }) => {
           
           </div>
         </div>
+
+    
+
         <div className="row about-us">
           <div className="col-lg-8 pt-3">
             <div className="wrapper-about-img px-2">
@@ -79,23 +82,24 @@ const ServiceAreasPage = ({ data }) => {
               <a href="tel:0404602657">0404 602 657</a> for residential air
               conditioning solutions. Your satisfaction, is our guarantee!{" "}
             </p>
-<div className="m-3">
-    {/* List of service area's  */}
-    <ul>
-        {serviceAreas.map((serviceArea) => (
-          <li key={serviceArea.slug}>
-            <Link to={`/service-areas/${serviceArea.slug}`}>
-              {serviceArea.Heading}
-            </Link>
-          </li>
-        ))}
-      </ul>
 
-    
-    
+
+
+</div>
+
+
+
+<div className="container px-2">
+<div className="row mt-3">
+  {serviceAreas?.map((serviceArea) => (
+    <p className="col-12 col-md-6 col-lg-3" key={serviceArea.slug}>
+      <Link to={`/service-areas/${serviceArea.slug}`}>
+        {serviceArea.Heading}
+      </Link>
+    </p>
+  ))}
 </div>
 </div>
-          
             <div className="img-wrapper-e px-2">
               <StaticImage
                 filename="splits-add.png"
@@ -111,7 +115,12 @@ const ServiceAreasPage = ({ data }) => {
         </button>
         </div>
             </div>
+
+
+            
           </div>
+
+
           <div className="col-lg-4 pt-3 px-4">
             <div className="">
               <div>
@@ -137,6 +146,8 @@ const ServiceAreasPage = ({ data }) => {
             
           </div>
         </div>
+
+       
        
         <div className="px-3 mt-3">
         <div className="mb-4 mt-4">

@@ -46,6 +46,7 @@ module.exports = {
     
 
     },
+    
      {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
@@ -61,6 +62,7 @@ module.exports = {
         siteUrl: `https://homecomfortair.net.au`,
       },
     },
+    
       {
       resolve: `gatsby-plugin-styled-components`,
       options: {
@@ -73,6 +75,19 @@ module.exports = {
     `gatsby-transformer-sharp`, 
     'gatsby-plugin-postcss',
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Home Comfort Air`,
+        short_name: `Home Comfort`,
+        start_url: `/`,
+        background_color: `#f8f8f8`,
+        theme_color: `#0075c9`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`, // This is the path to your icon
+        // ... other manifest options
+      },
+    }
     
 
 

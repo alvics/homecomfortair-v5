@@ -342,7 +342,7 @@ const Products = () => {
 
         <Link to="/products/midea-2.0kw-xtreme-save-reverse-cycle-split-system-MFAB20NC/">
         <div className="shop-banners-2 img-thumbnail border img-fluid rounded mb-5">  <StaticImage
-                filename="side-banner/midea-2.0.png"
+                filename="side-banner/midea-2.0kw-1199.png"
                 alt="home comfort air midea split system sale banner"
                 className="rounded"
               /></div>

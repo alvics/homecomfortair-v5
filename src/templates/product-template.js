@@ -25,7 +25,7 @@ import SamsungPDF from "../images/bedarra.pdf"
 import DaikinPDF from "../images/daikin.pdf"
 import ToshibaPDF from "../images/Toshiba.pdf"
 import CarrierPDF from "../images/Carrier.pdf"
-import MitsubishiPDF from "../images/mitsubishi.pdf"
+import MitsubishiPDF from "../images/Mitsubishi-electric-Brochure-2025.pdf"
 import HitachiPDF from "../images/hitachi.pdf"
 import MhiPDF from "../images/MHI.pdf"
 import MideaProducts from "../components/Products/MideaSplitsSystems"
@@ -39,6 +39,8 @@ import MitsubishiProducts from "../components/Products/MitsubishiElectricSplits"
 import BrandsBtn from "../components/BrandsBtn"
 import Schema from "../components/Schema-2"
 import Seo from "../components/SEO-2"
+import AddToCartButton from '../components/AddToCartButton';
+
 
 // import KwAccordion from '../components/Products/KwAccordion';
 
@@ -76,20 +78,28 @@ const location = useLocation();
     }
   };
 
-  
+
+   const product = data.strapiProduct;
+   const mainImage = product.gallery[0]?.url || ''; // Get the URL of the first image
+
+
+   
    const { description } = data.strapiProduct.description.data
-   const { title, price, heat_capacity,room_size, model, cool_capacity } = data.strapiProduct
+   const { title, price, heat_capacity,room_size, model, cool_capacity } = data.strapiProduct;
    /* const brand = data.strapiProduct.sub_categories[0]?.title?.toLowerCase() === 'mhi'
     ? 'Mitsubishi Heavy Industries'
     : data.strapiProduct.sub_categories[0]?.title || ''; */
     // const  image2  = data.strapiProduct.image2.url
-const  brand = data.strapiProduct.sub_categories[0]?.title || '';
-    
+   const  brand = data.strapiProduct.sub_categories[0]?.title || '';
+
 
     function CustomToggle({ children, eventKey }) {
     const decoratedOnClick = useAccordionButton(eventKey, () =>
     console.log('totally custom!'),
   );
+
+  
+  
 
   return (
     <button
@@ -102,22 +112,29 @@ const  brand = data.strapiProduct.sub_categories[0]?.title || '';
     </button>
   );
 }
-
-
-   const gallery = data.strapiProduct.gallery
  
- const images = gallery.map((item) => ({
-    src: item.url,
-    alt: title,
+    const gallery = data.strapiProduct.gallery
+ 
+    const images = gallery.map((item) => ({
+     src: item.url,
+     alt: title,
  }));
 
- 
+  // Create a new product object to send to the cart
+    const productForCart = {
+        ...product,
+        image: mainImage, // Add the image URL to the object
+        slug: product.slug // Add the slug to the object
+    };
+
 
   //  const images = gallery.map((item) => ({
   //   src: item.url
   // }));
 
  console.log(data, 'From Product-Template!!');
+
+
   return (
   <Fragment>
   <Layout>
@@ -134,6 +151,8 @@ const  brand = data.strapiProduct.sub_categories[0]?.title || '';
            <Link to="/products">Products /</Link> Split-systems  /  {brand}-{model}
          </span>
        </p>
+
+   
   </div>
 </div>
     <div className='gallery-img-container'>
@@ -213,14 +232,15 @@ const  brand = data.strapiProduct.sub_categories[0]?.title || '';
       </div>
       <p className='short-description fsz-16 single-product-right-col-text shrink-text lh-base'> {title} will suit a room size of approximately {room_size}m². <br /> <span className='fsz-14'>*Price is based on a back to back installation (maximum pipe length 3 metres).</span></p>
      </div>
-     <button
-                type="button"
-                className="mt-4 btn-- btn-primary--"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Enquire Now
-              </button>
+   
+              <div className="product-actions">
+
+    <AddToCartButton 
+    product={productForCart} // Pass the new object here
+    className="mt-4 btn-- btn-primary-- "
+  />
+  
+</div>
                
      </div>
      
@@ -358,7 +378,7 @@ const  brand = data.strapiProduct.sub_categories[0]?.title || '';
                 <li>* Mounting blocks.</li>
                 <li>* Electrical work (e.g new circuit).</li>
               </ul>
-              <small>Note: your installer will explain the reasons and requirements for the additional charges (if there are any) before proceeding.</small>
+              <small className="small-text">Note: your installer will explain the reasons and requirements for the additional charges (if there are any) before proceeding.</small>
             </div>
           </Accordion.Body>
         </Accordion.Item>
@@ -552,7 +572,7 @@ const  brand = data.strapiProduct.sub_categories[0]?.title || '';
         </div>
 
 
-) : brand === "mitsubishi" ? (
+) : brand === "mitsubishi electric" ? (
                    <div className='mt-4 d-flex'>
                 <p className='p-2 '>
                     Mitsubishi brochure{" "} </p>

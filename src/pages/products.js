@@ -10,12 +10,13 @@ import DesktopNav from '../components/Ui/DesktopNav';
 import Footer from '../components/Footer';
 import Seo from '../components/SEO-2';
 import Schema from '../components/Schema-2';
+import Layout from '../components/Layouts/layout';
 
 export const Head = () => (
 
   <Fragment>
-       <title>Shop Split System Air Conditioning | Supplied & Installed Options</title>,
-       <meta name= "description" content="Search our split system air conditioning supplied & installed range and discover cooling and heating options."/>
+       <title>Split System Air Conditioning | Supplied & Installed from $1199</title>,
+       <meta name= "description" content="Search our split system air conditioning supplied & installed range and discover your cooling and heating options."/>
        <Seo />
        <Schema />
   </Fragment>
@@ -29,7 +30,7 @@ const Products = ({
 }) => {
 
   return (
-
+<Layout>
     <Fragment>
        <DesktopNav />
        <MobileNav />
@@ -37,7 +38,7 @@ const Products = ({
            <SplitSystems products={products} />
        <Footer />
     </Fragment>
-
+</Layout>
   )
 }
 

@@ -1,16 +1,21 @@
 
-import React, { Fragment } from "react"
+import React from "react"
 import "../Layouts/header.css"
 import "../Layouts/layout.css"
-
+// import { CartProvider } from '../../contexts/CartContext';
+//import CartIcon from './CartIcon';
 
  import DesktopNav from '../Ui/DesktopNav'
  import MobileNav from '../Ui/mobileNav'
  import Footer from "../Footer"
 
+
+
 export default function Layout({ children }) {
   return (
-  <Fragment>
+
+   
+      <div className="layout">
     
     <DesktopNav />
      <MobileNav />
@@ -23,9 +28,9 @@ export default function Layout({ children }) {
         }}
       >
         <main>{children}</main>
-      </div>
-      <Footer />
-      </Fragment>
+        </div>
+        <Footer />
+       </div>
     
   )
 }

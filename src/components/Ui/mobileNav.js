@@ -11,7 +11,7 @@ import DropdownBtn from "../DropDownBtn"
 // import DropdownShopBtn from "../DropDownShopBtn"
 import DropDownBrand from "../DropDownBrandBtn"
 import Search from "../Search"
-
+import CartIcon from "../CartIcon"
 const getImage = graphql`
   {
     fluid: file(relativePath: { eq: "Home-Comfort-Air-WHITE-600.png" }) {
@@ -165,6 +165,11 @@ const MobileNav = () => {
                 </span>
               </a>
             </span>
+
+<span><CartIcon className="nav-cart" /></span>
+
+
+
         </li>
           <li>
             <Link to="/">Home</Link>

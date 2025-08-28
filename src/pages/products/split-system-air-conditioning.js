@@ -24,8 +24,8 @@ import BrandsBtn from "../../components/BrandsBtn"
 export const Head = () => (
 
   <Fragment>
-       <title>Split System Air Conditioning Supplied & Installed</title>,
-       <meta name= "description" content="Search our selection of split system air conditioning supplied & installed from leading brands."/>
+       <title>Split System Air Conditioning Supplied, Installed & Delivery</title>,
+       <meta name= "description" content="Search our selection of split system air conditioning supplied & installed prices from leading brands."/>
        <Seo />
        <Schema />
   </Fragment>
