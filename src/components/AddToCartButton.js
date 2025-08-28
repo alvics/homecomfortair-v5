@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useCart } from '../contexts/CartContext';
 import { Link } from 'gatsby';
 
-const AddToCartButton = ({ product, className = '' }) => {
+const AddToCartButton = ({ product, className = '', onCartAdd }) => {
   const { addToCart } = useCart();
   const [showMessage, setShowMessage] = useState(false);
 
@@ -23,7 +23,11 @@ const AddToCartButton = ({ product, className = '' }) => {
     addToCart(cartProduct);
 
     // Show success message
-    setShowMessage(true);
+    setShowMessage(false);
+
+     if (onCartAdd) {
+      onCartAdd(product);
+    }
   };
 
   // Auto-hide message after 4 seconds

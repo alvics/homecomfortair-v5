@@ -217,7 +217,7 @@ const CartContent = () => {
                     </button>
                   </div>
 
-                  <button onClick={() => removeFromCart(item.id)} className="remove-btn">
+                  <button onClick={() => removeFromCart(item.id)} className="remove-btn p-1 btn-sm">
                     Remove
                   </button>
                 </div>
@@ -376,7 +376,7 @@ const CartPage = () => {
           border: none;
           color: #dc3545;
           cursor: pointer;
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           padding: 0;
         }
 

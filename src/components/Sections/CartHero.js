@@ -45,7 +45,7 @@ const Hero = () => {
             </span>
           </h2>
           <p id="hero-text" className="px-5">
-            Here’s a quick overview of your split system picks.
+            Here’s a quick overview of your split system pick.
           </p>
         </div>
       </div>

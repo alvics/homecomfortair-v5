@@ -2,8 +2,8 @@
 // Use graphql query to render page
 // import ButtonGroup from '../components/Products/ButtonGroup';
 
+import React, { Fragment, useState } from 'react';
 
-import React, { Fragment, useState, useEffect, createContext, useContext } from 'react';
 import { graphql, Link } from 'gatsby'
 import { useLocation } from '@reach/router';
 import Modal from "../components/Modal"
@@ -120,19 +120,12 @@ const location = useLocation();
      alt: title,
  }));
 
- // This is the new, fixed AddToCartButton component that now receives the cart function via props
-const AddToCartButton = ({ product, handleAddToCart }) => {
-
-
-    return (
-    <button
-      onClick={() => handleAddToCart(cartProduct)}
-      className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
-    >
-      Add to Cart
-    </button>
-  );
-};
+  // Create a new product object to send to the cart
+    const productForCart = {
+        ...product,
+        image: mainImage, // Add the image URL to the object
+        slug: product.slug // Add the slug to the object
+    };
 
 
   //  const images = gallery.map((item) => ({
@@ -197,27 +190,30 @@ const AddToCartButton = ({ product, handleAddToCart }) => {
 </svg>
 </span>
     </button>
+// Refactored version - cleaner and more efficient
 <ul className='dropdown-menu text-black fsz-16' style={{ width: '250px' }}>
-  {data.relatedProducts.nodes.map((product) => {
-    if (product.sub_categories[0]?.title === brand) {
-      const isActive = pathname.includes(product.slug) ? 'active' : '';
+  {data.relatedProducts.nodes
+    .filter(product => product.sub_categories[0]?.title === brand)
+    .map((product) => {
+      const isActive = pathname.includes(product.slug);
+      const brandName = product.sub_categories[0]?.title;
 
       return (
-        <li
-          key={product.id}
-          className={`dropdown-item--- px-2 pb-0 text-black ${isActive}`}
-        >
-          <Link to={`/products/${product.slug}`} 
-          className={`text-black d-flex justify-between ${isActive}` }
+        <li key={product.id} className={`dropdown-item px-2 pb-0 text-black ${isActive ? 'active' : ''}`}>
+          <Link 
+            to={`/products/${product.slug}`} 
+            className={`text-black d-flex justify-content-between align-items-center w-100 ${isActive ? 'active' : ''}`}
           >
-
-      <span>{product.cool_capacity}</span> <span className='text-end' style={{ paddingLeft: '50px'  }}>${product.price}</span> {/*call the brand name {product.sub_categories[0]?.title} */}
+            <div className="d-flex flex-column">
+              <span>{product.cool_capacity}</span>
+              <small className="text-muted">{brandName}</small>
+            </div>
+            <span className="fw-bold">${product.price}</span>
           </Link>
         </li>
       );
-    }
-    return null;
-  })}
+    })
+  }
 </ul>
 
 
@@ -231,7 +227,7 @@ const AddToCartButton = ({ product, handleAddToCart }) => {
 
 
      <div className="mt-3">
-     <p className=''>Supplied & installed</p>
+     <p className='supin'>Supplied & installed</p>
       <span className="fsz-38 fw-700 shrink-text position-relative"><span className='fsz-16 position-absolute top-0 start-0 fx-700' style={{marginTop: '5px'}}>$</span><span  className='ml-2'>{price}</span> <span className='fsz-12 fw-400' data-bs-toggle="tooltip" data-bs-placement="top" title="This is the standard retail price at which this exclusive product is offered for sale by home comfort air."><del>SRP  ${price + 100}</del></span>  </span>
       <div className='fw-bold fsz-16 d-flex flex-column my-3 shrink-text'>
       <span>{cool_capacity} cooling capacity</span>
@@ -239,22 +235,12 @@ const AddToCartButton = ({ product, handleAddToCart }) => {
       </div>
       <p className='short-description fsz-16 single-product-right-col-text shrink-text lh-base'> {title} will suit a room size of approximately {room_size}m². <br /> <span className='fsz-14'>*Price is based on a back to back installation (maximum pipe length 3 metres).</span></p>
      </div>
-     <button
-                type="button"
-                className="mt-4 btn-- btn-primary--"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Enquire Now
-              </button>
-
+   
               <div className="product-actions">
-  <Link to="/contact" className="btn btn-primary btn-large">
-    Enquire Now
-  </Link>
+
     <AddToCartButton 
     product={productForCart} // Pass the new object here
-    className="btn-large"
+    className="mt-4 btn-- btn-primary-- "
   />
   
 </div>
