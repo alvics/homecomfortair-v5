@@ -8,6 +8,7 @@ import Cta from "../../components/CTA"
 // import CarrierProducts from '../../components/Products/CarrierSplitSystems'
 
 import Schema from '../../components/Schema-2'
+import FeatureBubble from "../../components/FeatureBubble"
 
 export const Head = () => (
 
@@ -59,34 +60,47 @@ const SpecialsProductsPage = () => {
 
   
 
-        <section>
-         <div className="heading-box-color grid-col-2 heading-avatar rounded my-3 mx-0">
-          <div className="p-3">
-            <StaticImage
-              filename="HCA-avatar-WHITE-1400.png"
-              alt="home comfort air image"
-            />
+                <section style={{ marginTop: 48, marginBottom: 48 }}>
+          <div style={{
+            background: "linear-gradient(135deg, #0075C9 0%, #005fa3 100%)",
+            borderRadius: 20,
+            padding: "48px 40px",
+            position: "relative",
+            overflow: "hidden",
+          }}>
+            <FeatureBubble />
+            <div style={{ position: "relative", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48, alignItems: "start" }}>
+              <div>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", marginBottom: 12 }}>Get A Quote</p>
+                <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#fff", marginBottom: 16, lineHeight: 1.3 }}>
+                  Get A Quote
+                </h2>
+                <p style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", lineHeight: 1.7, marginBottom: 20 }}>
+                  For new construction or existing homes. Need a replacement unit or a new installation? Submit your details and we'll get back to you shortly.
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 24, marginTop: 8 }}>
+                  {[
+                    { icon: "✓", text: "Licensed & insured installer" },
+                    { icon: "✓", text: "No-obligation free quote" },
+                    { icon: "✓", text: "Same-day response" },
+                  ].map((t, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <span style={{ width: 22, height: 22, borderRadius: "50%", background: "rgba(255,255,255,0.15)", color: "#fff", fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{t.icon}</span>
+                      <span style={{ fontSize: 15, color: "rgba(255,255,255,0.9)" }}>{t.text}</span>
+                    </div>
+                  ))}
+                </div>
+                <a href="tel:0404602657" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "rgba(255,255,255,0.75)", fontSize: 14, textDecoration: "none", borderTop: "1px solid rgba(255,255,255,0.15)", paddingTop: 16 }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" fill="rgba(255,255,255,0.75)"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                  Prefer to call? <strong style={{ color: "#fff" }}>0404 602 657</strong>
+                </a>
+              </div>
+              <div style={{ background: "#fff", borderRadius: 16, padding: "32px 28px", boxShadow: "0 16px 40px rgba(0,0,0,0.2)", maxWidth: 520, marginLeft: "auto" }}>
+                <style>{`.specials .hca-wrapper { background: transparent; box-shadow: none; border: none !important; padding: 0; border-radius: 0 !important; max-width: 100%; }`}</style>
+                <div className="specials"><Form hideTitle /></div>
+              </div>
+            </div>
           </div>
-
-          <div className="text-center">
-            <h3 className="h2 fw-600">Receive A free Quote</h3>
-          </div>
-        </div>
-
-        <div className="grid-col-2 pb-3">
-          <div>
-            <h5 className=" px-20 cap fw-600">Split System Quote</h5>
-            <p className="px-20">
-              For new construction or existing homes.
-              Need a replacement unit or a new installation? Submit your details, and we'll contact you
-              back shortly.
-            </p>
-            <p className="font-italic px-20">
-              "You could also leave the best suited time to call you back".
-            </p>
-          </div>
-          <Form />
-        </div>
         </section>
 
          <section>

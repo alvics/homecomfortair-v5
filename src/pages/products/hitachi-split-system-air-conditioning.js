@@ -8,6 +8,9 @@ import Form from "../../components/QuoteForm"
 import Cta from "../../components/CTA"
 import HitachiProducts from '../../components/Products/HitachiSplitSystems'
 import HitachiPDF from "../../images/hitachi.pdf"
+import FeatureBubble from "../../components/FeatureBubble"
+import BrandPageNav from "../../components/BrandPageNav"
+import BrandFeatures from "../../components/BrandFeatures"
 
 export const Head = () => (
 
@@ -19,6 +22,15 @@ export const Head = () => (
 </Fragment>
 
 )
+
+const hitachiFeatures = [
+  { title: "Inverter Technology", desc: "Frost Wash™ technology for cleaner, fresher air.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> },
+  { title: "Frost Wash", desc: "Auto-cleaning cycle that keeps the unit hygienic.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg> },
+  { title: "Wi-Fi Control", desc: "iOS/Android control via the Hitachi app.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M10.54 16a6 6 0 0 1 2.92 0"/><circle cx="12" cy="20" r="1"/></svg> },
+  { title: "Heating & Cooling", desc: "Reverse cycle for comfort in every season.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg> },
+  { title: "High Energy Rating", desc: "Excellent star ratings for efficient operation.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> },
+  { title: "5yr Warranty", desc: "Hitachi manufacturer warranty coverage.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> },
+]
 
 const HitachiProductsPage = () => {
   
@@ -46,6 +58,9 @@ const HitachiProductsPage = () => {
            <div> <span className="text-white text-center h3 pb-3" style={{ fontFamily: `'Caveat', cursive` }}>*Precision Cooling, Japanese Engineering</span></div>
         </div>
         </section>
+        <BrandPageNav currentBrand="Hitachi" />
+        <BrandFeatures features={hitachiFeatures} heading="Key Features of Hitachi Split Systems" />
+
         
 
         <section>
@@ -139,32 +154,47 @@ A Home air conditioner that’s easy to use, makes daily life more convenient, a
 
      
 
-        <section>
-         <div className="heading-box-color grid-col-2 heading-avatar rounded my-3 mx-0">
-          <div className="p-3">
-            <StaticImage
-              filename="HCA-avatar-WHITE-1400.png"
-              alt="home comfort air image"
-            />
+                <section style={{ marginTop: 48, marginBottom: 48 }}>
+          <div style={{
+            background: "linear-gradient(135deg, #0075C9 0%, #005fa3 100%)",
+            borderRadius: 20,
+            padding: "48px 40px",
+            position: "relative",
+            overflow: "hidden",
+          }}>
+            <FeatureBubble />
+            <div style={{ position: "relative", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48, alignItems: "start" }}>
+              <div>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", marginBottom: 12 }}>Get A Quote</p>
+                <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#fff", marginBottom: 16, lineHeight: 1.3 }}>
+                  Hitachi Split System Quote
+                </h2>
+                <p style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", lineHeight: 1.7, marginBottom: 20 }}>
+                  For new construction or existing homes. Need a replacement unit or a new installation? Submit your details and we'll get back to you shortly.
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 24, marginTop: 8 }}>
+                  {[
+                    { icon: "✓", text: "Licensed & insured installer" },
+                    { icon: "✓", text: "No-obligation free quote" },
+                    { icon: "✓", text: "Same-day response" },
+                  ].map((t, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <span style={{ width: 22, height: 22, borderRadius: "50%", background: "rgba(255,255,255,0.15)", color: "#fff", fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{t.icon}</span>
+                      <span style={{ fontSize: 15, color: "rgba(255,255,255,0.9)" }}>{t.text}</span>
+                    </div>
+                  ))}
+                </div>
+                <a href="tel:0404602657" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "rgba(255,255,255,0.75)", fontSize: 14, textDecoration: "none", borderTop: "1px solid rgba(255,255,255,0.15)", paddingTop: 16 }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" fill="rgba(255,255,255,0.75)"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                  Prefer to call? <strong style={{ color: "#fff" }}>0404 602 657</strong>
+                </a>
+              </div>
+              <div style={{ background: "#fff", borderRadius: 16, padding: "32px 28px", boxShadow: "0 16px 40px rgba(0,0,0,0.2)", maxWidth: 520, marginLeft: "auto" }}>
+                <style>{`.hitachi_split_system_air_conditioning .hca-wrapper { background: transparent; box-shadow: none; border: none !important; padding: 0; border-radius: 0 !important; max-width: 100%; }`}</style>
+                <div className="hitachi_split_system_air_conditioning"><Form hideTitle /></div>
+              </div>
+            </div>
           </div>
-
-          <div className="text-center">
-            <h3 className="h2 fw-600">Receive A free Quote</h3>
-          </div>
-        </div>
-
-        <div className="grid-col-2 pb-3">
-          <div>
-            <h5 className=" px-20 h5 fw-600">Split System Quote</h5>
-            <p className="px-20">
-              From new construction to existing homes, whether you need a replacement unit or a fresh installation, simply share your details, and we'll be in touch shortly.
-            </p>
-            <p className="px-20 fw-lighter">
-              "Your satisfaction is our priority."
-            </p>
-          </div>
-           <Form /> 
-        </div>
         </section>
          
         <section>

@@ -1,152 +1,318 @@
-import React, {Fragment} from "react"
+import React, { Fragment } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/Layouts/layout"
 import Seo from "../components/SEO-2"
 import Schema from "../components/Schema-2"
 import StaticImage from "../components/StaticQueryImages"
 import Form from "../components/QuoteForm"
-import Cta from "../components/CTA"
+import FeatureBubble from "../components/FeatureBubble"
+import GoogleReviewsCarousel from "../components/Sections/GoogleReviews"
 
 export const Head = () => (
-
   <Fragment>
-       <title>Ducted Air Conditioning | Entire Home Solutions</title>,
-       <meta name= "description" content="Explore how ducted air conditioning systems can benefit your comfort in your home this summer."/>
-       <Seo />
-      <Schema />
+    <title>Ducted Air Conditioning | Entire Home Solutions | Home Comfort Air</title>
+    <meta name="description" content="Explore how ducted air conditioning systems can benefit your comfort in your home this summer." />
+    <Seo />
+    <Schema />
   </Fragment>
-
 )
+
+const stats = [
+  {
+    value: "5.5–25kW",
+    label: "System Range",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+      </svg>
+    ),
+  },
+  {
+    value: "Whole",
+    label: "Home Coverage",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+    ),
+  },
+  {
+    value: "Zone",
+    label: "Climate Control",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+      </svg>
+    ),
+  },
+  {
+    value: "5yr",
+    label: "Install Warranty",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>
+      </svg>
+    ),
+  },
+]
 
 const DuctedPage = () => (
   <Layout>
-    <div className="body-wrapper ducted-systems pt-3">
-      <section className="px-3" >
-        <div className="pt-2 ducted-systems-avatar rounded heading-box-color mx-0 ">
-          <h1 className="h2 text-center text-white fw-600  p-3">
-            <div>
-              {" "}
-              <StaticImage
-                filename="HCA-avatar-WHITE-1400.png"
-                alt="home comfort air image"
-              />
-            </div>
-            Ducted air conditioning 
+
+    {/* ── Hero ── */}
+    <section className="full-bleed" style={{
+      background: "linear-gradient(135deg, #0075C9 0%, #005fa3 100%)",
+      padding: "64px 24px",
+      position: "relative",
+      overflow: "hidden",
+    }}>
+      <FeatureBubble />
+      <div style={{
+        maxWidth: 1100,
+        margin: "0 auto",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+        gap: 48,
+        alignItems: "center",
+        position: "relative",
+      }}>
+        <div>
+          <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", marginBottom: 12 }}>
+            Gold Coast · Brisbane · Ipswich
+          </p>
+          <h1 style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", fontWeight: 800, color: "#fff", marginBottom: 16, lineHeight: 1.2 }}>
+            Ducted Air Conditioning
           </h1>
-          <div> <span className="text-white text-center h3" style={{ fontFamily: `'Caveat', cursive` }}>*Invisible Comfort, Visible Peace of Mind</span></div>
-          <div className="pb-3">
-            <Cta />
-          </div>
+          <p style={{ fontSize: 22, color: "rgba(255,255,255,0.85)", marginBottom: 40, lineHeight: 1.5, fontFamily: "'Caveat', cursive" }}>
+            Invisible Comfort, Visible Peace of Mind — whole-home climate control.
+          </p>
+          <Link to="/contact" style={{
+            display: "inline-block",
+            background: "#00c4b3",
+            color: "#fff",
+            fontWeight: 700,
+            fontSize: 14,
+            padding: "12px 28px",
+            borderRadius: "2em",
+            textDecoration: "none",
+          }}>
+            Get A Free Quote →
+          </Link>
         </div>
-
-        <div className="grid-col-2 ducted-systems-top-col">
-          <div class="ducted-col mt-3">
-            <h3 className="h5 fw-600 px-20 cam">Entire Home Solutions</h3>
-            <p className="lead-20 px-20 lh-base">
-              Ducted air conditioning system provides discreet comfort all year
-              round, with reverse cycle heating and cooling technology. Designed
-              for new and existing homes to manage and maintain temperatures
-              throughout the entire home, with optional climate zone controls
-              for each room. Ducted systems consists of an indoor unit (in the
-              roof), an outdoor unit, discharge grills (in all rooms) and a
-              return air grill (usually in the hallway).
-            </p>
-            <p className="lead-20 px-20 lh-base">
-              We supply and install ducted systems from 5.5kW which can be used for small
-              zoned rooms, 14kW for the average 4 bedroom, 2 living area's home,
-              to the big 25kW unit that can handle larger homes.Talk to us to
-              find the best option to suit your home and needs.
-            </p>
-          </div>
-          <div className="ducted-air mt-2 px-3">
-            <StaticImage filename="DUCTED-1400.jpg" alt="ducted air image" />
-          </div>
+        <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 24px 48px rgba(0,0,0,0.25)" }}>
+          <StaticImage filename="brands/Hero/ducted-hero-2.jpg" alt="Ducted air conditioning system" />
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section className="mt-5">
-        <div className="grid-col-2 split-systems-top-col">
-          <div className="ducted-air-2">
-            <StaticImage filename="multi-1.jpg" alt="ducted air image" />
-          </div>
-          <div>
-            <h3 className="h5 fw-600 px-20 cam">Why Ducted Air?</h3>
-            <p className="lead-20 px-20 lh-base">
-              Ducted systems can be customised to suit your requirements. If
-              you're looking to control the temperature of the entire home, then
-              a ducted air conditioning system will be the most effective and
-              efficient way. It's more effective in cooling or heating your home
-              by maintaining a consistent temperature throughout multiple rooms
-              in a discreet and quiet way. However, if you're only looking to
-              cool or heat one or two rooms in your home, a wall mounted
-              <Link to="spit-systems"> split system air conditioning</Link>{" "}
-              would be more suitable.
-            </p>
-          </div>
-        </div>
-      </section>
+    {/* ── Body ── */}
+    <div className="container-fluid px-lg-5 mt-3">
+      <div className="body-wrapper pt-1">
 
-      <section className="mt-5">
-        <div className="grid-col-2 ducted-systems-top-col">
-          <div>
-            <h3 className="h5 fw-600 px-20 mt-5 cam">
-              Cost of running a ducted system
-            </h3>
-            <p className="lead-20 px-20">
-              There are a number of factors to consider on how much your running
-              costs will be:
-            </p>
-            <ul className="p-3 lh-base">
-              <li className="fsz-18">*Size and type of system</li>
-              <li className="fsz-18">*Operating time length</li>
-              <li className="fsz-18">*Is your home insulated</li>
-              <li className="fsz-18">*Home layout and windows sizes</li>
-              <li className="fsz-18">*The temperature set</li>
-            </ul>
-            <p className="lead-20 px-20 lh-base">
-              Ducted air conditioning is a significant investment in your home, and selecting the right system involves careful consideration. The right choice requires thoughtful factors like your home’s layout, climate, and your personal comfort preferences. We install only the top brands because they offer energy efficiency, longevity, durability, cutting-edge technology, and reliable support. Contact us when you're ready to discuss ducted air conditioning for your home. <span className="italic">Home Comfort Air, your residential air conditioning specialists.</span>
-            </p>
+        {/* Stats strip */}
+        <section style={{ borderBottom: "1px solid #e8eef5", marginBottom: 56 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))" }}>
+            {stats.map((s, i) => (
+              <div key={i} style={{
+                textAlign: "center",
+                padding: "28px 16px",
+                borderRight: i < stats.length - 1 ? "1px solid #e8eef5" : "none",
+              }}>
+                <div style={{ color: "#0075C9", marginBottom: 8, display: "flex", justifyContent: "center" }}>{s.icon}</div>
+                <div style={{ fontSize: 20, fontWeight: 800, color: "#0075C9", lineHeight: 1 }}>{s.value}</div>
+                <div style={{ fontSize: 13, color: "#6b7280", marginTop: 6, fontWeight: 600 }}>{s.label}</div>
+              </div>
+            ))}
           </div>
-          <div className="ducted-air px-3">
-            <StaticImage filename="DUCRED-2-1400.jpg" alt="ducted air image" />
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="px-3">
-        <div className="heading-box-color grid-col-2 heading-avatar rounded  my-3 mx-0">
-          <div className="p-3">
-            <StaticImage
-              filename="HCA-avatar-WHITE-1400.png"
-              alt="home comfort air image"
-            />
-          </div>
-
-          <div className="text-center">
-            <h3 className="h5 fw-600 mt-2 text-white">Receive a Free Quote</h3>
-          </div>
-        </div>
-        <div className="grid-col-2">
-          <div>
-          <div className="pb-3">
-            <h5 className="h5 px-20 fw-600">
-              Ducted System Installation Quotes
-            </h5>
+        {/* Section 1 — Entire Home Solutions */}
+        <section style={{ paddingBottom: 64 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 48, alignItems: "center" }}>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0075C9", marginBottom: 12 }}>Entire Home Solutions</p>
+              <h2 className="section-title" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 800, color: "#1f2937", marginBottom: 20, lineHeight: 1.3 }}>
+                Discreet comfort for every room in your home
+              </h2>
+              <p style={{ fontSize: 17, color: "#1f2937", lineHeight: 1.9, marginBottom: 16 }}>
+                Ducted air conditioning provides discreet, year-round comfort with reverse cycle heating and cooling. Designed for new and existing homes, it manages temperatures throughout the entire house — with optional climate zone controls for each room.
+              </p>
+              <p style={{ fontSize: 17, color: "#1f2937", lineHeight: 1.9, marginBottom: 24 }}>
+                We supply and install ducted systems from 5.5kW for smaller zoned spaces, through to 14kW for the average 4-bedroom home, up to 25kW for larger properties. Talk to us and we'll find the right system for your home.
+              </p>
+              <a href="tel:0404602657" style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                background: "#0075C9", color: "#fff", fontWeight: 700, fontSize: 15,
+                padding: "13px 28px", borderRadius: "2em", textDecoration: "none",
+              }}>
+                📞 0404 602 657
+              </a>
             </div>
-            <p className="px-20 lead-400">
-              We install ducted air conditioning systems for
-              new construction and existing homes.
-             Whether you're looking to replace an old unit or install a new one, simply provide us with your details, and we'll get in touch with you promptly.
-            </p>
-            <p className="font-italic px-20">
-              "You could also leave the best suited time to call you back".
-            </p>
+            <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 12px 32px rgba(0,0,0,0.1)" }}>
+              <StaticImage filename="DUCTED-1400.jpg" alt="Ducted air conditioning indoor unit" />
+            </div>
           </div>
+        </section>
 
-          <Form />
-        </div>
-      </section>
+        {/* Section 2 — Why Ducted? */}
+        <section style={{ paddingBottom: 64, borderTop: "1px solid #e8eef5", paddingTop: 56 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 48, alignItems: "center" }}>
+            <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 12px 32px rgba(0,0,0,0.1)", order: -1 }}>
+              <StaticImage filename="multi-1.jpg" alt="Ducted air conditioning system" />
+            </div>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0075C9", marginBottom: 12 }}>Why Ducted?</p>
+              <h2 className="section-title" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 800, color: "#1f2937", marginBottom: 20, lineHeight: 1.3 }}>
+                The most effective whole-home solution
+              </h2>
+              <p style={{ fontSize: 17, color: "#1f2937", lineHeight: 1.9, marginBottom: 24 }}>
+                If you want consistent temperature control across your entire home, ducted is the most effective and efficient option. It runs quietly and discreetly, hidden in your ceiling — no wall-mounted units in sight. If you only need to cool one or two rooms, a <Link to="/products/split-system-air-conditioning" style={{ color: "#0075C9" }}>split system</Link> may suit you better.
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
+                {[
+                  { title: "Whole-Home Comfort", desc: "Cool or heat every room from a single, hidden system." },
+                  { title: "Discreet Design", desc: "No visible wall units — just flush ceiling grills." },
+                  { title: "Zone Control", desc: "Manage temperatures room by room for efficiency." },
+                  { title: "Quiet Operation", desc: "Indoor unit sits in the roof, away from living spaces." },
+                ].map((item, i) => (
+                  <div key={i} style={{
+                    background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12,
+                    padding: "20px 16px",
+                  }}>
+                    <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.title}</strong>
+                    <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.desc}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3 — Running Costs */}
+        <section style={{ paddingBottom: 64, borderTop: "1px solid #e8eef5", paddingTop: 56 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 48, alignItems: "center" }}>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0075C9", marginBottom: 12 }}>Running Costs</p>
+              <h2 className="section-title" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 800, color: "#1f2937", marginBottom: 20, lineHeight: 1.3 }}>
+                What affects the cost of running a ducted system?
+              </h2>
+              <p style={{ fontSize: 17, color: "#1f2937", lineHeight: 1.9, marginBottom: 16 }}>
+                There are a number of factors that determine your running costs:
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 24 }}>
+                {[
+                  "Size and type of system",
+                  "Operating hours per day",
+                  "Whether your home is insulated",
+                  "Home layout and window sizes",
+                  "The temperature set point",
+                ].map((item, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#0075C9", flexShrink: 0 }} />
+                    <span style={{ fontSize: 16, color: "#1f2937" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <p style={{ fontSize: 17, color: "#1f2937", lineHeight: 1.9 }}>
+                Ducted air conditioning is a significant investment — selecting the right system requires careful consideration of your home's layout, local climate, and comfort preferences. We install only the top brands for energy efficiency, longevity, and reliable support.
+              </p>
+            </div>
+            <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 12px 32px rgba(0,0,0,0.1)" }}>
+              <StaticImage filename="DUCRED-2-1400.jpg" alt="Ducted air conditioning outdoor unit" />
+            </div>
+          </div>
+        </section>
+
+      </div>
     </div>
+
+    {/* ── Reviews strip ── */}
+    <section className="full-bleed" style={{ background: "#f8fafc", padding: "56px 24px" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <GoogleReviewsCarousel />
+      </div>
+    </section>
+
+    <div className="container-fluid px-lg-5 mt-3">
+      <div className="body-wrapper pt-1">
+
+        {/* Section 4 — Quote Form */}
+        <section style={{ paddingBottom: 64, paddingTop: 56 }}>
+          <div style={{
+            background: "linear-gradient(135deg, #0075C9 0%, #005fa3 100%)",
+            borderRadius: 20,
+            padding: "48px 40px",
+            position: "relative",
+            overflow: "hidden",
+          }}>
+            <FeatureBubble />
+            <div style={{ position: "relative", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48, alignItems: "start" }}>
+              <div>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", marginBottom: 12 }}>Get A Quote</p>
+                <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#fff", marginBottom: 16, lineHeight: 1.3 }}>
+                  Ducted System Installation Quote
+                </h2>
+                <p style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", lineHeight: 1.7, marginBottom: 8 }}>
+                  We install ducted air conditioning systems for new construction and existing homes across South East Queensland — whether you're replacing an old unit or starting fresh.
+                </p>
+                <p style={{ fontSize: 16, color: "rgba(255,255,255,0.7)", fontFamily: "'Caveat', cursive", marginBottom: 20 }}>
+                  "Feel free to leave the best time to call you back."
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 24, marginTop: 8 }}>
+                  {[
+                    { icon: "✓", text: "Licensed & insured installer" },
+                    { icon: "✓", text: "No-obligation free quote" },
+                    { icon: "✓", text: "Same-day response" },
+                  ].map((t, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <span style={{ width: 22, height: 22, borderRadius: "50%", background: "rgba(255,255,255,0.15)", color: "#fff", fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{t.icon}</span>
+                      <span style={{ fontSize: 15, color: "rgba(255,255,255,0.9)" }}>{t.text}</span>
+                    </div>
+                  ))}
+                </div>
+                <a href="tel:0404602657" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "rgba(255,255,255,0.75)", fontSize: 14, textDecoration: "none", borderTop: "1px solid rgba(255,255,255,0.15)", paddingTop: 16 }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" fill="rgba(255,255,255,0.75)"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                  Prefer to call? <strong style={{ color: "#fff" }}>0404 602 657</strong>
+                </a>
+              </div>
+              <div style={{ background: "#fff", borderRadius: 16, padding: "32px 28px", boxShadow: "0 16px 40px rgba(0,0,0,0.2)", maxWidth: 520, marginLeft: "auto" }}>
+                <style>{`.ducted-form .hca-wrapper { background: transparent; box-shadow: none; border: none !important; padding: 0; border-radius: 0 !important; max-width: 100%; }`}</style>
+                <div className="ducted-form"><Form hideTitle /></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    {/* ── CTA Banner ── */}
+    <section className="full-bleed" style={{
+      background: "linear-gradient(135deg, #00c4b3 0%, #00a89a 100%)",
+      padding: "56px 24px",
+      textAlign: "center",
+      marginBottom: "-32px",
+    }}>
+      <h2 style={{ fontSize: "clamp(1.4rem, 3vw, 1.8rem)", fontWeight: 800, color: "#fff", marginBottom: 12 }}>
+        Ready for whole-home comfort?
+      </h2>
+      <p style={{ color: "rgba(255,255,255,0.9)", fontSize: 16, marginBottom: 28 }}>
+        Get a free in-home quote from our licensed team.
+      </p>
+      <Link to="/contact" style={{
+        display: "inline-block",
+        background: "#fff",
+        color: "#0075C9",
+        fontWeight: 700,
+        fontSize: 15,
+        padding: "13px 32px",
+        borderRadius: "2em",
+        textDecoration: "none",
+      }}>
+        Book a Quote →
+      </Link>
+    </section>
+
   </Layout>
 )
 

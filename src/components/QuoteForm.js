@@ -1,70 +1,43 @@
 import React from "react"
+// import "../styles/QuoteFormStyles"
+
 
 export default class QuoteForm extends React.Component {
   constructor(props) {
     super(props)
     this.submitForm = this.submitForm.bind(this)
-    this.state = {
-      status: "",
-    }
+    this.state = { status: "" }
   }
 
   render() {
     const { status } = this.state
     return (
-      <form
-        className="grid-300 quote-order-form"
-        onSubmit={this.submitForm}
-        action="https://formspree.io/f/mleppppp"
-        method="POST"
-      >
-        <input
-          style={{ fontWeight: `bold` }}
-          type="text"
-          name="first_name"
-          placeholder="Name:"
-          required
-        />
-        <input
-          style={{ fontWeight: `bold` }}
-          type="text"
-          name="phone"
-          placeholder="Phone:"
-        />
-        <input
-          style={{ fontWeight: `bold` }}
-          type="text"
-          name="suburb"
-          placeholder="Suburb:"
-          required
-        />
-        <input
-          style={{ fontWeight: `bold` }}
-          type="email"
-          name="email"
-          placeholder="Email:"
-          required
-        />
-
-        <textarea
-          style={{ fontWeight: `bold` }}
-          rows="4"
-          cols="20"
-          name="message"
-          placeholder="Message:"
-          required
-        />
-
-        {status === "SUCCESS" ? (
-          <p>
-            Thank you, your form was successfully submitted, we'll get back to
-            you shortly.
-          </p>
-        ) : (
-          <button className="btn-- btn-primary--" type="submit">Submit</button>
+      <div className="hca-wrapper">
+       {!this.props.hideTitle && (
+          <div className="text-center quote-text pb-3">
+            <h3 className="h2 fw-600 mt-2">{this.props.title || "Receive A Free Quote"}</h3>
+          </div>
         )}
-        {status === "ERROR" && <p>Ooops! There was an error.</p>}
-      </form>
+        <form
+          className="hca-form"
+          onSubmit={this.submitForm}
+          action="https://formspree.io/f/mleppppp"
+          method="POST"
+        >
+          <input className="hca-input" type="text" name="first_name" placeholder="Name:" required />
+          <input className="hca-input" type="text" name="phone" placeholder="Phone:" />
+          <input className="hca-input" type="text" name="suburb" placeholder="Suburb:" required />
+          <input className="hca-input" type="email" name="email" placeholder="Email:" required />
+          <textarea className="hca-input hca-textarea" name="message" placeholder="Message:" required />
+
+          {status === "SUCCESS" ? (
+            <p className="hca-status hca-success">Message sent successfully!</p>
+          ) : (
+            <button className="btn-- btn-primary-- w-100" type="submit">Submit</button>
+          )}
+          {status === "ERROR" && <p className="hca-status hca-error">Error. Please try again.</p>}
+        </form>
+      </div>
     )
   }
 
