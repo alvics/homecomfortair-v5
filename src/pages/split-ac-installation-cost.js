@@ -80,7 +80,7 @@ const faqs = [
   },
   {
     q: "What's included in the installation price?",
-    a: "Our supplied & installed price includes the unit, indoor & outdoor mounting, refrigerant pipe run (up to standard length), electrical connection, commissioning, and our 5-year installation warranty.",
+    a: "Our supplied & installed price includes the air conditioning unit, refrigerant pipe run (up to standard 3m length), electrical connection, commissioning, and our 5-year installation warranty.",
   },
 ]
 

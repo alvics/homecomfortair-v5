@@ -1,54 +1,67 @@
 import React from 'react'
-import { Link }  from "gatsby"
-import StaticImage from './StaticQueryImages'
+import { Link } from "gatsby"
 
-// import Img from 'gatsby-image'
+import haierLogo        from '../images/haier.jpg'
+import daikinLogo       from '../images/brands/daikin.jpg'
+import mitsubishiLogo   from '../images/brands/mitsubishi-electric.jpg'
+import mideaLogo        from '../images/brands/midea-logo.png'
+import samsungLogo      from '../images/samsung.jpg'
+import toshibaLogo      from '../images/toshiba.jpg'
+import hitachiLogo      from '../images/brands/Hitachi-logo.png'
+import mhiLogo          from '../images/MHI-Logo.jpg'
 
-const BrandsImages = () => {
+const brands = [
+  { src: haierLogo,      alt: "Haier",               to: "/products/haier-split-system-air-conditioning" },
+  { src: daikinLogo,     alt: "Daikin",              to: "/products/daikin-split-system-air-conditioning" },
+  { src: mitsubishiLogo, alt: "Mitsubishi Electric",  to: "/products/mitsubishi-electric-split-system-air-conditioning" },
+  { src: mideaLogo,      alt: "Midea",               to: "/products/midea-split-system-air-conditioning" },
+  { src: samsungLogo,    alt: "Samsung",             to: "/products/samsung-split-system-air-conditioning" },
+  { src: toshibaLogo,    alt: "Toshiba",             to: "/products/toshiba-split-system-air-conditioning" },
+  { src: hitachiLogo,    alt: "Hitachi",             to: "/products/hitachi-split-system-air-conditioning" },
+  { src: mhiLogo,        alt: "Mitsubishi Heavy Industries", to: "/products/mhi-split-system-air-conditioning" },
+]
 
-
-    return (
-          <div className="image-button-container d-flex flex-wrap justify-content-around">
-
-    {/* <div className="image-button col col-md-3 col-6" style={{maxWidth: 200}}>
-    <Link to="products/#carrier">
-      <StaticImage filename="carrier.jpg" alt="carrier-logo" />
-    </Link>
-    </div> */ }
-
-  <div className="image-button col col-md-3 col-6 border rounded-3" style={{maxWidth: 100}}>
-    <Link to="/products/haier-split-system-air-conditioning">
-      <StaticImage filename="haier.jpg" alt="haier-logo" />
-    </Link>
+const BrandsBtn = () => (
+  <div style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(4, 1fr)",
+    gap: 12,
+  }}>
+    {brands.map(({ src, alt, to }) => (
+      <Link
+        key={alt}
+        to={to}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          border: "1px solid #e8eef5",
+          borderRadius: 12,
+          background: "#fff",
+          padding: "12px 10px",
+          height: 90,
+          textDecoration: "none",
+          transition: "border-color 0.2s, box-shadow 0.2s",
+        }}
+        onMouseEnter={e => { e.currentTarget.style.borderColor = "#0075C9"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,117,201,0.12)" }}
+        onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8eef5"; e.currentTarget.style.boxShadow = "none" }}
+      >
+        <img
+          src={src}
+          alt={alt}
+          style={{
+            maxWidth: "100%",
+            maxHeight: 60,
+            width: "auto",
+            height: "auto",
+            objectFit: "contain",
+            display: "block",
+            margin: "0 auto",
+          }}
+        />
+      </Link>
+    ))}
   </div>
-  <div className="image-button col col-md-3 col-6 border rounded-3" style={{maxWidth: 100}}>
-    <Link to="/products/daikin-split-system-air-conditioning">
-      <StaticImage filename="daikin.jpg" alt="daikin-logo" />
-    </Link>
-  </div>
-  <div className="image-button col col-md-3 col-6 border rounded-3" style={{maxWidth: 100}}>
-    <Link to="/products/mitsubishi-electric-split-system-air-conditioning">
-      <StaticImage filename="mitsubishi-electric.jpg" alt="mitsubishi-logo" />
-    </Link>
-  </div>
-  <div className="image-button col col-md-3 col-6 border rounded-3" style={{maxWidth: 100}}>
-    <Link to="/products/midea-split-system-air-conditioning">
-      <StaticImage filename="midea-logo.jpg" alt="midea-logo" />
-    </Link>
-  </div>
-  <div className="image-button col col-md-3 col-6 border rounded-3" style={{maxWidth: 100}}>
-    <Link to="/products/samsung-split-system-air-conditioning">
-      <StaticImage filename="samsung.jpg" alt="samsung-logo" />
-    </Link>
-  </div>
-  <div className="image-button col col-md-3 col-6 border rounded-3" style={{maxWidth: 100}}>
-    <Link to="/products/toshiba-split-system-air-conditioning">
-      <StaticImage filename="toshiba.jpg" alt="toshiba-logo" />
-    </Link>
-  </div>
-</div>
+)
 
-    )
-}
-
-export default BrandsImages
+export default BrandsBtn

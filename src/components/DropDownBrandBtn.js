@@ -40,11 +40,17 @@ const DropdownBrandBtn = () => {
         <li>
          <Link to="/products/toshiba-split-system-air-conditioning" >Toshiba Air Conditioning</Link>
         </li>
-         <li>
+        <div className="dropdown-divider"></div>
+        <li>
          <Link to="/products/daikin-split-system-air-conditioning">Daikin Air Conditioning</Link>
         </li>
-          <li>
+        <div className="dropdown-divider"></div>
+        <li>
          <Link to="/products/mitsubishi-electric-split-system-air-conditioning/">Mitsubishi Electric Air Conditioning</Link>
+        </li>
+        <div className="dropdown-divider"></div>
+        <li>
+         <Link to="/products/mhi-split-system-air-conditioning">Mitsubishi Heavy Industries</Link>
         </li>
       </ul>
     </div>

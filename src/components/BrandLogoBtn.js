@@ -31,9 +31,9 @@ const BrandsImages = () => {
       <StaticImage filename="mitsubishi-electric.jpg" alt="mitsubishi-logo" />
     </Link>
   </div>
-  <div className="image-button col col-md-3 col-6" style={{maxWidth: 100}}>
+  <div className="image-button col col-md-3 col-6" style={{maxWidth: 80}}>
     <Link to="/products/midea-split-system-air-conditioning">
-      <StaticImage filename="midea-logo.jpg" alt="midea-logo" />
+      <StaticImage filename="midea-logo.png" alt="midea-logo" />
     </Link>
   </div>
   <div className="image-button col col-md-3 col-6" style={{maxWidth: 100}}>

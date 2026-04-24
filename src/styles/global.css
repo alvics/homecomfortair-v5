@@ -2,3 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 @mui/icons-material;
+
+/* The container for the form */
+.hca-wrapper {
+    max-width: 400px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: none;
+    border: 1px solid #80808026 !important;
+    border-radius: 15px !important;
+}
+
+/* The "No Hover" override */
+.hca-wrapper:hover {
+    background-color: transparent !important;
+    /* or your original color */
+    transform: none !important;
+    cursor: default;
+    /* prevents the "pointer" hand from appearing */
+}
+
+
+
+/* The form layout */
+.hca-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Modern inputs */
+.hca-input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.hca-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.hca-textarea {
+    min-height: 100px;
+}
+
+/* Modern button */
+.hca-button {
+    background: rgb(0, 117, 201) !important;
+    color: white !important;
+    padding: 0.5em 2em;
+    border: none;
+    border-radius: 2em;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Status messages */
+.hca-status {
+    text-align: center;
+    font-weight: 600;
+    margin: 0;
+}
+
+.hca-success {
+    color: #059669;
+}
+
+.hca-error {
+    color: #dc2626;
+}

@@ -3,7 +3,7 @@ import StaticImage from "../StaticQueryImages"
 
 export const WorkPhotos = () => {
   return (
-    <div><div className="pl-2 pt-3"><h4>Here's a look at some of our work.</h4></div>
+    <div>
     <div className="grid-200">
     <div className=""><StaticImage
             filename="serviceArea/heritage-park.jpeg"

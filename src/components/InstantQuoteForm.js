@@ -114,9 +114,6 @@ export default class Modal extends React.Component {
                     </button>
                     <div className="text-dark mt-2 lh-sm" style={{ fontSize: 12 }}>
                       <small>
-                      *If you have any questions or concerns, don't hesitate to reach out to us through our live chat feature on our website. Our team of experts is available to provide you with fast, accurate information and help you schedule an appointment or service call. We are happy to assist you any time you need it.
-                      <br />
-                     
                       *Please note when submitting our form we do not share your
                       details with any third party, and we'll not spam your
                       inbox.{" "}

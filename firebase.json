@@ -42,6 +42,45 @@
             },
 
 
+
+   {
+                "source": "/products/midea-2.0kw-xtreme-save-reverse-cycle-split-system-MFAB20NC/",
+                "destination": "/products/midea-2.0kw-athena-reverse-cycle-split-system-MFEZ20VA-N/",
+                "type": 301
+            },
+               {
+                "source": "/products/midea-2.6kw-xtreme-save-reverse-cycle-split-system-MFAB26NC/",
+                "destination": "/products/midea-2.0kw-athena-reverse-cycle-split-system-MFEZ20VA-N/",
+                "type": 301
+            },
+               {
+                "source": "/products/midea-3.5kw-xtreme-save-reverse-cycle-split-system-MFAB35NC/",
+                "destination": "/products/midea-3.5kw-athena-reverse-cycle-split-system-MFEZ26VA-N/",
+                "type": 301
+            },
+               {
+                "source": "/products/midea-5.0kw-xtreme-save-reverse-cycle-split-system-MFAB50NC/",
+                "destination": "/products/midea-5.0kw-athena-reverse-cycle-split-system-MFEZ50VA-N/",
+                "type": 301
+            },
+               {
+                "source": "/products/midea-7.0kw-xtreme-save-reverse-cycle-split-system-MFAB70NC/",
+                "destination": "/products/midea-7.0kw-athena-reverse-cycle-split-system-MFEZ70VA-N//",
+                "type": 301
+            },
+               {
+                "source": "/roducts/midea-8.0kw-xtreme-save-reverse-cycle-split-system/",
+                "destination": "/products/midea-8.0kw-athena-reverse-cycle-split-system-MFEZ80VA-N/",
+                "type": 301
+            },
+
+
+
+
+
+
+
+
             {
                 "source": "/products/midea-air-conditioning",
                 "destination": "/products/midea-split-system-air-conditioning/",
@@ -809,10 +848,38 @@
                 "source": "/products/mitsubishi-msz-ap90-vg-wall-mounted-split-system-air-conditioner/",
                 "destination": "/products/mitsubishi-msz-as90-vg-wall-mounted-split-system-air-conditioner/",
                 "type": 301
+            },
+             {
+                "source": "/products/mitsubishi-heavy-industries-2.0kw-avanti-DXK06ZSA-W-hi-wall-split-system/",
+                "destination": "/products/mitsubishi-heavy-industries-2.0kw-ciara-series-DXK07ZTLA-WFJ-hi-wall-split-system/",
+                "type": 301
+            },
+           
+              {
+                "source": "/products/mitsubishi-heavy-industries-2.5kw-avanti-DXK09ZSA-W-hi-wall-split-system/",
+                "destination": "/products/mitsubishi-heavy-industries-2.5kw-ciara-DXK09ZTLA-W-hi-wall-split-system/",
+                "type": 301
+            },
+            {
+                "source": "/products/mitsubishi-heavy-industries-3.5kw-avanti-DXK12ZSA-W-hi-wall-split-system/",
+                "destination": "/products/mitsubishi-heavy-industries-3.5kw-ciara-DXK12ZTLA-WFJ-hi-wall-split-system/",
+                "type": 301
+            },
+            {
+                "source": "/products/mitsubishi-heavy-industries-3.5kw-avanti-DXK18ZSA-W-hi-wall-split-system/",
+                "destination": "/products/mitsubishi-heavy-industries-5.0kw-ciara-DXK18ZTLA-WFJ-hi-wall-split-system/",
+                "type": 301
+            },
+             {
+                "source": "/products/mitsubishi-heavy-industries-6.3kw-bronte-DXK21ZRA-W-hi-wall-split-system/",
+                "destination": "/products/mitsubishi-heavy-industries-6.3kw-ciara-DXK21ZTLA-WFJ-hi-wall-split-system/",
+                "type": 301
+            },
+                {
+                "source": "/products/mitsubishi-heavy-industries-7.1kw-bronte-DXK24ZRA-W-hi-wall-split-system/",
+                "destination": "/products/mitsubishi-heavy-industries-7.1kw-ciara-DXK24ZTLA-WFJ-hi-wall-split-system/",
+                "type": 301
             }
-              
-             
-             
              
           
 

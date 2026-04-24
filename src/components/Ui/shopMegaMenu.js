@@ -16,7 +16,7 @@ const Header = () => {
 
              <span className="shopnav">
                   { /* <span className="dropbtn d-flex"> */} 
-                 <Link to="/products">Shop</Link>
+                 <Link to="/products">Pricing</Link>
                   { /* <span
                    style={{ fontSize: `inherit`, fontWeight: `bold` }}
                    class="material-icons"

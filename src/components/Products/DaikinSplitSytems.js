@@ -3,23 +3,27 @@
 import React from "react"
 import Product from "./Product"
 import { graphql, useStaticQuery } from "gatsby"
+import { snapToStandard } from "../RoomSizeCalculator"
 // import styles from "../../css/products.module.css"
 
-const DaikinSplitSystems = () => {
-  // Check to see if we have the query
-  // const data = useStaticQuery(query)
-  // console.log(data)
-  // get allStrapiProducts and change the nodes name to products
+const DaikinSplitSystems = ({ filterKw }) => {
   const {
-    allStrapiProduct: { nodes: products },
+    allStrapiProduct: { nodes: allProducts },
   } = useStaticQuery(query)
+
+  const splitProducts = allProducts.filter(p => !p.slug?.includes("ducted"))
+  const products = filterKw
+    ? splitProducts.filter(p => snapToStandard(parseFloat(p.cool_capacity)) === filterKw)
+    : splitProducts
+
+  if (filterKw && products.length === 0) return null
 
   return (
     <section>
       <div className="product-grid midea">
-        {products.map(product => {
-          return <Product key={product.id} {...product} />
-        })}
+        {products.map(product => (
+          <Product key={product.id} {...product} />
+        ))}
       </div>
     </section>
   )
@@ -40,6 +44,7 @@ export const query = graphql`
         title
         price
         slug
+        cool_capacity
         description {
           data {
             description

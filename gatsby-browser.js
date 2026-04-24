@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
+
  import React from "react";
  import { CartProvider } from './src/contexts/CartContext';
 

@@ -1,17 +1,13 @@
-// ++++=========================================
-// ***** MOBILE MENU ***************************
-// *****=======================================
-
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import Image from "gatsby-image"
 import DropdownBtn from "../DropDownBtn"
-// import DropdownShopBtn from "../DropDownShopBtn"
 import DropDownBrand from "../DropDownBrandBtn"
 import Search from "../Search"
 import CartIcon from "../CartIcon"
+
 const getImage = graphql`
   {
     fluid: file(relativePath: { eq: "Home-Comfort-Air-WHITE-600.png" }) {
@@ -27,208 +23,188 @@ const getImage = graphql`
 `
 
 const MenuIcon = styled.button`
-  z-index: 8;
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 
   div {
-    width: 1.5rem;
-    height: 0.3rem;
-    background: #fefefe;
-    border-radius: 5px;
-    transform-origin: 1px;
-    position: relative;
-    transition: opacity 300ms, transform 300ms;
+    width: 22px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: opacity 280ms, transform 280ms;
 
     :first-child {
-      transform: ${({ nav }) => (nav ? "rotate(45deg)" : "rotate(0)")};
+      transform: ${({ nav }) => (nav ? "rotate(45deg) translate(5px, 5px)" : "rotate(0)")};
     }
-
     :nth-child(2) {
       opacity: ${({ nav }) => (nav ? "0" : "1")};
     }
-
     :nth-child(3) {
-      transform: ${({ nav }) => (nav ? "rotate(-45deg)" : "rotate(0)")};
+      transform: ${({ nav }) => (nav ? "rotate(-45deg) translate(5px, -5px)" : "rotate(0)")};
     }
   }
-`
-const Wrapper = styled.div`
-  background: #fff;
-  height: 80px;
-  width: 100%;
 `
 
 const MenuLinks = styled.nav`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  background: #fff;
-  position: absolute;
-  top: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
   right: 0;
-  transition: transform 300ms;
-  transform: ${({ nav }) => (nav ? "translateX(0)" : "translateX(100%)")};
-  z-index: 99999999;
-  margin-top: 100px;
+  bottom: 0;
+  background: #fff;
+  z-index: 9999998;
+  overflow-y: auto;
+  transition: transform 340ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: ${({ nav }) => (nav ? "translateX(0) translateZ(0)" : "translateX(100%)")};
+  padding-top: 155px;
 
-  li {
-    margin-top: 1rem;
+  @keyframes navItemIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 48px;
+  }
+
+  li {
+    border-bottom: 1px solid #f0f4f8;
+    animation: ${({ nav }) => (nav ? "navItemIn 240ms ease both" : "none")};
+  }
+
+  li:nth-child(1) { animation-delay: 80ms; }
+  li:nth-child(2) { animation-delay: 115ms; }
+  li:nth-child(3) { animation-delay: 150ms; }
+  li:nth-child(4) { animation-delay: 185ms; }
+  li:nth-child(5) { animation-delay: 220ms; }
+  li:nth-child(6) { animation-delay: 255ms; }
+
   a {
-    font-size: 16px;
-    color: #000;
-    transition: color 300ms;
+    font-size: 17px;
+    font-weight: 500;
+    color: #041521;
+    display: block;
+    padding: 16px 24px;
+    transition: color 180ms, background 180ms;
 
     :hover {
       color: rgb(0, 117, 201);
+      background: rgba(0, 117, 201, 0.04);
     }
-
-    .body-wrapper {
-      background-color: rgba(0, 0, 0, 0.5);
+    :active {
+      background: rgba(0, 117, 201, 0.08);
     }
   }
-`
 
-const Logo = styled.div`
-  margin: 0 0 0 0
-` 
+  .dropdown-toggle {
+    display: block !important;
+    width: 100%;
+    padding: 16px 24px !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    color: #041521 !important;
+    text-align: left !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer;
+  }
+`
 
 const MobileNav = () => {
   const data = useStaticQuery(getImage)
   const [nav, showNav] = useState(false)
+
   return (
-    <Wrapper
-      className="Start-Nav mobile-nav bg-red fixed-top d-lg-none d-xl-none d-xxl-none
-    "
-    style={{ borderBottom: '3px solid rgb(0, 117, 201)'}}
-    >
-    <div className="logo-top container-fluid" style={{ backgroundColor: 'rgb(0, 117, 201)'}}>
-     <div class="row">
+    <>
+      {/* Fixed header bar — always on top of everything */}
+      <div
+        className="mobile-nav d-lg-none d-xl-none d-xxl-none"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 9999999,
+          backgroundColor: 'rgb(0, 117, 201)',
+          boxShadow: '0 2px 8px rgba(4,21,33,0.18)',
+        }}
+      >
+        {/* Logo + controls row */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '10px 16px',
+        }}>
+          <MenuIcon nav={nav} onClick={() => showNav(!nav)}>
+            <div /><div /><div />
+          </MenuIcon>
 
-        <div className="mobile-nav-logo mb-3 pt-2">
-       <Logo>
-       
-       <Link to="/">
-        <Image fluid={data.fluid.childImageSharp.fluid} alt="home comfort air logo" />
-        </Link>
-      
-      </Logo>
+          <div style={{ width: 190, flexShrink: 0 }}>
+            <Link to="/">
+              <Image fluid={data.fluid.childImageSharp.fluid} alt="home comfort air logo" />
+            </Link>
+          </div>
+
+          <div className="mobile-nav-header" style={{ color: '#fff' }}>
+            <CartIcon />
+          </div>
+        </div>
+
+        {/* Search bar — full width white row */}
+        <div style={{
+          backgroundColor: '#fff',
+          padding: '8px 12px',
+          borderBottom: '1px solid #e8eef5',
+        }}>
+          <Search />
+        </div>
       </div>
 
-              <div className="col">
-      
-      <span className="menu-icon" >
-       <MenuIcon id="menu-icon--" nav={nav} onClick={() => showNav(!nav)}>
-        <div />
-        <div />
-        <div />
-      </MenuIcon>
-      </span>
-</div>
-
-    
-
-    
-
-   
-      </div>
-</div>
-
-      <div className="container mobile-search"><Search /></div>
-
+      {/* Full-screen slide-in nav panel */}
       <MenuLinks id="menu-wrapper-mobile" nav={nav}>
-        <ul className="" style={{ marginTop: '-150px'}}>
-        <li>
-          <span
-              style={{ PaddingBottom: 5 }}
-              className="phone-nav"
-            >
-              <a
-                style={{ fontSize: 15 }}
-                className="call-icon d-flex align-items-center text-shadow-1 btn-- btn-green-- my-0 ml-5 mb-4 "
-                href="tel:0404602657"
-              >
-                <span style={{ fontSize: 22 }} className="material-icons ">
-                 <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 0 512 512">
-  <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" fill="white" />
-</svg>
-
-                </span>{" "}
-                <span
-                  className="phone-num fw-600 ml-1"
-                  style={{ whiteSpace: `nowrap` }}
-                >
-                  Call 0404 602 657
-                </span>
-              </a>
-            </span>
-
-<span><CartIcon className="nav-cart" /></span>
-
-
-
-        </li>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <div class="dropdown-divider"></div>
-          <li>
-            <Link to="/about-us">About</Link> 
-          </li>
-          <div class="dropdown-divider"></div>
-          <li>
-            <Link to="/products">Shop</Link>
-          </li>
-          <div class="dropdown-divider"></div>
-          <DropdownBtn />
-          <div class="dropdown-divider"></div>
-           <li>
-            <DropDownBrand />
-          </li>
-          <div class="dropdown-divider"></div>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <div class="dropdown-divider"></div>
-          <li>
-
-            <Link
-              style={{ marginTop: `-3px` }}
-              id="facebook-svg"
-              to="https://www.facebook.com/Home-Comfort-Air-1713459065551004/?ref=bookmarks"
-              target="blank"
-            >
-              <svg
-                version="1.1"
-                id="Capa_1"
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                viewBox="0 0 512 512"
-                style={{
-                  background: `new 0 0 512 512`,
-                  maxWidth: 30,
-                  cursor: `pointer`,
-                }}
-              >
-                <g>
-                  <g>
-                    <path
-                      d="M448,0H64C28.704,0,0,28.704,0,64v384c0,35.296,28.704,64,64,64h192V336h-64v-80h64v-64c0-53.024,42.976-96,96-96h64v80
-			h-32c-17.664,0-32-1.664-32,16v64h80l-32,80h-48v176h96c35.296,0,64-28.704,64-64V64C512,28.704,483.296,0,448,0z"
-                    />
-                  </g>
-                </g>
-              </svg>
+        <ul>
+          <li><Link to="/about-us">About</Link></li>
+          <li><Link to="/products">Pricing</Link></li>
+          <li><DropdownBtn /></li>
+          <li><DropDownBrand /></li>
+          <li style={{ border: 'none', padding: '16px 24px 8px' }}>
+            <Link to="/contact" style={{
+              display: 'block',
+              textAlign: 'center',
+              background: 'rgb(0, 196, 179)',
+              color: '#fff',
+              fontWeight: 700,
+              borderRadius: '2em',
+              padding: '14px 24px',
+              fontSize: '16px',
+              letterSpacing: '0.02em',
+            }}>
+              Get a Quote
             </Link>
           </li>
-          <div class="dropdown-divider"></div>
+          <li style={{ border: 'none' }}>
+            <Link
+              to="https://www.facebook.com/Home-Comfort-Air-1713459065551004/?ref=bookmarks"
+              target="blank"
+              style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#9ca3af', fontSize: '13px', padding: '12px 24px' }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="#1877f2">
+                <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+              </svg>
+              Follow us on Facebook
+            </Link>
+          </li>
         </ul>
       </MenuLinks>
-    </Wrapper>
+    </>
   )
 }
 

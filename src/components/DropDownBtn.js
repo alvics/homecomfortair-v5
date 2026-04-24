@@ -49,6 +49,10 @@ const DropdownBtn = () => {
         <li>
         <Link to="/split-system-replacement">Split System Replacement</Link>
         </li>
+        <div className="dropdown-divider"></div>
+        <li>
+          <Link to="/home-comfort-club">⭐ Home Comfort Club</Link>
+        </li>
       </ul>
     </div>
   )

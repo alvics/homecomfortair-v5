@@ -17,7 +17,11 @@ nav {
     -webkit-box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1);
     -moz-box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1);
     box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1);
-    z-index: 1 !important;
+    z-index: 1;
+}
+
+nav.fixed-top {
+    z-index: 1030 !important;
 }
 
 nav:hover {
@@ -62,13 +66,12 @@ svg:hover {
 }
 
 #links {
-    display: grid;
-    justify-content: left;
-    align-content: center;
-    grid-auto-flow: column;
-    grid-gap: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
     margin-top: 53px;
     font-family: "Open Sans", sans-serif;
+    width: 100%;
 }
 
 #links a {
@@ -83,6 +86,27 @@ svg:hover {
     color: rgb(0, 117, 201);
 }
 
+.nav-quote-btn {
+    background: rgb(0, 196, 179);
+    color: #fff !important;
+    padding: 7px 14px;
+    border-radius: 2em;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    margin-left: auto;
+    align-self: center;
+}
+
+.nav-quote-btn:hover {
+    opacity: 0.85;
+    color: #fff !important;
+}
 
 /* NAV MENU HEADER */
 
@@ -165,6 +189,89 @@ svg:hover {
     margin-top: -100px;
 }
 
+/* Mobile nav — white cart icon in header */
+.mobile-nav-header .cart-icon-wrapper,
+.mobile-nav-header .cart-svg {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+
+/* Mobile nav — full width search bar */
+.mobile-nav .search-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
+}
+
+.mobile-nav .input-search {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+  flex: 1 !important;
+}
+
+.mobile-nav .search-btn {
+  display: none !important;
+}
+
+/* Mobile nav — item dividers */
+#menu-wrapper-mobile li {
+  border-bottom: 1px solid #f0f2f5;
+}
+
+#menu-wrapper-mobile li:last-child {
+  border-bottom: none;
+}
+
+/* Mobile nav — inline dropdowns */
+#menu-wrapper-mobile .dropdown {
+  width: 100%;
+}
+
+#menu-wrapper-mobile .dropdown-toggle {
+  display: block !important;
+  width: 100%;
+  padding: 14px 28px !important;
+  font-size: 16px !important;
+  color: #041521 !important;
+  text-align: left !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+}
+
+#menu-wrapper-mobile .dropdown-menu {
+  position: static !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-left: 3px solid rgb(0, 117, 201) !important;
+  border-radius: 0 !important;
+  padding: 4px 0 8px 0 !important;
+  background: #f8fafc !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+#menu-wrapper-mobile .dropdown-menu li a {
+  display: block !important;
+  font-size: 14px !important;
+  color: #374151 !important;
+  padding: 10px 28px 10px 32px !important;
+  background: transparent !important;
+}
+
+#menu-wrapper-mobile .dropdown-menu li a:hover {
+  color: rgb(0, 117, 201) !important;
+  background: rgba(0, 117, 201, 0.05) !important;
+}
+
+#menu-wrapper-mobile .dropdown-divider {
+  display: none !important;
+}
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -197,13 +304,6 @@ svg:hover {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-}
-
-
-
-.input-search {
-padding-bottom: 20px;
-margin-left: -25px;
 }
 
 
@@ -314,7 +414,7 @@ margin: -30px auto 0px;
 }
 
 
-    .phone-nav {
+    .phone-nav { 
         position: absolute;
         left: 310px;
     }
@@ -328,10 +428,9 @@ margin: -30px auto 0px;
     }
 
     .mobile-search{
-        margin-top: 8px;
-        margin-left: 50px; 
-        max-width: 80%;
-        
+        margin: 12px auto;
+        padding: 0 16px;
+        max-width: 100%;
     }
 
     .mobile-nav-logo{
@@ -363,11 +462,8 @@ margin: -30px auto 0px;
     }
 
     .mobile-nav{
-        border-bottom: 2px solid rgb(0, 117, 201);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, .16), 0 2px 3px rgba(0, 0, 0, .12);
-        min-height: 130px;
-        padding-top:20px;
-        background-color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(4, 21, 33, 0.15);
+        background-color: rgb(0, 117, 201) !important;
     }
   .gTDLTK {
     margin: 65px 0px 0px 20px;
@@ -516,3 +612,562 @@ product-page-description{
         display: block;
     }
 } */
+
+/* ============================================
+   HCA DESKTOP NAV — 2026 REDESIGN
+   ============================================ */
+
+.hca-desktop-nav {
+  height: 68px !important;
+  min-height: 68px !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e8eef5 !important;
+  box-shadow: 0 1px 8px rgba(4, 21, 33, 0.07) !important;
+  z-index: 1030 !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+/* Override the old nav:hover expansion */
+.hca-desktop-nav:hover {
+  display: flex !important;
+  min-height: 68px !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 8px rgba(4, 21, 33, 0.07) !important;
+}
+
+.hca-nav-inner {
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 68px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.hca-nav-logo {
+  flex-shrink: 0;
+  width: 260px;
+  margin-right: 32px;
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+}
+
+.hca-nav-logo .gatsby-image-wrapper {
+  width: 260px !important;
+  max-width: 260px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Primary nav links */
+.hca-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+  margin-top: 0 !important;
+  height: 100%;
+}
+
+.hca-nav-links > a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3136;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: color 180ms, background 180ms;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  font-family: "Nunito Sans", "Open Sans", sans-serif;
+}
+
+.hca-nav-links > a:hover {
+  color: rgb(0, 117, 201) !important;
+  background: rgba(0, 117, 201, 0.06);
+  text-decoration: none;
+}
+
+/* Services / Brands dropdown wrappers inside new nav */
+.hca-nav-links .dropdown-- {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+}
+
+.hca-nav-links > a[href],
+.hca-nav-links .dropdown-- {
+  cursor: pointer;
+}
+
+.hca-nav-links .dropbtn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: color 180ms, background 180ms;
+  cursor: pointer;
+  border: none !important;
+  background: none !important;
+}
+
+.hca-nav-links .dropbtn > a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3136;
+  text-decoration: none;
+  transition: color 180ms;
+}
+
+.hca-nav-links .dropbtn svg path {
+  fill: #6b7280;
+  transition: fill 180ms;
+}
+
+.hca-nav-links .dropdown--:hover .dropbtn > a {
+  color: rgb(0, 117, 201) !important;
+}
+
+.hca-nav-links .dropdown--:hover .dropbtn {
+  background: rgba(0, 117, 201, 0.06);
+}
+
+.hca-nav-links .dropdown--:hover .dropbtn svg path {
+  fill: rgb(0, 117, 201);
+}
+
+/* Dropdown menus inside new nav */
+.hca-nav-links .dropdown-content {
+  top: calc(100% + 2px) !important;
+  background: #ffffff !important;
+  border-radius: 10px !important;
+  border: 1px solid #e8eef5 !important;
+  box-shadow: 0 8px 24px rgba(4, 21, 33, 0.12) !important;
+  z-index: 1035 !important;
+  overflow: hidden;
+  min-width: 200px;
+}
+
+.hca-nav-links .dropdown-content a {
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  padding: 10px 18px !important;
+  display: block;
+  transition: background 140ms, color 140ms;
+}
+
+.hca-nav-links .dropdown-content a:hover {
+  background: rgba(0, 117, 201, 0.06) !important;
+  color: rgb(0, 117, 201) !important;
+}
+
+/* Right actions area */
+.hca-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Phone link */
+.hca-nav-phone {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2d3136;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  white-space: nowrap;
+  transition: color 180ms;
+}
+
+.hca-nav-phone:hover {
+  color: rgb(0, 117, 201) !important;
+  text-decoration: none !important;
+}
+
+/* Icon buttons (Facebook etc) */
+.hca-nav-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  color: #6b7280;
+  text-decoration: none !important;
+  transition: color 180ms, background 180ms;
+}
+
+.hca-nav-icon-btn:hover {
+  color: rgb(0, 117, 201) !important;
+  background: rgba(0, 117, 201, 0.06);
+  text-decoration: none !important;
+}
+
+/* Search icon button */
+.hca-search-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 180ms, background 180ms;
+  padding: 0;
+}
+
+.hca-search-toggle:hover,
+.hca-search-toggle.active {
+  color: rgb(0, 117, 201) !important;
+  background: rgba(0, 117, 201, 0.06);
+}
+
+/* svg:hover global rule exception for nav icons */
+.hca-nav-actions svg:hover {
+  fill: inherit !important;
+}
+
+/* ── Search dropdown panel ── */
+.hca-search-panel {
+  top: 68px !important;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e8eef5;
+  box-shadow: 0 6px 20px rgba(4, 21, 33, 0.1);
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+  z-index: 1029 !important;
+  pointer-events: none;
+  overflow: hidden; /* Hidden by default when closed */
+}
+
+.hca-search-panel--open {
+  max-height: 84px;
+  opacity: 1;
+  pointer-events: auto;
+  overflow: visible !important; /* Must be visible to show search results dropdown */
+}
+
+.hca-search-panel-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+/* Override old search container styles inside the panel */
+.hca-search-panel .search-container {
+  padding-left: 0 !important;
+  width: 100% !important;
+}
+
+.hca-search-panel .input-search {
+  width: 100% !important;
+  margin-left: 0 !important;
+  padding-bottom: 0 !important;
+  /* Inheriting professional styles from layout.css */
+  background: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* ============================================
+   MEGA MENU — full-viewport-width panels
+   Parent: .hca-desktop-nav (position: fixed)
+   Panel: position: absolute; left: 0; width: 100%
+   ============================================ */
+
+/* Allow the fixed nav to overflow so panels are visible below it */
+.hca-desktop-nav {
+  overflow: visible !important;
+}
+
+/* Trigger buttons */
+.mega-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3136;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 180ms, background 180ms;
+  align-self: center;
+  white-space: nowrap;
+  font-family: "Nunito Sans", "Open Sans", sans-serif;
+}
+
+.mega-trigger:hover,
+.mega-trigger--active {
+  color: rgb(0, 117, 201);
+  background: rgba(0, 117, 201, 0.06);
+}
+
+.mega-chevron {
+  transition: transform 220ms ease;
+  fill: #6b7280;
+}
+
+.mega-trigger:hover .mega-chevron,
+.mega-trigger--active .mega-chevron {
+  fill: rgb(0, 117, 201);
+}
+
+.mega-chevron--up {
+  transform: rotate(180deg);
+}
+
+/* Panel — absolute from the fixed nav = full viewport width */
+.mega-panel {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #e8eef5;
+  border-bottom: 1px solid #e8eef5;
+  box-shadow: 0 8px 32px rgba(4, 21, 33, 0.12);
+  z-index: 1029;
+  animation: megaSlideIn 180ms ease forwards;
+}
+
+@keyframes megaSlideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Centered content wrapper */
+.mega-inner {
+  display: flex;
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 40px;
+}
+
+/* ── Services columns ── */
+.mega-col {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.mega-col-heading {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.mega-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: background 140ms;
+  margin-bottom: 2px;
+}
+
+.mega-item:hover {
+  background: rgba(0, 117, 201, 0.05);
+}
+
+.mega-item-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 117, 201, 0.08);
+  border-radius: 8px;
+  color: rgb(0, 117, 201);
+}
+
+.mega-item-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mega-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mega-item-text strong {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.3;
+}
+
+.mega-item-text span {
+  font-size: 12.5px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+/* ── Promo card (shared) ── */
+.mega-promo {
+  flex-shrink: 0;
+  width: 260px;
+}
+
+.mega-promo-inner {
+  background: linear-gradient(135deg, rgb(0, 117, 201) 0%, #0062a8 100%);
+  border-radius: 12px;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-promo-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.mega-promo-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin-bottom: 12px;
+}
+
+.mega-promo-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.mega-promo-body {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.5;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.mega-promo-btn {
+  display: inline-block;
+  background: #ffffff;
+  color: rgb(0, 117, 201) !important;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 6px;
+  text-decoration: none !important;
+  transition: opacity 180ms;
+  align-self: flex-start;
+}
+
+.mega-promo-btn:hover {
+  opacity: 0.9;
+  color: rgb(0, 117, 201) !important;
+}
+
+/* ── Brands grid ── */
+.mega-inner--brands {
+  align-items: flex-start;
+}
+
+.mega-brands-grid {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.mega-brands-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.mega-brand-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 8px;
+  border-radius: 8px;
+  border: 1px solid #f0f4f8;
+  text-decoration: none !important;
+  transition: background 140ms, border-color 140ms;
+}
+
+.mega-brand-tile:hover {
+  background: rgba(0, 117, 201, 0.04);
+  border-color: rgba(0, 117, 201, 0.2);
+}
+
+.mega-brand-img-wrap {
+  width: 120px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mega-brand-img-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+.mega-brand-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+}
+
+/* ── Backdrop ── */
+.mega-backdrop {
+  position: fixed;
+  inset: 0;
+  top: 68px;
+  background: rgba(4, 21, 33, 0.25);
+  z-index: 1028;
+  animation: megaSlideIn 180ms ease forwards;
+}

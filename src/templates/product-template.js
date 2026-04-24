@@ -28,6 +28,7 @@ import CarrierPDF from "../images/Carrier.pdf";
 import MitsubishiPDF from "../images/Mitsubishi-electric-Brochure-2025.pdf";
 import HitachiPDF from "../images/hitachi.pdf";
 import MhiPDF from "../images/MHI.pdf";
+import Ciara from "../images/Ciara.pdf"
 import MideaProducts from "../components/Products/MideaSplitsSystems";
 import CarrierProducts from "../components/Products/CarrierSplitSystems";
 import SamsungProducts from "../components/Products/SamsungSplitSystems";
@@ -90,10 +91,11 @@ const SingleProduct = ({ data }) => {
 
    // Destructure product data from the GraphQL query result
    const product = data.strapiProduct;
-   const mainImage = product.gallery[0]?.url || ''; // Get the URL of the first gallery image
-   const { description } = data.strapiProduct.description.data;
+   const mainImage = product.gallery[0]?.url || '';
+   const description = data.strapiProduct.description?.data?.description || '';
    const { title, price, heat_capacity, room_size, model, cool_capacity } = data.strapiProduct;
    const brand = data.strapiProduct.sub_categories[0]?.title || '';
+   const currentCategory = product.categories[0]?.title || '';
 
 
     // Custom Accordion Toggle button
@@ -134,125 +136,129 @@ const SingleProduct = ({ data }) => {
   return (
     <Fragment>
       <Layout>
-        <div className='container-lg container-fluid-md container-fluid-sm pt-2'>
-          <div className="row single-product-row">
-            {/* Left Column: Product Gallery */}
-            <div className="col-md-8 bg-white text-center p-4 scrollable-column">
-                <div aria-label="breadcrumb" className='my-4 text-start'>
-                    <div className="breadcrumb lh-1">
-                        <p className="breadcrumb-item fsz-12 text-uppercase text-sm-start lh-1">
-                            <Link to='/'>Home / </Link>
-                            <span className="breadcrumb-item fsz-12 text-uppercase text-sm-start lh-1">
-                                <Link to="/products">Products /</Link> Split-systems  /  {brand}-{model}
-                            </span>
-                        </p>
-                    </div>
-                </div>
+        {/* Breadcrumb — outside cards */}
+        <div className='mb-3'>
+          <p className="sp-breadcrumb">
+            <Link to='/'>Home</Link> / <Link to="/products">Products</Link> / <Link to="/split-systems-air-conditioning">Split Systems</Link> / <span className="sp-breadcrumb-current text-capitalize">{brand} {model}</span>
+          </p>
+        </div>
+
+        <div className='pt-0 sp-two-col'>
+            {/* Left Card: Product Gallery */}
+            <div className="sp-card-gallery">
                 <div className='gallery-img-container'>
-                    <Carousel images={images} index={2} hasSizeButton={false} hasMediaButton={false} hasIndexBoard={false} hasCaption={true} showThumbs={false}  className='bg-white d-flex img-fluid gallery-img' /> 
+                    {images.length > 0 ? (
+                      <Carousel images={images} hasSizeButton={false} hasMediaButton={false} hasIndexBoard={false} hasCaption={false} className='bg-white d-flex img-fluid gallery-img' />
+                    ) : (
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 300, background: '#f5f5f5', borderRadius: 8 }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                      </div>
+                    )}
                 </div>
             </div>
 
-            {/* Right Column: Product Details */}
-            <div className="col-md-4 bg-white p-4 product-page-description">
+            {/* Right Card: Product Details */}
+            <div className="sp-card-details product-page-description">
                 <div className='single-product-right-col'>
-                    <div className="mt-5 text-wrap single-product-right-col-text">
-                        <h1 className="fsz-18 fw-700 text-wrap shrink-text lh-sm">{title}</h1>
-                        <Link to='#reviews'> <GoldStars /></Link>
-                        <div className='pt-2'>
-                            <div className='text-capitalize shrink-text fsz-16'><span className='fw-600 fsz-16'>Brand:</span> {brand}</div>
-                            <div className='shrink-text fsz-16'><span className='fw-600 fsz-16'>Model:</span> {model}</div>
-                        </div>
-                    </div>
-                
-                    <div>
-                        <div className="btn-group mt-1 shrink-text">
-                            <button type="button" className="border border-light--- px-2 pt-1 pb-1 text-black fsz-16 gallery-btn dropdown-toggle-split d-flex justify-between fw-400" data-bs-toggle="dropdown" style={{ width: '220px' }}>
-                                {cool_capacity} <span className='pt-1 pb-1'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className="bi bi-chevron-down" viewBox="0 0 16 16">
-                                        <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" strokeWidth="1" />
-                                    </svg>
-                                </span>
-                            </button>
-                            {/* Related products dropdown */}
-                            <ul className='dropdown-menu text-black fsz-16' style={{ width: '250px' }}>
-                                {data.relatedProducts.nodes.map((product) => {
-                                    if (product.sub_categories[0]?.title === brand) {
-                                        const isActive = pathname.includes(product.slug) ? 'active' : '';
 
-                                        return (
-                                            <li
-                                                key={product.id}
-                                                className={`dropdown-item--- px-2 pb-0 text-black ${isActive}`}
-                                            >
-                                                <Link to={`/products/${product.slug}`} className={`text-black d-flex justify-between ${isActive}`} >
-                                                    <span>{product.cool_capacity}</span> 
-                                                    <span className='text-end' style={{ paddingLeft: '50px' }}>${product.price}</span>
-                                                </Link>
-                                            </li>
-                                        );
-                                    }
-                                    return null;
-                                })}
-                            </ul>
-                        </div>
+                    {/* Sale badge */}
+                    <div className="sp-sale-badge">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="9" height="9">
+                        <path d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                      </svg>
+                      Sale
                     </div>
 
-                    <div className="mt-3">
-                        <p className=''>Supplied & installed</p>
-                        <span className="fsz-38 fw-700 shrink-text position-relative">
-                            <span className='fsz-16 position-absolute top-0 start-0 fx-700' style={{marginTop: '5px'}}>$</span>
-                            <span className='ml-2'>{price}</span> 
-                            <span className='fsz-12 fw-400' data-bs-toggle="tooltip" data-bs-placement="top" title="This is the standard retail price at which this exclusive product is offered for sale by home comfort air.">
-                                <del>SRP  ${price + 100}</del>
-                            </span>
-                        </span>
-                        <div className='fw-bold fsz-16 d-flex flex-column my-3 shrink-text'>
-                            <span>{cool_capacity} cooling capacity</span>
-                            <span>{heat_capacity} heating capacity</span>
-                        </div>
-                        <p className='short-description fsz-16 single-product-right-col-text shrink-text lh-base'>
-                            {title} will suit a room size of approximately {room_size}m². <br /> 
-                            <span className='fsz-14'>*Price is based on a back to back installation (maximum pipe length 3 metres).</span>
-                        </p>
+                    {/* Title */}
+                    <h1 className="sp-title">{title}</h1>
+
+                    {/* Brand + Stars row */}
+                    <div className="sp-meta-row">
+                        <span className="sp-brand text-capitalize">{brand}</span>
+                        <Link to='#reviews' className="sp-stars-link"><GoldStars /></Link>
                     </div>
-   
-                    <div className=" product-actions ">
-                        <AddToCartButton 
-                            product={productForCart} // Pass the new object here
-                            className="mt-4 btn-- btn-primary--"
+
+                    <hr className="sp-divider" />
+
+                    {/* Price section */}
+                    <p className="sp-supplied-label">Supplied &amp; installed</p>
+                    <div className="sp-price-row">
+                        <div className="sp-price-box">
+                            <span className="sp-dollar">$</span>
+                            <span className="sp-price">{price}</span>
+                        </div>
+                        <span className="sp-srp"><del>SRP ${price + 100}</del></span>
+                    </div>
+
+                    <hr className="sp-divider" />
+
+                    {/* Spec badges */}
+                    <div className="sp-spec-badges">
+                        <span className="sp-spec-badge">❄ {cool_capacity} cooling</span>
+                        <span className="sp-spec-badge">🔥 {heat_capacity} heating</span>
+                        <span className="sp-spec-badge">📐 ~{room_size}m²</span>
+                    </div>
+
+                    <hr className="sp-divider" />
+
+                    {/* Size selector pills */}
+                    <p className="sp-size-label">Select size:</p>
+                    <div className="sp-size-pills">
+                        {data.relatedProducts.nodes
+                            .filter(p =>
+                                p.sub_categories[0]?.title === brand &&
+                                p.categories[0]?.title === currentCategory
+                            )
+                            .map((p) => {
+                                const isActive = pathname.includes(p.slug);
+                                return (
+                                    <Link
+                                        key={p.id}
+                                        to={`/products/${p.slug}`}
+                                        className={`sp-size-pill ${isActive ? 'sp-size-pill--active' : ''}`}
+                                    >
+                                        <span className="sp-pill-kw">{p.cool_capacity}</span>
+                                        <span className="sp-pill-price">${p.price}</span>
+                                    </Link>
+                                );
+                            })
+                        }
+                    </div>
+
+                    {/* Short description */}
+                    <p className="sp-short-desc">
+                        {title} will suit a room size of approximately {room_size}m².<br/>
+                        <span className="sp-fine-print">*Price is based on a back to back installation (maximum pipe length 3 metres).</span>
+                    </p>
+
+                    {/* Add to Cart */}
+                    <div className="product-actions">
+                        <AddToCartButton
+                            product={productForCart}
+                            className="sp-add-to-cart"
                             onCartAdd={handleShowCartCard}
-                            
                         />
                     </div>
-                    {/* Add this new component */}
-<CartAddedCard
-  product={cardProduct}
-  isVisible={showCartCard}
-  onClose={closeCartCard}
-/>
+
+                    <CartAddedCard
+                        product={cardProduct}
+                        isVisible={showCartCard}
+                        onClose={closeCartCard}
+                    />
                 </div>
                 <Modal />
             </div>
-          </div>
-   
-          {/* Second row for additional content and reviews */}
-          <div className="row single-product-row">
-            <div className="col-md-8">
-              <div className="bg-white p-3 header-nav pt-5" >
-                <div className="d-flex flex-row" >
-                  <div className='header-nav-item fw-bold'>
-                    <Link to='#'>Gallery<span></span></Link>
-                  </div>
-                  <div className='header-nav-item fw-bold'>
-                    <Link to='#description' variant="link" onClick={() => toggleAccordion('description')} >Description</Link>
-                    <span></span>
-                  </div>
-                  <div className='header-nav-item fw-bold'>
-                    <Link to='#reviews'>Reviews</Link>
-                    <span></span>
-                  </div>
-                </div>
+        </div>
+
+        {/* Second row for additional content and reviews */}
+        <div className="sp-two-col mt-3">
+            <div className="sp-card-info">
+              {/* Tab nav */}
+              <div className="sp-tab-nav">
+                  <Link to='#' className="sp-tab-link">Gallery</Link>
+                  <Link to='#description' className="sp-tab-link" onClick={() => toggleAccordion('description')}>Description</Link>
+                  <Link to='#reviews' className="sp-tab-link">Reviews</Link>
+              </div>
  
                 {/* Accordion for Installation, Description, and Specifications */}
                 <Accordion defaultActiveKey="0" activeKey={activeAccordion}>
@@ -294,25 +300,21 @@ const SingleProduct = ({ data }) => {
                         )}
                       </div>
                     
-                      <h5 className='fsz-16'>What's included:</h5>
-                      <p>Your new <span className='text-capitalize'>{ brand }</span> { cool_capacity + " " + model } air conditioning package includes:</p>
-                      
-                      <div>
-                        <ul className="pl-3">
-                          <li>* Licensed Installers.</li>
-                          <li>* Back to back installation, up to 3 meters of pipework connecting indoor to outdoor unit for a single story home.</li>
-                          {/* Conditionally render electrical cable info */}
-                          {cool_capacity <= "5.4" ? ( 
-                            <li>* Up to 20 meters of electrical cable run in the roof to an existing and available circuit.</li>
-                          ) : ( 
-                            <li>* New mounted weatherproof safety isolation switch to existing circuit. <small>(For replacement units only, does NOT include new electrical circuit added. Additional charges may apply).</small> </li> 
+                      <h5 className='sp-section-heading'>What's included:</h5>
+                      <p className='sp-section-intro'>Your new <span className='text-capitalize'>{ brand }</span> { cool_capacity + " " + model } air conditioning package includes:</p>
+
+                      <ul className="sp-checklist">
+                          <li>Licensed Installers.</li>
+                          <li>Back to back installation, up to 3 meters of pipework connecting indoor to outdoor unit for a single story home.</li>
+                          {cool_capacity <= "5.4" ? (
+                            <li>Up to 20 meters of electrical cable run in the roof to an existing and available circuit.</li>
+                          ) : (
+                            <li>New mounted weatherproof safety isolation switch to existing circuit. <small>(For replacement units only, does NOT include new electrical circuit added. Additional charges may apply).</small></li>
                           )}
-                          <li>* PVC ducting to conceal pipe connection and electrical work.</li>
-                          {/* Conditionally render warranty info */}
-                          <li>  {brand === "Toshiba"  ? "* 7 year manufacturer warranty." : "* 5 year manufacturer warranty."}</li> 
-                          <li>* 5 year Installation warranty.</li>
-                        </ul>
-                      </div>
+                          <li>PVC ducting to conceal pipe connection and electrical work.</li>
+                          <li>{brand === "Toshiba" ? "7 year manufacturer warranty." : "5 year manufacturer warranty."}</li>
+                          <li>5 year Installation warranty.</li>
+                      </ul>
 
                       {/* Accordion for Additional Charges */}
                       <Accordion className='custom-accordion'>
@@ -324,14 +326,14 @@ const SingleProduct = ({ data }) => {
                             <div className="mb-4">
                               <p>The requirements for installation may vary depending on the layout and structure of your house. As a result, some additional costs may apply.</p>
                               <p>The most common reasons for additional costs are:</p>
-                              <ul className="pl-3">
-                                <li>* Double storey properties.</li>
-                                <li>* Non back to back installations.</li>
-                                <li>* Extra labour & materials.</li>
-                                <li>* Concrete slab Installation (if not already present).</li>
-                                <li>* Brackets (e.g. wall or roof).</li>
-                                <li>* Mounting blocks.</li>
-                                <li>* Electrical work (e.g new circuit).</li>
+                              <ul className="sp-checklist">
+                                <li>Double storey properties.</li>
+                                <li>Non back to back installations.</li>
+                                <li>Extra labour &amp; materials.</li>
+                                <li>Concrete slab Installation (if not already present).</li>
+                                <li>Brackets (e.g. wall or roof).</li>
+                                <li>Mounting blocks.</li>
+                                <li>Electrical work (e.g new circuit).</li>
                               </ul>
                               <small className="small-text">Note: your installer will explain the reasons and requirements for the additional charges (if there are any) before proceeding.</small>
                             </div>
@@ -431,18 +433,18 @@ const SingleProduct = ({ data }) => {
                             </a>
                           </div>
                         )}
-                        {brand === "mitsubishi heavy industries" && (
-                          <div className='mt-4 d-flex'>
-                            <p className='p-2 '>MHI brochure{" "}</p>
-                            <a href={MhiPDF} target="_blank" rel="noreferrer">
-                              <span className="pr-2 d-flex border rounded-3 p-1"> 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" className="bi bi-filetype-pdf" viewBox="0 0 16 16">
-                                  <path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
-                                </svg> 
-                                <span className='fsz-16 ml-2 mt-2' style={{color: "rgb(4, 21, 33)!important"}}><u>here</u></span>
-                              </span>
-                            </a>
-                          </div>
+                      {brand === "mitsubishi heavy industries" && (
+  <div className='mt-4 d-flex'>
+    <p className='p-2'>MHI brochure{" "}</p>
+    <a href={cool_capacity >= 2 && cool_capacity <= 7.1 ? Ciara : MhiPDF} target="_blank" rel="noreferrer">
+      <span className="pr-2 d-flex border rounded-3 p-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" className="bi bi-filetype-pdf" viewBox="0 0 16 16">
+          <path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
+        </svg>
+        <span className='fsz-16 ml-2 mt-2' style={{color: "rgb(4, 21, 33)!important"}}><u>here</u></span>
+      </span>
+    </a>
+  </div>
                         )}
                         {brand === "haier" && (
                           <div className='mt-4 d-flex'>
@@ -490,22 +492,18 @@ const SingleProduct = ({ data }) => {
                 <div id='reviews' className='mt-5'>
                   <GoogleReviewsCarousel />
                 </div>
-              </div>
             </div>
 
-
-            {/* Right Column: Contact and Brands */}
-            <div className="col-md-4">
-              <div className='p-1 bg-white mt-3'>
-                 <div className="img-wrapper-e mt-5" style={{borderRadius:8}}>
+            {/* Right sidebar card */}
+            <div className="sp-card-sidebar">
+                 <div className="img-wrapper-e mb-3" style={{borderRadius:8}}>
                   <StaticImage
                 filename="splits-add-11-pow-lg.png"
                 alt="home comfort air image"
               />
             </div>
-            <div className='mt-3 single-product-quote-form'>
-            <h5 className='pt-1'>Request a quote</h5>
-             <Form />
+            <div className='sp-quote-form'>
+              <Form />
             </div>
 
 
@@ -728,22 +726,14 @@ const SingleProduct = ({ data }) => {
             )}
             
            
-     </div>
-    
-      {/* Product Related List */}
-
-
-               
-              </div>
-
- 
             </div>
-            <div className='pb-3 pt-3 mt-5
-            '>
-                  <BrandsBtn />
-                </div>
-          </div>
-        
+
+        </div>{/* end sp-two-col */}
+
+        <div className='pb-3 pt-3 mt-4'>
+              <BrandsBtn />
+            </div>
+
       </Layout>
     </Fragment>
   );
@@ -774,6 +764,9 @@ query GetSingleProduct($slug: String) {
     sub_categories {
       title
     }
+    categories {
+      title
+    }
   }
   relatedProducts: allStrapiProduct(sort: {cool_capacity: ASC}) {
     nodes {
@@ -783,6 +776,9 @@ query GetSingleProduct($slug: String) {
       slug
       cool_capacity
       sub_categories {
+        title
+      }
+      categories {
         title
       }
     }
