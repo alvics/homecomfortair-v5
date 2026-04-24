@@ -11,8 +11,9 @@ import Schema from "../components/Schema-2";
 export const Head = () => (
 
   <Fragment>
-       <title>Gold Coast Air Conditioning | Supply &amp; Install | Home Comfort Air</title>,
-       <meta name="description" content="Gold Coast air conditioning specialists. Supply, installation &amp; servicing of split system, ducted &amp; multi-head air conditioning. Licensed installers with a 5 year warranty. Servicing Gold Coast, Brisbane &amp; Ipswich."/>
+       <title>Gold Coast Air Conditioning | Supply &amp; Install | Home Comfort Air</title>
+       <meta name="description" content="Gold Coast air conditioning specialists. Supply, installation &amp; servicing of split system, ducted &amp; multi-head air conditioning. Licensed installers with a 5-year warranty. Servicing Gold Coast, Brisbane &amp; Ipswich."/>
+       <link rel="canonical" href="https://homecomfortair.net.au/" />
        <Seo />
        <Schema />
   </Fragment>

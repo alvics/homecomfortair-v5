@@ -8,14 +8,16 @@ import FeatureBubble from '../components/FeatureBubble';
 import StaticImage from '../components/StaticQueryImages';
 
 export const Head = () => (
-
   <Fragment>
-       <title>Split System Air Conditioning | Supplied & Installed from $1199</title>,
-       <meta name= "description" content="Search our split system air conditioning supplied & installed range and discover your cooling and heating options."/>
-       <Seo />
-       <Schema />
+    <title>Split System Air Conditioning | Supplied & Installed from $1299</title>
+    <meta name="description" content="Search our split system air conditioning supplied & installed range and discover your cooling and heating options." />
+    <Seo
+      title="Split System Air Conditioning | Supplied & Installed from $1299 | Home Comfort Air"
+      description="Search our split system air conditioning supplied & installed range and discover your cooling and heating options."
+      url="https://homecomfortair.net.au/products/"
+    />
+    <Schema />
   </Fragment>
-
 )
 
 const Products = ({ 

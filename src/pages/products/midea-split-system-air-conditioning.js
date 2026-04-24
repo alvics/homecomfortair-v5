@@ -16,7 +16,7 @@ import MideaPDF from "../../images/Midea.pdf"
 export const Head = () => (
   <Fragment>
     <title>Supplied and Installed Midea Split System Air Conditioners</title>
-    <meta name="description" content="Discover Midea Athena split system air conditioning for your home or space. Supplied & installed from $1199 inc GST" />
+    <meta name="description" content="Discover Midea Athena split system air conditioning for your home or space. Supplied & installed from $1299 inc GST" />
     <Seo />
     <Schema />
   </Fragment>

@@ -36,7 +36,11 @@ export const Head = () => (
   <Fragment>
     <title>Split System Air Conditioning — Supplied &amp; Installed | Home Comfort Air</title>
     <meta name="description" content="Browse split system air conditioners from Daikin, Mitsubishi, Samsung, Haier, Midea & more. Supplied and installed on the Gold Coast & Brisbane." />
-    <Seo />
+    <Seo
+      title="Split System Air Conditioning — Supplied & Installed | Home Comfort Air"
+      description="Browse split system air conditioners from Daikin, Mitsubishi, Samsung, Haier, Midea & more. Supplied and installed on the Gold Coast & Brisbane."
+      url="https://homecomfortair.net.au/products/split-system-air-conditioning/"
+    />
     <Schema />
   </Fragment>
 )

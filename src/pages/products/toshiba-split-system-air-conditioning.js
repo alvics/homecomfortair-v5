@@ -15,7 +15,7 @@ import ToshibaPDF from "../../images/Toshiba.pdf"
 export const Head = () => (
   <Fragment>
     <title>Supplied and Installed Toshiba Split System Air Conditioner</title>
-    <meta name="description" content="Browse Toshiba split system air conditioning supplied & installed pricing for your home or space. Supplied & installed from $1199 inc GST" />
+    <meta name="description" content="Browse Toshiba split system air conditioning supplied & installed pricing for your home or space. Supplied & installed from $1299 inc GST" />
     <Seo />
     <Schema />
   </Fragment>

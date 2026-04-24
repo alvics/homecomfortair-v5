@@ -1,21 +1,18 @@
 import React from "react";
 import { Link } from "gatsby"
-//import { graphql, useStaticQuery } from "gatsby"
-// import Image from "gatsby-image"
 import MyForm from "../../components/QuoteForm"
 import StaticImage from "../../components/StaticQueryImages"
 import BrandsBtn from "../../components/BrandsBtn"
-// import CardHome from "../Sections/CardHome";
 import GoogleReviewsCarousel from "../Sections/GoogleReviews"
-// import MideaSplitSystems from "../Products/MideaSplitsSystems"
 import HaierSplitSystems from "../Products/HaierSplitSystems"
+import AboutSection from "../../components/AboutSection"
 
 const Home = () => {
 
  return (
    <div id="section-ac-solutions" className="">
      <div className="body-wrapper pt-1">
-       
+
           <section className="section-1">
             <div className="section-heading">
               <h2 className="section-title">Air Conditioning Solutions</h2>
@@ -115,10 +112,10 @@ const Home = () => {
 
             <div className="mt-5 mb-3">
             <div className="px-2"><h3 className="h6 cam my-3 fw-600">Browse our brands...</h3></div>
-            
+
              <BrandsBtn />
             </div>
-            
+
           </section>
 
           <section className="how-it-works-section">
@@ -223,142 +220,11 @@ const Home = () => {
             </div>
          </section>
 
-       
+          <AboutSection />
 
-          <section className="section-3">
-            <div className="section-heading">
-              <h2 className="section-title">Personalised Comfort Solutions, from Trusted Professionals.</h2>
-            </div>
-
-           
-
-            <div className="row">
-              <div className="col-lg-7">
-                <div className="mt-2 px-3">
-                  <h4 className="h5 text-dark fw-400">
-                    Local Air Conditioning Experts
-                  </h4>
-                </div>
-                <div>
-
-                   <p className="lead mt-3 px-3">
-                   At HOME COMFORT AIR, we have been providing high-quality air conditioning installation services to families and major builders in the Brisbane, Ipswich, <Link to="/gold-coast-air-conditioning">Gold Coast</Link>, and <Link to="tweed-heads-air-conditioning">Tweed Heads</Link> regions for over a decade. We offer a wide range of options for high wall and <Link to="/multi-head-systems">multi head </Link> <Link to="/split-systems-air-conditioning">split systems</Link>, including popular brands such as Kelvinator, Actron, <Link to="/products/daikin-split-system-air-conditioning/"> Daikin</Link>, <Link to="products/midea-split-system-air-conditioning/">Midea</Link>, LG, <Link to="/products/haier-split-system-air-conditioning/">Haier</Link>, <Link to="/products/mitsubishi-electric-split-system-air-conditioning">Mitsubishi</Link>, and <Link to="/products/samsung-split-system-air-conditioning/">Samsung</Link>, as well as ducted residential systems with Daikin and Actron air conditioners. Additionally, our team is experienced in installing cassette units and wall-mounted split systems in Queensland schools.
-                   </p>
-
-
-                   <p className="lead mt-3 px-3">
-                   We are proud to service the Gold Coast, <Link to="/ipswich-air-conditioning"> Ipswich</Link>, and <Link to="/brisbane-conditioning">Brisbane</Link> areas and our staff are licensed experts in air conditioning. We stand behind our work and offer a <Link to="/installation-warranty">5-year warranty</Link> on all new installations. Customer satisfaction is our top priority, so you can trust that you are in good hands when choosing air conditioning for your home. We are available 6 days a week and can be reached between the hours of 8am and 5pm. Contact us today to schedule an installation or for more information.
-                   </p>
-
-
-
-
-
-
-                 {/* <p className="lead mt-3 px-3">
-                    We've been installing domestic air conditioners for family's
-                    and major builders around Brisbane, Ipswich, <Link to="/gold-coast-air-conditioning">Gold Coast</Link> and
-                    Tweed Heads area's for over a decade. Everything from high
-                    wall and <Link to="/multi-head-systems">multi head </Link>
-                    split systems including major brands, Kelvinator, Acrton,
-                    <Link to="/products/daikin-air-conditioning"> Daikin</Link>, Braemar, LG, <Link to="/products/haier-air-conditioning">Haier</Link>, Mitsubishi and <Link to="/products/samsung-air-conditioning">Samsung</Link> as well
-                    as <Link to="/ducted-systems">ducted</Link> residential and
-                    commercial systems with Daikin and Actron air conditioners.
-                    Furthermore, we're experienced working in Queensland schools
-                    installing cassette units and wall mounted{" "}
-                    <Link to="/split-systems">split systems</Link> air
-                    conditioners.
-                  </p>
-                  <p className="mt-20 lead px-3">
-                    We <Link to="/service">service</Link> the Gold Coast,
-                    <Link to="/ipswich-air-conditioning"> Ipswich</Link> and <Link to="/brisbane-conditioning">Brisbane</Link> areas. Our staff are licensed experts in air conditioning, and we offer a 5 year warranty on the
-                    workmanship of new installation. HOME COMFORT AIR prides
-                    itself on 100% customer satisfaction, so you know you're in
-                    the right hands when choosing air conditioning for your
-                    home. Furthermore, we operate 6 days a week and can be
-                    contacted between the hours of 8am and 5pm.
-                  </p>
-                  */}
-                </div>
-              </div>
-              <div className="col-lg-5 p-2">
-                <div className="home-comfort-air-img mt-3">
-                  <StaticImage
-                    filename="homecomfort.jpg"
-                    alt="Home Comfort Air — Gold Coast air conditioning installers"
-                  />
-                </div>
-                <div className="img-caption mt-2">
-                  <strong style={{ display: 'block' }}>HOME COMFORT AIR</strong>
-                  <span style={{ fontFamily: `'Caveat', cursive`, display: 'block' }}>
-                    The smart choice in air conditioning
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="my-4">
-              {" "}
-              <div className="mt-20 h5 text-center px-3">
-                <span>Need air conditioning done right?</span>{" "}
-                <div className="my-2">
-                  <a className="btn btn-green--" href="tel:0404602657">
-                    Call 0404 602 657
-                  </a>{" "}
-                </div>
-                <span>your satisfaction, is our guarantee!</span>
-              </div>
-            </div>
-
-
-
-            <div className="section-heading">
-              <h2 className="section-title">Why Choose Us</h2>
-            </div>
-            <div className="why-us-grid">
-              <div className="why-us-item">
-                <span className="why-us-icon">✓</span>
-                <span className="why-us-text">Experienced in Commercial &amp; Residential Installations</span>
-              </div>
-              <div className="why-us-item">
-                <span className="why-us-icon">✓</span>
-                <span className="why-us-text">Quality Workmanship Guaranteed</span>
-              </div>
-              <div className="why-us-item">
-                <span className="why-us-icon">✓</span>
-                <span className="why-us-text">Licensed Air Conditioning Experts</span>
-              </div>
-              <div className="why-us-item">
-                <span className="why-us-icon">✓</span>
-                <span className="why-us-text">Professional, Fast &amp; Efficient Service</span>
-              </div>
-              <div className="why-us-item">
-                <span className="why-us-icon">✓</span>
-                <span className="why-us-text">5–10 Year Manufacturer Warranty</span>
-              </div>
-              <div className="why-us-item">
-                <span className="why-us-icon">✓</span>
-                <span className="why-us-text">5 Year Installation Warranty</span>
-              </div>
-              <div className="why-us-item">
-                <span className="why-us-icon">✓</span>
-                <span className="why-us-text">We'll Beat Any Written Quote!</span>
-              </div>
-               <div className="why-us-item">
-                <span className="why-us-icon">✓</span>
-                <span className="why-us-text">Complete Air Conditioning Service</span>
-              </div>
-            </div>
-
-
-           
+          <section>
+            <GoogleReviewsCarousel />
           </section>
-
-              <section>
-           
-           
-          <GoogleReviewsCarousel />
-
-           </section>
 
           <section className="faq-section">
             <div className="section-heading">
@@ -421,16 +287,8 @@ const Home = () => {
             </div>
           </div>
 
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XF1GKXN75R"></script> 
-
-      <script> {` window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XF1GKXN75R');`} </script>
         </div>
-
-     
    </div>
-      
-
-  
   );
 };
 
