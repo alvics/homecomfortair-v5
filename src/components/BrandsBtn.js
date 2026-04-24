@@ -50,8 +50,8 @@ const BrandsBtn = () => (
           src={src}
           alt={alt}
           style={{
-            maxWidth: "100%",
-            maxHeight: 60,
+            maxWidth: 130,
+            maxHeight: 44,
             width: "auto",
             height: "auto",
             objectFit: "contain",

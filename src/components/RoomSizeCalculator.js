@@ -107,128 +107,121 @@ const RoomSizeCalculator = ({ onResult }) => {
 
   return (
     <div className="w-full">
-      <div className="grid gap-8" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
+      <div className="grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
 
         {/* ── Inputs ── */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
 
           {/* Dimensions */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
+            <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">
               Room Dimensions
             </label>
-            <div className="flex items-center gap-3">
-              <div className="flex-1">
-                <div className="relative">
-                  <input
-                    type="number"
-                    min="1"
-                    max="30"
-                    step="0.1"
-                    placeholder="Length"
-                    value={length}
-                    onChange={e => setLength(e.target.value)}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-lg font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:border-transparent bg-gray-50"
-                    style={{ focusRingColor: "#0075C9" }}
-                  />
-                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-400 font-medium">m</span>
-                </div>
+            <div className="flex items-center gap-2">
+              <div className="flex-1 relative">
+                <input
+                  type="number"
+                  min="1"
+                  max="30"
+                  step="0.1"
+                  placeholder="Length"
+                  value={length}
+                  onChange={e => setLength(e.target.value)}
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-base font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:border-transparent bg-gray-50"
+                  style={{ focusRingColor: "#0075C9" }}
+                />
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400 font-medium">m</span>
               </div>
-              <span className="text-gray-400 font-bold text-xl">×</span>
-              <div className="flex-1">
-                <div className="relative">
-                  <input
-                    type="number"
-                    min="1"
-                    max="30"
-                    step="0.1"
-                    placeholder="Width"
-                    value={width}
-                    onChange={e => setWidth(e.target.value)}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-lg font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:border-transparent bg-gray-50"
-                  />
-                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-400 font-medium">m</span>
-                </div>
+              <span className="text-gray-400 font-bold">×</span>
+              <div className="flex-1 relative">
+                <input
+                  type="number"
+                  min="1"
+                  max="30"
+                  step="0.1"
+                  placeholder="Width"
+                  value={width}
+                  onChange={e => setWidth(e.target.value)}
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-base font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:border-transparent bg-gray-50"
+                />
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400 font-medium">m</span>
+              </div>
+              {result && (
+                <span className="text-xs text-gray-500 whitespace-nowrap">= <strong className="text-gray-700">{result.area} m²</strong></span>
+              )}
+            </div>
+          </div>
+
+          {/* Sun + Room type in one row */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">
+                Sun Exposure
+              </label>
+              <div className="flex gap-1">
+                {SUN_OPTIONS.map(opt => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setSun(opt.value)}
+                    title={opt.desc}
+                    className={`flex-1 flex flex-col items-center gap-0.5 py-2 px-1 rounded-lg border-2 text-xs font-semibold transition-all cursor-pointer ${
+                      sun === opt.value
+                        ? "border-blue-600 bg-blue-50 text-blue-700"
+                        : "border-gray-200 bg-white text-gray-500 hover:border-gray-300"
+                    }`}
+                  >
+                    <span>{opt.icon}</span>
+                    <span>{opt.label}</span>
+                  </button>
+                ))}
               </div>
             </div>
-            {result && (
-              <p className="mt-2 text-sm text-gray-500">
-                Floor area: <span className="font-bold text-gray-700">{result.area} m²</span>
-              </p>
-            )}
-          </div>
 
-          {/* Sun exposure */}
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
-              Sun Exposure
-            </label>
-            <div className="flex gap-2">
-              {SUN_OPTIONS.map(opt => (
-                <button
-                  key={opt.value}
-                  onClick={() => setSun(opt.value)}
-                  className={`flex-1 flex flex-col items-center gap-1 py-3 px-2 rounded-xl border-2 text-sm font-semibold transition-all cursor-pointer ${
-                    sun === opt.value
-                      ? "border-blue-600 bg-blue-50 text-blue-700"
-                      : "border-gray-200 bg-white text-gray-600 hover:border-gray-300"
-                  }`}
-                >
-                  <span className="text-xl">{opt.icon}</span>
-                  <span>{opt.label}</span>
-                </button>
-              ))}
-            </div>
-            <p className="mt-2 text-xs text-gray-400">
-              {SUN_OPTIONS.find(o => o.value === sun)?.desc}
-            </p>
-          </div>
-
-          {/* Room type */}
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
-              Room Type
-            </label>
-            <div className="grid grid-cols-2 gap-2">
-              {ROOM_OPTIONS.map(opt => (
-                <button
-                  key={opt.value}
-                  onClick={() => setRoom(opt.value)}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-xl border-2 text-sm font-semibold transition-all cursor-pointer ${
-                    room === opt.value
-                      ? "border-blue-600 bg-blue-50 text-blue-700"
-                      : "border-gray-200 bg-white text-gray-600 hover:border-gray-300"
-                  }`}
-                >
-                  <span className="text-lg">{opt.icon}</span>
-                  {opt.label}
-                </button>
-              ))}
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">
+                Room Type
+              </label>
+              <div className="grid grid-cols-2 gap-1">
+                {ROOM_OPTIONS.map(opt => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setRoom(opt.value)}
+                    className={`flex items-center gap-1.5 px-2 py-2 rounded-lg border-2 text-xs font-semibold transition-all cursor-pointer ${
+                      room === opt.value
+                        ? "border-blue-600 bg-blue-50 text-blue-700"
+                        : "border-gray-200 bg-white text-gray-500 hover:border-gray-300"
+                    }`}
+                  >
+                    <span>{opt.icon}</span>
+                    <span className="truncate">{opt.label}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Ceiling height */}
+          {/* Ceiling height — horizontal pills */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
+            <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">
               Ceiling Height
             </label>
-            <div className="flex flex-col gap-2">
+            <div className="flex gap-2">
               {CEILING_OPTIONS.map(opt => (
                 <button
                   key={opt.value}
                   onClick={() => setCeiling(opt.value)}
-                  className={`flex items-center justify-between px-4 py-3 rounded-xl border-2 text-sm font-semibold transition-all cursor-pointer ${
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg border-2 text-xs font-semibold transition-all cursor-pointer ${
                     ceiling === opt.value
                       ? "border-blue-600 bg-blue-50 text-blue-700"
-                      : "border-gray-200 bg-white text-gray-600 hover:border-gray-300"
+                      : "border-gray-200 bg-white text-gray-500 hover:border-gray-300"
                   }`}
                 >
-                  {opt.label}
                   {ceiling === opt.value && (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
                   )}
+                  {opt.label}
                 </button>
               ))}
             </div>
@@ -238,54 +231,44 @@ const RoomSizeCalculator = ({ onResult }) => {
         {/* ── Result ── */}
         <div className="flex flex-col justify-start">
           {!result ? (
-            <div className="flex flex-col items-center justify-center h-full min-h-64 rounded-2xl border-2 border-dashed border-gray-200 text-center p-8 gap-4">
-              <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center">
-                <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex flex-col items-center justify-center h-full min-h-40 rounded-xl border-2 border-dashed border-gray-200 text-center p-5 gap-3">
+              <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+                <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <div>
-                <p className="font-bold text-gray-700 mb-1">Enter your room dimensions</p>
-                <p className="text-sm text-gray-400">We'll calculate the right kW size for your space.</p>
-              </div>
+              <p className="text-sm text-gray-400">Enter your room dimensions to get a kW recommendation.</p>
             </div>
           ) : (
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-3">
 
               {/* Main result card */}
-              <div className="rounded-2xl p-6 text-white" style={{ background: "linear-gradient(135deg, #0075C9 0%, #005fa3 100%)" }}>
-                <p className="text-xs font-bold uppercase tracking-widest text-blue-200 mb-1">Recommended System Size</p>
-                <div className="flex items-end gap-2 mb-4">
-                  <span className="text-6xl font-black">{result.recommended}</span>
-                  <span className="text-2xl font-bold text-blue-200 mb-2">kW</span>
+              <div className="rounded-xl p-4 text-white" style={{ background: "linear-gradient(135deg, #0075C9 0%, #005fa3 100%)" }}>
+                <p className="text-xs font-bold uppercase tracking-widest text-blue-200 mb-1">Recommended Size</p>
+                <div className="flex items-end gap-2 mb-3">
+                  <span className="text-5xl font-black">{result.recommended}</span>
+                  <span className="text-xl font-bold text-blue-200 mb-1">kW</span>
+                  <span className="text-xs text-blue-200 mb-1.5 ml-1">{result.area} m²</span>
                 </div>
-                <p className="text-sm text-blue-100 mb-4">
-                  For a {result.area} m² room with your selected conditions.
-                </p>
-
-                {/* kW scale bar */}
-                <div>
-                  <div className="flex justify-between text-xs text-blue-200 mb-1">
-                    <span>2.5kW</span>
-                    <span>12.5kW</span>
-                  </div>
-                  <div className="w-full h-2 bg-blue-800 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all duration-500"
-                      style={{ width: `${result.barWidth}%`, background: "#00c4b3" }}
-                    />
-                  </div>
+                <div className="flex justify-between text-xs text-blue-300 mb-1">
+                  <span>2.5kW</span>
+                  <span>12.5kW</span>
+                </div>
+                <div className="w-full h-1.5 bg-blue-800 rounded-full overflow-hidden">
+                  <div
+                    className="h-full rounded-full transition-all duration-500"
+                    style={{ width: `${result.barWidth}%`, background: "#00c4b3" }}
+                  />
                 </div>
               </div>
 
-              {/* Size context */}
-              <div className="rounded-2xl border border-gray-100 bg-gray-50 p-5">
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Standard Sizes</p>
-                <div className="flex flex-wrap gap-2">
+              {/* Size chips */}
+              <div className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
+                <div className="flex flex-wrap gap-1.5">
                   {STANDARD_SIZES.map(size => (
                     <span
                       key={size}
-                      className={`px-3 py-1.5 rounded-full text-sm font-bold transition-all ${
+                      className={`px-2.5 py-1 rounded-full text-xs font-bold ${
                         size === result.recommended
                           ? "text-white"
                           : "bg-white border border-gray-200 text-gray-400"
@@ -298,16 +281,14 @@ const RoomSizeCalculator = ({ onResult }) => {
                 </div>
               </div>
 
-              {/* Disclaimer + CTA */}
-              <div className="rounded-2xl border border-amber-100 bg-amber-50 p-4">
-                <p className="text-xs text-amber-700 leading-relaxed">
-                  <strong>This is a guide only.</strong> Factors like insulation quality, window size, and layout can affect the right unit size. Our team can assess your space accurately before you buy.
-                </p>
-              </div>
+              {/* Disclaimer */}
+              <p className="text-xs text-amber-700 bg-amber-50 border border-amber-100 rounded-lg px-3 py-2 leading-relaxed">
+                <strong>Guide only.</strong> Insulation, windows &amp; layout also affect sizing — our team can confirm before you buy.
+              </p>
 
               <Link
                 to="/contact"
-                className="block text-center font-bold text-sm py-3 px-6 rounded-full text-white no-underline transition-opacity hover:opacity-90"
+                className="block text-center font-bold text-xs py-2.5 px-4 rounded-full text-white no-underline transition-opacity hover:opacity-90"
                 style={{ background: "#00c4b3" }}
               >
                 Get an expert recommendation →

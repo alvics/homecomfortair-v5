@@ -12,7 +12,7 @@ const GoogleIcon = () => (
 
 const NAV_HEIGHT = 68
 
-const StickyBrandNav = ({ brands }) => {
+const StickyBrandNav = ({ brands, onBrandClick }) => {
   const [visible, setVisible] = useState(false)
   const [active,  setActive]  = useState(null)
 
@@ -115,7 +115,7 @@ const StickyBrandNav = ({ brands }) => {
           return (
             <button
               key={brand.id}
-              onClick={() => scrollTo(brand.id)}
+              onClick={() => onBrandClick ? onBrandClick(brand.id) : scrollTo(brand.id)}
               style={{
                 all: "unset",
                 flexShrink: 0,

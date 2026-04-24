@@ -290,12 +290,12 @@ const FAQ_ITEMS = [
   },
 ]
 
-const FaqAccordion = () => {
+const FaqAccordion = ({ items = FAQ_ITEMS }) => {
   const [open, setOpen] = useState(null)
   return (
-    <div style={{ maxWidth: 720 }}>
-      {FAQ_ITEMS.map((item, i) => (
-        <div key={i} style={{ borderBottom: "1px solid #f1f5f9" }}>
+    <div>
+      {items.map((item, i) => (
+        <div key={i} style={{ borderBottom: "1px solid #e8eef5" }}>
           <button
             onClick={() => setOpen(open === i ? null : i)}
             style={{
@@ -303,7 +303,7 @@ const FaqAccordion = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              padding: "18px 0",
+              padding: "16px 0",
               background: "none",
               border: "none",
               cursor: "pointer",
@@ -311,13 +311,13 @@ const FaqAccordion = () => {
               gap: 16,
             }}
           >
-            <span style={{ fontWeight: 700, fontSize: 15, color: "#1f2937" }}>{item.q}</span>
-            <span style={{ flexShrink: 0, color: "#0075C9", fontSize: 22, fontWeight: 300, lineHeight: 1 }}>
+            <span style={{ fontWeight: 700, fontSize: 14, color: "#1f2937" }}>{item.q}</span>
+            <span style={{ flexShrink: 0, color: "#0075C9", fontSize: 20, fontWeight: 300, lineHeight: 1 }}>
               {open === i ? "−" : "+"}
             </span>
           </button>
           {open === i && (
-            <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.75, paddingBottom: 20, marginTop: 0 }}>
+            <p style={{ fontSize: 13, color: "#4b5563", lineHeight: 1.75, paddingBottom: 16, marginTop: 0 }}>
               {item.a}
             </p>
           )}
@@ -327,12 +327,32 @@ const FaqAccordion = () => {
   )
 }
 
+const NAV_HEIGHT = 68
+
 const ProductsPage = () => {
   const [filterKw, setFilterKw] = useState(null)
+  const [calcKey, setCalcKey] = useState(0)
+  const [calcOpen, setCalcOpen] = useState(false)
+
+  const handleBrandClick = (id) => {
+    setFilterKw(null)
+    setCalcKey(k => k + 1)
+    setTimeout(() => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const y = el.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT - 60
+      window.scrollTo({ top: y, behavior: "smooth" })
+    }, 50)
+  }
+
+  const handleCalcResult = (kw) => {
+    setFilterKw(kw)
+    if (kw && !calcOpen) setCalcOpen(true)
+  }
 
   return (
     <Layout>
-      <StickyBrandNav brands={BRANDS} />
+      <StickyBrandNav brands={BRANDS} onBrandClick={filterKw ? handleBrandClick : undefined} />
 
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="full-bleed" style={{
@@ -414,24 +434,85 @@ const ProductsPage = () => {
           <WhyChooseUs />
         </div>
 
-        {/* ── Room Size Calculator ──────────────────────────────────── */}
-        <section style={{ marginBottom: 40 }}>
-          <div className="section-heading">
-            <h2 className="section-title">What Size Do I Need?</h2>
-          </div>
-          <p className="text-gray-500 mt-3 mb-8 text-sm leading-relaxed" style={{ maxWidth: 600 }}>
-            Enter your room dimensions and we'll recommend the right kW size — and filter the products below to match.
-          </p>
-          <div style={{
-            background: "#fff",
-            border: "1px solid #e8eef5",
-            borderRadius: 16,
-            padding: "32px",
-            boxShadow: "0 4px 24px rgba(0,0,0,0.05)",
-          }}>
-            <RoomSizeCalculator onResult={setFilterKw} />
-          </div>
-        </section>
+        {/* ── Room Size Calculator (collapsible) ───────────────────── */}
+        <div style={{ marginBottom: 40 }}>
+          <button
+            onClick={() => setCalcOpen(o => !o)}
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              background: calcOpen ? "#f0f7ff" : "#f8fafc",
+              border: `1px solid ${calcOpen ? "#bfdbfe" : "#e8eef5"}`,
+              borderRadius: calcOpen ? "12px 12px 0 0" : 12,
+              padding: "14px 20px",
+              cursor: "pointer",
+              transition: "all 0.2s",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={calcOpen ? "#0075C9" : "#64748b"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/>
+              </svg>
+              <span style={{ fontWeight: 700, fontSize: 14, color: calcOpen ? "#0075C9" : "#374151" }}>
+                Not sure what size you need?
+              </span>
+              <span style={{ fontSize: 13, color: "#6b7280", fontWeight: 400 }}>
+                — Use our room size calculator
+              </span>
+              {filterKw && (
+                <span style={{
+                  background: "#0075C9",
+                  color: "#fff",
+                  fontSize: 11,
+                  fontWeight: 700,
+                  padding: "2px 10px",
+                  borderRadius: "2em",
+                  letterSpacing: "0.05em",
+                }}>
+                  {filterKw}kW filtered
+                </span>
+              )}
+            </div>
+            <svg
+              width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="#6b7280" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+              style={{ transition: "transform 0.2s", transform: calcOpen ? "rotate(180deg)" : "rotate(0deg)", flexShrink: 0 }}
+            >
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+
+          {calcOpen && (
+            <div style={{
+              background: "#fff",
+              border: "1px solid #bfdbfe",
+              borderTop: "none",
+              borderRadius: "0 0 12px 12px",
+              padding: "20px 20px 16px",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.05)",
+            }}>
+              <p style={{ fontSize: 13, color: "#6b7280", marginBottom: 20, marginTop: 0, maxWidth: 560 }}>
+                Enter your room dimensions and we'll recommend the right kW size — and filter the products below to match.
+              </p>
+              <RoomSizeCalculator key={calcKey} onResult={handleCalcResult} />
+              {filterKw && (
+                <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid #f1f5f9", display: "flex", alignItems: "center", gap: 12 }}>
+                  <span style={{ fontSize: 13, color: "#6b7280" }}>
+                    Showing <strong style={{ color: "#0075C9" }}>{filterKw}kW</strong> products across all brands
+                  </span>
+                  <button
+                    onClick={() => { setFilterKw(null); setCalcKey(k => k + 1) }}
+                    style={{ fontSize: 12, color: "#6b7280", background: "none", border: "1px solid #e2e8f0", borderRadius: "2em", padding: "4px 12px", cursor: "pointer", fontWeight: 600 }}
+                  >
+                    Clear filter
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
 
         <hr style={{ border: "none", borderTop: "1px solid #f1f5f9", margin: "0 0 40px" }} />
 
@@ -455,7 +536,7 @@ const ProductsPage = () => {
                 </h2>
               </div>
               <button
-                onClick={() => setFilterKw(null)}
+                onClick={() => { setFilterKw(null); setCalcKey(k => k + 1) }}
                 style={{
                   background: "none",
                   border: "1px solid #e2e8f0",
@@ -471,7 +552,7 @@ const ProductsPage = () => {
                 ← Show all brands
               </button>
             </div>
-            <AllFilteredProducts filterKw={filterKw} onClear={() => setFilterKw(null)} />
+            <AllFilteredProducts filterKw={filterKw} onClear={() => { setFilterKw(null); setCalcKey(k => k + 1) }} />
           </section>
         ) : (
           <>
@@ -528,99 +609,130 @@ const ProductsPage = () => {
         <hr style={{ border: "none", borderTop: "1px solid #f1f5f9", margin: "0 0 48px" }} />
 
         {/* ── Book Installation ─────────────────────────────────────── */}
-        <section className="mb-12">
+        <section style={{
+          background: "#f8fafc",
+          borderRadius: 20,
+          padding: "40px 40px 36px",
+          marginBottom: 48,
+        }} className="install-section-wrap">
+
+          {/* Section header */}
+          <div style={{ marginBottom: 28 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#0075C9", margin: "0 0 8px" }}>
+              Professional Installation
+            </p>
+            <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", fontWeight: 800, color: "#041521", margin: 0, lineHeight: 1.2 }}>
+              Book your split system installation online
+            </h2>
+          </div>
+
           <div style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: 56,
+            gap: 40,
             alignItems: "start",
           }} className="install-section-grid">
 
-            {/* Left: text + cards + CTAs */}
+            {/* Left: text + install cards + CTAs */}
             <div>
-              <div className="section-heading">
-                <h2 className="section-title">Book your split system installation online</h2>
-              </div>
-              <p style={{ color: "#4b5563", lineHeight: 1.7, marginTop: 16, marginBottom: 12, fontSize: 15 }}>
-                At Home Comfort Air, we offer fast and professional installation services to get you up and
-                running in no time. Whether you're looking for a split system for a single room or your entire
-                house, we've got you covered.
-              </p>
-              <p style={{ color: "#4b5563", lineHeight: 1.7, marginBottom: 28, fontSize: 15 }}>
-                Our team of experienced technicians can have your new air conditioning system installed in
-                a matter of days. Don't wait any longer — get a free quote now.
+              <p style={{ color: "#4b5563", lineHeight: 1.7, marginTop: 0, marginBottom: 24, fontSize: 14 }}>
+                Fast, professional installation from a licensed ARCtick team. Whether it's a single bedroom or your whole home, we'll have you comfortable in days — not weeks.
               </p>
 
-              {/* Install type cards */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 32 }}>
-                <div style={{ border: "1px solid #e8eef5", borderRadius: 10, padding: "14px 16px", background: "#fff", boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
-                  <p style={{ fontWeight: 700, fontSize: 14, color: "#1f2937", margin: "0 0 6px" }}>Back-to-Back</p>
+              {/* Install type cards with accent borders */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 28 }}>
+                <div style={{
+                  borderLeft: "3px solid #0075C9",
+                  borderRadius: "0 10px 10px 0",
+                  padding: "14px 16px",
+                  background: "#fff",
+                  boxShadow: "0 1px 4px rgba(0,0,0,0.05)",
+                }}>
+                  <p style={{ fontWeight: 700, fontSize: 13, color: "#1f2937", margin: "0 0 5px" }}>Back-to-Back</p>
                   <p style={{ fontSize: 12, color: "#6b7280", margin: 0, lineHeight: 1.6 }}>
-                    Indoor and outdoor units installed through a common wall — ideal where space is limited.
+                    Units share a common wall — minimal pipe run, quickest install.
                   </p>
                 </div>
-                <div style={{ border: "1px solid #e8eef5", borderRadius: 10, padding: "14px 16px", background: "#fff", boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
-                  <p style={{ fontWeight: 700, fontSize: 14, color: "#1f2937", margin: "0 0 6px" }}>Up &amp; Over</p>
+                <div style={{
+                  borderLeft: "3px solid #00c4b3",
+                  borderRadius: "0 10px 10px 0",
+                  padding: "14px 16px",
+                  background: "#fff",
+                  boxShadow: "0 1px 4px rgba(0,0,0,0.05)",
+                }}>
+                  <p style={{ fontWeight: 700, fontSize: 13, color: "#1f2937", margin: "0 0 5px" }}>Up &amp; Over</p>
                   <p style={{ fontSize: 12, color: "#6b7280", margin: 0, lineHeight: 1.6 }}>
-                    Outdoor unit located away from indoors via copper pipes routed up and over — suits most homes.
+                    Pipes routed through ceiling — outdoor unit placed wherever suits.
                   </p>
                 </div>
+              </div>
+
+              {/* Trust row */}
+              <div style={{ display: "flex", gap: 20, flexWrap: "wrap", marginBottom: 28 }}>
+                {[
+                  { icon: "✓", text: "5-year install warranty" },
+                  { icon: "✓", text: "Same-week availability" },
+                  { icon: "✓", text: "ARCtick licensed" },
+                ].map(item => (
+                  <span key={item.text} style={{ fontSize: 13, color: "#374151", display: "flex", alignItems: "center", gap: 6 }}>
+                    <span style={{ color: "#00c4b3", fontWeight: 700 }}>{item.icon}</span>
+                    {item.text}
+                  </span>
+                ))}
               </div>
 
               {/* CTAs */}
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <Link to="/contact" style={{
                   display: "inline-block",
-                  background: "#00c4b3",
+                  background: "#0075C9",
                   color: "#fff",
                   fontWeight: 700,
                   fontSize: 13,
                   padding: "12px 26px",
                   borderRadius: "2em",
                   textDecoration: "none",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
+                  letterSpacing: "0.04em",
                 }}>
-                  Book A Service
+                  Book A Service →
                 </Link>
                 <Link to="/contact" style={{
                   display: "inline-block",
                   background: "transparent",
-                  color: "#00c4b3",
+                  color: "#0075C9",
                   fontWeight: 700,
                   fontSize: 13,
                   padding: "12px 26px",
                   borderRadius: "2em",
                   textDecoration: "none",
-                  border: "2px solid #00c4b3",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
+                  border: "2px solid #0075C9",
+                  letterSpacing: "0.04em",
                 }}>
-                  Instant Quote
+                  Get a Quote
                 </Link>
               </div>
             </div>
 
-            {/* Right: SVG diagrams */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-              <div style={{ border: "1px solid #e8eef5", borderRadius: 12, overflow: "hidden", background: "#fff", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
-                <div style={{ padding: "10px 16px", background: "#f8fafc", borderBottom: "1px solid #e8eef5" }}>
-                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#64748b", margin: 0 }}>
-                    Back-to-Back Installation
+            {/* Right: SVG diagrams side by side */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+              <div style={{ border: "1px solid #e2e8f0", borderRadius: 12, overflow: "hidden", background: "#fff", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
+                <div style={{ padding: "8px 14px", background: "#0075C9" }}>
+                  <p style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.9)", margin: 0 }}>
+                    Back-to-Back
                   </p>
                 </div>
-                <div style={{ padding: "20px 20px 12px" }}>
+                <div style={{ padding: "12px 12px 8px" }}>
                   <BackToBackSVG />
                 </div>
               </div>
 
-              <div style={{ border: "1px solid #e8eef5", borderRadius: 12, overflow: "hidden", background: "#fff", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
-                <div style={{ padding: "10px 16px", background: "#f8fafc", borderBottom: "1px solid #e8eef5" }}>
-                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#64748b", margin: 0 }}>
-                    Up &amp; Over Installation
+              <div style={{ border: "1px solid #e2e8f0", borderRadius: 12, overflow: "hidden", background: "#fff", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
+                <div style={{ padding: "8px 14px", background: "#00c4b3" }}>
+                  <p style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.9)", margin: 0 }}>
+                    Up &amp; Over
                   </p>
                 </div>
-                <div style={{ padding: "20px 20px 12px" }}>
+                <div style={{ padding: "12px 12px 8px" }}>
                   <UpOverSVG />
                 </div>
               </div>
@@ -630,26 +742,110 @@ const ProductsPage = () => {
         </section>
 
         {/* ── FAQ ───────────────────────────────────────────────────── */}
-        <section className="mb-12">
-          <div className="section-heading">
-            <h2 className="section-title">Frequently Asked Questions</h2>
-          </div>
-          <p className="text-gray-500 mt-3 mb-8 text-sm leading-relaxed" style={{ maxWidth: 600 }}>
-            Everything you need to know about split system supply and installation.
+        <section style={{
+          background: "#f8fafc",
+          borderRadius: 20,
+          padding: "40px 40px 32px",
+          marginBottom: 48,
+        }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#0075C9", margin: "0 0 8px" }}>
+            FAQ
           </p>
-          <FaqAccordion />
+          <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", fontWeight: 800, color: "#041521", margin: "0 0 28px", lineHeight: 1.2 }}>
+            Frequently Asked Questions
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "0 56px" }} className="faq-grid">
+            <FaqAccordion items={FAQ_ITEMS.slice(0, 4)} />
+            <FaqAccordion items={FAQ_ITEMS.slice(4)} />
+          </div>
         </section>
 
         {/* ── Quote Form ────────────────────────────────────────────── */}
-        <section className="mb-12">
-          <div className="section-heading">
-            <h2 className="section-title">Get a Free Quote</h2>
-          </div>
-          <p className="text-gray-500 mt-3 mb-6 text-sm leading-relaxed" style={{ maxWidth: 600 }}>
-            Fill in the form with as much detail as possible and our team will get back to you promptly.
-          </p>
-          <div style={{ background: "#fff", border: "1px solid #e8eef5", borderRadius: 16, padding: 24, boxShadow: "0 4px 24px rgba(0,0,0,0.05)", maxWidth: 680 }}>
-            <Form />
+        <section style={{
+          background: "linear-gradient(135deg, #0075C9 0%, #005fa3 100%)",
+          borderRadius: 20,
+          padding: "40px",
+          marginBottom: 48,
+          maxWidth: 960,
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1.4fr",
+            gap: 48,
+            alignItems: "stretch",
+          }} className="form-section-grid">
+
+            {/* Left: CTA copy + trust signals */}
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", margin: "0 0 12px" }}>
+                Free, no obligation
+              </p>
+              <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)", fontWeight: 800, color: "#fff", margin: "0 0 16px", lineHeight: 1.2 }}>
+                Get a Free Quote
+              </h2>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.8)", lineHeight: 1.7, margin: "0 0 32px" }}>
+                Tell us about your space and we'll get back to you with a tailored supply &amp; install price — usually within a few hours.
+              </p>
+
+              {/* Trust signals with SVG icons */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+
+                <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                  <div style={{ width: 38, height: 38, borderRadius: 10, background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <GoogleIcon />
+                  </div>
+                  <div>
+                    <p style={{ fontWeight: 700, fontSize: 13, color: "#fff", margin: 0 }}>5.0 Google Rating</p>
+                    <p style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", margin: 0 }}>36 verified reviews</p>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                  <div style={{ width: 38, height: 38, borderRadius: 10, background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p style={{ fontWeight: 700, fontSize: 13, color: "#fff", margin: 0 }}>5-Year Install Warranty</p>
+                    <p style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", margin: 0 }}>On every job we complete</p>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                  <div style={{ width: 38, height: 38, borderRadius: 10, background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p style={{ fontWeight: 700, fontSize: 13, color: "#fff", margin: 0 }}>Same-Week Installs</p>
+                    <p style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", margin: 0 }}>Gold Coast · Brisbane · Ipswich</p>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                  <div style={{ width: 38, height: 38, borderRadius: 10, background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p style={{ fontWeight: 700, fontSize: 13, color: "#fff", margin: 0 }}>Licensed &amp; Fully Insured</p>
+                    <p style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", margin: 0 }}>ARCtick licensed · QBE insured</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Right: form */}
+            <div style={{ background: "#fff", borderRadius: 16, padding: "24px 28px 28px", boxShadow: "0 8px 40px rgba(0,0,0,0.18)" }}>
+              <Form hideTitle />
+            </div>
+
           </div>
         </section>
 
