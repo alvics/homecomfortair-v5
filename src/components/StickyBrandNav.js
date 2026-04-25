@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 
 const GoogleIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48" style={{ flexShrink: 0 }}>
@@ -10,11 +10,36 @@ const GoogleIcon = () => (
   </svg>
 )
 
-const NAV_HEIGHT = 68
+const DESKTOP_NAV_HEIGHT = 68
+// Mobile header = blue bar + search row. Matches layout.css `.layout-site` mobile margin-top.
+const MOBILE_NAV_HEIGHT = 113
+
+const getNavTop = () =>
+  typeof window !== "undefined" && window.innerWidth < 992
+    ? MOBILE_NAV_HEIGHT
+    : DESKTOP_NAV_HEIGHT
 
 const StickyBrandNav = ({ brands, onBrandClick }) => {
   const [visible, setVisible] = useState(false)
   const [active,  setActive]  = useState(null)
+  const [navTop,  setNavTop]  = useState(DESKTOP_NAV_HEIGHT)
+  const pillsRef = useRef(null)
+
+  // Keep navTop in sync with viewport width
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const update = () => setNavTop(getNavTop())
+    update()
+    window.addEventListener("resize", update)
+    return () => window.removeEventListener("resize", update)
+  }, [])
+
+  // Scroll active pill into view when it changes
+  useEffect(() => {
+    if (!active || !pillsRef.current) return
+    const pill = pillsRef.current.querySelector(`[data-brand="${active}"]`)
+    if (pill) pill.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" })
+  }, [active])
 
   useEffect(() => {
     if (typeof window === "undefined") return
@@ -37,7 +62,7 @@ const StickyBrandNav = ({ brands, onBrandClick }) => {
           if (entry.isIntersecting) setActive(entry.target.id)
         })
       },
-      { rootMargin: `-${NAV_HEIGHT + 60}px 0px -55% 0px`, threshold: 0 }
+      { rootMargin: `-${getNavTop() + 60}px 0px -55% 0px`, threshold: 0 }
     )
     brands.forEach(b => {
       const el = document.getElementById(b.id)
@@ -53,7 +78,7 @@ const StickyBrandNav = ({ brands, onBrandClick }) => {
   const scrollTo = (id) => {
     const el = document.getElementById(id)
     if (!el) return
-    const y = el.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT - 60
+    const y = el.getBoundingClientRect().top + window.scrollY - navTop - 60
     window.scrollTo({ top: y, behavior: "smooth" })
   }
 
@@ -61,7 +86,7 @@ const StickyBrandNav = ({ brands, onBrandClick }) => {
     <div
       style={{
         position: "fixed",
-        top: NAV_HEIGHT,
+        top: navTop,
         left: 0,
         right: 0,
         zIndex: 40,
@@ -84,7 +109,7 @@ const StickyBrandNav = ({ brands, onBrandClick }) => {
         }}
       >
         {/* scrollable brand pills — takes remaining space */}
-        <div style={{
+        <div ref={pillsRef} style={{
           display: "flex",
           alignItems: "center",
           gap: 12,
@@ -92,6 +117,7 @@ const StickyBrandNav = ({ brands, onBrandClick }) => {
           overflowX: "auto",
           WebkitOverflowScrolling: "touch",
           scrollbarWidth: "none",
+          msOverflowStyle: "none",
         }}>
         <span style={{
           fontSize: 11,
@@ -115,6 +141,7 @@ const StickyBrandNav = ({ brands, onBrandClick }) => {
           return (
             <button
               key={brand.id}
+              data-brand={brand.id}
               onClick={() => onBrandClick ? onBrandClick(brand.id) : scrollTo(brand.id)}
               style={{
                 all: "unset",

@@ -24,15 +24,6 @@ nav.fixed-top {
     z-index: 1030 !important;
 }
 
-nav:hover {
-    display: grid;
-    min-height: 100px;
-    padding: 0 40px;
-    background-color: #fcfcfc;
-    -webkit-box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1) !important;
-    -moz-box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1) !important;
-    box-shadow: -1px 4px 5px 0px rgba(209, 205, 209, 1) !important;
-}
 
 .logo .gatsby-image-wrapper {
     padding-bottom: 2px;

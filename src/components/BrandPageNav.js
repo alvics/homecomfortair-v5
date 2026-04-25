@@ -54,19 +54,19 @@ const NavBar = ({ currentBrand, isFixed }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        flexWrap: "wrap",
         gap: 12,
+        minWidth: 0,
       }}>
 
         {/* Other Brands dropdown */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, position: "relative" }}>
-          <span style={{
+          <span className="brand-nav-label" style={{
             fontSize: 11, fontWeight: 700, letterSpacing: "0.08em",
-            textTransform: "uppercase", color: "#94a3b8",
+            textTransform: "uppercase", color: "#94a3b8", whiteSpace: "nowrap",
           }}>
             Other Brands
           </span>
-          <div style={{ width: 1, height: 16, background: "#e8eef5" }} />
+          <div className="brand-nav-label" style={{ width: 1, height: 16, background: "#e8eef5" }} />
           <button
             onClick={() => setOpen(o => !o)}
             style={{
@@ -146,12 +146,14 @@ const NavBar = ({ currentBrand, isFixed }) => {
           )}
         </div>
 
-        {/* Google trust bar */}
+        {/* Google trust bar — hidden on mobile to keep single row */}
         <a
           href="https://www.google.com/search?q=home+comfort+air+gold+coast+reviews"
           target="_blank"
           rel="noopener noreferrer"
+          className="brand-nav-google-pill"
           style={{
+            flexShrink: 0,
             display: "inline-flex", alignItems: "center", gap: 7,
             textDecoration: "none",
             padding: "6px 14px",
@@ -164,11 +166,11 @@ const NavBar = ({ currentBrand, isFixed }) => {
           onMouseLeave={e => e.currentTarget.style.borderColor = "#e8eef5"}
         >
           <GoogleIcon />
-          <div style={{ display: "flex", gap: 1 }}>
+          <div className="brand-nav-stars" style={{ display: "flex", gap: 1 }}>
             {[...Array(5)].map((_, i) => <StarIcon key={i} />)}
           </div>
           <span style={{ fontSize: 13, fontWeight: 700, color: "#1f2937" }}>5.0</span>
-          <span style={{ fontSize: 12, color: "#6b7280", fontWeight: 500 }}>· 36 Reviews</span>
+          <span className="brand-nav-review-count" style={{ fontSize: 12, color: "#6b7280", fontWeight: 500 }}>· 36 Reviews</span>
         </a>
 
       </div>
@@ -176,9 +178,24 @@ const NavBar = ({ currentBrand, isFixed }) => {
   )
 }
 
+const DESKTOP_TOP = 68
+const MOBILE_TOP  = 113  // blue bar + search row; matches layout.css mobile margin-top
+
+const getTop = () =>
+  typeof window !== "undefined" && window.innerWidth < 992 ? MOBILE_TOP : DESKTOP_TOP
+
 const BrandPageNav = ({ currentBrand }) => {
-  const [sticky, setSticky] = useState(false)
+  const [sticky,  setSticky]  = useState(false)
+  const [navTop,  setNavTop]  = useState(DESKTOP_TOP)
   const sentinelRef = useRef(null)
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const update = () => setNavTop(getTop())
+    update()
+    window.addEventListener("resize", update)
+    return () => window.removeEventListener("resize", update)
+  }, [])
 
   useEffect(() => {
     if (typeof window === "undefined" || !sentinelRef.current) return
@@ -203,7 +220,7 @@ const BrandPageNav = ({ currentBrand }) => {
       {/* fixed bar */}
       <div style={{
         position: "fixed",
-        top: 68,
+        top: navTop,
         left: 0,
         right: 0,
         zIndex: 40,

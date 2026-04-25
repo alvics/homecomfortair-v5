@@ -54,37 +54,30 @@ const MenuLinks = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background: #fff;
   z-index: 9999998;
-  overflow-y: auto;
-  transition: transform 340ms cubic-bezier(0.4, 0, 0.2, 1);
-  transform: ${({ nav }) => (nav ? "translateX(0) translateZ(0)" : "translateX(100%)")};
-  padding-top: 155px;
-
-  @keyframes navItemIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  /* iOS Safari safe overflow-scroll */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: ${({ nav }) => (nav ? "translateX(0)" : "translateX(100%)")};
+  padding-top: 160px;
+  padding-bottom: 48px;
+  /* Prevent Safari from collapsing the element */
+  -webkit-transform: ${({ nav }) => (nav ? "translate3d(0, 0, 0)" : "translate3d(100%, 0, 0)")};
 
   ul {
     list-style: none;
     margin: 0;
-    padding: 0 0 48px;
+    padding: 0;
   }
 
   li {
     border-bottom: 1px solid #f0f4f8;
-    animation: ${({ nav }) => (nav ? "navItemIn 240ms ease both" : "none")};
   }
-
-  li:nth-child(1) { animation-delay: 80ms; }
-  li:nth-child(2) { animation-delay: 115ms; }
-  li:nth-child(3) { animation-delay: 150ms; }
-  li:nth-child(4) { animation-delay: 185ms; }
-  li:nth-child(5) { animation-delay: 220ms; }
-  li:nth-child(6) { animation-delay: 255ms; }
 
   a {
     font-size: 17px;
@@ -92,28 +85,10 @@ const MenuLinks = styled.nav`
     color: #041521;
     display: block;
     padding: 16px 24px;
-    transition: color 180ms, background 180ms;
-
-    :hover {
-      color: rgb(0, 117, 201);
-      background: rgba(0, 117, 201, 0.04);
-    }
+    -webkit-tap-highlight-color: rgba(0, 117, 201, 0.08);
     :active {
       background: rgba(0, 117, 201, 0.08);
     }
-  }
-
-  .dropdown-toggle {
-    display: block !important;
-    width: 100%;
-    padding: 16px 24px !important;
-    font-size: 17px !important;
-    font-weight: 500 !important;
-    color: #041521 !important;
-    text-align: left !important;
-    background: none !important;
-    border: none !important;
-    cursor: pointer;
   }
 `
 
@@ -171,12 +146,12 @@ const MobileNav = () => {
       {/* Full-screen slide-in nav panel */}
       <MenuLinks id="menu-wrapper-mobile" nav={nav}>
         <ul>
-          <li><Link to="/about-us">About</Link></li>
-          <li><Link to="/products">Pricing</Link></li>
-          <li><DropdownBtn /></li>
-          <li><DropDownBrand /></li>
+          <li><Link to="/about-us" onClick={() => showNav(false)}>About</Link></li>
+          <li><Link to="/products" onClick={() => showNav(false)}>Pricing</Link></li>
+          <li><DropdownBtn onNavigate={() => showNav(false)} /></li>
+          <li><DropDownBrand onNavigate={() => showNav(false)} /></li>
           <li style={{ border: 'none', padding: '16px 24px 8px' }}>
-            <Link to="/contact" style={{
+            <Link to="/contact" onClick={() => showNav(false)} style={{
               display: 'block',
               textAlign: 'center',
               background: 'rgb(0, 196, 179)',

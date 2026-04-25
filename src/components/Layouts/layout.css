@@ -5092,3 +5092,11 @@ button .accordion-button::after {
     margin-top: 113px !important;
   }
 }
+
+/* BrandPageNav — compact on mobile to keep single-row */
+@media (max-width: 767px) {
+  .brand-nav-label,
+  .brand-nav-stars {
+    display: none !important;
+  }
+}
