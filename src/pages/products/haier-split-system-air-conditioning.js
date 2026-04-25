@@ -64,7 +64,7 @@ const HaierProductsPage = () => (
           </Link>
         </div>
         <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 24px 48px rgba(0,0,0,0.25)" }}>
-          <StaticImage filename="brands/Hero/haier-hero-2.png" alt="Haier split system air conditioner" />
+          <StaticImage filename="brands/Hero/haier-hero.png" alt="Haier split system air conditioner" />
         </div>
       </div>
     </section>

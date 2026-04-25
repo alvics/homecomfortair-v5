@@ -216,7 +216,7 @@ const location = useLocation();
               <span>{product.cool_capacity}</span>
               <small className="text-muted">{brandName}</small>
             </div>
-            <span className="fw-bold">${product.price}</span>
+              <span className="fw-bold">${product.price.toLocaleString()}</span>
           </Link>
         </li>
       );
@@ -236,7 +236,7 @@ const location = useLocation();
 
      <div className="mt-3">
      <p className='supin'>Supplied & installed</p>
-      <span className="fsz-38 fw-700 shrink-text position-relative"><span className='fsz-16 position-absolute top-0 start-0 fx-700' style={{marginTop: '5px'}}>$</span><span  className='ml-2'>{price}</span> <span className='fsz-12 fw-400' data-bs-toggle="tooltip" data-bs-placement="top" title="This is the standard retail price at which this exclusive product is offered for sale by home comfort air."><del>SRP  ${price + 100}</del></span>  </span>
+      <span className="fsz-38 fw-700 shrink-text position-relative"><span className='fsz-16 position-absolute top-0 start-0 fx-700' style={{marginTop: '5px'}}>$</span><span  className='ml-2'>{price.toLocaleString()}</span> <span className='fsz-12 fw-400' data-bs-toggle="tooltip" data-bs-placement="top" title="This is the standard retail price at which this exclusive product is offered for sale by home comfort air."><del>SRP  ${(price + 100).toLocaleString()}</del></span>  </span>
       <div className='fw-bold fsz-16 d-flex flex-column my-3 shrink-text'>
       <span>{cool_capacity} cooling capacity</span>
       <span>{heat_capacity} heating capacity</span>
@@ -968,12 +968,12 @@ const location = useLocation();
               <h5 className="title-cards-archive fsz-14">{relatedProduct.title}</h5>
               <p className="w-600 price fsz-21">   <span className="fw-600 price fsz-21">
                 
-                  <span className='fsz-14 pb-2 fw-600' style={{ position:'relative', top: '-4px' }}>$</span>{price}
+                  <span className='fsz-14 pb-2 fw-600' style={{ position:'relative', top: '-4px' }}>$</span>{price.toLocaleString()}
                
 
                
                   <div style={{maxWidth:'100px'}} className="fsz-12 fw-300 " data-bs-toggle="tooltip" data-bs-placement="bottom" title="This is the standard retail price at which this product is offered for sale by home comfort air.">
-                  <span className="mr-1"  >SRP</span><del> ${price + 100} </del>
+                  <span className="mr-1"  >SRP</span><del> ${(price + 100).toLocaleString()} </del>
                  
                   </div>
                    <div className='fsz-11 text-center bg-light bg-gradient mt-2 fw-600 text-uppercase d-flex view-more-btn w-100'>View more information <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" className="bi bi-check-square-fill pl-1" viewBox="0 0 16 16">

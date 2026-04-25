@@ -193,9 +193,9 @@ const SingleProduct = ({ data }) => {
                     <div className="sp-price-row">
                         <div className="sp-price-box">
                             <span className="sp-dollar">$</span>
-                            <span className="sp-price">{price}</span>
+                            <span className="sp-price">{price.toLocaleString()}</span>
                         </div>
-                        <span className="sp-srp"><del>SRP ${price + 100}</del></span>
+                        <span className="sp-srp"><del>SRP ${(price + 100).toLocaleString()}</del></span>
                     </div>
 
                     <hr className="sp-divider" />
@@ -226,7 +226,7 @@ const SingleProduct = ({ data }) => {
                                         className={`sp-size-pill ${isActive ? 'sp-size-pill--active' : ''}`}
                                     >
                                         <span className="sp-pill-kw">{p.cool_capacity}</span>
-                                        <span className="sp-pill-price">${p.price}</span>
+                                        <span className="sp-pill-price">${p.price.toLocaleString()}</span>
                                     </Link>
                                 );
                             })
@@ -238,7 +238,7 @@ const SingleProduct = ({ data }) => {
                         {title} will suit a room size of approximately {room_size}m².<br/>
                         <span className="sp-fine-print">*Price is based on a back to back installation (maximum pipe length 3 metres).</span>
                     </p>
-
+<p className="sp-size-label" style={{ marginBottom: 10 }}>Add ons:</p>
                     {/* Home Comfort Club add-on */}
                     <div style={{ marginTop: 14, marginBottom: 4 }}>
                       <div

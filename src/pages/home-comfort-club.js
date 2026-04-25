@@ -2,7 +2,6 @@ import React, { Fragment, useState } from "react"
 import Layout from "../components/Layouts/layout"
 import Seo from "../components/SEO-2"
 import Schema from "../components/Schema-2"
-import CTA from "../components/CTA"
 import Form from "../components/QuoteForm"
 
 export const Head = () => (
@@ -17,7 +16,7 @@ export const Head = () => (
   </Fragment>
 )
 
-const plans = [
+const hiwallPlans = [
   {
     name: "One-Off Service",
     price: "$195",
@@ -25,7 +24,6 @@ const plans = [
     frequency: "As Needed",
     highlight: false,
     badge: null,
-    color: "#e8f4fd",
     features: [
       { label: "Comprehensive Tune-up", included: true },
       { label: "Priority Scheduling", included: false },
@@ -43,7 +41,6 @@ const plans = [
     frequency: "1x Per Year",
     highlight: false,
     badge: null,
-    color: "#e8f4fd",
     features: [
       { label: "Comprehensive Tune-up", included: true },
       { label: "Priority Scheduling", included: false },
@@ -61,9 +58,62 @@ const plans = [
     frequency: "2x Per Year",
     highlight: true,
     badge: "Most Popular",
-    color: "#0075c9",
     features: [
       { label: "Comprehensive Tune-up", included: true },
+      { label: "Priority Scheduling", value: "Front of Line ⚡" },
+      { label: "Repair Discount", value: "10% Off" },
+      { label: "Call-Out Fees", value: "$0 Call-Outs" },
+      { label: "Reminder Service", included: true },
+      { label: "Annual Services", value: "2x Per Year" },
+    ],
+    cta: "Join Family Comfort",
+  },
+]
+
+const ductedPlans = [
+  {
+    name: "One-Off Service",
+    price: "$265",
+    period: "+ GST",
+    frequency: "As Needed",
+    highlight: false,
+    badge: null,
+    features: [
+      { label: "Full System Inspection", included: true },
+      { label: "Priority Scheduling", included: false },
+      { label: "Repair Discount", value: "0%" },
+      { label: "Call-Out Fees", value: "Standard" },
+      { label: "Reminder Service", included: false },
+      { label: "Annual Services", value: "1x (on demand)" },
+    ],
+    cta: "Book a Service",
+  },
+  {
+    name: "Basic Saver",
+    price: "$20",
+    period: "/mo + GST",
+    frequency: "1x Per Year",
+    highlight: false,
+    badge: null,
+    features: [
+      { label: "Full System Inspection", included: true },
+      { label: "Priority Scheduling", included: false },
+      { label: "Repair Discount", value: "5% Off" },
+      { label: "Call-Out Fees", value: "Standard" },
+      { label: "Reminder Service", included: true },
+      { label: "Annual Services", value: "1x Per Year" },
+    ],
+    cta: "Join Basic Saver",
+  },
+  {
+    name: "Family Comfort",
+    price: "$35",
+    period: "/mo + GST",
+    frequency: "2x Per Year",
+    highlight: true,
+    badge: "Most Popular",
+    features: [
+      { label: "Full System Inspection", included: true },
       { label: "Priority Scheduling", value: "Front of Line ⚡" },
       { label: "Repair Discount", value: "10% Off" },
       { label: "Call-Out Fees", value: "$0 Call-Outs" },
@@ -150,7 +200,11 @@ const TcAccordion = ({ title, body }) => {
   )
 }
 
-const HomeComfortClubPage = () => (
+const HomeComfortClubPage = () => {
+  const [activeTab, setActiveTab] = useState("hiwall")
+  const plans = activeTab === "hiwall" ? hiwallPlans : ductedPlans
+
+  return (
   <Layout>
     <style>{`
       @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
@@ -160,9 +214,13 @@ const HomeComfortClubPage = () => (
         box-sizing: border-box;
       }
 
+      .hcc-page {
+        background: #f0f6fc;
+      }
+
       .hcc-hero {
         background: linear-gradient(135deg, #0075c9 0%, #005fa3 60%, #003f70 100%);
-        padding: 60px 20px 80px;
+        padding: 60px 20px 56px;
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -439,10 +497,11 @@ const HomeComfortClubPage = () => (
       }
 
       .hcc-check-group {
-        background: #f8fbff;
+        background: #fff;
         border-radius: 16px;
         padding: 28px 24px;
         border: 1px solid #deedf9;
+        box-shadow: 0 2px 12px rgba(0,117,201,0.06);
       }
 
       .hcc-check-group-title {
@@ -493,7 +552,7 @@ const HomeComfortClubPage = () => (
       }
 
       .hcc-tc-section {
-        background: #f4f8fc;
+        background: #e6eef7;
         padding: 50px 20px;
       }
 
@@ -555,6 +614,58 @@ const HomeComfortClubPage = () => (
           grid-template-columns: 1fr 1fr;
         }
       }
+
+      .hcc-tab-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 28px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .hcc-tab-eyebrow {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.6);
+      }
+
+      .hcc-tab-toggle {
+        display: inline-flex;
+        background: rgba(255,255,255,0.12);
+        border-radius: 12px;
+        padding: 5px;
+        gap: 4px;
+        border: 1px solid rgba(255,255,255,0.22);
+      }
+
+      .hcc-tab-btn {
+        padding: 11px 32px;
+        border-radius: 8px;
+        border: none;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        color: rgba(255,255,255,0.7);
+        background: transparent;
+        letter-spacing: 0.01em;
+      }
+
+      .hcc-tab-btn.active {
+        background: #fff;
+        color: #0075c9;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.18);
+      }
+
+      .hcc-tab-btn:not(.active):hover {
+        color: #fff;
+        background: rgba(255,255,255,0.1);
+      }
     `}</style>
 
     <div className="hcc-page">
@@ -572,7 +683,46 @@ const HomeComfortClubPage = () => (
           Keeping your home cool in the Queensland heat shouldn't be a gamble.
           Choose the plan that fits your lifestyle and enjoy total peace of mind all year round.
         </p>
-        <CTA />
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: 4 }}>
+          <a
+            href="#quote"
+            style={{
+              display: "inline-block",
+              background: "rgb(0, 196, 179)",
+              color: "#fff",
+              fontFamily: "'Nunito Sans', sans-serif",
+              fontWeight: 800,
+              fontSize: "0.92rem",
+              padding: "13px 36px",
+              borderRadius: "2em",
+              textDecoration: "none",
+              boxShadow: "0 4px 30px rgba(0,0,0,0.2)",
+              textTransform: "uppercase",
+              letterSpacing: "0.1em",
+            }}
+          >
+            Join Home Comfort Club
+          </a>
+        </div>
+
+        {/* ── SYSTEM TYPE TAB TOGGLE ── */}
+        <div className="hcc-tab-wrapper">
+          <span className="hcc-tab-eyebrow">Select your system type</span>
+          <div className="hcc-tab-toggle">
+            <button
+              className={`hcc-tab-btn${activeTab === "hiwall" ? " active" : ""}`}
+              onClick={() => setActiveTab("hiwall")}
+            >
+              Hi-Wall Splits
+            </button>
+            <button
+              className={`hcc-tab-btn${activeTab === "ducted" ? " active" : ""}`}
+              onClick={() => setActiveTab("ducted")}
+            >
+              Ducted Systems
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* ── PRICING CARDS ── */}
@@ -582,12 +732,12 @@ const HomeComfortClubPage = () => (
             key={plan.name}
             className={`hcc-card${plan.highlight ? " hcc-card-featured" : ""}`}
           >
-            {plan.badge && <span className="hcc-badge">⭐ {plan.badge}</span>}
+            {plan.badge && <span className="hcc-badge">{plan.badge}</span>}
 
             <p className="hcc-card-name">{plan.name}</p>
             <div className="hcc-card-price">{plan.price}</div>
             <div className="hcc-card-period">{plan.period}</div>
-            <span className="hcc-card-freq">📅 {plan.frequency}</span>
+            <span className="hcc-card-freq">{plan.frequency}</span>
 
             <hr className="hcc-card-divider" />
 
@@ -723,6 +873,7 @@ const HomeComfortClubPage = () => (
 
     </div>
   </Layout>
-)
+  )
+}
 
 export default HomeComfortClubPage

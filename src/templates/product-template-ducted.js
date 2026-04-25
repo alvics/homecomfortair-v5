@@ -13,8 +13,8 @@ import Form from "../components/QuoteForm";
 import StaticImage from "../components/StaticQueryImages";
 import DaikinDuctedProducts from "../components/Products/DaikinDuctedSystems";
 import MHIDuctedProducts from "../components/Products/MHIDuctedSystems";
-import DaikinPDF from "../images/daikin.pdf";
-import MhiPDF from "../images/MHI.pdf";
+import DaikinPDF from "../images/Daikin-Ducted.pdf";
+import MhiPDF from "../images/MHI-Ducted.pdf";
 import BrandsBtn from "../components/BrandsBtn";
 import Schema from "../components/Schema-2";
 import Seo from "../components/SEO-2";
@@ -33,24 +33,6 @@ const ADDONS = [
     label: 'Air Touch 5',
     desc: 'Premium zone controller — 16 zones, colour touchscreen, Apple HomeKit & Google Home.',
     price: 1350,
-  },
-  {
-    id: 'hcc_oneoff',
-    label: 'Home Comfort Club — One-Off Service',
-    desc: 'Single ducted system service by a licensed technician. Filters, drain, zones & full performance check.',
-    price: 265,
-  },
-  {
-    id: 'hcc_monthly1',
-    label: 'Home Comfort Club — $20/pm (1x Annual Visit)',
-    desc: 'Monthly membership with 1 annual service visit. Priority scheduling & discounted call-outs.',
-    price: 0,
-  },
-  {
-    id: 'hcc_monthly2',
-    label: 'Home Comfort Club — $35/pm (2x Annual Visits)',
-    desc: 'Monthly membership with 2 service visits per year. Best value whole-home protection.',
-    price: 0,
   },
 ];
 
@@ -87,6 +69,15 @@ const DuctedSingleProduct = ({ data }) => {
   // Add-ons state
   const [selectedAddon, setSelectedAddon] = useState(null);
   const [sensorQty, setSensorQty] = useState(0);
+
+  // Home Comfort Club state
+  const [clubSelected, setClubSelected] = useState(false);
+  const [clubTier, setClubTier] = useState(null);
+  const CLUB_TIERS = [
+    { id: 'upfront', label: '$265 one-off', desc: 'Single visit',    tooltip: 'One-time ducted service — filters, drain, zones & full performance check.' },
+    { id: 'basic',   label: '$20/mo',       desc: '1x annual visit', tooltip: '1 annual service visit with priority scheduling & discounted call-outs.' },
+    { id: 'plus',    label: '$35/mo',       desc: '2x annual visits', tooltip: '2 service visits per year — best value whole-home protection.' },
+  ];
 
   const product = data.strapiProduct;
   const description = data.strapiProduct.description?.data?.description || '';
@@ -403,6 +394,63 @@ const DuctedSingleProduct = ({ data }) => {
                     )}
                   </div>
                 </div>
+              </div>
+
+              {/* Home Comfort Club */}
+              <div style={{ marginBottom: 16 }}>
+                <div
+                  onClick={() => { setClubSelected(s => !s); if (clubSelected) setClubTier(null); }}
+                  style={{
+                    display: 'flex', alignItems: 'flex-start', gap: 10,
+                    padding: '10px 12px',
+                    border: `1.5px solid ${clubSelected ? '#0075C9' : '#e0e0e0'}`,
+                    borderRadius: 8, cursor: 'pointer',
+                    background: clubSelected ? '#f0f7ff' : '#fff',
+                    transition: 'border-color 0.15s, background 0.15s',
+                    userSelect: 'none',
+                  }}
+                >
+                  <div style={{
+                    flexShrink: 0, width: 16, height: 16, marginTop: 2,
+                    borderRadius: '50%',
+                    border: `2px solid ${clubSelected ? '#0075C9' : '#aaa'}`,
+                    background: '#fff',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    {clubSelected && <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#0075C9' }} />}
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontWeight: 700, fontSize: 13, color: '#1f2937' }}>Home Comfort Club</span>
+                      <span style={{ fontSize: 11, fontWeight: 600, color: '#0075C9', background: 'rgba(0,117,201,0.08)', borderRadius: 20, padding: '2px 8px' }}>Member</span>
+                    </div>
+                    <p style={{ fontSize: 11, color: '#6b7280', margin: '2px 0 0' }}>Priority callouts, annual ducted servicing &amp; member perks.</p>
+                  </div>
+                </div>
+                {clubSelected && (
+                  <div style={{ display: 'flex', gap: 8, marginTop: 8, paddingLeft: 2 }}>
+                    {CLUB_TIERS.map(tier => (
+                      <button
+                        key={tier.id}
+                        type="button"
+                        onClick={() => setClubTier(tier.id)}
+                        data-active={clubTier === tier.id}
+                        className="sidebar-cat-btn"
+                        data-tip={tier.tooltip}
+                        style={{
+                          flex: 1, padding: '8px 4px', borderRadius: 8,
+                          border: `1.5px solid ${clubTier === tier.id ? '#0075C9' : '#e0e0e0'}`,
+                          background: clubTier === tier.id ? '#0075C9' : '#fff',
+                          cursor: 'pointer', textAlign: 'center',
+                          transition: 'all 0.15s',
+                        }}
+                      >
+                        <div style={{ fontSize: 12, fontWeight: 700, color: clubTier === tier.id ? '#fff' : '#1f2937' }}>{tier.label}</div>
+                        <div style={{ fontSize: 10, opacity: 0.75, marginTop: 1, color: clubTier === tier.id ? '#fff' : '#6b7280' }}>{tier.desc}</div>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Order summary */}

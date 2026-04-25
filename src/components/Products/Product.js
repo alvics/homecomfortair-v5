@@ -44,13 +44,13 @@ const Product = ({ title, image, price, slug, isOnSpecial, id, brandLabel, brand
 
           {price && isOnSpecial ? (
             <div className="product-card-pricing">
-              <span className="product-card-price"><sup>$</sup>{isOnSpecial}</span>
-              <span className="product-card-srp"><del>${price + 100}</del></span>
+              <span className="product-card-price"><sup>$</sup>{isOnSpecial.toLocaleString()}</span>
+              <span className="product-card-srp"><del>${(price + 100).toLocaleString()}</del></span>
             </div>
           ) : (
             <div className="product-card-pricing">
-              <span className="product-card-price"><sup>$</sup>{price}</span>
-              <span className="product-card-srp">SRP <del>${price + 100}</del></span>
+              <span className="product-card-price"><sup>$</sup>{price.toLocaleString()}</span>
+              <span className="product-card-srp">SRP <del>${(price + 100).toLocaleString()}</del></span>
             </div>
           )}
           <p className="product-supplied-text">Supplied &amp; Installed</p>

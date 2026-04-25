@@ -249,7 +249,7 @@ const Home = () => {
               <details className="faq-item">
                 <summary className="faq-question">What size air conditioner do I need?</summary>
                 <div className="faq-answer">
-                  <p>The right size depends on the room dimensions, ceiling height, insulation and sun exposure. As a rough guide, a 2.5kW unit suits a small bedroom, 3.5kW for a medium room, and 5–7kW for an open-plan living area. We'll recommend the correct capacity when we assess your space.</p>
+                  <p>The right size depends on the room dimensions, ceiling height, insulation and sun exposure. As a rough guide, a 2.5kW unit suits a small bedroom, 3.5kW for a medium room, and 5–7kW for an open-plan living area. We'll recommend the correct capacity when we assess your space. Use our <Link to='/products/split-system-air-conditioning/'> room size calculator</Link></p>
                 </div>
               </details>
 

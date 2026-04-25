@@ -42,7 +42,7 @@ const DaikinDuctedSystems = () => {
                 {product.model && <div style={{ fontSize: 12, color: "#888", marginBottom: 6 }}>Model: {product.model}</div>}
                 {product.price ? (
                   <div className="product-card-pricing">
-                    <span className="product-card-price"><sup>$</sup>{product.price}</span>
+                    <span className="product-card-price"><sup>$</sup>{product.price.toLocaleString()}</span>
                   </div>
                 ) : (
                   <div className="product-card-pricing">
