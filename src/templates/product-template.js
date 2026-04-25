@@ -152,11 +152,11 @@ const SingleProduct = ({ data }) => {
         </div>
 
         <div className='pt-0 sp-two-col'>
-            {/* Left Card: Product Gallery */}
-            <div className="sp-card-gallery">
+            <div className="sp-col-left">
+              <div className="sp-card-gallery">
                 <div className='gallery-img-container'>
                     {images.length > 0 ? (
-                      <Carousel images={images} hasSizeButton={false} hasMediaButton={false} hasIndexBoard={false} hasCaption={false} className='bg-white d-flex img-fluid gallery-img' />
+                      <Carousel images={images} hasSizeButton={false} hasMediaButton={false} hasIndexBoard={false} hasCaption={false} showThumbs={false} className='bg-white d-flex img-fluid gallery-img' />
                     ) : (
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 300, background: '#f5f5f5', borderRadius: 8 }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -165,7 +165,165 @@ const SingleProduct = ({ data }) => {
                 </div>
             </div>
 
-            {/* Right Card: Product Details */}
+            <div className="sp-card-info">
+              <div className="sp-tab-nav">
+                  <Link to='#' className="sp-tab-link">Gallery</Link>
+                  <Link to='#description' className="sp-tab-link" onClick={() => toggleAccordion('description')}>Description</Link>
+                  <Link to='#reviews' className="sp-tab-link">Reviews</Link>
+              </div>
+ 
+                <Accordion defaultActiveKey="0" activeKey={activeAccordion}>
+                  <Accordion.Item eventKey="installation" activeKey={activeAccordion}>
+                    <Accordion.Header onClick={(event) => toggleAccordion('installation',event)}>Installation</Accordion.Header>
+                    <Accordion.Body>
+                      <div className="mb-3 single-product-add">
+                        {brand === "midea" && (
+                          <div className="mb-2">
+                            <StaticImage filename="xtreme-banner.png" alt="midea xtreme split system air conditioning by Home Comfort Air" />
+                          </div>
+                        )}
+                        {brand === "daikin" && (
+                          <div className="single-side-products">
+                            <StaticImage filename="daikin-cora.png" alt="daikin air conditioning by Home Comfort Air" />
+                          </div>
+                        )}
+                        {brand === "mitsubishi electric" && (
+                          <div className="single-side-products mitsubishi">
+                            <StaticImage filename="mitsubishi-banner.png" alt="Best-air-conditioner-MSZ-AP-banner" />
+                          </div>
+                        )}
+                        {brand === "toshiba" && (
+                          <div className="single-side-products">
+                            <StaticImage filename="toshiba-add-11.png" alt="toshiba air conditioning by Home Comfort Air" />
+                          </div>
+                        )}
+                      </div>
+                    
+                      <h5 className='sp-section-heading'>What's included:</h5>
+                      <p className='sp-section-intro'>Your new <span className='text-capitalize'>{ brand }</span> { cool_capacity + " " + model } air conditioning package includes:</p>
+
+                      <ul className="sp-checklist">
+                          <li>Licensed Installers.</li>
+                          <li>Back to back installation, up to 3 meters of pipework connecting indoor to outdoor unit for a single story home.</li>
+                          {cool_capacity <= "5.4" ? (
+                            <li>Up to 20 meters of electrical cable run in the roof to an existing and available circuit.</li>
+                          ) : (
+                            <li>New mounted weatherproof safety isolation switch to existing circuit. <small>(For replacement units only, does NOT include new electrical circuit added. Additional charges may apply).</small></li>
+                          )}
+                          <li>PVC ducting to conceal pipe connection and electrical work.</li>
+                          <li>{brand === "Toshiba" ? "7 year manufacturer warranty." : "5 year manufacturer warranty."}</li>
+                          <li>5 year Installation warranty.</li>
+                      </ul>
+
+                      <Accordion className='custom-accordion'>
+                        <Accordion.Item eventKey="add">
+                          <Accordion.Header id="add-charges">
+                            <CustomToggle className="custom-btn" onClick={(event) => toggleAccordion('add', event)}>Additional charges may apply <i className="fa-solid fa-chevron-down"></i></CustomToggle>
+                          </Accordion.Header>
+                          <Accordion.Body>
+                            <div className="mb-4">
+                              <p>The requirements for installation may vary depending on the layout and structure of your house. As a result, some additional costs may apply.</p>
+                              <p>The most common reasons for additional costs are:</p>
+                              <ul className="sp-checklist">
+                                <li>Double storey properties.</li>
+                                <li>Non back to back installations.</li>
+                                <li>Extra labour &amp; materials.</li>
+                                <li>Concrete slab Installation (if not already present).</li>
+                                <li>Brackets (e.g. wall or roof).</li>
+                                <li>Mounting blocks.</li>
+                                <li>Electrical work (e.g new circuit).</li>
+                              </ul>
+                              <small className="small-text">Note: your installer will explain the reasons and requirements for the additional charges (if there are any) before proceeding.</small>
+                            </div>
+                          </Accordion.Body>
+                        </Accordion.Item>
+                      </Accordion>
+                    </Accordion.Body>
+                  </Accordion.Item>
+
+                  <Accordion.Item eventKey="description">
+                    <Accordion.Header onClick={(event) => toggleAccordion('description',event)}>Description</Accordion.Header>
+                    <Accordion.Body>
+                      <div className='pt-3 description-container'>
+                        <div id='description'></div>
+                        {brand === "mitsubishi electric" ? <MitsubishiArticle />  : <ReactMarkdown>{description}</ReactMarkdown>}
+                      </div>
+                    </Accordion.Body>
+                  </Accordion.Item>
+
+                  <Accordion.Item eventKey="spec">
+                    <Accordion.Header onClick={(event) => toggleAccordion('spec',event)}>Specifications</Accordion.Header>
+                    <Accordion.Body>
+                      <div className="spec-tiles">
+                        <div className="spec-tile"><span className="spec-tile-label">Brand</span><span className="spec-tile-value">{brand}</span></div>
+                        <div className="spec-tile"><span className="spec-tile-label">Cooling</span><span className="spec-tile-value">{cool_capacity}</span></div>
+                        <div className="spec-tile"><span className="spec-tile-label">Heating</span><span className="spec-tile-value">{heat_capacity}</span></div>
+                        <div className="spec-tile"><span className="spec-tile-label">Room Size</span><span className="spec-tile-value">~{room_size}m²</span></div>
+                      </div>
+
+                      {/* PDF Brochures */}
+                      {brand === "toshiba" && (
+                        <a className="spec-brochure-btn" href={ToshibaPDF} target="_blank" rel="noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
+                          Toshiba Brochure
+                        </a>
+                      )}
+                      {brand === "midea" && (
+                        <a className="spec-brochure-btn" href={MideaPDF} target="_blank" rel="noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
+                          Midea Brochure
+                        </a>
+                      )}
+                      {brand === "daikin" && (
+                        <a className="spec-brochure-btn" href={DaikinPDF} target="_blank" rel="noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
+                          Daikin Brochure
+                        </a>
+                      )}
+                      {brand === "samsung" && (
+                        <a className="spec-brochure-btn" href={SamsungPDF} target="_blank" rel="noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
+                          Samsung Brochure
+                        </a>
+                      )}
+                      {brand === "mitsubishi heavy industries" && (
+                        <a className="spec-brochure-btn" href={cool_capacity >= 2 && cool_capacity <= 7.1 ? Ciara : MhiPDF} target="_blank" rel="noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
+                          MHI Brochure
+                        </a>
+                      )}
+                      {brand === "haier" && (
+                        <a className="spec-brochure-btn" href={HaierPDF} target="_blank" rel="noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
+                          Haier Brochure
+                        </a>
+                      )}
+                      {brand === "hitachi" && (
+                        <a className="spec-brochure-btn" href={HitachiPDF} target="_blank" rel="noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
+                          Hitachi Brochure
+                        </a>
+                      )}
+                      {brand === "aura" && (
+                        <a className="spec-brochure-btn" href={CarrierPDF} target="_blank" rel="noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
+                          Carrier Brochure
+                        </a>
+                      )}
+                      {brand === "mitsubishi electric" && (
+                        <a className="spec-brochure-btn" href={MitsubishiPDF} target="_blank" rel="noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
+                          Mitsubishi Brochure
+                        </a>
+                      )}
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+                <div id='reviews' className='mt-5'><GoogleReviewsCarousel /></div>
+            </div>
+          </div>
+
+          <div className="sp-col-right">
             <div className="sp-card-details product-page-description">
                 <div className='single-product-right-col'>
 
@@ -238,89 +396,34 @@ const SingleProduct = ({ data }) => {
                         {title} will suit a room size of approximately {room_size}m².<br/>
                         <span className="sp-fine-print">*Price is based on a back to back installation (maximum pipe length 3 metres).</span>
                     </p>
-<p className="sp-size-label" style={{ marginBottom: 10 }}>Add ons:</p>
-                    {/* Home Comfort Club add-on */}
-                    <div style={{ marginTop: 14, marginBottom: 4 }}>
-                      <div
-                        onClick={() => { setClubSelected(s => !s); if (clubSelected) setClubTier(null); }}
-                        style={{
-                          display: 'flex', alignItems: 'flex-start', gap: 10,
-                          padding: '10px 12px',
-                          border: `1.5px solid ${clubSelected ? '#0075C9' : '#e0e0e0'}`,
-                          borderRadius: 8, cursor: 'pointer',
-                          background: clubSelected ? '#f0f7ff' : '#fff',
-                          transition: 'border-color 0.15s, background 0.15s',
-                          userSelect: 'none',
-                        }}
-                      >
-                        <div style={{
-                          flexShrink: 0, width: 16, height: 16, marginTop: 2,
-                          borderRadius: '50%',
-                          border: `2px solid ${clubSelected ? '#0075C9' : '#aaa'}`,
-                          background: '#fff',
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        }}>
-                          {clubSelected && <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#0075C9' }} />}
-                        </div>
-                        <div style={{ flex: 1 }}>
-                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <span style={{ fontWeight: 700, fontSize: 13, color: '#1f2937' }}>Home Comfort Club</span>
-                            <span style={{ fontSize: 11, fontWeight: 600, color: '#0075C9', background: 'rgba(0,117,201,0.08)', borderRadius: 20, padding: '2px 8px' }}>Member</span>
-                          </div>
-                          <p style={{ fontSize: 11, color: '#6b7280', margin: '2px 0 0' }}>Priority callouts, annual service discounts &amp; member perks.</p>
-                        </div>
-                      </div>
 
-                      {clubSelected && (
-                        <div style={{ display: 'flex', gap: 8, marginTop: 8, marginBottom: 6 }}>
-                          {CLUB_TIERS.map(tier => (
-                            <div key={tier.id} style={{ flex: 1, position: 'relative' }}>
-                              {hoveredTier === tier.id && (
-                                <div style={{
-                                  position: 'absolute', bottom: 'calc(100% + 8px)', left: '50%',
-                                  transform: 'translateX(-50%)',
-                                  background: '#1f2937', color: '#fff',
-                                  fontSize: 11, fontWeight: 500,
-                                  padding: '6px 10px', borderRadius: 6,
-                                  whiteSpace: 'nowrap', zIndex: 10,
-                                  pointerEvents: 'none',
-                                  boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
-                                }}>
-                                  {tier.tooltip}
-                                  {/* Arrow */}
-                                  <div style={{
-                                    position: 'absolute', top: '100%', left: '50%',
-                                    transform: 'translateX(-50%)',
-                                    width: 0, height: 0,
-                                    borderLeft: '5px solid transparent',
-                                    borderRight: '5px solid transparent',
-                                    borderTop: '5px solid #1f2937',
-                                  }} />
-                                </div>
-                              )}
-                              <button
-                                type="button"
-                                onClick={() => setClubTier(tier.id)}
-                                onMouseEnter={() => setHoveredTier(tier.id)}
-                                onMouseLeave={() => setHoveredTier(null)}
-                                data-active={clubTier === tier.id}
-                                className="sidebar-cat-btn"
-                                style={{
-                                  width: '100%', padding: '8px 4px', borderRadius: 8,
-                                  border: `1.5px solid ${clubTier === tier.id ? '#0075C9' : '#e0e0e0'}`,
-                                  background: clubTier === tier.id ? '#0075C9' : '#fff',
-                                  cursor: 'pointer', textAlign: 'center',
-                                  transition: 'all 0.15s',
-                                }}
-                              >
-                                <div style={{ fontSize: 12, fontWeight: 700 }}>{tier.label}</div>
-                                <div style={{ fontSize: 10, opacity: 0.75, marginTop: 1 }}>{tier.desc}</div>
-                              </button>
+                    <div style={{ marginBottom: 16 }}>
+                        <div
+                            onClick={() => { setClubSelected(s => !s); if (clubSelected) setClubTier(null); }}
+                            style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '10px 12px', border: `1.5px solid ${clubSelected ? '#0075C9' : '#e0e0e0'}`, borderRadius: 8, cursor: 'pointer', background: clubSelected ? '#f0f7ff' : '#fff', transition: 'border-color 0.15s, background 0.15s', userSelect: 'none' }}
+                        >
+                            <div style={{ flexShrink: 0, width: 16, height: 16, marginTop: 2, borderRadius: '50%', border: `2px solid ${clubSelected ? '#0075C9' : '#aaa'}`, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                {clubSelected && <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#0075C9' }} />}
                             </div>
-                          ))}
+                            <div style={{ flex: 1 }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <span style={{ fontWeight: 700, fontSize: 13, color: '#1f2937' }}>Home Comfort Club</span>
+                                    <span style={{ fontSize: 11, fontWeight: 600, color: '#0075C9', background: 'rgba(0,117,201,0.08)', borderRadius: 20, padding: '2px 8px' }}>Member</span>
+                                </div>
+                                <p style={{ fontSize: 11, color: '#6b7280', margin: '2px 0 0' }}>Priority callouts, annual service discounts &amp; member perks.</p>
+                            </div>
                         </div>
-                      )}
-                      <Link
+                        {clubSelected && (
+                            <div style={{ display: 'flex', gap: 8, marginTop: 8, paddingLeft: 2 }}>
+                                {CLUB_TIERS.map(tier => (
+                                    <button key={tier.id} type="button" onClick={() => setClubTier(tier.id)} className="sidebar-cat-btn" style={{ flex: 1, padding: '8px 4px', borderRadius: 8, border: `1.5px solid ${clubTier === tier.id ? '#0075C9' : '#e0e0e0'}`, background: clubTier === tier.id ? '#0075C9' : '#fff', cursor: 'pointer', textAlign: 'center', transition: 'all 0.15s' }}>
+                                        <div style={{ fontSize: 12, fontWeight: 700, color: clubTier === tier.id ? '#fff' : '#1f2937' }}>{tier.label}</div>
+                                        <div style={{ fontSize: 10, opacity: 0.75, marginTop: 1, color: clubTier === tier.id ? '#fff' : '#6b7280' }}>{tier.desc}</div>
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                        <Link
                         to="/home-comfort-club/"
                         style={{ fontSize: 11, color: '#0075C9', display: 'inline-block', marginTop: 6 }}
                       >
@@ -328,447 +431,88 @@ const SingleProduct = ({ data }) => {
                       </Link>
                     </div>
 
-                    {/* Add to Cart */}
-                    <div className="product-actions">
-                        <AddToCartButton
-                            product={productForCart}
-                            className="sp-add-to-cart"
-                            onCartAdd={handleShowCartCard}
-                        />
-                    </div>
-
-                    <CartAddedCard
-                        product={cardProduct}
-                        isVisible={showCartCard}
-                        onClose={closeCartCard}
-                    />
+                    <div className="product-actions"><AddToCartButton product={productForCart} className="sp-add-to-cart" onCartAdd={handleShowCartCard} /></div>
+                    <CartAddedCard product={cardProduct} isVisible={showCartCard} onClose={closeCartCard} />
                 </div>
                 <Modal />
             </div>
-        </div>
-
-        {/* Second row for additional content and reviews */}
-        <div className="sp-two-col mt-3">
-            <div className="sp-card-info">
-              {/* Tab nav */}
-              <div className="sp-tab-nav">
-                  <Link to='#' className="sp-tab-link">Gallery</Link>
-                  <Link to='#description' className="sp-tab-link" onClick={() => toggleAccordion('description')}>Description</Link>
-                  <Link to='#reviews' className="sp-tab-link">Reviews</Link>
-              </div>
- 
-                {/* Accordion for Installation, Description, and Specifications */}
-                <Accordion defaultActiveKey="0" activeKey={activeAccordion}>
-                  {/* Installation Section */}
-                  <Accordion.Item eventKey="installation" activeKey={activeAccordion}>
-                    <Accordion.Header onClick={(event) => toggleAccordion('installation',event)}>Installation</Accordion.Header>
-                    <Accordion.Body>
-                      <div className="mb-3 single-product-add">
-                        {/* Conditionally render promotional images based on the brand */}
-                        {brand === "midea" && (
-                          <div className="mb-2">
-                            <StaticImage filename="xtreme-banner.png" alt="midea xtreme split system air conditioning by Home Comfort Air" />
-                          </div>
-                        )}
-                        {brand === "aura" && (
-                          <div className="single-side-products">
-                            <StaticImage filename="carrier-add.png" alt="carrier air conditioning by Home Comfort Air" />
-                          </div>
-                        )}
-                        {brand === "samsung" && (
-                          <div className="single-side-products">
-                            <StaticImage filename="samsung-add-11.png" alt="samsung air conditioning by Home Comfort Air" />
-                          </div>
-                        )}
-                        {brand === "daikin" && (
-                          <div className="single-side-products">
-                            <StaticImage filename="daikin-cora.png" alt="daikin air conditioning by Home Comfort Air" />
-                          </div>
-                        )}
-                        {brand === "mitsubishi electric" && (
-                          <div className="single-side-products mitsubishi">
-                            <StaticImage filename="mitsubishi-banner.png" alt="Best-air-conditioner-MSZ-AP-banner" />
-                          </div>
-                        )}
-                        {brand === "toshiba" && (
-                          <div className="single-side-products">
-                            <StaticImage filename="toshiba-add-11.png" alt="toshiba air conditioning by Home Comfort Air" />
-                          </div>
-                        )}
-                      </div>
-                    
-                      <h5 className='sp-section-heading'>What's included:</h5>
-                      <p className='sp-section-intro'>Your new <span className='text-capitalize'>{ brand }</span> { cool_capacity + " " + model } air conditioning package includes:</p>
-
-                      <ul className="sp-checklist">
-                          <li>Licensed Installers.</li>
-                          <li>Back to back installation, up to 3 meters of pipework connecting indoor to outdoor unit for a single story home.</li>
-                          {cool_capacity <= "5.4" ? (
-                            <li>Up to 20 meters of electrical cable run in the roof to an existing and available circuit.</li>
-                          ) : (
-                            <li>New mounted weatherproof safety isolation switch to existing circuit. <small>(For replacement units only, does NOT include new electrical circuit added. Additional charges may apply).</small></li>
-                          )}
-                          <li>PVC ducting to conceal pipe connection and electrical work.</li>
-                          <li>{brand === "Toshiba" ? "7 year manufacturer warranty." : "5 year manufacturer warranty."}</li>
-                          <li>5 year Installation warranty.</li>
-                      </ul>
-
-                      {/* Accordion for Additional Charges */}
-                      <Accordion className='custom-accordion'>
-                        <Accordion.Item eventKey="add">
-                          <Accordion.Header id="add-charges">
-                            <CustomToggle className="custom-btn" onClick={(event) => toggleAccordion('add', event)}>Additional charges may apply <i className="fa-solid fa-chevron-down"></i></CustomToggle>
-                          </Accordion.Header>
-                          <Accordion.Body>
-                            <div className="mb-4">
-                              <p>The requirements for installation may vary depending on the layout and structure of your house. As a result, some additional costs may apply.</p>
-                              <p>The most common reasons for additional costs are:</p>
-                              <ul className="sp-checklist">
-                                <li>Double storey properties.</li>
-                                <li>Non back to back installations.</li>
-                                <li>Extra labour &amp; materials.</li>
-                                <li>Concrete slab Installation (if not already present).</li>
-                                <li>Brackets (e.g. wall or roof).</li>
-                                <li>Mounting blocks.</li>
-                                <li>Electrical work (e.g new circuit).</li>
-                              </ul>
-                              <small className="small-text">Note: your installer will explain the reasons and requirements for the additional charges (if there are any) before proceeding.</small>
-                            </div>
-                          </Accordion.Body>
-                        </Accordion.Item>
-                      </Accordion>
-                    </Accordion.Body>
-                  </Accordion.Item>
-
-                  {/* Description Section */}
-                  <Accordion.Item eventKey="description">
-                    <Accordion.Header onClick={(event) => toggleAccordion('description',event)}>Description</Accordion.Header>
-                    <Accordion.Body>
-                      <div className='pt-3 description-container'>
-                        <div id='description'></div>
-                        {brand === "mitsubishi electric" ? <MitsubishiArticle />  : <ReactMarkdown>{description}</ReactMarkdown>}
-                      </div>
-                    </Accordion.Body>
-                  </Accordion.Item>
-
-                  {/* Specifications and Brochures Section */}
-                  <Accordion.Item eventKey="spec">
-                    <Accordion.Header onClick={(event) => toggleAccordion('spec',event)}>Specifications</Accordion.Header>
-                    <Accordion.Body>
-                      <div>
-                        {/* Spec tiles */}
-                        <div className="spec-tiles">
-                          <div className="spec-tile">
-                            <span className="spec-tile-label">Brand</span>
-                            <span className="spec-tile-value">{brand}</span>
-                          </div>
-                          <div className="spec-tile">
-                            <span className="spec-tile-label">Cooling</span>
-                            <span className="spec-tile-value">{cool_capacity}</span>
-                          </div>
-                          <div className="spec-tile">
-                            <span className="spec-tile-label">Heating</span>
-                            <span className="spec-tile-value">{heat_capacity}</span>
-                          </div>
-                          <div className="spec-tile">
-                            <span className="spec-tile-label">Room Size</span>
-                            <span className="spec-tile-value">~{room_size}m²</span>
-                          </div>
-                        </div>
-
-                        {/* PDF Brochures */}
-                        {brand === "toshiba" && (
-                          <a className="spec-brochure-btn" href={ToshibaPDF} target="_blank" rel="noreferrer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
-                            Toshiba Brochure
-                          </a>
-                        )}
-                        {brand === "midea" && (
-                          <a className="spec-brochure-btn" href={MideaPDF} target="_blank" rel="noreferrer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
-                            Midea Brochure
-                          </a>
-                        )}
-                        {brand === "daikin" && (
-                          <a className="spec-brochure-btn" href={DaikinPDF} target="_blank" rel="noreferrer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
-                            Daikin Brochure
-                          </a>
-                        )}
-                        {brand === "samsung" && (
-                          <a className="spec-brochure-btn" href={SamsungPDF} target="_blank" rel="noreferrer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
-                            Samsung Brochure
-                          </a>
-                        )}
-                        {brand === "mitsubishi heavy industries" && (
-                          <a className="spec-brochure-btn" href={cool_capacity >= 2 && cool_capacity <= 7.1 ? Ciara : MhiPDF} target="_blank" rel="noreferrer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
-                            MHI Brochure
-                          </a>
-                        )}
-                        {brand === "haier" && (
-                          <a className="spec-brochure-btn" href={HaierPDF} target="_blank" rel="noreferrer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
-                            Haier Brochure
-                          </a>
-                        )}
-                        {brand === "hitachi" && (
-                          <a className="spec-brochure-btn" href={HitachiPDF} target="_blank" rel="noreferrer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
-                            Hitachi Brochure
-                          </a>
-                        )}
-                        {brand === "aura" && (
-                          <a className="spec-brochure-btn" href={CarrierPDF} target="_blank" rel="noreferrer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
-                            Carrier Brochure
-                          </a>
-                        )}
-                      </div>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-                <div id='reviews' className='mt-5'>
-                  <GoogleReviewsCarousel />
-                </div>
-            </div>
-
-            {/* Right sidebar card */}
             <div className="sp-card-sidebar">
-                 <div className="img-wrapper-e mb-3" style={{borderRadius:8}}>
-                  <StaticImage
-                filename="splits-add-11-pow-lg.png"
-                alt="home comfort air image"
-              />
-            </div>
-            <div className='sp-quote-form'>
-              <Form productTitle={title} compact />
-            </div>
+              <div className="img-wrapper-e mb-3" style={{borderRadius:8}}><StaticImage filename="splits-add-11-pow-lg.png" alt="home comfort air image" /></div>
+              <div className='sp-quote-form'><Form productTitle={title} compact /></div>
+              <h5 className="mt-5 h6" style={{ fontWeight: `600` }}>Also recommended for you</h5>
 
-
-                {/* Product Recommended List */}
-
-      
-            <h5 className="mt-5 h6" style={{ fontWeight: `600` }}>
-              Also recommended for you
-            </h5>
-
-   {brand === "mitsubishi heavy industries"   ? (
+              {brand === "mitsubishi heavy industries" && (
               <div className="mb-2">
-                <div className="mb-2">
-                  <div
-                    className="text-center border rounded"
-                    style={{ backgroundColor: `#e31f26` }}
-                  >
-                    <h3
-                      className="h6 fw-600 cap mt-2 text-white"
-                      style={{ padding: `1.3rem 0` }}
-                    >
-                      Supply and Install MHI
-                      <br />{" "}
-                      <span className="lead cam text-white">
-                        <small>Air Conditioning Systems</small>
-                      </span>
-                    </h3>
-                  </div>
-                </div>
+                <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#e31f26` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install MHI<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
                 <MHIProducts />
               </div>
-            ) : (
-              <div></div>
-            )}
+              )}
 
-            {brand === "midea" ? (
+              {brand === "midea" && (
               <div className="mb-2">
-                <div className="mb-2">
-                  <div
-                    className="text-center border rounded"
-                    style={{ backgroundColor: `#7DCDFF` }}
-                  >
-                    <h3
-                      className="h6 fw-600 cap mt-2 text-white"
-                      style={{ padding: `1.3rem 0` }}
-                    >
-                      Supply and Install Midea
-                      <br />{" "}
-                      <span className="lead cam text-white">
-                        <small>Air Conditioning Systems</small>
-                      </span>
-                    </h3>
-                  </div>
-                </div>
+                <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#7DCDFF` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Midea<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
                 <MideaProducts />
               </div>
-            ) : (
-              <div></div>
-            )}
-            {brand === "carrier" ? (
-              <div className="single-side-products mb-2">
-                <div
-                  style={{ backgroundColor: `#004178` }}
-                  className="my-2 text-center rounded"
-                >
-                  <h3
-                    className="h6 text-white fw-600 cap mt-2"
-                    style={{ padding: `1.3rem 0` }}
-                  >
-                    Supply and Install Carrier
-                    <br />{" "}
-                    <span className="lead cam text-white">
-                      <small>Air Conditioning Systems</small>
-                    </span>
-                  </h3>
-                </div>
-                <CarrierProducts />
-              </div>
-            ) : (
-              <div></div>
-            )}
+              )}
 
-            {brand === "samsung" ? (
-              <div className="single-side-products mb-2">
-                <div
-                  s
-                  className="text-center bg-dark my-2 rounded"
-                >
-                  <h3
-                    className="text-white h6 fw-600 cap mt-2"
-                    style={{ padding: `1.3rem 0` }}
-                  >
-                    Supply and Install Samsung
-                    <br />{" "}
-                    <span className="lead cam text-white">
-                      <small>Air Conditioning Systems</small>
-                    </span>
-                  </h3>
-                </div>
-                <SamsungProducts />
-              </div>
-            ) : (
-              <div></div>
-            )}
-
-                  {brand === "daikin" ? (
-              <div className="single-side-products mb-2">
-                <div
-                  s
-                  className="text-center my-2 rounded"
-                  style={{backgroundColor: `#00a1e5`}}
-                >
-                  <h3
-                    className="text-white h6 fw-600 cap mt-2"
-                    style={{ padding: `1.3rem 0` }}
-                  >
-                    Supply and Install Daikin
-                    <br />{" "}
-                    <span className="lead cam text-white">
-                      <small>Air Conditioning Systems</small>
-                    </span>
-                  </h3>
-                </div>
+              {brand === "daikin" && (
+              <div className="mb-2">
+                <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#00a1e5` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Daikin<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
                 <DaikinProducts />
               </div>
-            ) : (
-              <div></div>
-            )}
+              )}
 
-            {brand === "toshiba" ? (
-              <div className="single-side-products">
-                <div
-                  style={{ backgroundColor: `#D01C22` }}
-                  className="my-2  text-center rounded"
-                >
-                  <h3
-                    className="h6 text-white fw-600 cap mt-2"
-                    style={{ padding: `1.3rem 0` }}
-                  >
-                    Supply and Install Toshiba
-                    <br />{" "}
-                    <span className="lead cam text-white">
-                      <small>Air Conditioning Systems</small>
-                    </span>
-                  </h3>
+              {brand === "carrier" && (
+                <div className="mb-2">
+                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#004178` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Carrier<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
+                  <CarrierProducts />
                 </div>
-                <ToshibaProducts />
-              </div>
-            ) : (
-              <div></div>
-            )}
+              )}
 
-               {brand === "haier" ? (
-              <div className="single-side-products">
-                <div
-                  style={{ backgroundColor: `rgb(0, 90, 171)` }}
-                  className="my-2  text-center rounded"
-                >
-                  <h3
-                    className="h6 text-white fw-600 cap mt-2"
-                    style={{ padding: `1.3rem 0` }}
-                  >
-                    Supply and Install Haier
-                    <br />{" "}
-                    <span className="lead cam text-white">
-                      <small>Air Conditioning Systems</small>
-                    </span>
-                  </h3>
+              {brand === "samsung" && (
+                <div className="mb-2">
+                  <div className="mb-2"><div className="text-center border rounded bg-dark"><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Samsung<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
+                  <SamsungProducts />
                 </div>
-                <HaierProducts />
-              </div>
-            ) : (
-              <div></div>
-            )}
+              )}
 
-            {brand === "hitachi" ? (
-              <div className="single-side-products">
-                <div
-                  style={{ backgroundColor: `rgb(195, 0, 47)` }}
-                  className="my-2  text-center rounded"
-                >
-                  <h3
-                    className="h6 text-white fw-600 cap mt-2"
-                    style={{ padding: `1.3rem 0` }}
-                  >
-                    Supply and Install Hitachi
-                    <br />{" "}
-                    <span className="lead cam text-white">
-                      <small>Air Conditioning Systems</small>
-                    </span>
-                  </h3>
+              {brand === "toshiba" && (
+                <div className="mb-2">
+                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#D01C22` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Toshiba<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
+                  <ToshibaProducts />
                 </div>
-                <HitachiProducts />
-              </div>
-            ) : (
-              <div></div>
-            )}
+              )}
 
-              {brand === "mitsubishi electric" ? (
-              <div className="single-side-products">
-                <div
-                  style={{ backgroundColor: `#ff0000` }}
-                  className="my-2  text-center rounded"
-                >
-                  <h3
-                    className="h6 text-white fw-600 cap mt-2"
-                    style={{ padding: `1.3rem 0` }}
-                  >
-                    Supply and Install Mitsubishi
-                    <br />{" "}
-                    <span className="lead cam text-white">
-                      <small>Air Conditioning Systems</small>
-                    </span>
-                  </h3>
+              {brand === "haier" && (
+                <div className="mb-2">
+                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `rgb(0, 90, 171)` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Haier<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
+                  <HaierProducts />
                 </div>
-                <MitsubishiProducts />
-              </div>
-            ) : (
-              <div></div>
-            )}
-            
-           
+              )}
+
+              {brand === "hitachi" && (
+                <div className="mb-2">
+                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `rgb(195, 0, 47)` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Hitachi<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
+                  <HitachiProducts />
+                </div>
+              )}
+
+              {brand === "mitsubishi electric" && (
+                <div className="mb-2">
+                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#ff0000` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Mitsubishi<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
+                  <MitsubishiProducts />
+                </div>
+              )}
+
+              {brand === "aura" && (
+                <div className="mb-2">
+                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#004178` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Carrier<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
+                  <CarrierProducts />
+                </div>
+              )}
             </div>
-
-        </div>{/* end sp-two-col */}
+          </div>
+        </div>
 
         <div className='pb-3 pt-3 mt-4'>
               <BrandsBtn />

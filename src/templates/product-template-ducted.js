@@ -426,6 +426,7 @@ const DuctedSingleProduct = ({ data }) => {
                     </div>
                     <p style={{ fontSize: 11, color: '#6b7280', margin: '2px 0 0' }}>Priority callouts, annual ducted servicing &amp; member perks.</p>
                   </div>
+                  
                 </div>
                 {clubSelected && (
                   <div style={{ display: 'flex', gap: 8, marginTop: 8, paddingLeft: 2 }}>
@@ -451,6 +452,12 @@ const DuctedSingleProduct = ({ data }) => {
                     ))}
                   </div>
                 )}
+                <Link
+                        to="/home-comfort-club/"
+                        style={{ fontSize: 11, color: '#0075C9', display: 'inline-block', marginTop: 6 }}
+                      >
+                        Learn more about the Home Comfort Club →
+                      </Link>
               </div>
 
               {/* Order summary */}
