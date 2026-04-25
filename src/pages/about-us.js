@@ -150,7 +150,7 @@ const AboutPage = () => {
       </section>
 
       {/* ── Body content ── */}
-      <div style={{ maxWidth: 1800, margin: "0 auto", padding: "24px 16px 64px" }}>
+      <div style={{ maxWidth: 1800, margin: "0 auto", padding: "24px 16px 64px", background: "#fff" }}>
         <div>
 
           {/* Stats strip */}

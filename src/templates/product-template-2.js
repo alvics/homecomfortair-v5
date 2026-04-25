@@ -65,7 +65,15 @@ const location = useLocation();
   const { pathname } = location;
 
   const [activeAccordion, setActiveAccordion] = useState('installation');
-  
+  const [clubSelected, setClubSelected] = useState(false);
+  const [clubTier, setClubTier] = useState(null);
+
+  const CLUB_TIERS = [
+    { id: 'upfront', label: '$195/yr', desc: 'Pay annually' },
+    { id: 'basic',   label: '$15/mo',  desc: 'Basic monthly' },
+    { id: 'plus',    label: '$25/mo',  desc: 'Plus monthly' },
+  ];
+
   const toggleAccordion = (eventKey, event) => {
     if (event) {
     event.stopPropagation();
@@ -236,13 +244,72 @@ const location = useLocation();
       <p className='short-description fsz-16 single-product-right-col-text shrink-text lh-base'> {title} will suit a room size of approximately {room_size}m². <br /> <span className='fsz-14'>*Price is based on a back to back installation (maximum pipe length 3 metres).</span></p>
      </div>
    
+              {/* Home Comfort Club add-on */}
+              <div style={{ marginTop: 16, marginBottom: 4 }}>
+                <div
+                  onClick={() => { setClubSelected(s => !s); if (clubSelected) setClubTier(null); }}
+                  style={{
+                    display: 'flex', alignItems: 'flex-start', gap: 10,
+                    padding: '10px 12px',
+                    border: `1.5px solid ${clubSelected ? '#0075C9' : '#e0e0e0'}`,
+                    borderRadius: 8, cursor: 'pointer',
+                    background: clubSelected ? '#f0f7ff' : '#fff',
+                    transition: 'border-color 0.15s, background 0.15s',
+                    userSelect: 'none',
+                  }}
+                >
+                  {/* Custom radio circle */}
+                  <div style={{
+                    flexShrink: 0, width: 16, height: 16, marginTop: 2,
+                    borderRadius: '50%',
+                    border: `2px solid ${clubSelected ? '#0075C9' : '#aaa'}`,
+                    background: '#fff',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    {clubSelected && <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#0075C9' }} />}
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontWeight: 700, fontSize: 13, color: '#1f2937' }}>Home Comfort Club</span>
+                      <span style={{ fontSize: 11, fontWeight: 600, color: '#0075C9', background: 'rgba(0,117,201,0.08)', borderRadius: 20, padding: '2px 8px' }}>Member</span>
+                    </div>
+                    <p style={{ fontSize: 11, color: '#6b7280', margin: '2px 0 0' }}>Priority callouts, annual service discounts &amp; member perks.</p>
+                  </div>
+                </div>
+
+                {/* Tier picker — only shown when selected */}
+                {clubSelected && (
+                  <div style={{ display: 'flex', gap: 8, marginTop: 8, paddingLeft: 2 }}>
+                    {CLUB_TIERS.map(tier => (
+                      <button
+                        key={tier.id}
+                        type="button"
+                        onClick={() => setClubTier(tier.id)}
+                        data-active={clubTier === tier.id}
+                        className="sidebar-cat-btn"
+                        style={{
+                          flex: 1, padding: '8px 4px', borderRadius: 8,
+                          border: `1.5px solid ${clubTier === tier.id ? '#0075C9' : '#e0e0e0'}`,
+                          background: clubTier === tier.id ? '#0075C9' : '#fff',
+                          cursor: 'pointer', textAlign: 'center',
+                          transition: 'all 0.15s',
+                        }}
+                      >
+                        <div style={{ fontSize: 12, fontWeight: 700 }}>{tier.label}</div>
+                        <div style={{ fontSize: 10, opacity: 0.75, marginTop: 1 }}>{tier.desc}</div>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <div className="product-actions">
 
-    <AddToCartButton 
-    product={productForCart} // Pass the new object here
+    <AddToCartButton
+    product={productForCart}
     className="mt-4 btn-- btn-primary-- "
   />
-  
+
 </div>
                
      </div>
@@ -866,7 +933,7 @@ const location = useLocation();
             </div>
             <div className='mt-3 single-product-quote-form'>
             <h5 className='pt-1'>Request a quote</h5>
-             <Form />
+             <Form productTitle={title} compact />
             </div>
      </div>
     

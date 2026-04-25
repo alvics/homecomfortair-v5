@@ -15,7 +15,7 @@ import MHIPDF from "../../images/MHI.pdf"
 export const Head = () => (
   <Fragment>
     <title>Supplied and Installed Mitsubishi Heavy Industries Split System Air Conditioners</title>
-    <meta name="description" content="Discover MHI Avanti & Bronte series split system air conditioning for your home or space. Supplied & installed prices inc GST" />
+    <meta name="description" content="Discover MHI Ciara & Bronte series split system air conditioning for your home or space. Supplied & installed prices inc GST" />
     <Seo />
     <Schema />
   </Fragment>
@@ -81,7 +81,7 @@ const MHIProductsPage = () => (
               <StaticImage filename="MHI-Logo.jpg" alt="Mitsubishi Heavy Industries logo" />
             </div>
             <h2 className="section-title" style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#1f2937", marginBottom: 16, lineHeight: 1.3 }}>
-              MHI Avanti® &amp; Bronte® Series
+              MHI Ciara® &amp; Bronte® Series
             </h2>
             <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.9, marginBottom: 16 }}>
               Backed by award-winning innovation, Mitsubishi Heavy Industries delivers seamless performance and outstanding reliability. Designed to perform in the most demanding environments — scorching summers, ice-cold winters, and everything in between — MHI systems are engineered to last.
@@ -123,7 +123,7 @@ const MHIProductsPage = () => (
               World-class engineering, delivered to your home
             </h2>
             <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.9, marginBottom: 16 }}>
-              The Avanti® series features Clean Air Technology that captures and neutralises fine smoke particles, allergens, odours, bacteria, and viruses — ideal for small and medium spaces. The Bronte® series delivers an impressive 18+ metre airflow reach in cooling mode, perfect for larger open-plan areas.
+              The Ciara® series features Clean Air Technology that captures and neutralises fine smoke particles, allergens, odours, bacteria, and viruses — ideal for small and medium spaces. The Bronte® series delivers an impressive 18+ metre airflow reach in cooling mode, perfect for larger open-plan areas.
             </p>
             <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.9 }}>
               You can depend on MHI to deliver comfort all year round. Explore our <Link to="/ducted-systems" style={{ color: "#0075C9" }}>ducted systems</Link> or <Link to="/multi-head-systems" style={{ color: "#0075C9" }}>multi-head options</Link> for whole-home coverage.
@@ -131,7 +131,7 @@ const MHIProductsPage = () => (
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {[
-              { q: "What's the difference between Avanti® and Bronte®?", a: "The Avanti® is best for small to medium rooms and includes Clean Air Technology for air purification. The Bronte® is designed for larger spaces with an 18+ metre airflow reach in 7.1–9.5kW models." },
+              { q: "What's the difference between Ciara® and Bronte®?", a: "The Ciara® is best for small to medium rooms and includes Clean Air Technology for air purification. The Bronte® is designed for larger spaces with an 18+ metre airflow reach in 7.1–9.5kW models." },
               { q: "Does MHI have Wi-Fi control?", a: "Yes. MHI's app provides remote control, scheduling, and energy monitoring from your iOS or Android smartphone — keeping you in control from anywhere." },
               { q: "What warranty does MHI offer?", a: "MHI residential split systems include a manufacturer parts and labour warranty. We also back every installation with our own 5-year workmanship warranty." },
             ].map((item, i) => (

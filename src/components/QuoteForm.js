@@ -22,6 +22,7 @@ export default class QuoteForm extends React.Component {
 
   render() {
     const { status } = this.state
+    const { productTitle, compact } = this.props
     return (
       <div>
         {!this.props.hideTitle && (
@@ -49,6 +50,24 @@ export default class QuoteForm extends React.Component {
             method="POST"
             style={{ display: "flex", flexDirection: "column", gap: 12 }}
           >
+            {productTitle && (
+              <div>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#9ca3af", margin: "0 0 5px" }}>
+                  Enquiring about:
+                </p>
+                <div style={{
+                  display: "flex", alignItems: "center", gap: 8,
+                  background: "#f1f5f9", border: "1px solid #e2e8f0",
+                  borderRadius: 10, padding: "10px 14px",
+                }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                    <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: "#374151" }}>{productTitle}</span>
+                  <input type="hidden" name="product" value={productTitle} />
+                </div>
+              </div>
+            )}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
               <input
                 style={inputStyle}
@@ -109,13 +128,14 @@ export default class QuoteForm extends React.Component {
                 background: "linear-gradient(135deg, #00c4b3 0%, #00a99a 100%)",
                 color: "#fff",
                 fontWeight: 700,
-                fontSize: 14,
-                padding: "13px 24px",
+                fontSize: compact ? 12 : 14,
+                padding: compact ? "9px 20px" : "13px 24px",
                 borderRadius: "2em",
                 border: "none",
                 cursor: "pointer",
                 letterSpacing: "0.04em",
-                width: "100%",
+                width: compact ? "auto" : "100%",
+                alignSelf: compact ? "flex-start" : "auto",
                 fontFamily: "Nunito Sans, sans-serif",
               }}
               onMouseEnter={e => e.target.style.opacity = "0.9"}

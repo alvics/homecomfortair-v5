@@ -35,10 +35,22 @@ const ADDONS = [
     price: 1350,
   },
   {
-    id: 'serviceagreement',
-    label: 'Service Agreement — 5 Years',
-    desc: 'Priority annual servicing for 5 years, keeping your system running at peak performance.',
-    price: 1000,
+    id: 'hcc_oneoff',
+    label: 'Home Comfort Club — One-Off Service',
+    desc: 'Single ducted system service by a licensed technician. Filters, drain, zones & full performance check.',
+    price: 265,
+  },
+  {
+    id: 'hcc_monthly1',
+    label: 'Home Comfort Club — $20/pm (1x Annual Visit)',
+    desc: 'Monthly membership with 1 annual service visit. Priority scheduling & discounted call-outs.',
+    price: 0,
+  },
+  {
+    id: 'hcc_monthly2',
+    label: 'Home Comfort Club — $35/pm (2x Annual Visits)',
+    desc: 'Monthly membership with 2 service visits per year. Best value whole-home protection.',
+    price: 0,
   },
 ];
 
@@ -203,52 +215,37 @@ const DuctedSingleProduct = ({ data }) => {
                   <Accordion.Header onClick={(e) => toggleAccordion('spec', e)}>Specifications</Accordion.Header>
                   <Accordion.Body>
                     <div>
-                      <div className="border capacity-table mb-3 pl-2" style={{ backgroundColor: '#f8f9fa', border: '1px solid #ccc', borderRadius: 8 }}>
-                        <table className="table table-light" style={{ marginBottom: 0 }}>
-                          <thead>
-                            <tr>
-                              <th>Brand</th>
-                              <th>Model</th>
-                              <th>Cooling</th>
-                              <th>Heating</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row" className="text-capitalize">{brand}</th>
-                              <td>{model}</td>
-                              <td>{cool_capacity}</td>
-                              <td>{heat_capacity}</td>
-                            </tr>
-                          </tbody>
-                        </table>
+                      {/* Spec tiles */}
+                      <div className="spec-tiles">
+                        <div className="spec-tile">
+                          <span className="spec-tile-label">Brand</span>
+                          <span className="spec-tile-value">{brand}</span>
+                        </div>
+                        <div className="spec-tile">
+                          <span className="spec-tile-label">Model</span>
+                          <span className="spec-tile-value">{model}</span>
+                        </div>
+                        <div className="spec-tile">
+                          <span className="spec-tile-label">Cooling</span>
+                          <span className="spec-tile-value">{cool_capacity}</span>
+                        </div>
+                        <div className="spec-tile">
+                          <span className="spec-tile-label">Heating</span>
+                          <span className="spec-tile-value">{heat_capacity}</span>
+                        </div>
                       </div>
 
                       {brand === "daikin" && (
-                        <div className='mt-4 d-flex'>
-                          <p className='p-2'>Daikin brochure </p>
-                          <a href={DaikinPDF} target="_blank" rel="noreferrer">
-                            <span className="pr-2 d-flex border rounded-3 p-1">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" className="bi bi-filetype-pdf" viewBox="0 0 16 16">
-                                <path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
-                              </svg>
-                              <span className='fsz-16 ml-2 mt-2' style={{ color: 'rgb(4, 21, 33)' }}><u>here</u></span>
-                            </span>
-                          </a>
-                        </div>
+                        <a className="spec-brochure-btn" href={DaikinPDF} target="_blank" rel="noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
+                          Daikin Brochure
+                        </a>
                       )}
                       {brand === "mitsubishi heavy industries" && (
-                        <div className='mt-4 d-flex'>
-                          <p className='p-2'>MHI brochure </p>
-                          <a href={MhiPDF} target="_blank" rel="noreferrer">
-                            <span className="pr-2 d-flex border rounded-3 p-1">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" className="bi bi-filetype-pdf" viewBox="0 0 16 16">
-                                <path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
-                              </svg>
-                              <span className='fsz-16 ml-2 mt-2' style={{ color: 'rgb(4, 21, 33)' }}><u>here</u></span>
-                            </span>
-                          </a>
-                        </div>
+                        <a className="spec-brochure-btn" href={MhiPDF} target="_blank" rel="noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/></svg>
+                          MHI Brochure
+                        </a>
                       )}
                     </div>
                   </Accordion.Body>
@@ -308,6 +305,7 @@ const DuctedSingleProduct = ({ data }) => {
                     p.sub_categories[0]?.title === brand &&
                     p.categories[0]?.title === currentCategory
                   )
+                  .sort((a, b) => parseFloat(a.cool_capacity) - parseFloat(b.cool_capacity))
                   .map((p) => {
                     const isActive = pathname.includes(p.slug);
                     return (
@@ -445,7 +443,7 @@ const DuctedSingleProduct = ({ data }) => {
                 <StaticImage filename="splits-add-11-pow-lg.png" alt="Home Comfort Air ducted systems" />
               </div>
               <div className='sp-quote-form'>
-                <Form />
+                <Form productTitle={title} compact />
               </div>
 
               <h5 className="mt-5 h6" style={{ fontWeight: 600 }}>Also recommended for you</h5>

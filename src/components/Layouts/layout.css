@@ -984,6 +984,10 @@ input[type='checkbox'] + span::before {
   line-height: 16px;
 }
 
+/* Sidebar filter buttons — override global button { color: #000 !important } */
+.sidebar-cat-btn { color: #6b7280 !important; }
+.sidebar-cat-btn[data-active="true"] { color: #fff !important; }
+
 /* FOR MOBILE  MENU   */
 
 /* .dropdown-menu {
@@ -2976,6 +2980,7 @@ gatsby-image-wrapper {
   top: 120px;
   border: 1px solid #80808026;
   border-radius: 15px;
+  padding: 20px 24px;
 }
 
 @media (max-width: 1024px) {
@@ -4599,6 +4604,72 @@ button:hover {
   font-size: 12px;
   font-weight: 600;
   padding: 4px 12px;
+}
+
+/* Spec tiles */
+.spec-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.spec-tile {
+  background: #EBF5FF;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.spec-tile-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #0075C9;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.spec-tile-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #041521;
+  text-transform: capitalize;
+}
+
+@media (max-width: 480px) {
+  .spec-tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Brochure button */
+.spec-brochure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1.5px solid #0075C9;
+  border-radius: 8px;
+  padding: 7px 14px;
+  color: #0075C9;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background 0.15s, color 0.15s;
+  margin-top: 4px;
+}
+
+.spec-brochure-btn:hover {
+  background: #0075C9;
+  color: #fff;
+}
+
+.spec-brochure-btn svg {
+  flex-shrink: 0;
 }
 
 .sp-size-label {

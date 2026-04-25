@@ -244,13 +244,13 @@ const Products = () => {
       <label style={{
         display: "flex", alignItems: "center",
         cursor: "pointer", padding: "7px 10px", borderRadius: 8,
-        background: checked ? "rgba(0,117,201,0.07)" : "transparent",
+        background: checked ? "#0075C9" : "transparent",
         transition: "background 0.15s",
       }}>
-        <input type="checkbox" onChange={onChange} checked={checked} />
+        <input type="checkbox" onChange={onChange} checked={checked} style={{ accentColor: "#fff" }} />
         <span className="shop-checkbox" style={{
           fontSize: 13, fontWeight: checked ? 700 : 500,
-          color: checked ? "#0075C9" : "#374151", textTransform: "capitalize",
+          color: checked ? "#fff" : "#374151", textTransform: "capitalize",
         }}>{label}</span>
       </label>
     </li>
@@ -346,11 +346,12 @@ const Products = () => {
             <button
               key={cat.key}
               onClick={() => handleCategoryChange(cat.key)}
+              data-active={selectedCategory === cat.key}
+              className="sidebar-cat-btn"
               style={{
                 flex: 1, padding: "8px 6px", borderRadius: 10, border: "none",
                 fontSize: 12, fontWeight: 700, cursor: "pointer",
                 background: selectedCategory === cat.key ? "#0075C9" : "#f3f4f6",
-                color: selectedCategory === cat.key ? "#fff" : "#6b7280",
                 transition: "background 0.15s, color 0.15s",
               }}
             >
@@ -424,11 +425,13 @@ const Products = () => {
                 { key: "split",  label: "Split System" },
                 { key: "ducted", label: "Ducted" },
               ].map(cat => (
-                <button key={cat.key} onClick={() => handleCategoryChange(cat.key)} style={{
+                <button key={cat.key} onClick={() => handleCategoryChange(cat.key)}
+                  data-active={selectedCategory === cat.key}
+                  className="sidebar-cat-btn"
+                  style={{
                   padding: "6px 14px", borderRadius: 20, border: "none",
                   fontSize: 12, fontWeight: 700, cursor: "pointer",
                   background: selectedCategory === cat.key ? "#0075C9" : "#f3f4f6",
-                  color: selectedCategory === cat.key ? "#fff" : "#6b7280",
                   transition: "background 0.15s",
                 }}>{cat.label}</button>
               ))}
@@ -442,25 +445,28 @@ const Products = () => {
               }}>
               <button
                 onClick={() => setSelectedBrands([])}
+                data-active={selectedBrands.length === 0}
+                className="sidebar-cat-btn"
                 style={{
                   flexShrink: 0, padding: "6px 14px", borderRadius: 20,
                   border: "1px solid #e8eef5", fontSize: 12, fontWeight: 700,
                   cursor: "pointer", whiteSpace: "nowrap",
                   background: selectedBrands.length === 0 ? "#0075C9" : "#fff",
-                  color: selectedBrands.length === 0 ? "#fff" : "#374151",
                   transition: "background 0.15s",
                 }}
               >All</button>
               {categoryBrands.map(brand => {
                 const active = selectedBrands.includes(brand);
                 return (
-                  <button key={brand} onClick={() => handleBrandFilter(brand)} style={{
+                  <button key={brand} onClick={() => handleBrandFilter(brand)}
+                    data-active={active}
+                    className="sidebar-cat-btn"
+                    style={{
                     flexShrink: 0, padding: "6px 14px", borderRadius: 20,
                     border: active ? "none" : "1px solid #e8eef5",
                     fontSize: 12, fontWeight: 700, cursor: "pointer",
                     whiteSpace: "nowrap", textTransform: "capitalize",
                     background: active ? "#0075C9" : "#fff",
-                    color: active ? "#fff" : "#374151",
                     transition: "background 0.15s",
                   }}>{brand}</button>
                 );

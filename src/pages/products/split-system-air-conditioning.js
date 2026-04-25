@@ -766,13 +766,10 @@ const ProductsPage = () => {
           borderRadius: 20,
           padding: "40px",
           marginBottom: 48,
-          maxWidth: 960,
-          marginLeft: "auto",
-          marginRight: "auto",
         }}>
           <div style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1.4fr",
+            gridTemplateColumns: "1fr minmax(300px, 500px)",
             gap: 48,
             alignItems: "stretch",
           }} className="form-section-grid">

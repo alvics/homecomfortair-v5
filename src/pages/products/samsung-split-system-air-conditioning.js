@@ -22,7 +22,7 @@ export const Head = () => (
 )
 
 const samsungFeatures = [
-  { title: "Inverter Technology", desc: "WindFree™ cooling for gentle, draught-free comfort.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> },
+  { title: "Inverter Technology", desc: "Aero™ cooling for gentle, draught-free comfort.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> },
   { title: "SmartThings App", desc: "Control your system from anywhere via Wi-Fi.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M10.54 16a6 6 0 0 1 2.92 0"/><circle cx="12" cy="20" r="1"/></svg> },
   { title: "Auto Clean", desc: "Self-cleaning function keeps the indoor unit fresh.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg> },
   { title: "Heating & Cooling", desc: "Reverse cycle for year-round climate control.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg> },
@@ -81,10 +81,10 @@ const SamsungSplitSystem = () => (
               <StaticImage filename="brands/Samsung-logo-png.png" alt="Samsung logo" />
             </div>
             <h2 className="section-title" style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#1f2937", marginBottom: 16, lineHeight: 1.3 }}>
-              Samsung WindFree™ Series
+              Samsung Aero™ Series
             </h2>
             <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.9, marginBottom: 16 }}>
-              Samsung is a globally recognised electronics brand whose air conditioning systems bring smart technology and sleek design to Australian homes. Their WindFree™ technology disperses cool air gently through thousands of micro air holes — no direct draught, maximum comfort.
+              Samsung is a globally recognised electronics brand whose air conditioning systems bring smart technology and sleek design to Australian homes. The Aero™ technology disperses cool air gently through thousands of micro air holes — no direct draught, maximum comfort.
             </p>
             <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.9 }}>
               Every system is backed by manufacturer warranty, and our <Link to="/installation-warranty" style={{ color: "#0075C9" }}>5-year installation warranty</Link> for complete peace of mind.
@@ -131,7 +131,7 @@ const SamsungSplitSystem = () => (
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {[
-              { q: "What is WindFree™ cooling?", a: "WindFree™ disperses cool air through 23,000 micro air holes — no direct cold draught, just even, gentle comfort throughout the room." },
+              { q: "What is Aero™ cooling?", a: "Aero™ disperses cool air through 23,000 micro air holes — no direct cold draught, just even, gentle comfort throughout the room." },
               { q: "Does Samsung have Wi-Fi control?", a: "Yes. Samsung units connect via the SmartThings app for remote control, scheduling, and energy monitoring from your smartphone." },
               { q: "What warranty does Samsung offer?", a: "Samsung offers 5–10 year manufacturer warranties depending on the model. We also include our own 5-year installation warranty." },
             ].map((item, i) => (

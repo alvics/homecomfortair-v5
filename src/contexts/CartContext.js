@@ -1,5 +1,5 @@
 // 1. Cart Context (src/contexts/CartContext.js)
-import React, { createContext, useContext, useReducer, useEffect } from 'react';
+import React, { createContext, useContext, useReducer, useEffect, useRef } from 'react';
 
 const CartContext = createContext();
 
@@ -58,17 +58,24 @@ const initialState = {
 
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
+  const initialized = useRef(false);
 
   // Load cart from localStorage on mount
   useEffect(() => {
     const savedCart = localStorage.getItem('hca_cart');
     if (savedCart) {
-      dispatch({ type: 'LOAD_CART', payload: JSON.parse(savedCart) });
+      try {
+        dispatch({ type: 'LOAD_CART', payload: JSON.parse(savedCart) });
+      } catch {
+        localStorage.removeItem('hca_cart');
+      }
     }
+    initialized.current = true;
   }, []);
 
-  // Save to localStorage whenever cart changes
+  // Save to localStorage whenever cart changes — skip the initial empty state
   useEffect(() => {
+    if (!initialized.current) return;
     localStorage.setItem('hca_cart', JSON.stringify(state));
   }, [state]);
 

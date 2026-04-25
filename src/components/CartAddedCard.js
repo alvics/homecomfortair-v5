@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'gatsby';
 
 const CartAddedCard = ({ product, isVisible, onClose }) => {
   useEffect(() => {
     if (isVisible) {
-      const timer = setTimeout(() => {
-        onClose();
-      }, 8000);
-      
+      const timer = setTimeout(onClose, 8000);
       return () => clearTimeout(timer);
     }
   }, [isVisible, onClose]);
@@ -15,83 +12,134 @@ const CartAddedCard = ({ product, isVisible, onClose }) => {
   if (!isVisible || !product) return null;
 
   return (
-    <div 
-      className="position-fixed"
-      style={{ 
-        top: '20px', 
-        right: '20px', 
-        zIndex: 1060,
-        maxWidth: '350px',
-        width: '100%'
-      }}
-    >
-      <div 
-        className="bg-white border shadow-lg rounded-3 p-3"
-        style={{ 
-          animation: 'slideInRight 0.4s ease-out',
-          borderColor: '#28a745'
-        }}
-      >
-        <div className="d-flex justify-content-between align-items-center mb-2">
-          <h6 className="mb-0 text-success fw-bold">
-            <svg width="16" height="16" fill="currentColor" className="me-2" viewBox="0 0 16 16">
-              <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+    <div style={{
+      position: 'fixed',
+      top: 90,
+      right: 20,
+      zIndex: 1060,
+      maxWidth: 340,
+      width: '100%',
+      animation: 'slideInRight 0.35s ease-out',
+    }}>
+      <div style={{
+        background: '#fff',
+        borderRadius: 14,
+        boxShadow: '0 8px 32px rgba(0,0,0,0.14)',
+        border: '1px solid #e8eef5',
+        overflow: 'hidden',
+      }}>
+
+        {/* Header bar */}
+        <div style={{
+          background: 'linear-gradient(135deg, #0075C9 0%, #005fa3 100%)',
+          padding: '10px 16px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="8" fill="rgba(255,255,255,0.2)" />
+              <path d="M4.5 8.5l2.5 2.5 4.5-5" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            Item Added
-          </h6>
+            <span style={{ fontSize: 13, fontWeight: 700, color: '#fff', letterSpacing: '0.01em' }}>
+              Added to Quote Cart
+            </span>
+          </div>
           <button
-            type="button"
-            className="btn-close btn-sm"
             onClick={onClose}
-          ></button>
+            style={{
+              background: 'rgba(255,255,255,0.15)',
+              border: 'none',
+              borderRadius: '50%',
+              width: 24,
+              height: 24,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              color: '#fff',
+              fontSize: 14,
+              lineHeight: 1,
+            }}
+            aria-label="Close"
+          >
+            ×
+          </button>
         </div>
 
-        <div className="d-flex align-items-start mb-3">
+        {/* Product row */}
+        <div style={{ padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
           {product.image && (
-            <img 
-              src={product.image} 
-              alt={product.title}
-              className="me-3 rounded"
-              style={{ width: '50px', height: '50px', objectFit: 'cover' }}
-            />
+            <div style={{
+              width: 60, height: 60, flexShrink: 0,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              background: '#f8fafc', borderRadius: 8, border: '1px solid #e8eef5',
+            }}>
+              <img
+                src={product.image}
+                alt={product.title}
+                style={{ width: 52, height: 52, objectFit: 'contain' }}
+              />
+            </div>
           )}
-          <div className="flex-grow-1">
-            <h6 className="mb-1 fsz-14 fw-600">{product.title}</h6>
-            <p className="mb-1 fsz-12 text-muted">
-              {product.cool_capacity} • {product.model}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <p style={{
+              margin: '0 0 3px',
+              fontSize: 13,
+              fontWeight: 700,
+              color: '#041521',
+              lineHeight: 1.35,
+              overflow: 'hidden',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+            }}>
+              {product.title}
             </p>
-            <p className="mb-0 fsz-14 fw-bold text-primary">
+            {product.cool_capacity && (
+              <p style={{ margin: '0 0 4px', fontSize: 11, color: '#9ca3af', fontWeight: 500 }}>
+                {product.cool_capacity}{product.model ? ` · ${product.model}` : ''}
+              </p>
+            )}
+            <p style={{ margin: 0, fontSize: 15, fontWeight: 800, color: '#0075C9', fontFamily: "'Figtree', sans-serif" }}>
               ${product.price}
             </p>
           </div>
         </div>
 
-        <div className="d-grid">
-          <Link 
-            to="/cart" 
-            className="btn btn-success btn-sm text-decoration-none"
+        {/* CTA */}
+        <div style={{ padding: '0 16px 16px' }}>
+          <Link
+            to="/cart"
+            style={{
+              display: 'block',
+              textAlign: 'center',
+              background: '#00c4b3',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: 13,
+              padding: '10px 0',
+              borderRadius: '2em',
+              textDecoration: 'none',
+            }}
           >
-            View Cart
+            View Quote Cart →
           </Link>
         </div>
+
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(100%);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
+          from { opacity: 0; transform: translateX(110%); }
+          to   { opacity: 1; transform: translateX(0); }
         }
-        @media (max-width: 768px) {
-          .position-fixed {
+        @media (max-width: 480px) {
+          .cart-added-wrapper {
             top: 80px !important;
-            right: 10px !important;
-            left: 10px !important;
+            right: 12px !important;
+            left: 12px !important;
             max-width: none !important;
           }
         }

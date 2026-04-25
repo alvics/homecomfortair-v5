@@ -61,8 +61,6 @@ const contactDetails = [
 
 const serviceAreas = [
   "Gold Coast", "Brisbane", "Ipswich", "Tweed Heads",
-  "Southport", "Labrador", "Runaway Bay", "Helensvale",
-  "Nerang", "Robina", "Upper Coomera", "Ashmore",
 ]
 
 const Contact = () => (
@@ -119,7 +117,7 @@ const Contact = () => (
     </div>
 
     {/* ── Body ── */}
-    <div style={{ maxWidth: 1100, margin: "0 auto", padding: "56px 24px" }}>
+    <div style={{ maxWidth: 1100, margin: "0 auto", padding: "56px 24px", background: "#fff" }}>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 56, alignItems: "start" }}>
 
         {/* Left — contact info */}
@@ -166,12 +164,12 @@ const Contact = () => (
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
             {serviceAreas.map((area, i) => (
               <span key={i} style={{
-                fontSize: 13,
-                fontWeight: 600,
-                color: "#374151",
-                background: "#f8fafc",
-                border: "1px solid #e8eef5",
-                padding: "6px 14px",
+                fontSize: 15,
+                fontWeight: 700,
+                color: "#0075C9",
+                background: "#f0f8ff",
+                border: "1px solid #dbeafe",
+                padding: "10px 22px",
                 borderRadius: 50,
               }}>
                 {area}
