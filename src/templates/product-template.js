@@ -395,8 +395,9 @@ const SingleProduct = ({ data }) => {
                     <p className="sp-short-desc">
                         {title} will suit a room size of approximately {room_size}m².<br/>
                         <span className="sp-fine-print">*Price is based on a back to back installation (maximum pipe length 3 metres).</span>
+                       
                     </p>
-
+ <p className="sp-size-label" style={{ marginBottom: 10 }}>Add ons:</p>
                     <div style={{ marginBottom: 16 }}>
                         <div
                             onClick={() => { setClubSelected(s => !s); if (clubSelected) setClubTier(null); }}
@@ -439,6 +440,7 @@ const SingleProduct = ({ data }) => {
             <div className="sp-card-sidebar">
               <div className="img-wrapper-e mb-3" style={{borderRadius:8}}><StaticImage filename="splits-add-11-pow-lg.png" alt="home comfort air image" /></div>
               <div className='sp-quote-form'><Form productTitle={title} compact /></div>
+              <hr />
               <h5 className="mt-5 h6" style={{ fontWeight: `600` }}>Also recommended for you</h5>
 
               {brand === "mitsubishi heavy industries" && (

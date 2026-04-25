@@ -500,7 +500,7 @@ const DuctedSingleProduct = ({ data }) => {
               <div className='sp-quote-form'>
                 <Form productTitle={title} compact />
               </div>
-
+<hr />
               <h5 className="mt-5 h6" style={{ fontWeight: 600 }}>Also recommended for you</h5>
 
               {brand === "daikin" && (
