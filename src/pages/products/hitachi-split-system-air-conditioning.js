@@ -64,7 +64,7 @@ const HitachiProductsPage = () => (
           </Link>
         </div>
         <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 24px 48px rgba(0,0,0,0.25)" }}>
-          <StaticImage filename="brands/Hero/Hitachi-hero.png" alt="Hitachi split system air conditioner" />
+          <StaticImage filename="hitachi-hero-6.jpg" alt="Hitachi split system air conditioner" />
         </div>
       </div>
     </section>

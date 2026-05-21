@@ -13,6 +13,7 @@
 
 html {
   font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px !important;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   height: 100%;
@@ -21,6 +22,7 @@ html {
 
 body {
   margin: 0;
+  font-size: 16px;
   background-color: #f7f7f7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -277,8 +279,8 @@ textarea {
 }
 
 ::-webkit-input-placeholder {
-  color: #0f0e0e !important;
-  opacity: 0.54;
+  color: #b0b8c5 !important;
+  opacity: 1;
   font-weight: 400;
   font-size: 1rem;
 }
@@ -340,8 +342,8 @@ h1 {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+  font-size: 36px !important;
+  line-height: 1.2;
 }
 
 h2 {
@@ -354,8 +356,8 @@ h2 {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 2rem;
-  line-height: 2;
+  font-size: 28px !important;
+  line-height: 1.3;
 }
 
 h3 {
@@ -368,8 +370,8 @@ h3 {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.38316rem;
-  line-height: 1.75;
+  font-size: 20px !important;
+  line-height: 1.4;
 }
 
 h4 {
@@ -382,8 +384,8 @@ h4 {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.5rem;
-  line-height: 1.1;
+  font-size: 18px !important;
+  line-height: 1.3;
 }
 
 h5 {
@@ -396,8 +398,8 @@ h5 {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.25rem;
-  line-height: 1.1;
+  font-size: 16px !important;
+  line-height: 1.3;
 }
 
 h6 {
@@ -1850,7 +1852,7 @@ gatsby-image-wrapper {
 }
 
 .card-heading h3 {
-  font-size: 1.1rem !important;
+  font-size: 18px !important;
   font-weight: 700 !important;
   color: #041521 !important;
   padding-top: 8px;
@@ -1958,7 +1960,7 @@ gatsby-image-wrapper {
 }
 
 .location-card-title {
-  font-size: 1.1rem !important;
+  font-size: 18px !important;
   font-weight: 700 !important;
   color: #041521 !important;
   margin-bottom: 10px !important;
@@ -3409,7 +3411,9 @@ input {
 }
 
 ::placeholder {
-  font-weight: 300;
+  color: #b0b8c5 !important;
+  opacity: 1;
+  font-weight: 400;
   font-size: 0.8rem;
   font-style: italic;
 }
@@ -4534,7 +4538,7 @@ button:hover {
 }
 
 .sp-title {
-  font-size: 22px;
+  font-size: 22px !important;
   font-weight: 700;
   color: #041521;
   line-height: 1.3;
@@ -4942,7 +4946,7 @@ button .accordion-button::after {
     gap: 2px !important;
   }
   .product-card-title {
-    font-size: 0.75rem !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
     color: #041521 !important;
     margin: 0 !important;
@@ -4973,7 +4977,7 @@ button .accordion-button::after {
 }
 
 .product-card-title {
-  font-size: 14px;
+  font-size: 14px !important;
   font-weight: 700;
   color: #041521;
   line-height: 20px;

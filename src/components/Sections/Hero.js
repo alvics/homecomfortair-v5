@@ -61,7 +61,7 @@ const Hero = () => {
                   className="hero-heading-secondary"
                   style={{ fontFamily: `'Caveat', cursive`, color: 'rgba(255,255,255,0.92)', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}
                 >
-                  Home Comfort Air — The smart choice in air conditioning
+                  Home Comfort Air — The smart choice
                 </span>
               </h2>
               <p id="hero-text" className="px-5" style={{ color: '#ffffff', textShadow: '0 1px 6px rgba(0,0,0,0.4)' }}>
