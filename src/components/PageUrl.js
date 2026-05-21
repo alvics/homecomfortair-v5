@@ -1,15 +1,20 @@
-import React from "react"
-
+import React, { useRef, useEffect } from "react"
 
 const PageURL = () => {
-  const url = typeof window !== "undefined" ? window.location.href : "" 
+  const ref = useRef(null)
+
+  useEffect(() => {
+    if (ref.current) ref.current.value = window.location.pathname
+  }, [])
 
   return (
     <input
-      style={{ fontSize: 13 }}
       type="text"
-      data={url.toString().substring(29)}
-      value={url.toString().substring(29)}
+      name="page"
+      ref={ref}
+      readOnly
+      style={{ display: "none" }}
+      aria-hidden="true"
     />
   )
 }

@@ -102,9 +102,43 @@ const CartAddedCard = ({ product, isVisible, onClose }) => {
                 {product.cool_capacity}{product.model ? ` · ${product.model}` : ''}
               </p>
             )}
-            <p style={{ margin: 0, fontSize: 15, fontWeight: 800, color: '#0075C9', fontFamily: "'Figtree', sans-serif" }}>
-              ${product.price}
-            </p>
+
+            {/* Add-on / club pills */}
+            {(product.clubTierDisplay || product.addon || product.sensorQty > 0) && (
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 3, margin: '4px 0' }}>
+                {product.clubTierDisplay && (
+                  <span style={{ fontSize: 10, background: '#e8f4fd', color: '#0075C9', padding: '2px 7px', borderRadius: '2em', fontWeight: 700 }}>
+                    HCC: {product.clubTierDisplay}
+                  </span>
+                )}
+                {product.addon && (
+                  <span style={{ fontSize: 10, background: '#e8f4fd', color: '#0075C9', padding: '2px 7px', borderRadius: '2em', fontWeight: 700 }}>
+                    {product.addon.label}
+                  </span>
+                )}
+                {product.sensorQty > 0 && (
+                  <span style={{ fontSize: 10, background: '#e8f4fd', color: '#0075C9', padding: '2px 7px', borderRadius: '2em', fontWeight: 700 }}>
+                    {product.sensorQty}× Sensor{product.sensorQty > 1 ? 's' : ''}
+                  </span>
+                )}
+              </div>
+            )}
+
+            {/* Price */}
+            {product.clubTierPrice > 0 ? (
+              <>
+                <p style={{ margin: '4px 0 1px', fontSize: 11, color: '#9ca3af', fontWeight: 500 }}>
+                  ${Number(product.price).toLocaleString()} + ${product.clubTierPrice}{product.clubTierPeriod} plan
+                </p>
+                <p style={{ margin: 0, fontSize: 15, fontWeight: 800, color: '#0075C9', fontFamily: "'Figtree', sans-serif" }}>
+                  ${(Number(product.price) + product.clubTierPrice).toLocaleString()} est.
+                </p>
+              </>
+            ) : (
+              <p style={{ margin: '4px 0 0', fontSize: 15, fontWeight: 800, color: '#0075C9', fontFamily: "'Figtree', sans-serif" }}>
+                ${Number(product.price).toLocaleString()}
+              </p>
+            )}
           </div>
         </div>
 

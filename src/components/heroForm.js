@@ -1,4 +1,5 @@
 import React from "react"
+import PageURL from "./PageUrl"
 
 export default class MyForm extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class MyForm extends React.Component {
         action="https://formspree.io/mleppppp"
         method="POST"
       >
+        <PageURL />
         <input
           style={{ fontWeight: `bold` }}
           type="text"

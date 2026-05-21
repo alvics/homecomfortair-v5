@@ -402,6 +402,7 @@ const HomeComfortClubPage = () => {
       .hcc-feature-label {
         flex: 1;
         min-width: 0;
+        white-space: nowrap;
       }
 
       .hcc-card-featured .hcc-feature-item {
@@ -762,6 +763,29 @@ const HomeComfortClubPage = () => {
             >
               {plan.cta}
             </a>
+
+            {plan.period.includes("/mo") && (
+              <p style={{
+                marginTop: 10,
+                fontSize: "0.72rem",
+                color: plan.highlight ? "rgba(255,255,255,0.55)" : "#9ca3af",
+                textAlign: "center",
+                lineHeight: 1.4,
+              }}>
+                12-month commitment ·{" "}
+                <a
+                  href="https://club.homecomfortair.net.au/terms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: plan.highlight ? "rgba(255,255,255,0.75)" : "#6b7280",
+                    textDecoration: "underline",
+                  }}
+                >
+                  View Terms
+                </a>
+              </p>
+            )}
           </div>
         ))}
       </div>

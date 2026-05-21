@@ -636,6 +636,7 @@ product-page-description{
   width: 100%;
   display: flex;
   align-items: center;
+  overflow: visible;
 }
 
 /* Logo */
@@ -646,6 +647,8 @@ product-page-description{
   display: flex;
   align-items: center;
   text-decoration: none !important;
+  overflow: visible;
+  padding: 6px 0;
 }
 
 .hca-nav-logo .gatsby-image-wrapper {

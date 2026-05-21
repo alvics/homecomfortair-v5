@@ -18,6 +18,21 @@ const CartQuoteForm = ({ cartItems }) => {
   const [status, setStatus] = useState("");
   const productsOfInterest = cartItems.map(item => item.title).join(', ');
 
+  const servicePlan = cartItems
+    .filter(item => item.clubTierDisplay)
+    .map(item => `Home Comfort Club – ${item.clubTierDisplay}`)
+    .join('; ');
+
+  const addonsSelected = cartItems
+    .filter(item => item.addon || item.sensorQty > 0)
+    .map(item => {
+      const parts = [];
+      if (item.addon) parts.push(item.addon.label);
+      if (item.sensorQty > 0) parts.push(`${item.sensorQty}× Zone Sensor${item.sensorQty > 1 ? 's' : ''}`);
+      return parts.join(', ');
+    })
+    .join('; ');
+
   const handleSubmit = (ev) => {
     ev.preventDefault();
     const form = ev.target;
@@ -62,6 +77,8 @@ const CartQuoteForm = ({ cartItems }) => {
           <form onSubmit={handleSubmit} action="https://formspree.io/f/mleppppp" method="POST"
             style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
 
+            <input type="text" name="page" ref={el => { if (el) el.value = window.location.pathname }} readOnly style={{ display: "none" }} aria-hidden="true" />
+
             {/* Products pre-filled */}
             <div>
               <label style={{ display: "block", fontSize: 12, fontWeight: 700, color: "#374151", marginBottom: 6, letterSpacing: "0.04em", textTransform: "uppercase" }}>
@@ -79,6 +96,46 @@ const CartQuoteForm = ({ cartItems }) => {
                 }}
               />
             </div>
+
+            {/* Service plan pre-filled — only shown when at least one item has a club tier */}
+            {servicePlan && (
+              <div>
+                <label style={{ display: "block", fontSize: 12, fontWeight: 700, color: "#374151", marginBottom: 6, letterSpacing: "0.04em", textTransform: "uppercase" }}>
+                  Service Plan Selected
+                </label>
+                <input
+                  type="text"
+                  name="service_plan"
+                  value={servicePlan}
+                  readOnly
+                  style={{
+                    width: "100%", padding: "11px 14px", border: "1.5px solid #e5e7eb",
+                    borderRadius: 8, fontSize: 14, fontWeight: 700, color: "#0075C9",
+                    background: "#f0f7ff", cursor: "not-allowed", boxSizing: "border-box"
+                  }}
+                />
+              </div>
+            )}
+
+            {/* Add-ons pre-filled — AirTouch, sensors etc. from ducted products */}
+            {addonsSelected && (
+              <div>
+                <label style={{ display: "block", fontSize: 12, fontWeight: 700, color: "#374151", marginBottom: 6, letterSpacing: "0.04em", textTransform: "uppercase" }}>
+                  Add-ons Selected
+                </label>
+                <input
+                  type="text"
+                  name="addons_selected"
+                  value={addonsSelected}
+                  readOnly
+                  style={{
+                    width: "100%", padding: "11px 14px", border: "1.5px solid #e5e7eb",
+                    borderRadius: 8, fontSize: 14, fontWeight: 700, color: "#0075C9",
+                    background: "#f0f7ff", cursor: "not-allowed", boxSizing: "border-box"
+                  }}
+                />
+              </div>
+            )}
 
             {/* Name + Email row */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem" }}>
@@ -134,7 +191,26 @@ const CartQuoteForm = ({ cartItems }) => {
 
 // ── Cart Content ───────────────────────────────────────────────────────────
 const CartContent = () => {
-  const { cartItems, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const { cartItems, removeFromCart, updateQuantity, updateItem, clearCart, getTotalPrice, getTotalItems } = useCart();
+
+  const removePlan = (itemId) => updateItem(itemId, {
+    clubTier: null, clubTierDisplay: null, clubTierPrice: 0, clubTierPeriod: '',
+  });
+
+  const SENSOR_PRICE = 150;
+  const MAX_SENSORS  = 8;
+
+  const adjustSensors = (item, delta) => {
+    const next = (item.sensorQty || 0) + delta;
+    if (next < 0 || next > MAX_SENSORS) return;
+    const currentPrice = parseFloat(String(item.price).replace(/[^0-9.-]+/g, '')) || 0;
+    updateItem(item.id, { sensorQty: next, price: currentPrice + delta * SENSOR_PRICE });
+  };
+
+  const removeAddon = (item) => {
+    const currentPrice = parseFloat(String(item.price).replace(/[^0-9.-]+/g, '')) || 0;
+    updateItem(item.id, { addon: null, price: currentPrice - (item.addon?.price || 0) });
+  };
 
   // ── Empty state ──────────────────────────────────────────────────────────
   if (cartItems.length === 0) {
@@ -298,9 +374,49 @@ const CartContent = () => {
                     </h3>
                   </Link>
                   {item.model && (
-                    <p style={{ fontSize: 12, color: "#9ca3af", margin: "0 0 10px", fontWeight: 500 }}>
+                    <p style={{ fontSize: 12, color: "#9ca3af", margin: "0 0 6px", fontWeight: 500 }}>
                       Model: {item.model}
                     </p>
+                  )}
+                  {(item.clubTierDisplay || item.addon || item.sensorQty > 0) && (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginBottom: 8 }}>
+                      {item.clubTierDisplay && (
+                        <span style={{ fontSize: 11, background: '#e8f4fd', color: '#0075C9', padding: '2px 8px', borderRadius: '2em', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                          HCC: {item.clubTierDisplay}
+                          <button
+                            onClick={() => removePlan(item.id)}
+                            title="Remove service plan"
+                            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: '#0075C9', fontSize: 13, lineHeight: 1, display: 'flex', alignItems: 'center' }}
+                          >×</button>
+                        </span>
+                      )}
+                      {item.addon && (
+                        <span style={{ fontSize: 11, background: '#e8f4fd', color: '#0075C9', padding: '2px 8px 2px 10px', borderRadius: '2em', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+                          {item.addon.label}
+                          <button
+                            onClick={() => removeAddon(item)}
+                            title={`Remove ${item.addon.label}`}
+                            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: '#0075C9', fontSize: 13, lineHeight: 1, display: 'flex', alignItems: 'center' }}
+                          >×</button>
+                        </span>
+                      )}
+                      {item.sensorQty > 0 && (
+                        <span style={{ fontSize: 11, background: '#e8f4fd', color: '#0075C9', padding: '2px 6px', borderRadius: '2em', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                          <button
+                            onClick={() => adjustSensors(item, -1)}
+                            title="Remove one sensor"
+                            style={{ background: 'none', border: 'none', padding: '0 2px', cursor: 'pointer', color: '#0075C9', fontSize: 14, lineHeight: 1, fontWeight: 700 }}
+                          >−</button>
+                          {item.sensorQty}× Sensor{item.sensorQty > 1 ? 's' : ''}
+                          <button
+                            onClick={() => adjustSensors(item, 1)}
+                            title="Add one sensor"
+                            disabled={item.sensorQty >= MAX_SENSORS}
+                            style={{ background: 'none', border: 'none', padding: '0 2px', cursor: item.sensorQty >= MAX_SENSORS ? 'not-allowed' : 'pointer', color: item.sensorQty >= MAX_SENSORS ? '#9ca3af' : '#0075C9', fontSize: 14, lineHeight: 1, fontWeight: 700 }}
+                          >+</button>
+                        </span>
+                      )}
+                    </div>
                   )}
                   <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
                     <span style={{ fontSize: "1.5rem", fontWeight: 700, color: "#041521", fontFamily: "'Figtree', sans-serif" }}>
@@ -343,6 +459,7 @@ const CartContent = () => {
                   </div>
                   <button
                     onClick={() => removeFromCart(item.id)}
+                    title={`Remove ${item.title} from your quote cart`}
                     style={{
                       background: "none", border: "1.5px solid #fca5a5",
                       color: "#ef4444", padding: "5px 14px", borderRadius: "2em",
@@ -369,18 +486,30 @@ const CartContent = () => {
               </h3>
 
               {cartItems.map(item => (
-                <div key={item.id} style={{ display: "flex", justifyContent: "space-between", marginBottom: 10, fontSize: 14 }}>
-                  <span style={{ color: "#374151", fontWeight: 600, maxWidth: "65%", lineHeight: 1.4 }}>{item.title}</span>
-                  <span style={{ color: "#1f2937", fontWeight: 700, whiteSpace: "nowrap" }}>
-                    ${(item.price * item.quantity).toLocaleString()}
-                  </span>
+                <div key={item.id} style={{ marginBottom: 10 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14 }}>
+                    <span style={{ color: "#374151", fontWeight: 600, maxWidth: "65%", lineHeight: 1.4 }}>{item.title}</span>
+                    <span style={{ color: "#1f2937", fontWeight: 700, whiteSpace: "nowrap" }}>
+                      ${(parseFloat(String(item.price).replace(/[^0-9.-]+/g, '')) * item.quantity).toLocaleString()}
+                    </span>
+                  </div>
+                  {item.clubTierDisplay && (
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, marginTop: 3 }}>
+                      <span style={{ color: "#6b7280" }}>HCC: {item.clubTierDisplay}</span>
+                      <span style={{ color: "#0075C9", fontWeight: 600, whiteSpace: "nowrap" }}>
+                        +${item.clubTierPrice}{item.clubTierPeriod}
+                      </span>
+                    </div>
+                  )}
                 </div>
               ))}
 
               <div style={{ borderTop: "2px solid #e8eef5", marginTop: 16, paddingTop: 16 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 800, fontSize: "1.1rem", color: "#1f2937" }}>
                   <span>Estimated Total</span>
-                  <span>${getTotalPrice().toFixed(2)}</span>
+                  <span>
+                    ${(getTotalPrice() + cartItems.reduce((sum, item) => sum + (item.clubTierPrice || 0), 0)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </span>
                 </div>
                 <p style={{ fontSize: 11, color: "#9ca3af", marginTop: 6, lineHeight: 1.4 }}>
                   Final price confirmed after site inspection. Includes supply &amp; installation.

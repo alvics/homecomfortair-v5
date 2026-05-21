@@ -1,5 +1,6 @@
 import React from "react"
 import StaticImage from "../components/StaticQueryImages"
+import PageURL from "../components/PageUrl"
 // import OrderForm from "./OrderForm"
 // import ProductTemplate from "../templates/product-template"
 
@@ -67,6 +68,7 @@ export default class Modal extends React.Component {
                   action="https://formspree.io/mleppppp"
                   method="POST"
                 >
+                  <PageURL />
                   <input
                     type="text"
                     name="first_name"

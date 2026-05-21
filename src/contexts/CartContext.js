@@ -12,7 +12,7 @@ const cartReducer = (state, action) => {
           ...state,
           items: state.items.map(item =>
             item.id === action.payload.id
-              ? { ...item, quantity: item.quantity + 1 }
+              ? { ...item, quantity: item.quantity + 1, clubTier: action.payload.clubTier, clubTierDisplay: action.payload.clubTierDisplay, clubTierPrice: action.payload.clubTierPrice, clubTierPeriod: action.payload.clubTierPeriod, addon: action.payload.addon, sensorQty: action.payload.sensorQty }
               : item
           )
         };
@@ -38,6 +38,16 @@ const cartReducer = (state, action) => {
         ).filter(item => item.quantity > 0)
       };
     
+    case 'UPDATE_ITEM':
+      return {
+        ...state,
+        items: state.items.map(item =>
+          item.id === action.payload.id
+            ? { ...item, ...action.payload.changes }
+            : item
+        )
+      };
+
     case 'CLEAR_CART':
       return {
         ...state,
@@ -96,6 +106,10 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: 'UPDATE_QUANTITY', payload: { id: productId, quantity } });
   };
 
+  const updateItem = (productId, changes) => {
+    dispatch({ type: 'UPDATE_ITEM', payload: { id: productId, changes } });
+  };
+
   const clearCart = () => {
     dispatch({ type: 'CLEAR_CART' });
   };
@@ -124,6 +138,7 @@ export const CartProvider = ({ children }) => {
       addToCart,
       removeFromCart,
       updateQuantity,
+      updateItem,
       clearCart,
       getTotalItems,
       getTotalPrice

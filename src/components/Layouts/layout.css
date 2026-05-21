@@ -4989,7 +4989,7 @@ button .accordion-button::after {
 }
 
 .product-card-price {
-  font-size: 1.5rem;
+  font-size: 22.5px;
   font-weight: 700;
   font-family: 'Figtree', sans-serif;
   color: #111827;
@@ -5007,7 +5007,7 @@ button .accordion-button::after {
 }
 
 .product-card-srp {
-  font-size: 0.78rem;
+  font-size: 0.65rem;
   color: #9ca3af;
   white-space: nowrap;
 }

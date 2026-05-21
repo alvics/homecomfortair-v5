@@ -18,6 +18,12 @@ const AddToCartButton = ({ product, className = '', onCartAdd }) => {
       slug: product.slug || product.contentful_id || product.id,
       model: product.model,
       brand: product.brand,
+      clubTier: product.clubTier || null,
+      clubTierDisplay: product.clubTierDisplay || null,
+      clubTierPrice: product.clubTierPrice || 0,
+      clubTierPeriod: product.clubTierPeriod || '',
+      addon: product.addon || null,
+      sensorQty: product.sensorQty || 0,
     };
 
     addToCart(cartProduct);

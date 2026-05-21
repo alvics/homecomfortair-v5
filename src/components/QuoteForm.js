@@ -1,4 +1,5 @@
 import React from "react"
+import PageURL from "./PageUrl"
 
 const inputStyle = {
   width: "100%",
@@ -50,6 +51,7 @@ export default class QuoteForm extends React.Component {
             method="POST"
             style={{ display: "flex", flexDirection: "column", gap: 12 }}
           >
+            <PageURL />
             {productTitle && (
               <div>
                 <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#9ca3af", margin: "0 0 5px" }}>

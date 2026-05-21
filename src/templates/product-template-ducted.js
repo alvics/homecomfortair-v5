@@ -74,9 +74,9 @@ const DuctedSingleProduct = ({ data }) => {
   const [clubSelected, setClubSelected] = useState(false);
   const [clubTier, setClubTier] = useState(null);
   const CLUB_TIERS = [
-    { id: 'upfront', label: '$265 one-off', desc: 'Single visit',    tooltip: 'One-time ducted service — filters, drain, zones & full performance check.' },
-    { id: 'basic',   label: '$20/mo',       desc: '1x annual visit', tooltip: '1 annual service visit with priority scheduling & discounted call-outs.' },
-    { id: 'plus',    label: '$35/mo',       desc: '2x annual visits', tooltip: '2 service visits per year — best value whole-home protection.' },
+    { id: 'upfront', label: '$265 one-off', desc: 'Single visit',     price: 265, period: ' (one-off)', tooltip: 'One-time ducted service — filters, drain, zones & full performance check.' },
+    { id: 'basic',   label: '$20/mo',       desc: '1x annual visit',  price: 20,  period: '/mo',        tooltip: '1 annual service visit with priority scheduling & discounted call-outs.' },
+    { id: 'plus',    label: '$35/mo',       desc: '2x annual visits', price: 35,  period: '/mo',        tooltip: '2 service visits per year — best value whole-home protection.' },
   ];
 
   const product = data.strapiProduct;
@@ -88,12 +88,26 @@ const DuctedSingleProduct = ({ data }) => {
   const gallery = data.strapiProduct.gallery;
   const images = gallery.map((item) => ({ src: item.url, alt: title }));
 
-  const productForCart = { ...product, image: product.gallery[0]?.url || '', slug: product.slug };
-
   const addonPrice = selectedAddon ? ADDONS.find(a => a.id === selectedAddon)?.price || 0 : 0;
   const sensorPrice = sensorQty * SENSOR_PRICE;
   const optionsTotal = addonPrice + sensorPrice;
   const orderTotal = (price || 0) + optionsTotal;
+
+  const selectedAddonData  = selectedAddon ? ADDONS.find(a => a.id === selectedAddon) : null;
+  const selectedClubTierData = clubSelected && clubTier ? CLUB_TIERS.find(t => t.id === clubTier) : null;
+
+  const productForCart = {
+    ...product,
+    image: product.gallery[0]?.url || '',
+    slug: product.slug,
+    price: orderTotal,
+    clubTier: clubTier || null,
+    clubTierDisplay: selectedClubTierData ? `${selectedClubTierData.label} – ${selectedClubTierData.desc}` : null,
+    clubTierPrice: selectedClubTierData?.price || 0,
+    clubTierPeriod: selectedClubTierData?.period || '',
+    addon: selectedAddonData ? { id: selectedAddon, label: selectedAddonData.label, price: selectedAddonData.price } : null,
+    sensorQty: sensorQty || 0,
+  };
 
   function CustomToggle({ children, eventKey }) {
     const decoratedOnClick = useAccordionButton(eventKey, () => {});
@@ -450,6 +464,11 @@ const DuctedSingleProduct = ({ data }) => {
                         <div style={{ fontSize: 10, opacity: 0.75, marginTop: 1, color: clubTier === tier.id ? '#fff' : '#6b7280' }}>{tier.desc}</div>
                       </button>
                     ))}
+                  </div>
+                )}
+                {clubSelected && clubTier && (
+                  <div style={{ marginTop: 8, paddingLeft: 2, fontSize: 12, color: '#0075C9', fontWeight: 600 }}>
+                    ✓ {CLUB_TIERS.find(t => t.id === clubTier)?.label} selected — added to your quote
                   </div>
                 )}
                 <Link

@@ -69,9 +69,9 @@ const SingleProduct = ({ data }) => {
   const [hoveredTier, setHoveredTier] = useState(null);
 
   const CLUB_TIERS = [
-    { id: 'upfront', label: '$195/yr', desc: 'Pay annually',   tooltip: '1 × annual service visit included' },
-    { id: 'basic',   label: '$15/mo',  desc: 'Basic monthly',  tooltip: '1 × annual service visit included' },
-    { id: 'plus',    label: '$25/mo',  desc: 'Plus monthly',   tooltip: '2 × annual service visits included' },
+    { id: 'upfront', label: '$195/yr', desc: 'Pay annually',   price: 195, period: '/yr',  tooltip: '1 × annual service visit included' },
+    { id: 'basic',   label: '$15/mo',  desc: 'Basic monthly',  price: 15,  period: '/mo',  tooltip: '1 × annual service visit included' },
+    { id: 'plus',    label: '$25/mo',  desc: 'Plus monthly',   price: 25,  period: '/mo',  tooltip: '2 × annual service visits included' },
   ];
   
   // Function to toggle the accordion state
@@ -132,10 +132,15 @@ const SingleProduct = ({ data }) => {
     }));
 
   // Create a new product object to send to the cart
+    const selectedClubTierData = clubSelected && clubTier ? CLUB_TIERS.find(t => t.id === clubTier) : null;
     const productForCart = {
         ...product,
-        image: mainImage, // Add the image URL to the object
-        slug: product.slug // Add the slug to the object
+        image: mainImage,
+        slug: product.slug,
+        clubTier: clubTier || null,
+        clubTierDisplay: selectedClubTierData ? `${selectedClubTierData.label} – ${selectedClubTierData.desc}` : null,
+        clubTierPrice: selectedClubTierData?.price || 0,
+        clubTierPeriod: selectedClubTierData?.period || '',
     };
 
  console.log(data, 'From Product-Template!!');
@@ -422,6 +427,11 @@ const SingleProduct = ({ data }) => {
                                         <div style={{ fontSize: 10, opacity: 0.75, marginTop: 1, color: clubTier === tier.id ? '#fff' : '#6b7280' }}>{tier.desc}</div>
                                     </button>
                                 ))}
+                            </div>
+                        )}
+                        {clubSelected && clubTier && (
+                            <div style={{ marginTop: 8, paddingLeft: 2, fontSize: 12, color: '#0075C9', fontWeight: 600 }}>
+                                ✓ {CLUB_TIERS.find(t => t.id === clubTier)?.label} selected — added to your quote
                             </div>
                         )}
                         <Link
