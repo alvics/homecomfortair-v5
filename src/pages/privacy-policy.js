@@ -105,7 +105,7 @@ export default function privacyPolicy() {
 
     <blockquote className="lead-20 mt-3">Home Comfort Air<br />
         Address: 22 Beitz Ave, Labrador 4215 QLD<br />
-        Email: homecomfortair.gc@gmail.com<br />
+        Email: info@homecomfortair.net.au<br />
         Phone: 0404 602 657</blockquote>
 
     <p className="lead-20 mt-3">By using our Website, you consent to the terms of this Privacy Policy. Please read this Policy carefully, and if you

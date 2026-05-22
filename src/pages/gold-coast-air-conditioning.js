@@ -94,7 +94,7 @@ const Gold_Coast = () => {
                 keep the space at the desired set temperature. Split system air
                 conditioners have advance over the years, and to learn more
                 please don’t hesitate to shoot us an{" "}
-                <a href="mailto:homecomfortair.gc@gmail.com">email</a> or give
+                <a href="mailto:info@homecomfortair.net.au">email</a> or give
                 us a call on <a href="tel:0404602657">0404 602 657</a>, and we
                 can help you with your air conditioning and determine the right
                 size air conditioning system for your home or space. We

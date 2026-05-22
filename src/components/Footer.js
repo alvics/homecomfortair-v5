@@ -25,8 +25,8 @@ const Footer = () => {
                 <a href="tel:0731050421" style={{ color: "#00c4b3", textDecoration: "none", fontWeight: 600 }}>
                   📞 0404 602 657
                 </a>
-                <a href="mailto:homecomfortair.gc@gmail.com" style={{ color: "#94a3b8", textDecoration: "none" }}>
-                  homecomfortair.gc@gmail.com
+                <a href="mailto:info@homecomfortair.net.au" style={{ color: "#94a3b8", textDecoration: "none" }}>
+                  info@homecomfortair.net.au
                 </a>
               </div>
               {/* Social */}
