@@ -1072,7 +1072,7 @@ input[type='checkbox'] + span::before {
     white-space: nowrap !important;
   }
     #section-ac-solutions {
-      margin-top: -50px !important;
+      margin-top: 0 !important;
     }
 }
 
@@ -1235,11 +1235,6 @@ input[type='checkbox'] + span::before {
 }
 }
 
-@media (min-width: 765px) and (max-width: 990px) {
-  #section-ac-solutions {
-    padding-top: 580px !important;
-  }
-}
 
 @media (max-width: 1400px) {
   /* .single-product-right-col-text {
@@ -2458,27 +2453,39 @@ gatsby-image-wrapper {
   align-self: center;
 }
 
+/* Tablets (768–991px) — stack columns, keep form visible, both full width */
 @media (max-width: 991px) {
   .hero-text-form {
-    top: 68px;
-    height: calc(100% - 68px);
+    top: 58px;
+    height: calc(100% - 58px);
     flex-direction: column !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
+    padding: 0px 20px 0 !important;
+    gap: 12px;
+    overflow: visible;
   }
   .hero-text-form .col-lg-8,
   .hero-text-form .col-lg-4,
   .hero-text-form .col-sm-12,
   .hero-text-form .col-md-12 {
     flex: none !important;
-    max-width: 480px !important;
+    max-width: 520px !important;
     width: 100% !important;
     padding-top: 0 !important;
-  }
-  .hero-text-form .col-lg-4 {
     justify-content: center !important;
     align-self: auto !important;
+  }
+}
+/* Phones only (< 768px) — hide form inside hero, mobile form card shows below */
+@media (max-width: 767px) {
+  .hero-text-form .col-lg-4 {
+    display: none !important;
+  }
+  .hero-text-form {
+    justify-content: center !important;
+    padding: 16px !important;
   }
 }
 
@@ -3220,7 +3227,8 @@ gatsby-image-wrapper {
 
 @media (max-width: 991px) {
   .hero-box {
-    display: none;
+    display: block;
+    padding: 0 8px;
   }
 }
 
@@ -5084,16 +5092,16 @@ button .accordion-button::after {
 }
 
 /* ── Nav height compensation ── */
-/* Desktop: new single-row nav is 68px */
+/* These are fallbacks only — inline topSpacing prop overrides these */
 @media (min-width: 992px) {
   .layout-site {
-    margin-top: 68px !important;
+    margin-top: 68px;
   }
 }
-/* Mobile: blue bar (~65px) + search row (~48px) = ~113px */
+/* Mobile: single-row blue bar only (~65px) — search bar was removed */
 @media (max-width: 991px) {
   .layout-site {
-    margin-top: 113px !important;
+    margin-top: 65px;
   }
 }
 
@@ -5102,5 +5110,49 @@ button .accordion-button::after {
   .brand-nav-label,
   .brand-nav-stars {
     display: none !important;
+  }
+}
+
+
+/* ── Brand Grid (BrandsBtn) ── */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.brand-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e8eef5;
+  border-radius: 12px;
+  background: #fff;
+  padding: 16px 12px 10px;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  min-height: 90px;
+}
+.brand-card:hover {
+  border-color: #0075C9;
+  box-shadow: 0 4px 16px rgba(0,117,201,0.12);
+  transform: translateY(-2px);
+}
+.brand-card-img {
+  width: 100%;
+  max-width: 120px;
+  height: 44px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 767px) {
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .brand-card-img {
+    max-width: 100px;
+    height: 38px;
   }
 }

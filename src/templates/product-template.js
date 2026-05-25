@@ -66,8 +66,6 @@ const SingleProduct = ({ data }) => {
   const [activeAccordion, setActiveAccordion] = useState('installation');
   const [clubSelected, setClubSelected] = useState(false);
   const [clubTier, setClubTier] = useState(null);
-  const [hoveredTier, setHoveredTier] = useState(null);
-
   const CLUB_TIERS = [
     { id: 'upfront', label: '$195/yr', desc: 'Pay annually',   price: 195, period: '/yr',  tooltip: '1 × annual service visit included' },
     { id: 'basic',   label: '$15/mo',  desc: 'Basic monthly',  price: 15,  period: '/mo',  tooltip: '1 × annual service visit included' },

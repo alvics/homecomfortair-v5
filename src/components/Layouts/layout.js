@@ -7,21 +7,9 @@ import DesktopNav from '../Ui/DesktopNav'
 import MobileNav from '../Ui/mobileNav'
 import Footer from "../Footer"
 
-export default function Layout({ children }) {
+export default function Layout({ children, topSpacing = '110px' }) {
 
   useEffect(() => {
-    const once = (observer, el, fn) => {
-      const handler = (entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            fn(entry)
-            obs.unobserve(entry.target)
-          }
-        })
-      }
-      return handler
-    }
-
     // Section title underline animation
     const titles = document.querySelectorAll('.section-title')
     const titleObserver = new IntersectionObserver(
@@ -150,7 +138,7 @@ export default function Layout({ children }) {
       <div
         className="layout-site"
         style={{
-          margin: `110px auto 0 auto`,
+          margin: `${topSpacing} auto 0 auto`,
           maxWidth: 1800,
           padding: `0 2rem 1.45rem`,
         }}

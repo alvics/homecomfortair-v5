@@ -10,9 +10,64 @@ import AboutSection from "../../components/AboutSection"
 const Home = () => {
 
  return (
-   <div id="section-ac-solutions" className="">
+   <div id="section-ac-solutions" className="" style={{ paddingTop: '40px' }}>
+
+          {/* ── Winter Sale Sticky Badge ── */}
+          <Link
+            to="/products"
+            style={{
+              position: "fixed",
+              bottom: 32,
+              right: 24,
+              zIndex: 999,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 88,
+              height: 88,
+              borderRadius: "50%",
+              background: "linear-gradient(135deg, #0075C9 0%, #00c4b3 100%)",
+              boxShadow: "0 4px 24px rgba(0,117,201,0.40), 0 1px 4px rgba(0,0,0,0.12)",
+              textDecoration: "none",
+              animation: "salePulse 2.4s ease-in-out infinite",
+              cursor: "pointer",
+            }}
+            className="winter-sale-badge"
+            aria-label="Winter Sale — View deals"
+          >
+            <span style={{ fontSize: 22, lineHeight: 1, marginBottom: 2 }}>❄️</span>
+            <span style={{
+              color: "#fff",
+              fontSize: 9,
+              fontWeight: 900,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              lineHeight: 1.2,
+              textAlign: "center",
+            }}>Winter<br/>Sale</span>
+            <span style={{
+              color: "rgba(255,255,255,0.85)",
+              fontSize: 8,
+              fontWeight: 700,
+              marginTop: 3,
+              letterSpacing: "0.04em",
+            }}>View Deals →</span>
+          </Link>
+
+          <style>{`
+            @keyframes salePulse {
+              0%, 100% { transform: scale(1); box-shadow: 0 4px 24px rgba(0,117,201,0.40); }
+              50%       { transform: scale(1.07); box-shadow: 0 8px 32px rgba(0,117,201,0.55); }
+            }
+            @media (max-width: 991px) {
+              .winter-sale-badge { bottom: 80px !important; right: 16px !important; }
+            }
+          `}</style>
+
      <div className="body-wrapper pt-1">
 
+          {/* 1. Air Con Solutions */}
           <section className="section-1">
             <div className="section-heading">
               <h2 className="section-title">Air Conditioning Solutions</h2>
@@ -109,15 +164,9 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-
-            <div className="mt-5 mb-3">
-            <div className="px-2"><h3 className="h6 cam my-3 fw-600">Browse our brands...</h3></div>
-
-             <BrandsBtn />
-            </div>
-
           </section>
 
+          {/* 2. How It Works — answers "is this complicated?" before showing products */}
           <section className="how-it-works-section">
             <div className="section-heading">
               <h2 className="section-title">How It Works</h2>
@@ -159,6 +208,7 @@ const Home = () => {
             </div>
           </section>
 
+          {/* 3. Split System Products — show pricing while intent is high */}
           <section className="section-2">
             <div className="section-heading">
               <h2 className="section-title">Split System Air Conditioning</h2>
@@ -178,6 +228,32 @@ const Home = () => {
             </div>
           </section>
 
+          {/* 4. Browse Our Brands — reinforces confidence after seeing products */}
+          <section style={{
+            background: "linear-gradient(135deg, #f0f6ff 0%, #f8faff 100%)",
+            borderRadius: 20,
+            border: "1px solid #e0ecfb",
+            padding: "36px 32px",
+            margin: "48px 0",
+          }}>
+            <div style={{ textAlign: "center", marginBottom: 28 }}>
+              <h2 className="section-title" style={{ fontSize: 22, marginBottom: 6 }}>Shop By Brand</h2>
+              <p style={{ color: "#64748b", fontSize: 14, margin: 0 }}>
+                We supply &amp; install all major brands — click to browse models &amp; pricing
+              </p>
+            </div>
+            <BrandsBtn />
+          </section>
+
+          {/* 5. Reviews — social proof before trust/about sections */}
+          <section id="reviews">
+            <GoogleReviewsCarousel />
+          </section>
+
+          {/* 6. Local Experts + Why Choose Us */}
+          <AboutSection />
+
+          {/* 7. Service Areas — qualifying/SEO section */}
          <section>
             <div className="section-heading">
               <h2 className="section-title">Our Service Areas</h2>
@@ -219,12 +295,6 @@ const Home = () => {
 
             </div>
          </section>
-
-          <AboutSection />
-
-          <section>
-            <GoogleReviewsCarousel />
-          </section>
 
           <section className="faq-section">
             <div className="section-heading">

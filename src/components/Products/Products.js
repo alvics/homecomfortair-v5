@@ -206,11 +206,6 @@ const Products = () => {
   }, [selectedCategory, selectedBrands, selectedCoolingCapacities, selectedPriceRanges]);
 
   // ── Counts (based on category pool) ───────────────────
-  const brandCounts = categoryBrands.reduce((acc, brand) => {
-    acc[brand] = categoryProducts.filter(p => p.sub_categories[0].title === brand).length;
-    return acc;
-  }, {});
-
   const kwCounts = coolingCapacityRanges.reduce((acc, range) => {
     acc[`${range.min}-${range.max}`] = categoryProducts.filter(p =>
       parseFloat(p.cool_capacity) >= range.min && parseFloat(p.cool_capacity) <= range.max

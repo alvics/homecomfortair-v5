@@ -1,6 +1,6 @@
 // Cart Page with Integrated Contact Form (src/pages/cart.js)
 
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Link } from 'gatsby';
 import Layout from '../components/Layouts/layout';
 import { useCart } from '../contexts/CartContext';

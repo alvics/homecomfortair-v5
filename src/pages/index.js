@@ -1,10 +1,8 @@
 import React,{ Fragment } from "react";
 import Layout from "../components/Layouts/layout";
 import Home from "../components/Home/Home";
-// import Navbar from "../components/Ui/DesktopNav"
-// import MobileNav from '../components/Ui/mobileNav'
 import HeroSection from "../components/Sections/Hero"
-// import GoogleReviewsCarousel from "../components/Sections/GoogleReviewsCarousel";
+import MyForm from "../components/QuoteForm";
 import Seo from "../components/SEO-2";
 import Schema from "../components/Schema-2";
 
@@ -82,9 +80,17 @@ const HomePage = () => {
 return (
   <div>
   <div><HeroSection /></div>
+
+  {/* Mobile-only quote form — phones only (< 768px), not tablets */}
+  <div className="d-block d-md-none" style={{ background: '#f0f6ff', padding: '24px 16px', borderBottom: '1px solid #e0ecfb' }}>
+    <p style={{ textAlign: 'center', fontWeight: 700, fontSize: 16, color: '#041521', margin: '0 0 4px' }}>Request a Free Quote</p>
+    <p style={{ textAlign: 'center', fontSize: 12, color: '#64748b', margin: '0 0 16px' }}>Free &amp; no obligation — we'll be in touch within 2 hours</p>
+    <MyForm />
+  </div>
+
   <TrustBar />
-      <Layout>
-         <div className="container-fluid px-lg-5 px-md-1 mt-5">
+      <Layout topSpacing="0">
+         <div className="container-fluid px-lg-5 px-md-3 px-2">
             <Home />
          </div>
       </Layout>

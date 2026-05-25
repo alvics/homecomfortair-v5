@@ -5,7 +5,6 @@ import styled from "styled-components"
 import Image from "gatsby-image"
 import DropdownBtn from "../DropDownBtn"
 import DropDownBrand from "../DropDownBrandBtn"
-import Search from "../Search"
 import CartIcon from "../CartIcon"
 
 const getImage = graphql`
@@ -133,14 +132,6 @@ const MobileNav = () => {
           </div>
         </div>
 
-        {/* Search bar — full width white row */}
-        <div style={{
-          backgroundColor: '#fff',
-          padding: '8px 12px',
-          borderBottom: '1px solid #e8eef5',
-        }}>
-          <Search />
-        </div>
       </div>
 
       {/* Full-screen slide-in nav panel */}

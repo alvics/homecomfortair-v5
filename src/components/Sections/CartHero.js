@@ -1,8 +1,7 @@
 import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import StaticImage from "../StaticQueryImages"
-import MyForm from '../heroForm';
 
 const Hero = () => {
   const data = useStaticQuery(graphql`

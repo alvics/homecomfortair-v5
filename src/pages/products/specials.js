@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react'
-import { Link } from "gatsby"
 import Layout from "../../components/Layouts/layout"
 import Seo from '../../components/SEO-2' 
 import StaticImage from "../../components/StaticQueryImages"
