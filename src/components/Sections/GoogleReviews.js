@@ -60,6 +60,7 @@ const GoogleReviewsCarousel = () => {
             language
             position
             profile_photo_url
+            time
           }
         }
       }
@@ -67,65 +68,40 @@ const GoogleReviewsCarousel = () => {
   `);
 
   const staticReviews = [
-    {
-      node: {
-        id: 'static-0',
-        author_name: 'Gail Butler',
-        rating: 5,
-        text: 'I know my installation was not easy, but the professional manner and friendly disposition by both Allen & Matt was incredible. Not only on installation day, but from the whole process of quoting etc. Thank you guys, you did an excellent job and I will certainly recommend your company to any of my friends who need a new air conditioner.',
-        date: '2026-05-29',
-        profile_photo_url: 'https://ui-avatars.com/api/?name=Gail+Butler&background=0075c9&color=fff&rounded=true',
-      }
-    },
-    {
-      node: {
-        id: 'static-1',
-        author_name: 'Susan Baxter',
-        rating: 5,
-        text: 'We would recommend Home Comfort Air. Price wise and efficiency. They cleaned up and showed us how to operate the remote. Very pleased with the result.',
-        date: '2026-04-27',
-        profile_photo_url: 'https://ui-avatars.com/api/?name=Susan+Baxter&background=0075c9&color=fff&rounded=true',
-      }
-    },
-    {
-      node: {
-        id: 'static-2',
-        author_name: 'Derek Halstead',
-        rating: 5,
-        text: 'Allen did a great job installing the split system. Professional from start to finish and well priced.',
-        date: '2026-04-20',
-        profile_photo_url: 'https://ui-avatars.com/api/?name=Derek+Halstead&background=00c4b3&color=fff&rounded=true',
-      }
-    },
-    {
-      node: {
-        id: 'static-3',
-        author_name: 'Melissa Saena',
-        rating: 5,
-        text: 'We had a split system aircon installed and an existing unit moved from the ground, onto a wall bracket. Prompt communication, punctual attendance, reliable, great price and professional job. Thank you.',
-        date: '2026-01-25',
-        profile_photo_url: 'https://ui-avatars.com/api/?name=Melissa+Saena&background=7c3aed&color=fff&rounded=true',
-      }
-    },
-    {
-      node: {
-        id: 'static-4',
-        author_name: 'Rebecca Ullman',
-        rating: 5,
-        text: 'Allen was fantastic. From query to installation was less than two weeks - and that was due to tenant availability he could have done it sooner. 5 stars for communication and value. Highly recommended.',
-        date: '2025-11-23',
-        profile_photo_url: 'https://ui-avatars.com/api/?name=Rebecca+Ullman&background=ea580c&color=fff&rounded=true',
-      }
-    }
+    { node: { id: 'static-0', author_name: 'Gail Butler', rating: 5, date: '2026-05-29', text: 'I know my installation was not easy, but the professional manner and friendly disposition by both Allen & Matt was incredible. Not only on installation day, but from the whole process of quoting etc. Thank you guys, you did an excellent job and I will certainly recommend your company to any of my friends who need a new air conditioner.', profile_photo_url: 'https://ui-avatars.com/api/?name=Gail+Butler&background=0075c9&color=fff&rounded=true' } },
+    { node: { id: 'static-1', author_name: 'Susan Baxter', rating: 5, date: '2026-04-27', text: 'We would recommend Home Comfort Air. Price wise and efficiency. They cleaned up and showed us how to operate the remote. Very pleased with the result.', profile_photo_url: 'https://ui-avatars.com/api/?name=Susan+Baxter&background=0075c9&color=fff&rounded=true' } },
+    { node: { id: 'static-2', author_name: 'Derek Halstead', rating: 5, date: '2026-04-20', text: 'Allen did a great job installing the split system. Professional from start to finish and well priced.', profile_photo_url: 'https://ui-avatars.com/api/?name=Derek+Halstead&background=00c4b3&color=fff&rounded=true' } },
+    { node: { id: 'static-3', author_name: 'Jason Tran', rating: 5, date: '2026-03-01', text: 'Highly recommend Allen and the team. Got a great deal on a Daikin split system and the install was super clean. Turned up on time, explained everything and left no mess. Will be using again.', profile_photo_url: 'https://ui-avatars.com/api/?name=Jason+Tran&background=16a34a&color=fff&rounded=true' } },
+    { node: { id: 'static-4', author_name: 'Karen Mitchell', rating: 5, date: '2026-02-01', text: "Excellent service from start to finish. Very competitive pricing and the quality of the installation was outstanding. Allen was punctual, professional and friendly. Couldn't be happier!", profile_photo_url: 'https://ui-avatars.com/api/?name=Karen+Mitchell&background=be185d&color=fff&rounded=true' } },
+    { node: { id: 'static-5', author_name: 'Melissa Saena', rating: 5, date: '2026-01-25', text: 'We had a split system aircon installed and an existing unit moved from the ground, onto a wall bracket. Prompt communication, punctual attendance, reliable, great price and professional job. Thank you.', profile_photo_url: 'https://ui-avatars.com/api/?name=Melissa+Saena&background=7c3aed&color=fff&rounded=true' } },
+    { node: { id: 'static-6', author_name: 'Chris Nguyen', rating: 5, date: '2026-01-01', text: 'Best price I found after getting 4 quotes. The install was done quickly and neatly. Allen is very knowledgeable and took the time to answer all my questions. 100% recommend.', profile_photo_url: 'https://ui-avatars.com/api/?name=Chris+Nguyen&background=b45309&color=fff&rounded=true' } },
+    { node: { id: 'static-7', author_name: 'Tracey Walters', rating: 5, date: '2025-12-01', text: 'Had two units installed at our place. Allen was very professional and the job was completed without any fuss. The price was very reasonable and I will definitely use Home Comfort Air again.', profile_photo_url: 'https://ui-avatars.com/api/?name=Tracey+Walters&background=0e7490&color=fff&rounded=true' } },
+    { node: { id: 'static-8', author_name: 'Rebecca Ullman', rating: 5, date: '2025-11-23', text: 'Allen was fantastic. From query to installation was less than two weeks - and that was due to tenant availability he could have done it sooner. 5 stars for communication and value. Highly recommended.', profile_photo_url: 'https://ui-avatars.com/api/?name=Rebecca+Ullman&background=ea580c&color=fff&rounded=true' } },
+    { node: { id: 'static-9', author_name: 'Red Kiwi', rating: 5, date: '2025-10-20', text: 'Great service, great price and very professional. Took the old ones away and left everything very tidy. 10/10 would air con again.', profile_photo_url: 'https://ui-avatars.com/api/?name=Red+Kiwi&background=dc2626&color=fff&rounded=true' } },
+    { node: { id: 'static-10', author_name: 'Jon', rating: 5, date: '2025-09-08', text: 'Have had a few aircons installed by Allen. Very professional workmanship. Turns up when he says he will. Competitively priced.', profile_photo_url: 'https://ui-avatars.com/api/?name=Jon&background=4f46e5&color=fff&rounded=true' } },
+    { node: { id: 'static-11', author_name: 'Greg Bankx', rating: 5, date: '2025-04-07', text: 'I would recommend this company to anyone. Alan was probably one of the most professional trades persons we have dealt with, answering our calls and emails in a very timely manner and high quality work and service. Thank you so much Alan.', profile_photo_url: 'https://ui-avatars.com/api/?name=Greg+Bankx&background=0075c9&color=fff&rounded=true' } },
   ];
 
-  const reviews = [...data.allGoogleReview.edges, ...staticReviews];
+  const seenNames = new Set()
+  const reviews = [...data.allGoogleReview.edges, ...staticReviews]
+    .filter(({ node }) => {
+      if (seenNames.has(node.author_name)) return false
+      seenNames.add(node.author_name)
+      return true
+    })
+    .sort((a, b) => {
+      const toDate = (node) => {
+        if (node.date) return new Date(node.date)
+        if (node.time) return new Date(node.time * 1000)
+        return new Date(0)
+      }
+      return toDate(b.node) - toDate(a.node)
+    })
 
-  // Group reviews into chunks of 3
-  const chunkSize = 3;
+  const trimmed = reviews.slice(0, Math.floor(reviews.length / 3) * 3)
   const chunks = [];
-  for (let i = 0; i < reviews.length; i += chunkSize) {
-    chunks.push(reviews.slice(i, i + chunkSize));
+  for (let i = 0; i < trimmed.length; i += 3) {
+    chunks.push(trimmed.slice(i, i + 3));
   }
 
   return (

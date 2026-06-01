@@ -281,6 +281,36 @@ const STATIC_REVIEWS = [
       profile_photo_url: 'https://ui-avatars.com/api/?name=Tracey+Walters&background=0e7490&color=fff&rounded=true',
     }
   },
+  {
+    node: {
+      id: 'static-9',
+      author_name: 'Red Kiwi',
+      rating: 5,
+      text: 'Great service, great price and very professional. Took the old ones away and left everything very tidy. 10/10 would air con again.',
+      date: '2025-10-20',
+      profile_photo_url: 'https://ui-avatars.com/api/?name=Red+Kiwi&background=dc2626&color=fff&rounded=true',
+    }
+  },
+  {
+    node: {
+      id: 'static-10',
+      author_name: 'Jon',
+      rating: 5,
+      text: 'Have had a few aircons installed by Allen. Very professional workmanship. Turns up when he says he will. Competitively priced.',
+      date: '2025-09-08',
+      profile_photo_url: 'https://ui-avatars.com/api/?name=Jon&background=4f46e5&color=fff&rounded=true',
+    }
+  },
+  {
+    node: {
+      id: 'static-11',
+      author_name: 'Greg Bankx',
+      rating: 5,
+      text: 'I would recommend this company to anyone. Alan was probably one of the most professional trades persons we have dealt with, answering our calls and emails in a very timely manner and high quality work and service. Thank you so much Alan.',
+      date: '2025-04-07',
+      profile_photo_url: 'https://ui-avatars.com/api/?name=Greg+Bankx&background=0075c9&color=fff&rounded=true',
+    }
+  },
 ];
 
 const GoogleReviewsCarousel = ({ mode }) => {
@@ -296,18 +326,34 @@ const GoogleReviewsCarousel = ({ mode }) => {
             text
             relative_time_description
             profile_photo_url
+            time
           }
         }
       }
     }
   `);
 
-  const reviews = [...data.allGoogleReview.edges, ...STATIC_REVIEWS];
+  const seenNames = new Set()
+  const reviews = [...data.allGoogleReview.edges, ...STATIC_REVIEWS]
+    .filter(({ node }) => {
+      if (seenNames.has(node.author_name)) return false
+      seenNames.add(node.author_name)
+      return true
+    })
+    .sort((a, b) => {
+      const toDate = (node) => {
+        if (node.date) return new Date(node.date)
+        if (node.time) return new Date(node.time * 1000)
+        return new Date(0)
+      }
+      return toDate(b.node) - toDate(a.node)
+    });
 
-  // Group into pairs for 2-per-slide
+  // Group into threes for 3-per-slide, trim to nearest multiple of 3
+  const trimmed = reviews.slice(0, Math.floor(reviews.length / 3) * 3)
   const chunks = [];
-  for (let i = 0; i < reviews.length; i += 2) {
-    chunks.push(reviews.slice(i, i + 2));
+  for (let i = 0; i < trimmed.length; i += 3) {
+    chunks.push(trimmed.slice(i, i + 3));
   }
 
   return (
@@ -419,10 +465,15 @@ const GoogleReviewsCarousel = ({ mode }) => {
         }
         .sp-review-grid {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr;
           gap: 12px;
           padding: 4px 4px 8px;
           text-align: left;
+        }
+        @media (max-width: 900px) {
+          .sp-review-grid {
+            grid-template-columns: 1fr 1fr;
+          }
         }
         @media (max-width: 600px) {
           .sp-review-grid {
