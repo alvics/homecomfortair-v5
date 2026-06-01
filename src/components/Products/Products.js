@@ -559,7 +559,7 @@ const Products = () => {
                 ))}
               </div>
               <span style={{ fontSize: 13, fontWeight: 700, color: "#1f2937" }}>5.0</span>
-              <span style={{ fontSize: 12, color: "#6b7280", borderLeft: "1px solid #e8eef5", paddingLeft: 10 }}>36 Google Reviews</span>
+              <span style={{ fontSize: 12, color: "#6b7280", borderLeft: "1px solid #e8eef5", paddingLeft: 10 }}>37 Google Reviews</span>
             </div>
 
             {/* Toolbar */}

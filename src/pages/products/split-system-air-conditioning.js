@@ -77,7 +77,7 @@ const WhyChooseUs = () => (
           <p style={{ fontWeight: 700, fontSize: 14, color: "#1f2937", margin: 0 }}>
             5.0 ★ Google Rating
           </p>
-          <p style={{ fontSize: 12, color: "#6b7280", margin: 0 }}>36 verified reviews</p>
+          <p style={{ fontSize: 12, color: "#6b7280", margin: 0 }}>37 verified reviews</p>
         </div>
       </div>
 
@@ -790,7 +790,7 @@ const ProductsPage = () => {
                   </div>
                   <div>
                     <p style={{ fontWeight: 700, fontSize: 13, color: "#fff", margin: 0 }}>5.0 Google Rating</p>
-                    <p style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", margin: 0 }}>36 verified reviews</p>
+                    <p style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", margin: 0 }}>37 verified reviews</p>
                   </div>
                 </div>
 

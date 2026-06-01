@@ -170,7 +170,7 @@ const NavBar = ({ currentBrand, isFixed }) => {
             {[...Array(5)].map((_, i) => <StarIcon key={i} />)}
           </div>
           <span style={{ fontSize: 13, fontWeight: 700, color: "#1f2937" }}>5.0</span>
-          <span className="brand-nav-review-count" style={{ fontSize: 12, color: "#6b7280", fontWeight: 500 }}>· 36 Reviews</span>
+          <span className="brand-nav-review-count" style={{ fontSize: 12, color: "#6b7280", fontWeight: 500 }}>· 37 Reviews</span>
         </a>
 
       </div>

@@ -163,7 +163,7 @@ const Footer = () => {
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
               <span style={{ color: "#facc15", fontSize: 18, letterSpacing: 2 }}>★★★★★</span>
               <span style={{ color: "#f1f5f9", fontWeight: 700, fontSize: 14 }}>5.0</span>
-              <span style={{ color: "#94a3b8", fontSize: 13 }}>· 36 Google Reviews</span>
+              <span style={{ color: "#94a3b8", fontSize: 13 }}>· 37 Google Reviews</span>
             </div>
             <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
               {["5-Year Workmanship Warranty", "Mon–Sat 8am–5pm", "Supply & Install"].map(item => (

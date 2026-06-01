@@ -24,7 +24,7 @@ export default function schema() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "36",
+      "reviewCount": "37",
       "bestRating": "5",
       "worstRating": "1"
     },

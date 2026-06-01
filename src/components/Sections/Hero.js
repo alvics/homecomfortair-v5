@@ -182,7 +182,7 @@ const Hero = () => {
                   letterSpacing: '0.01em',
                   whiteSpace: 'nowrap',
                 }}>
-                  5.0 · 36 Google Reviews
+                  5.0 · 37 Google Reviews
                 </span>
               </a>
             </div>

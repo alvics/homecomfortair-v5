@@ -194,7 +194,7 @@ const StickyBrandNav = ({ brands, onBrandClick }) => {
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
           </svg>
           <span style={{ fontSize: 12, fontWeight: 700, color: "#1f2937", WebkitTextFillColor: "#1f2937" }}>5.0</span>
-          <span style={{ fontSize: 11, color: "#6b7280", WebkitTextFillColor: "#6b7280", fontWeight: 500, whiteSpace: "nowrap" }}>· 36 Reviews</span>
+          <span style={{ fontSize: 11, color: "#6b7280", WebkitTextFillColor: "#6b7280", fontWeight: 500, whiteSpace: "nowrap" }}>· 37 Reviews</span>
         </a>
 
       </div>

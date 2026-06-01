@@ -8,7 +8,7 @@ const pillars = [
       </svg>
     ),
     label: "5.0 Stars",
-    sub: "36 Google Reviews",
+    sub: "37 Google Reviews",
   },
   {
     icon: (

@@ -13,6 +13,14 @@ const StarRating = ({ rating }) => (
 
 const GOOGLE_REVIEWS_URL = 'https://www.google.com/search?q=home+comfort+air#lrd=0x0:0x0,1';
 
+const getRelativeTime = (dateString) => {
+  const days = Math.floor((new Date() - new Date(dateString)) / 86400000)
+  if (days < 7) return `${days} day${days !== 1 ? 's' : ''} ago`
+  if (days < 30) { const w = Math.floor(days / 7); return `${w} week${w !== 1 ? 's' : ''} ago` }
+  if (days < 365) { const m = Math.floor(days / 30); return `${m} month${m !== 1 ? 's' : ''} ago` }
+  const y = Math.floor(days / 365); return `${y} year${y !== 1 ? 's' : ''} ago`
+}
+
 const ReviewCard = ({ review }) => (
   <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer" className="review-card">
     <div className="review-quote">"</div>
@@ -24,7 +32,7 @@ const ReviewCard = ({ review }) => (
       <img src={review.profile_photo_url} alt={review.author_name} className="review-avatar" />
       <div>
         <div className="review-name">{review.author_name}</div>
-        <div className="review-time">{review.relative_time_description}</div>
+        <div className="review-time">{review.date ? getRelativeTime(review.date) : review.relative_time_description}</div>
       </div>
       <div className="review-google-badge">
         <svg viewBox="0 0 24 24" width="18" height="18">
@@ -61,11 +69,21 @@ const GoogleReviewsCarousel = () => {
   const staticReviews = [
     {
       node: {
+        id: 'static-0',
+        author_name: 'Gail Butler',
+        rating: 5,
+        text: 'I know my installation was not easy, but the professional manner and friendly disposition by both Allen & Matt was incredible. Not only on installation day, but from the whole process of quoting etc. Thank you guys, you did an excellent job and I will certainly recommend your company to any of my friends who need a new air conditioner.',
+        date: '2026-05-29',
+        profile_photo_url: 'https://ui-avatars.com/api/?name=Gail+Butler&background=0075c9&color=fff&rounded=true',
+      }
+    },
+    {
+      node: {
         id: 'static-1',
         author_name: 'Susan Baxter',
         rating: 5,
         text: 'We would recommend Home Comfort Air. Price wise and efficiency. They cleaned up and showed us how to operate the remote. Very pleased with the result.',
-        relative_time_description: '5 weeks ago',
+        date: '2026-04-27',
         profile_photo_url: 'https://ui-avatars.com/api/?name=Susan+Baxter&background=0075c9&color=fff&rounded=true',
       }
     },
@@ -75,7 +93,7 @@ const GoogleReviewsCarousel = () => {
         author_name: 'Derek Halstead',
         rating: 5,
         text: 'Allen did a great job installing the split system. Professional from start to finish and well priced.',
-        relative_time_description: '6 weeks ago',
+        date: '2026-04-20',
         profile_photo_url: 'https://ui-avatars.com/api/?name=Derek+Halstead&background=00c4b3&color=fff&rounded=true',
       }
     },
@@ -85,7 +103,7 @@ const GoogleReviewsCarousel = () => {
         author_name: 'Melissa Saena',
         rating: 5,
         text: 'We had a split system aircon installed and an existing unit moved from the ground, onto a wall bracket. Prompt communication, punctual attendance, reliable, great price and professional job. Thank you.',
-        relative_time_description: '18 weeks ago',
+        date: '2026-01-25',
         profile_photo_url: 'https://ui-avatars.com/api/?name=Melissa+Saena&background=7c3aed&color=fff&rounded=true',
       }
     },
@@ -95,7 +113,7 @@ const GoogleReviewsCarousel = () => {
         author_name: 'Rebecca Ullman',
         rating: 5,
         text: 'Allen was fantastic. From query to installation was less than two weeks - and that was due to tenant availability he could have done it sooner. 5 stars for communication and value. Highly recommended.',
-        relative_time_description: '27 weeks ago',
+        date: '2025-11-23',
         profile_photo_url: 'https://ui-avatars.com/api/?name=Rebecca+Ullman&background=ea580c&color=fff&rounded=true',
       }
     }
@@ -136,7 +154,7 @@ const GoogleReviewsCarousel = () => {
         </div>
         <div className="google-rating-info">
           <span className="google-rating-score">5.0</span>
-          <span className="google-rating-count">36 Google Reviews</span>
+          <span className="google-rating-count">37 Google Reviews</span>
         </div>
       </a>
 

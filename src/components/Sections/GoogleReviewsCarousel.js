@@ -5,6 +5,14 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const GOOGLE_URL = 'https://www.google.com/search?q=home+comfort+air#lrd=0x6b914f51f3fca14b:0xf7e3f0a4a4b4e4a4,1';
 
+const getRelativeTime = (dateString) => {
+  const days = Math.floor((new Date() - new Date(dateString)) / 86400000)
+  if (days < 7) return `${days} day${days !== 1 ? 's' : ''} ago`
+  if (days < 30) { const w = Math.floor(days / 7); return `${w} week${w !== 1 ? 's' : ''} ago` }
+  if (days < 365) { const m = Math.floor(days / 30); return `${m} month${m !== 1 ? 's' : ''} ago` }
+  const y = Math.floor(days / 365); return `${y} year${y !== 1 ? 's' : ''} ago`
+}
+
 const StarRating = ({ rating }) => {
   const r = parseInt(rating, 10) || 0;
   return (
@@ -185,11 +193,21 @@ const SIZE_GUIDE = [
 const STATIC_REVIEWS = [
   {
     node: {
+      id: 'static-0',
+      author_name: 'Gail Butler',
+      rating: 5,
+      text: 'I know my installation was not easy, but the professional manner and friendly disposition by both Allen & Matt was incredible. Not only on installation day, but from the whole process of quoting etc. Thank you guys, you did an excellent job and I will certainly recommend your company to any of my friends who need a new air conditioner.',
+      date: '2026-05-29',
+      profile_photo_url: 'https://ui-avatars.com/api/?name=Gail+Butler&background=0075c9&color=fff&rounded=true',
+    }
+  },
+  {
+    node: {
       id: 'static-1',
       author_name: 'Susan Baxter',
       rating: 5,
       text: 'We would recommend Home Comfort Air. Price wise and efficiency. They cleaned up and showed us how to operate the remote. Very pleased with the result.',
-      relative_time_description: '5 weeks ago',
+      date: '2026-04-27',
       profile_photo_url: 'https://ui-avatars.com/api/?name=Susan+Baxter&background=0075c9&color=fff&rounded=true',
     }
   },
@@ -199,7 +217,7 @@ const STATIC_REVIEWS = [
       author_name: 'Derek Halstead',
       rating: 5,
       text: 'Allen did a great job installing the split system. Professional from start to finish and well priced.',
-      relative_time_description: '6 weeks ago',
+      date: '2026-04-20',
       profile_photo_url: 'https://ui-avatars.com/api/?name=Derek+Halstead&background=00c4b3&color=fff&rounded=true',
     }
   },
@@ -209,7 +227,7 @@ const STATIC_REVIEWS = [
       author_name: 'Melissa Saena',
       rating: 5,
       text: 'We had a split system aircon installed and an existing unit moved from the ground, onto a wall bracket. Prompt communication, punctual attendance, reliable, great price and professional job. Thank you.',
-      relative_time_description: '18 weeks ago',
+      date: '2026-01-25',
       profile_photo_url: 'https://ui-avatars.com/api/?name=Melissa+Saena&background=7c3aed&color=fff&rounded=true',
     }
   },
@@ -219,7 +237,7 @@ const STATIC_REVIEWS = [
       author_name: 'Rebecca Ullman',
       rating: 5,
       text: 'Allen was fantastic. From query to installation was less than two weeks - and that was due to tenant availability he could have done it sooner. 5 stars for communication and value. Highly recommended.',
-      relative_time_description: '27 weeks ago',
+      date: '2025-11-23',
       profile_photo_url: 'https://ui-avatars.com/api/?name=Rebecca+Ullman&background=ea580c&color=fff&rounded=true',
     }
   },
@@ -229,7 +247,7 @@ const STATIC_REVIEWS = [
       author_name: 'Jason Tran',
       rating: 5,
       text: 'Highly recommend Allen and the team. Got a great deal on a Daikin split system and the install was super clean. Turned up on time, explained everything and left no mess. Will be using again.',
-      relative_time_description: '3 months ago',
+      date: '2026-03-01',
       profile_photo_url: 'https://ui-avatars.com/api/?name=Jason+Tran&background=16a34a&color=fff&rounded=true',
     }
   },
@@ -239,7 +257,7 @@ const STATIC_REVIEWS = [
       author_name: 'Karen Mitchell',
       rating: 5,
       text: "Excellent service from start to finish. Very competitive pricing and the quality of the installation was outstanding. Allen was punctual, professional and friendly. Couldn't be happier!",
-      relative_time_description: '4 months ago',
+      date: '2026-02-01',
       profile_photo_url: 'https://ui-avatars.com/api/?name=Karen+Mitchell&background=be185d&color=fff&rounded=true',
     }
   },
@@ -249,7 +267,7 @@ const STATIC_REVIEWS = [
       author_name: 'Chris Nguyen',
       rating: 5,
       text: 'Best price I found after getting 4 quotes. The install was done quickly and neatly. Allen is very knowledgeable and took the time to answer all my questions. 100% recommend.',
-      relative_time_description: '5 months ago',
+      date: '2026-01-01',
       profile_photo_url: 'https://ui-avatars.com/api/?name=Chris+Nguyen&background=b45309&color=fff&rounded=true',
     }
   },
@@ -259,7 +277,7 @@ const STATIC_REVIEWS = [
       author_name: 'Tracey Walters',
       rating: 5,
       text: 'Had two units installed at our place. Allen was very professional and the job was completed without any fuss. The price was very reasonable and I will definitely use Home Comfort Air again.',
-      relative_time_description: '6 months ago',
+      date: '2025-12-01',
       profile_photo_url: 'https://ui-avatars.com/api/?name=Tracey+Walters&background=0e7490&color=fff&rounded=true',
     }
   },
@@ -320,7 +338,7 @@ const GoogleReviewsCarousel = ({ mode }) => {
           </div>
           <div className="sp-grbadge-info">
             <span className="sp-grbadge-score">5.0</span>
-            <span className="sp-grbadge-count">36 Google Reviews</span>
+            <span className="sp-grbadge-count">37 Google Reviews</span>
           </div>
         </a>
       </div>
@@ -355,7 +373,7 @@ const GoogleReviewsCarousel = ({ mode }) => {
                   <div className="sp-review-meta">
                     <p className="sp-review-name">{review.node.author_name}</p>
                     <StarRating rating={review.node.rating} />
-                    <p className="sp-review-time">{review.node.relative_time_description}</p>
+                    <p className="sp-review-time">{review.node.date ? getRelativeTime(review.node.date) : review.node.relative_time_description}</p>
                   </div>
                 </div>
                 <p className="sp-review-text">"{review.node.text}"</p>
