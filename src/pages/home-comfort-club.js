@@ -28,7 +28,7 @@ const hiwallPlans = [
       { label: "Comprehensive Tune-up", included: true },
       { label: "Priority Scheduling", included: false },
       { label: "Repair Discount", value: "0%" },
-      { label: "Call-Out Fees", value: "Standard" },
+      { label: "Customer Portal", included: false },
       { label: "Reminder Service", included: false },
       { label: "Annual Services", value: "1x (on demand)" },
     ],
@@ -45,7 +45,7 @@ const hiwallPlans = [
       { label: "Comprehensive Tune-up", included: true },
       { label: "Priority Scheduling", included: false },
       { label: "Repair Discount", value: "5% Off" },
-      { label: "Call-Out Fees", value: "Standard" },
+      { label: "Customer Portal", included: true },
       { label: "Reminder Service", included: true },
       { label: "Annual Services", value: "1x Per Year" },
     ],
@@ -62,7 +62,7 @@ const hiwallPlans = [
       { label: "Comprehensive Tune-up", included: true },
       { label: "Priority Scheduling", value: "Front of Line ⚡" },
       { label: "Repair Discount", value: "10% Off" },
-      { label: "Call-Out Fees", value: "$0 Call-Outs" },
+      { label: "Customer Portal", included: true },
       { label: "Reminder Service", included: true },
       { label: "Annual Services", value: "2x Per Year" },
     ],
@@ -82,7 +82,7 @@ const ductedPlans = [
       { label: "Full System Inspection", included: true },
       { label: "Priority Scheduling", included: false },
       { label: "Repair Discount", value: "0%" },
-      { label: "Call-Out Fees", value: "Standard" },
+      { label: "Customer Portal", included: false },
       { label: "Reminder Service", included: false },
       { label: "Annual Services", value: "1x (on demand)" },
     ],
@@ -99,7 +99,7 @@ const ductedPlans = [
       { label: "Full System Inspection", included: true },
       { label: "Priority Scheduling", included: false },
       { label: "Repair Discount", value: "5% Off" },
-      { label: "Call-Out Fees", value: "Standard" },
+      { label: "Customer Portal", included: true },
       { label: "Reminder Service", included: true },
       { label: "Annual Services", value: "1x Per Year" },
     ],
@@ -116,7 +116,7 @@ const ductedPlans = [
       { label: "Full System Inspection", included: true },
       { label: "Priority Scheduling", value: "Front of Line ⚡" },
       { label: "Repair Discount", value: "10% Off" },
-      { label: "Call-Out Fees", value: "$0 Call-Outs" },
+      { label: "Customer Portal", included: true },
       { label: "Reminder Service", included: true },
       { label: "Annual Services", value: "2x Per Year" },
     ],
@@ -148,9 +148,10 @@ const externalChecks = [
 const tcItems = [
   { title: "Membership Agreement", body: "This is a 12-month minimum commitment. Payments are processed monthly via secure direct debit." },
   { title: "Service Scheduling", body: "It is the member's responsibility to contact us to book their included service(s). We will send a reminder notification 30 days prior to the due date." },
+  { title: "First Service Eligibility", body: "Members are eligible to book their first included service as soon as their initial payment is processed — no waiting period. Basic Saver members receive 1 service per year from sign-up. Family Comfort members receive 2 services per year: the first available immediately, the second from the 6-month mark." },
   { title: "Priority Status", body: '"Priority Scheduling" means members are moved to the front of our dispatch list during high-demand periods (e.g., peak heatwaves).' },
   { title: "Repair Discounts", body: "Discounts apply to standard parts and labor rates. They cannot be combined with other promotional offers." },
-  { title: "Call-Out Fees", body: 'For "Family Comfort" members, the $0 call-out fee applies to standard service hours (Mon–Fri, 7am–4pm).' },
+  { title: "Customer Portal", body: "Basic Saver and Family Comfort members get access to the member portal — view service history, manage your membership, update billing, and track upcoming services. Access is sent via email on sign-up. Selling your home? Your full service history can be transferred to the new owners, adding real value at settlement and giving buyers confidence in the system." },
   { title: "Cancellation", body: "Memberships can be cancelled after the initial 12-month term with 30 days' notice." },
 ]
 
@@ -667,6 +668,97 @@ const HomeComfortClubPage = () => {
         color: #fff;
         background: rgba(255,255,255,0.1);
       }
+
+      .hcc-why-section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 60px 20px;
+      }
+
+      .hcc-why-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      @media (min-width: 640px) {
+        .hcc-why-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .hcc-why-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .hcc-why-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 28px 24px;
+        border: 1px solid #deedf9;
+        box-shadow: 0 2px 12px rgba(0,117,201,0.06);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hcc-why-card-featured {
+        background: linear-gradient(145deg, #0075c9, #005ba3);
+        border-color: #0075c9;
+        box-shadow: 0 8px 32px rgba(0,117,201,0.28);
+      }
+
+      .hcc-why-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e8f4fd;
+        flex-shrink: 0;
+      }
+
+      .hcc-why-card-featured .hcc-why-icon {
+        background: rgba(255,255,255,0.18);
+      }
+
+      .hcc-why-title {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #1a1a1a;
+        margin: 0;
+      }
+
+      .hcc-why-card-featured .hcc-why-title {
+        color: #fff;
+      }
+
+      .hcc-why-body {
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .hcc-why-card-featured .hcc-why-body {
+        color: rgba(255,255,255,0.82);
+      }
+
+      .hcc-why-tag {
+        display: inline-block;
+        background: #ffc107;
+        color: #1a1a1a;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 50px;
+        align-self: flex-start;
+      }
     `}</style>
 
     <div className="hcc-page">
@@ -788,6 +880,78 @@ const HomeComfortClubPage = () => {
             )}
           </div>
         ))}
+      </div>
+
+      {/* ── WHY CHOOSE HOME COMFORT CLUB ── */}
+      <div className="hcc-why-section">
+        <h2 className="hcc-section-title">Why Choose Home Comfort Club?</h2>
+        <p className="hcc-section-sub" style={{ marginBottom: 40 }}>
+          Especially if you've just had a new system installed — here's why membership makes sense from day one.
+        </p>
+        <div className="hcc-why-grid">
+
+          <div className="hcc-why-card hcc-why-card-featured">
+            <span className="hcc-why-tag">Most Important</span>
+            <div className="hcc-why-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 className="hcc-why-title">Keep Your Warranties Valid</h3>
+            <p className="hcc-why-body">
+              Most manufacturers require annual professional servicing to keep your warranty active. The same applies to your installation warranty. Skipping a service could void both — leaving you unprotected on a $3,000–$8,000 system.
+            </p>
+          </div>
+
+          <div className="hcc-why-card">
+            <div className="hcc-why-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0075c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 className="hcc-why-title">Lower Energy Bills</h3>
+            <p className="hcc-why-body">
+              A dirty or poorly tuned system can use up to 25% more electricity to reach the same temperature. Regular servicing keeps your unit running at peak efficiency all year.
+            </p>
+          </div>
+
+          <div className="hcc-why-card">
+            <div className="hcc-why-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00c4b3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3 className="hcc-why-title">Catch Problems Early</h3>
+            <p className="hcc-why-body">
+              Small issues — low refrigerant, loose wiring, mould build-up — are cheap to fix early and expensive to ignore. Our 15-point check catches them before they become a breakdown.
+            </p>
+          </div>
+
+          <div className="hcc-why-card">
+            <div className="hcc-why-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0075c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h3 className="hcc-why-title">Priority in Peak Summer</h3>
+            <p className="hcc-why-body">
+              When a Queensland heatwave hits and everyone's AC breaks at once, members jump the queue. Non-members can wait days — you won't.
+            </p>
+          </div>
+
+          <div className="hcc-why-card">
+            <div className="hcc-why-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00c4b3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3 className="hcc-why-title">Adds Value to Your Home</h3>
+            <p className="hcc-why-body">
+              A fully documented service history stored in your member portal is a genuine selling point. Buyers love seeing a well-maintained system — and it shows at inspection time.
+            </p>
+          </div>
+
+          <div className="hcc-why-card">
+            <div className="hcc-why-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0075c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+            </div>
+            <h3 className="hcc-why-title">Cleaner Air, Healthier Home</h3>
+            <p className="hcc-why-body">
+              Dirty filters and mould on coils circulate allergens and bacteria through your home. Regular servicing means the air your family breathes is clean, fresh, and safe.
+            </p>
+          </div>
+
+        </div>
       </div>
 
       {/* ── 15-POINT CHECK ── */}

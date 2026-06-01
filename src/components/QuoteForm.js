@@ -45,6 +45,18 @@ export default class QuoteForm extends React.Component {
             <p style={{ fontSize: 14, color: "#4b5563", margin: 0 }}>We'll be in touch within a few hours.</p>
           </div>
         ) : (
+          <><style>{`
+            .qf-input-row {
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 12px;
+            }
+            @media (min-width: 640px) {
+              .qf-input-row {
+                grid-template-columns: 1fr 1fr;
+              }
+            }
+          `}</style>
           <form
             onSubmit={this.submitForm}
             action="https://formspree.io/f/mleppppp"
@@ -70,7 +82,7 @@ export default class QuoteForm extends React.Component {
                 </div>
               </div>
             )}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+            <div className="qf-input-row">
               <input
                 style={inputStyle}
                 type="text"
@@ -89,7 +101,7 @@ export default class QuoteForm extends React.Component {
                 onBlur={e => { e.target.style.borderColor = "#e2e8f0"; e.target.style.background = "#f8fafc" }}
               />
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+            <div className="qf-input-row">
               <input
                 style={inputStyle}
                 type="text"
@@ -150,6 +162,7 @@ export default class QuoteForm extends React.Component {
               No obligation · Usually replied within a few hours
             </p>
           </form>
+          </>
         )}
       </div>
     )
