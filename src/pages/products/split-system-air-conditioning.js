@@ -42,6 +42,20 @@ export const Head = () => (
       url="https://homecomfortair.net.au/products/split-system-air-conditioning/"
     />
     <Schema />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": FAQ_ITEMS.map(item => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.a,
+          },
+        })),
+      })}
+    </script>
   </Fragment>
 )
 
@@ -293,6 +307,7 @@ const FaqAccordion = ({ items = FAQ_ITEMS }) => {
         <div key={i} style={{ borderBottom: "1px solid #e8eef5" }}>
           <button
             onClick={() => setOpen(open === i ? null : i)}
+            aria-expanded={open === i}
             style={{
               width: "100%",
               display: "flex",
@@ -311,11 +326,18 @@ const FaqAccordion = ({ items = FAQ_ITEMS }) => {
               {open === i ? "−" : "+"}
             </span>
           </button>
-          {open === i && (
-            <p style={{ fontSize: 13, color: "#4b5563", lineHeight: 1.75, paddingBottom: 16, marginTop: 0 }}>
-              {item.a}
-            </p>
-          )}
+          <p style={{
+            fontSize: 13,
+            color: "#4b5563",
+            lineHeight: 1.75,
+            marginTop: 0,
+            maxHeight: open === i ? "500px" : 0,
+            paddingBottom: open === i ? 16 : 0,
+            overflow: "hidden",
+            transition: "max-height 0.2s ease, padding-bottom 0.2s ease",
+          }}>
+            {item.a}
+          </p>
         </div>
       ))}
     </div>

@@ -196,7 +196,17 @@ const TcAccordion = ({ title, body }) => {
           ▼
         </span>
       </button>
-      {open && <p className="hcc-tc-body">{body}</p>}
+      <p
+        className="hcc-tc-body"
+        style={{
+          maxHeight: open ? "500px" : 0,
+          paddingBottom: open ? 18 : 0,
+          overflow: "hidden",
+          transition: "max-height 0.2s ease, padding-bottom 0.2s ease",
+        }}
+      >
+        {body}
+      </p>
     </div>
   )
 }

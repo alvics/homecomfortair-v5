@@ -20,6 +20,7 @@ import Schema from "../components/Schema-2";
 import Seo from "../components/SEO-2";
 import AddToCartButton from '../components/AddToCartButton';
 import CartAddedCard from '../components/CartAddedCard';
+import { buildProductSchema } from '../utils/productSchema';
 
 const ADDONS = [
   {
@@ -47,6 +48,9 @@ export const Head = ({ data }) => {
       <meta name="description" content={`Supplied & installed ${product.title}${product.price ? ` from $${product.price}` : ''} incl GST. Ducted air conditioning by Home Comfort Air.`} />
       <Seo />
       <Schema />
+      <script type="application/ld+json">
+        {JSON.stringify(buildProductSchema(product, "Ducted Air Conditioner"))}
+      </script>
     </Fragment>
   );
 };

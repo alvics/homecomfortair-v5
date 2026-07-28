@@ -42,6 +42,7 @@ import Schema from "../components/Schema-2";
 import Seo from "../components/SEO-2";
 import AddToCartButton from '../components/AddToCartButton';
 import CartAddedCard from '../components/CartAddedCard';
+import { buildProductSchema } from '../utils/productSchema';
 
 // Using the Head API to dynamically set the title for SEO
 export const Head = ({ data }) => {
@@ -52,6 +53,9 @@ export const Head = ({ data }) => {
       <meta name="description" content={`Supplied & installed ${product.title} for $${product.price} incl GST. Split System air conditioning by Home Comfort Air.`} />
         <Seo />
       <Schema />
+      <script type="application/ld+json">
+        {JSON.stringify(buildProductSchema(product, "Split System Air Conditioner"))}
+      </script>
     </Fragment>
   );
 };

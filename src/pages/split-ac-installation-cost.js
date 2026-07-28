@@ -15,6 +15,20 @@ export const Head = () => (
     <meta name="description" content="Discover what affects split system AC installation costs in South East Queensland. Supplied & installed prices from $1,099. Get a free quote today." />
     <Seo />
     <Schema />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(item => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.a,
+          },
+        })),
+      })}
+    </script>
   </Fragment>
 )
 
@@ -93,6 +107,7 @@ const FaqItem = ({ q, a }) => {
     }}>
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
         style={{
           width: "100%",
           background: "none",
@@ -109,9 +124,16 @@ const FaqItem = ({ q, a }) => {
         <span style={{ fontSize: 16, fontWeight: 700, color: "#1f2937" }}>{q}</span>
         <span style={{ color: "#0075C9", fontSize: 22, flexShrink: 0, fontWeight: 300 }}>{open ? "−" : "+"}</span>
       </button>
-      {open && (
-        <p style={{ fontSize: 15, color: "#374151", lineHeight: 1.75, marginTop: 12, marginBottom: 0 }}>{a}</p>
-      )}
+      <p style={{
+        fontSize: 15,
+        color: "#374151",
+        lineHeight: 1.75,
+        marginTop: open ? 12 : 0,
+        marginBottom: 0,
+        maxHeight: open ? "500px" : 0,
+        overflow: "hidden",
+        transition: "max-height 0.2s ease, margin-top 0.2s ease",
+      }}>{a}</p>
     </div>
   )
 }
