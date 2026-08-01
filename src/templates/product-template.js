@@ -14,7 +14,6 @@ import GoldStars from '../components/Products/GoldStars';
 import MitsubishiArticle from '../components/Mitsubishi-md-query';
 import Layout from '../components/Layouts/layout';
 import Accordion from 'react-bootstrap/Accordion';
-import { useAccordionButton } from 'react-bootstrap/AccordionButton';
 import GoogleReviewsCarousel from '../components/Sections/GoogleReviewsCarousel';
 import Form from "../components/QuoteForm";
 import StaticImage from "../components/StaticQueryImages";
@@ -108,24 +107,6 @@ const SingleProduct = ({ data }) => {
    const currentCategory = product.categories[0]?.title || '';
 
 
-    // Custom Accordion Toggle button
-    function CustomToggle({ children, eventKey }) {
-    const decoratedOnClick = useAccordionButton(eventKey, () =>
-      console.log('totally custom!'),
-    );
-  
-    return (
-      <button
-        type="button"
-        className='mt-3'
-        style={{ backgroundColor: 'transparent', marginRight:'20px' }}
-        onClick={decoratedOnClick}
-      >
-        {children}
-      </button>
-    );
-  }
- 
     // Prepare images for the Carousel component
     const gallery = data.strapiProduct.gallery;
     const images = gallery.map((item) => ({
@@ -180,7 +161,7 @@ const SingleProduct = ({ data }) => {
               </div>
  
                 <Accordion defaultActiveKey="0" activeKey={activeAccordion}>
-                  <Accordion.Item eventKey="installation" activeKey={activeAccordion}>
+                  <Accordion.Item eventKey="installation">
                     <Accordion.Header onClick={(event) => toggleAccordion('installation',event)}>Installation</Accordion.Header>
                     <Accordion.Body>
                       <div className="mb-3 single-product-add">
@@ -225,7 +206,7 @@ const SingleProduct = ({ data }) => {
                       <Accordion className='custom-accordion'>
                         <Accordion.Item eventKey="add">
                           <Accordion.Header id="add-charges">
-                            <CustomToggle className="custom-btn" onClick={(event) => toggleAccordion('add', event)}>Additional charges may apply <i className="fa-solid fa-chevron-down"></i></CustomToggle>
+                            Additional charges may apply <i className="fa-solid fa-chevron-down"></i>
                           </Accordion.Header>
                           <Accordion.Body>
                             <div className="mb-4">
@@ -334,13 +315,14 @@ const SingleProduct = ({ data }) => {
             <div className="sp-card-details product-page-description">
                 <div className='single-product-right-col'>
 
-                    {/* Sale badge */}
+                    {/* Sale badge — disabled for now, re-enable when the sale is back on
                     <div className="sp-sale-badge">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="9" height="9">
                         <path d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                       </svg>
                       Sale
                     </div>
+                    */}
 
                     {/* Title */}
                     <h1 className="sp-title">{title}</h1>
@@ -360,7 +342,9 @@ const SingleProduct = ({ data }) => {
                             <span className="sp-dollar">$</span>
                             <span className="sp-price">{price.toLocaleString()}</span>
                         </div>
+                        {/* SRP — disabled for now, re-enable when the sale is back on
                         <span className="sp-srp"><del>SRP ${(price + 100).toLocaleString()}</del></span>
+                        */}
                     </div>
 
                     <hr className="sp-divider" />

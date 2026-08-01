@@ -138,6 +138,7 @@ const MobileNav = () => {
       <MenuLinks id="menu-wrapper-mobile" nav={nav}>
         <ul>
           <li><Link to="/about-us" onClick={() => showNav(false)}>About</Link></li>
+          <li><Link to="/gallery" onClick={() => showNav(false)}>Gallery</Link></li>
           <li><Link to="/products" onClick={() => showNav(false)}>Pricing</Link></li>
           <li><DropdownBtn onNavigate={() => showNav(false)} /></li>
           <li><DropDownBrand onNavigate={() => showNav(false)} /></li>
@@ -157,16 +158,17 @@ const MobileNav = () => {
             </Link>
           </li>
           <li style={{ border: 'none' }}>
-            <Link
-              to="https://www.facebook.com/Home-Comfort-Air-1713459065551004/?ref=bookmarks"
-              target="blank"
+            <a
+              href="https://www.facebook.com/Home-Comfort-Air-1713459065551004/?ref=bookmarks"
+              target="_blank"
+              rel="noreferrer"
               style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#9ca3af', fontSize: '13px', padding: '12px 24px' }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="#1877f2">
                 <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
               </svg>
               Follow us on Facebook
-            </Link>
+            </a>
           </li>
         </ul>
       </MenuLinks>

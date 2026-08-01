@@ -71,6 +71,7 @@ const DesktopNav = () => {
           {/* Primary links */}
           <div className="hca-nav-links">
             <Link to="/about-us">About</Link>
+            <Link to="/gallery">Gallery</Link>
             <Link to="/products">Pricing</Link>
 
             <ServicesMegaMenu

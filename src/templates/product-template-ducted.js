@@ -288,7 +288,9 @@ const DuctedSingleProduct = ({ data }) => {
                       <span className="sp-dollar">$</span>
                       <span className="sp-price">{price.toLocaleString()}</span>
                     </div>
+                    {/* SRP — disabled for now, re-enable when the sale is back on
                     <span className="sp-srp"><del>SRP ${(price + 500).toLocaleString()}</del></span>
+                    */}
                   </>
                 ) : (
                   <span style={{ fontSize: 18, fontWeight: 700, color: '#0075C9' }}>POA — Contact us for pricing</span>

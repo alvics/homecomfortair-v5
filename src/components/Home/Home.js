@@ -6,13 +6,14 @@ import BrandsBtn from "../../components/BrandsBtn"
 import GoogleReviewsCarousel from "../Sections/GoogleReviews"
 import HaierSplitSystems from "../Products/HaierSplitSystems"
 import AboutSection from "../../components/AboutSection"
+import FeatureBubble from "../../components/FeatureBubble"
 
 const Home = () => {
 
  return (
    <div id="section-ac-solutions" className="" style={{ paddingTop: '40px' }}>
 
-          {/* ── Winter Sale Sticky Badge ── */}
+          {/* ── Winter Sale Sticky Badge — disabled for now, re-enable when the sale is back on
           <Link
             to="/products"
             style={{
@@ -64,6 +65,7 @@ const Home = () => {
               .winter-sale-badge { bottom: 80px !important; right: 16px !important; }
             }
           `}</style>
+          */}
 
      <div className="body-wrapper pt-1">
 
@@ -252,6 +254,87 @@ const Home = () => {
 
           {/* 6. Local Experts + Why Choose Us */}
           <AboutSection />
+
+          {/* 6.5 Home Comfort Club — protect the investment once trust is established */}
+          <section style={{
+            background: "linear-gradient(135deg, #0075C9 0%, #005fa3 100%)",
+            borderRadius: 20,
+            padding: "48px 40px",
+            margin: "48px 0",
+            position: "relative",
+            overflow: "hidden",
+          }}>
+            <FeatureBubble />
+            <div style={{ position: "relative", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 48, alignItems: "center" }}>
+              <div>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", marginBottom: 12 }}>
+                  Maintenance Plans
+                </p>
+                <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#fff", marginBottom: 16, lineHeight: 1.3 }}>
+                  Keep Your System Running — and Your Warranty Valid
+                </h2>
+                <p style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", lineHeight: 1.7, marginBottom: 24, maxWidth: 480 }}>
+                  Most manufacturers require annual servicing to keep your warranty active. Home Comfort Club covers your scheduled service, priority booking in peak summer, and a full 15-point performance check — from just $15/month.
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 28 }}>
+                  {[
+                    "Keep manufacturer & installation warranties valid",
+                    "Priority scheduling during summer heatwaves",
+                    "Up to 25% lower energy bills from a tuned system",
+                    "Documented service history — adds value at resale",
+                  ].map((text, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <span style={{ width: 22, height: 22, borderRadius: "50%", background: "rgba(255,255,255,0.15)", color: "#fff", fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>✓</span>
+                      <span style={{ fontSize: 15, color: "rgba(255,255,255,0.9)" }}>{text}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link to="/home-comfort-club" style={{
+                  display: "inline-block", background: "#00c4b3", color: "#fff",
+                  fontWeight: 700, fontSize: 14, padding: "13px 32px", borderRadius: "2em", textDecoration: "none",
+                }}>
+                  Join Home Comfort Club →
+                </Link>
+              </div>
+
+              <div style={{ background: "#fff", borderRadius: 16, padding: "32px 28px", boxShadow: "0 16px 40px rgba(0,0,0,0.2)", maxWidth: 420, marginLeft: "auto" }}>
+                <span style={{
+                  display: "inline-block", background: "#e8f4fd", color: "#0075C9",
+                  fontSize: 11, fontWeight: 800, letterSpacing: "0.05em", textTransform: "uppercase",
+                  padding: "4px 12px", borderRadius: "2em", marginBottom: 16,
+                }}>
+                  Most Popular
+                </span>
+                <p style={{ fontSize: 13, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 4px" }}>
+                  Family Comfort Plan
+                </p>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 20 }}>
+                  <span style={{ fontSize: 40, fontWeight: 900, color: "#1a1a1a", lineHeight: 1 }}>$25</span>
+                  <span style={{ fontSize: 14, color: "#777", fontWeight: 600 }}>/mo + GST</span>
+                </div>
+                <hr style={{ border: "none", borderTop: "1px solid #eef0f3", marginBottom: 20 }} />
+                <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 24 }}>
+                  {[
+                    "2x services per year",
+                    "Front-of-line priority booking",
+                    "10% off all repairs",
+                    "Online member portal & reminders",
+                  ].map((text, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <span style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(0,117,201,0.12)", color: "#0075C9", fontWeight: 700, fontSize: 12, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>✓</span>
+                      <span style={{ fontSize: 14, color: "#374151", fontWeight: 600 }}>{text}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link to="/home-comfort-club" style={{
+                  display: "block", textAlign: "center", background: "#0075C9", color: "#fff",
+                  fontWeight: 800, fontSize: 14, padding: "13px", borderRadius: 12, textDecoration: "none",
+                }}>
+                  View All Plans &amp; Pricing
+                </Link>
+              </div>
+            </div>
+          </section>
 
           {/* 7. Service Areas — qualifying/SEO section */}
          <section>

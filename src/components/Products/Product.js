@@ -27,12 +27,14 @@ const Product = ({ title, image, price, slug, isOnSpecial, id, brandLabel, brand
               {brandLabel}
             </span>
           )}
+          {/* Sale badge — disabled for now, re-enable when the sale is back on
           <span className="product-sale-badge">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="9" height="9">
               <path d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
             </svg>
             Sale
           </span>
+          */}
         </div>
 
         <div className="product-card-img">
@@ -45,12 +47,16 @@ const Product = ({ title, image, price, slug, isOnSpecial, id, brandLabel, brand
           {price && isOnSpecial ? (
             <div className="product-card-pricing">
               <span className="product-card-price"><sup>$</sup>{isOnSpecial.toLocaleString()}</span>
+              {/* SRP — disabled for now, re-enable when the sale is back on
               <span className="product-card-srp"><del>${(price + 100).toLocaleString()}</del></span>
+              */}
             </div>
           ) : (
             <div className="product-card-pricing">
               <span className="product-card-price"><sup>$</sup>{price.toLocaleString()}</span>
+              {/* SRP — disabled for now, re-enable when the sale is back on
               <span className="product-card-srp">SRP <del>${(price + 100).toLocaleString()}</del></span>
+              */}
             </div>
           )}
           <p className="product-supplied-text">Supplied &amp; Installed</p>

@@ -17,14 +17,15 @@ const MHIDuctedSystems = () => {
           <Link to={`/products/${product.slug}`} key={product.id}>
             <article className="product-card">
               <div className="product-card-badge-row">
-                {product.isOnSpecial && (
+                {/* Sale badge — disabled for now, re-enable when the sale is back on
+                product.isOnSpecial && (
                   <span className="product-sale-badge">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="9" height="9">
                       <path d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                     </svg>
                     Sale
                   </span>
-                )}
+                ) */}
               </div>
               <div className="product-card-img" style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: 180 }}>
                 {product.image?.url ? (

@@ -28,3 +28,14 @@
   export const wrapRootElement = ({ element }) => {
   return <CartProvider>{element}</CartProvider>;
 };
+
+// Always land at the top of the page on navigation, instead of Gatsby
+// replaying whatever scroll position that URL was left at earlier in
+// the session. In-page anchors (e.g. #quote, #reviews) still work since
+// we skip the override when the destination URL has a hash.
+export const shouldUpdateScroll = ({ routerProps: { location } }) => {
+  if (!location.hash) {
+    window.scrollTo(0, 0)
+  }
+  return false
+}

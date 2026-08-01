@@ -1,267 +1,436 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import StaticImage from '../components/StaticQueryImages';
 import ReactMarkdown from 'react-markdown';
+import Layout from '../components/Layouts/layout';
 import Form from '../components/QuoteForm';
-import DesktopNav from '../components/Ui/DesktopNav';
-import MobileNav from '../components/Ui/mobileNav';
-import Footer from '../components/Footer';
-import Faq from '../components/FaqServiceArea';
-import MyForm from '../components/heroForm';
+import FeatureBubble from '../components/FeatureBubble';
+import StaticImage from '../components/StaticQueryImages';
+import BrandsBtn from '../components/BrandsBtn';
+import AboutSection from '../components/AboutSection';
+import GoogleReviewsCarousel from '../components/Sections/GoogleReviews';
 import MideaProducts from '../components/Products/MideaSplitsSystems';
-import Schema from "../components/Schema-2"
-import Seo from "../components/SEO-2"
+import Schema from '../components/Schema-2';
+import Seo from '../components/SEO-2';
 
-// Using the Head API to dynamically set the title
+const SITE_URL = 'https://homecomfortair.net.au';
+
+const highlights = [
+  {
+    value: '18+ Years', label: 'Servicing South East QLD',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
+  },
+  {
+    value: '5 Year', label: 'Installation Warranty',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>,
+  },
+  {
+    value: 'Licensed', label: 'ARCtick & Fully Insured',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/></svg>,
+  },
+  {
+    value: '5.0 Stars', label: '37 Google Reviews',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" strokeWidth="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+  },
+];
+
+const services = [
+  { text: 'Air Conditioning Installation', to: '/split-ac-installation-cost' },
+  { text: 'Split system air conditioners', to: '/products/split-system-air-conditioning' },
+  { text: 'Ducted system air conditioners', to: '/ducted-systems' },
+  { text: 'Multi head system air conditioners', to: '/multi-head-systems' },
+  { text: 'Builders service' },
+  { text: 'Air Conditioning rough in / fit off' },
+  { text: 'Air Conditioning Repairs' },
+  { text: 'Air Conditioning Maintenance' },
+  { text: 'Air Conditioning Sales' },
+  { text: 'Air Conditioning Design' },
+];
+
+const getFaqItems = (heading) => ([
+  {
+    q: `Do you install air conditioning in ${heading}?`,
+    a: `Yes — we supply and install split system, ducted and multi-head air conditioning throughout ${heading} and the surrounding area, for both residential and commercial properties.`,
+  },
+  {
+    q: 'How quickly can you install a split system?',
+    a: 'Most standard split system installations are completed in a single visit, usually 2–4 hours. We supply and install in the one appointment — no separate delivery and fitting visits.',
+  },
+  {
+    q: 'Do you supply and install all major brands?',
+    a: 'Yes — we supply and install Daikin, Mitsubishi Electric, Samsung, Haier, Midea, Toshiba, Carrier and Mitsubishi Heavy Industries systems.',
+  },
+  {
+    q: 'What warranty comes with a new installation?',
+    a: 'Every installation is backed by our 5-year workmanship warranty, on top of the manufacturer’s warranty (typically 5–7 years on parts, depending on the brand).',
+  },
+  {
+    q: `Can you service or repair an existing unit in ${heading}?`,
+    a: `Yes, our licensed technicians carry out repairs, servicing and maintenance on existing air conditioning units in ${heading}, in addition to new installations.`,
+  },
+  {
+    q: 'How do I get a price for my home?',
+    a: 'Submit your details through the quote form below with your suburb and a little about your space, and we’ll get back to you with pricing — usually within a few hours.',
+  },
+]);
+
 export const Head = ({ data }) => {
   const { strapiServiceArea: serviceArea } = data;
+  const heading = serviceArea.Heading;
+  const slug = serviceArea.slug;
+  const pageTitle = `${heading} Air Conditioning | Supply & Install | Home Comfort Air`;
+  const pageDesc = `${heading} air conditioning specialists. Supply, installation & servicing of split system, ducted & multi-head air conditioning in ${heading} and surrounding areas. Licensed installers, 5-year warranty. 5.0 Stars · 37 Google Reviews.`;
+  const pageUrl = `${SITE_URL}/service-areas/${slug}/`;
+  const faqItems = getFaqItems(heading);
+
   return (
     <Fragment>
-      <title>{`${serviceArea.Heading} Air Conditioning`}</title>
-      <meta name= "description" content={`We supply & install new split system air conditioners in ${serviceArea.Heading} and surrounding area's for your home. BEST prices`} />
-        <Seo />
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDesc} />
+      <Seo title={pageTitle} description={pageDesc} url={pageUrl} />
       <Schema />
+
+      {/* Service + local area schema — helps search engines and AI assistants surface this as a local service page */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: 'Air Conditioning Installation & Repair',
+          name: `${heading} Air Conditioning Installation`,
+          provider: {
+            '@type': 'HVACBusiness',
+            name: 'Home Comfort Air',
+            telephone: '+61404602657',
+            url: `${SITE_URL}/`,
+          },
+          areaServed: {
+            '@type': 'Place',
+            name: `${heading}, QLD, Australia`,
+          },
+          url: pageUrl,
+        })}
+      </script>
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Service Areas', item: `${SITE_URL}/service-areas` },
+            { '@type': 'ListItem', position: 3, name: `${heading} Air Conditioning`, item: pageUrl },
+          ],
+        })}
+      </script>
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqItems.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: { '@type': 'Answer', text: item.a },
+          })),
+        })}
+      </script>
     </Fragment>
   );
-}
+};
 
-const ServiceArea = ({
-  data: {
-    strapiServiceArea: {
-      Heading,
-      image: {
-        localFile: {
-          childImageSharp: { gatsbyImageData },
-        },
-      },
-      textMain: {
-        data: { textMain },
-      },
-      textAbout: {
-        data: { textAbout },
-      },
-    },
-    heroImage: {
-      childImageSharp: { gatsbyImageData: heroImageData },
-    },
-  },
-}) => {
-  const heroImage = getImage(heroImageData);
-  const image = getImage(gatsbyImageData, { rotate: 180 });
+const ServiceArea = ({ data }) => {
+  const { strapiServiceArea: serviceArea } = data;
+  const heading = serviceArea.Heading;
+  const gatsbyImageData = serviceArea.image?.localFile?.childImageSharp?.gatsbyImageData;
+  const photo = gatsbyImageData ? getImage(gatsbyImageData) : null;
+  const faqItems = getFaqItems(heading);
+
+  const PhotoCard = ({ alt, style }) =>
+    photo ? (
+      <GatsbyImage image={photo} alt={alt} style={style} />
+    ) : (
+      <StaticImage filename="service-helesvale.jpeg" alt={alt} />
+    );
 
   return (
-    <section>
-      <DesktopNav />
-      <MobileNav />
-      <div
-        className="hero-service-area"
-        style={{ height: '650px', position: 'relative' }}
-      >
-        <GatsbyImage
-          image={heroImage}
-          alt="Hero Image"
-          style={{ height: '100%', objectPosition: 'top center' }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(255, 255, 255, 0.3)',
-          }}
-        ></div>
-        <div className="container">
-          <div className="row hero-text-form">
-            <div className="col-sm-12 col-md-12 col-lg-8">
-              <div className="hero-box py-3 m-auto">
-                <StaticImage
-                  filename="HCA-2-avatar.png"
-                  alt="home comfort air image"
-                />
-                <h2 className="text-center hero-heading">
-                  <span className="hero-heading-primary cap" style={{ color: `rgb(35,31,32)` }}>
-                    Home<span style={{ fontWeight: 600 }}>Comfort</span>Air
-                  </span>
-                </h2>
-                <h1 className="hero-heading-h2-service-area">
-                  <span
-                    className="service-area-hero text-capitalize"
-                    style={{ fontFamily: `'Caveat', cursive` }}
-                  >
-                    {Heading} Air Conditioning
-                  </span>
-                </h1>
-                <p className="px-5">
-                  Experts in air conditioning, we supply and install all major brands throughout{' '}
-                  <span className="text-capitalize">{Heading}</span> & surrounding area's. Contact us at{' '}
-                  <a href="tel:0404602657">0404 602 657</a> or fill out our online form.
-                </p>
-                <div className="pb-3">
-                  <Link to="/products">
-                    <button className="btn-- btn-green--">Shop A/C</button>
-                  </Link>
-                  <Link to="/split-systems">
-                    <button className="btn-- btn-primary-- ml-2">Split Systems</button>
-                  </Link>
-                </div>
-              </div>
-            </div>
+    <Layout>
 
-            <div className="col-sm-12 col-md-12 col-lg-4">
-              <div className="form-overlay p-4">
-                <span className="h3 fw-600 d-flex justify-content-center" style={{ color: `#2d3136` }}>
-                  Request a quote
-                </span>
-                <i className="text-center text-blue">Air conditioning Installations</i>
-                <div id="hero-form">
-                  <MyForm />
-                </div>
-              </div>
+      {/* ── Hero ── */}
+      <section className="full-bleed" style={{
+        background: 'linear-gradient(135deg, #0075C9 0%, #005fa3 100%)',
+        padding: '64px 24px',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <FeatureBubble />
+        <div style={{
+          maxWidth: 1100, margin: '0 auto',
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: 48, alignItems: 'center', position: 'relative',
+        }}>
+          <div>
+            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: 12 }}>
+              Supply &amp; Install
+            </p>
+            <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, color: '#fff', marginBottom: 16, lineHeight: 1.2 }}>
+              {heading} Air Conditioning
+            </h1>
+            <p style={{ fontSize: 22, color: 'rgba(255,255,255,0.85)', marginBottom: 32, lineHeight: 1.5, fontFamily: "'Caveat', cursive" }}>
+              The smart choice in air conditioning
+            </p>
+            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.85)', marginBottom: 32, lineHeight: 1.7, maxWidth: 480 }}>
+              Experts in air conditioning — we supply and install all major brands throughout <span className="text-capitalize">{heading}</span> and the surrounding area. Call{' '}
+              <a href="tel:0404602657" style={{ color: '#fff', textDecoration: 'underline' }}>0404 602 657</a> or fill out our online form.
+            </p>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              <Link to="/contact" style={{
+                display: 'inline-block', background: '#00c4b3', color: '#fff',
+                fontWeight: 700, fontSize: 14, padding: '12px 28px', borderRadius: '2em', textDecoration: 'none',
+              }}>
+                Get A Free Quote →
+              </Link>
+              <a href="#sa-quote" style={{
+                display: 'inline-block', background: 'rgba(255,255,255,0.15)', color: '#fff',
+                fontWeight: 600, fontSize: 14, padding: '12px 28px', borderRadius: '2em',
+                textDecoration: 'none', backdropFilter: 'blur(4px)',
+              }}>
+                Request A Quote ↓
+              </a>
             </div>
           </div>
+          <div style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 24px 48px rgba(0,0,0,0.25)' }}>
+            <PhotoCard alt={`Air conditioning installation in ${heading} by Home Comfort Air`} />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Highlights strip ── */}
+      <div style={{ borderBottom: '1px solid #e8eef5' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))' }}>
+          {highlights.map((h, i) => (
+            <div key={i} style={{
+              textAlign: 'center', padding: '28px 16px',
+              borderRight: i < highlights.length - 1 ? '1px solid #e8eef5' : 'none',
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 8 }}>{h.icon}</div>
+              <div style={{ fontSize: 20, fontWeight: 800, color: '#0075C9', lineHeight: 1 }}>{h.value}</div>
+              <div style={{ fontSize: 13, color: '#6b7280', marginTop: 6, fontWeight: 600 }}>{h.label}</div>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div className="container bg-white body-wrapper split-systems" style={{ marginTop: '-40px' }}>
-        <div>
-          <div className="pt-3">
-            <h2 class="h5 fw-600 mt-5 cap">
-              <span className="h5 fw-600 mt-5 cap">{Heading}</span> Air Conditioning
-            </h2>
-          </div>
-          <div className="reactMarkdown">
-            <ReactMarkdown children={textMain} />
-          </div>
-        </div>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '56px 24px' }}>
 
-        <div className="row">
-          <div className="col-md-6">
-            <h3 className="h5 fw-600 mt-5 cap">Air Conditioning repairs, maintenance and Installation {Heading}</h3>
-            <p className="lead-20">Our complete range of service in the <span className="text-capitalize">{Heading}</span> area:</p>
-            <ul className="lh-base">
-              <ol class="list-group list-group-numbered">
-                <li className="fsz-18 list-group-item"><Link to="/split-ac-installation-cost">Air Conditioning Installation</Link></li>
-                <li class="list-group-item"><Link to="/products/split-system-air-conditioning">Split system air conditioners</Link></li>
-                <li class="list-group-item"><Link to="/ducted-systems">Ducted system air conditioners</Link></li>
-                <li class="list-group-item"><Link to="/multi-head-systems">Multi head system air conditioners</Link></li>
-                <li className="fsz-18 fw-600 list-group-item">Builders service</li>
-                <li class="list-group-item">Air Conditioning rough in / fit off</li>
-                <li className="fsz-18 fw-600 list-group-item">Air Conditioning Repairs</li>
-                <li className="fsz-18 fw-600 list-group-item">Air Conditioning Maintenance</li>
-                <li className="fsz-18 fw-600 list-group-item">Air Conditioning Sales</li>
-                <li className="fsz-18 fw-600 list-group-item">Air Conditioning Design</li>
-              </ol>
-            </ul>
-          </div>
-          <div className="col-md-6 flex-row flex-column img-fluid mb-3" >
-            <GatsbyImage image={image} alt={Heading} />
-          </div>
-        </div>
-
-        <section>
-          <p className="lead-20 mt-4 lh-base">
-            At Home Comfort Air, our mission is to surpass our customers' expectations in <span className="text-capitalize">{Heading}</span> by delivering the finest air conditioning systems and services. Our commitment to excellence in providing top-notch, energy-efficient, and reliable solutions extends throughout the <span className="text-capitalize">{Heading}</span> region. Contact us today to schedule an installation or to explore more about our offerings. Your comfort is our priority, and we look forward to serving you with the utmost professionalism and care.
+        {/* ── Intro ── */}
+        <section style={{ marginBottom: 72 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#0075C9', marginBottom: 12 }}>
+            Air Conditioning {heading}
           </p>
-          <p className="lead-20 bold">
-            <u>Call us on <a href="tel:0404602657">0404 602 657</a> or fill out our online job form.</u>
-          </p>
+          <h2 className="section-title" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1f2937', marginBottom: 24, lineHeight: 1.3 }}>
+            <span className="text-capitalize">{heading}</span> Air Conditioning
+          </h2>
+          <div className="reactMarkdown" style={{ fontSize: 17, color: '#374151', lineHeight: 1.85, maxWidth: 800 }}>
+            <ReactMarkdown children={serviceArea.textMain?.data?.textMain || ''} />
+          </div>
         </section>
 
-        <div className="why-us pb-4">
-          <ul className="bg-light p-20 mr-4">
-            <li className="text-blue fw-600 text-shadow-2">
-              <span className="green">✓</span> Experienced in Commercial & Residential Installations
-            </li>
-            <li className="text-blue fw-600 text-shadow-2">
-              <span className="green">✓</span> Quality workmanship guaranteed
-            </li>
-            <li className="text-blue fw-600 text-shadow-2">
-              <span className="green">✓</span> Experts and licensed to Install Air Conditioners
-            </li>
-            <li className="text-blue fw-600 text-shadow-2">
-              <span className="green">✓</span> Professional fast and efficient service
-            </li>
-            <li className="text-blue fw-600 text-shadow-2">
-              <span className="green">✓</span> 5 to 7 Year Manufacture Warranty's
-            </li>
-            <li className="text-blue fw-600 text-shadow-2">
-              <span className="green">✓</span> 5 Year Installation Warranty
-            </li>
-            <li className="text-blue fw-600 text-shadow-2">
-              <span className="green">✓</span> We'll beat any written quote!
-            </li>
-          </ul>
-        </div>
-
-        <div className="mt-3">
-          <h3 className="cap">{Heading} Air Conditioning Installations</h3>
-          <p className="lead-20 lh-base">
-            At Home Comfort Air, we are proud to offer a wide range of high-quality air conditioning systems from top brands such as{' '}
-            <Link to="/products/midea-split-system-air-conditioning">Midea</Link>, <Link to="/products/haier-split-system-air-conditioning">Haier</Link>,{' '}
-            <Link to="/products/samsung-split-system-air-conditioning">Samsung</Link>, <Link to="/products/carrier-split-system-air-conditioning">Carrier</Link>,{' '}
-            <Link to="/products/toshiba-split-system-air-conditioning">Toshiba</Link>, <Link to="/products/daikin-split-system-air-conditioning">Daikin</Link>, and{' '}
-            <Link to="/products/mitsubishi-electric-split-system-air-conditioning">Mitsubishi Electric</Link>. Our expert team ensures professional installation and top-notch service for all these leading brands, delivering optimal comfort and efficiency for our valued customers.
-          </p>
-          <div className="row">
-            <div className="col-md-3">
-              <ul className="pr-3">
-                <li><span className="green">✓</span> New Installations</li>
-                <li><span className="green">✓</span> Replacements Systems</li>
-                <li><span className="green">✓</span> Split Systems</li>
-                <li><span className="green">✓</span> Ducted Systems</li>
-                <li><span className="green">✓</span> Multi Head Systems</li>
-              </ul>
+        {/* ── How It Works ── */}
+        <section className="how-it-works-section" style={{ marginBottom: 72 }}>
+          <div className="section-heading">
+            <h2 className="section-title">How It Works</h2>
+          </div>
+          <div className="how-it-works-grid">
+            <div className="how-step">
+              <div className="how-step-number">1</div>
+              <div className="how-step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
+              <h3 className="how-step-title">Get a Free Quote</h3>
+              <p className="how-step-text">Tell us about your space and we'll recommend the right system for your <span className="text-capitalize">{heading}</span> home and budget — no obligation.</p>
             </div>
-            <div className="col-md-9">
-              <p className="lead-20 lh-base">
-                Furthermore, we specialise in installing air conditioning systems in a wide range of settings, including houses, townhouses, units, high-rise buildings, farms, sheds, warehouses, shops, and more. No matter the location or complexity of the project, our expert team is equipped to deliver top-notch installations tailored to suit the unique needs of each space. Your comfort is our priority, and we take pride in providing reliable and efficient solutions for diverse environments.
+            <div className="how-step-connector" />
+            <div className="how-step">
+              <div className="how-step-number">2</div>
+              <div className="how-step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+              </div>
+              <h3 className="how-step-title">We Supply &amp; Install</h3>
+              <p className="how-step-text">Our licensed technicians supply and install your system in one visit — on time, tidy, and no hidden extras.</p>
+            </div>
+            <div className="how-step-connector" />
+            <div className="how-step">
+              <div className="how-step-number">3</div>
+              <div className="how-step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                  <path d="M8 12l2.5 2.5L16 9"/>
+                </svg>
+              </div>
+              <h3 className="how-step-title">Enjoy the Comfort</h3>
+              <p className="how-step-text">Backed by up to 7 years manufacturer warranty plus our 5-year installation warranty.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Services list + photo ── */}
+        <section style={{ marginBottom: 72 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 48, alignItems: 'center' }}>
+            <div>
+              <h2 className="section-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 800, color: '#1f2937', marginBottom: 16, lineHeight: 1.3 }}>
+                Air Conditioning Repairs, Maintenance &amp; Installation <span className="text-capitalize">{heading}</span>
+              </h2>
+              <p style={{ fontSize: 15, color: '#4b5563', marginBottom: 20 }}>
+                Our complete range of service in the <span className="text-capitalize">{heading}</span> area:
               </p>
+              <ol style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px 24px', padding: 0, margin: 0, listStylePosition: 'inside' }}>
+                {services.map((s) => (
+                  <li key={s.text} style={{ fontSize: 15, color: '#374151', fontWeight: 600 }}>
+                    {s.to ? <Link to={s.to} style={{ color: '#0075C9' }}>{s.text}</Link> : s.text}
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}>
+              <PhotoCard alt={`Split system air conditioner installed in ${heading}`} />
             </div>
           </div>
-          <div>
-            <h3 class="h5 fw-600 mt-5 cap">FAQ's</h3>
-            <Faq />
-          </div>
-        </div>
+        </section>
 
-        <div className="reactMarkdown">
-          <h3 class="h5 fw-600 mt-5 cap">For all <span class="h5 fw-600 mt-5 cap">{Heading} Air Conditioning </span></h3>
-          <ReactMarkdown children={textAbout} />
-        </div>
-
-        <div className="heading-box-color grid-col-2 heading-avatar rounded my-3 mx-0 pr-2 py-2">
-          <div className="px-3">
-            <StaticImage
-              filename="HCA-avatar-WHITE-1400.png"
-              alt="home comfort air image"
-            />
+        {/* ── Products + Quote form ── */}
+        <section className="section-2" id="sa-quote" style={{ marginBottom: 72 }}>
+          <div className="section-heading">
+            <h2 className="section-title">Split System Air Conditioning</h2>
           </div>
-          <div className="text-center">
-            <h3 className="h2 fw-600 mt-2 ">Receive A free Quote</h3>
+          <div className="section-2-grid">
+            <div className="section-2-products">
+              <MideaProducts />
+              <div className="mt-2 mb-2">
+                <p className="fsz-12">*Prices inc GST</p>
+                <Link to="/products" className="btn-- btn-primary--">View All Deals</Link>
+              </div>
+            </div>
+            <div className="section-2-form">
+              <Form title={`${heading} Quote Request`} />
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div className="grid-col-2">
-          <div className="split-quotes-text">
-            <h5 className=" px-20 cap fw-600">
-              <span className="text-uppercase">{Heading}</span> Air Conditioning Quotes
-            </h5>
-            <p className="px-20">
-              For new construction and existing homes in <span className="text-capitalize">{Heading}</span>. Need a replacement unit or a new installation? Submit your details, and we'll contact you back shortly.
+        {/* ── Browse Our Brands ── */}
+        <section style={{
+          background: 'linear-gradient(135deg, #f0f6ff 0%, #f8faff 100%)',
+          borderRadius: 20, border: '1px solid #e0ecfb',
+          padding: '36px 32px', marginBottom: 72,
+        }}>
+          <div style={{ textAlign: 'center', marginBottom: 28 }}>
+            <h2 className="section-title" style={{ fontSize: 22, marginBottom: 6 }}>
+              Brands We Install in <span className="text-capitalize">{heading}</span>
+            </h2>
+            <p style={{ color: '#64748b', fontSize: 14, margin: 0 }}>
+              We supply &amp; install all major brands — click to browse models &amp; pricing
             </p>
-            <p className="font-italic px-20">"You could also leave the best-suited time to call you back".</p>
           </div>
-          <Form />
+          <BrandsBtn />
+        </section>
+
+        {/* ── Reviews ── */}
+        <section id="reviews" style={{ marginBottom: 40 }}>
+          <GoogleReviewsCarousel />
+        </section>
+
+        {/* ── Local Experts + Why Choose Us ── */}
+        <AboutSection />
+
+        {/* ── About text from Strapi ── */}
+        <section style={{ marginTop: 72, marginBottom: 72 }}>
+          <h2 className="section-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 800, color: '#1f2937', marginBottom: 24, lineHeight: 1.3 }}>
+            For All <span className="text-capitalize">{heading}</span> Air Conditioning
+          </h2>
+          <div className="reactMarkdown" style={{ fontSize: 16, color: '#374151', lineHeight: 1.85, maxWidth: 800 }}>
+            <ReactMarkdown children={serviceArea.textAbout?.data?.textAbout || ''} />
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section className="faq-section" style={{ marginBottom: 56 }}>
+          <div className="section-heading">
+            <h2 className="section-title">Frequently Asked Questions</h2>
+          </div>
+          <div className="faq-grid">
+            {faqItems.map((item) => (
+              <details className="faq-item" key={item.q}>
+                <summary className="faq-question">{item.q}</summary>
+                <div className="faq-answer">
+                  <p>{item.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Quote Form ── */}
+        <section style={{ marginBottom: 56 }}>
+          <div style={{
+            background: 'linear-gradient(135deg, #0075C9 0%, #005fa3 100%)',
+            borderRadius: 20, padding: '48px 40px', position: 'relative', overflow: 'hidden',
+          }}>
+            <FeatureBubble />
+            <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 48, alignItems: 'start' }}>
+              <div>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: 12 }}>
+                  Get Started Today
+                </p>
+                <h2 style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 800, color: '#fff', marginBottom: 16, lineHeight: 1.3 }}>
+                  <span className="text-capitalize">{heading}</span> Split System Installation Quotes
+                </h2>
+                <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, marginBottom: 8 }}>
+                  We install all brands of split system air conditioners for new construction and existing homes in <span className="text-capitalize">{heading}</span>. Looking for a replacement unit or a new installation? Submit your details and we'll contact you back shortly.
+                </p>
+                <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.7)', fontFamily: "'Caveat', cursive", marginBottom: 20 }}>
+                  "You could also leave the best suited time to call you back."
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 24, marginTop: 8 }}>
+                  {[
+                    { icon: '✓', text: 'Licensed & insured installer' },
+                    { icon: '✓', text: 'No-obligation free quote' },
+                    { icon: '✓', text: 'Same-day response' },
+                  ].map((t, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <span style={{ width: 22, height: 22, borderRadius: '50%', background: 'rgba(255,255,255,0.15)', color: '#fff', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{t.icon}</span>
+                      <span style={{ fontSize: 15, color: 'rgba(255,255,255,0.9)' }}>{t.text}</span>
+                    </div>
+                  ))}
+                </div>
+                <a href="tel:0404602657" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.75)', fontSize: 14, textDecoration: 'none', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 16 }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" fill="rgba(255,255,255,0.75)"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                  Prefer to call? <strong style={{ color: '#fff' }}>0404 602 657</strong>
+                </a>
+              </div>
+              <div style={{ background: '#fff', borderRadius: 16, padding: '32px 28px', boxShadow: '0 16px 40px rgba(0,0,0,0.2)', maxWidth: 520, marginLeft: 'auto' }}>
+                <Form hideTitle />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA banner ── */}
+        <div className="cta-banner">
+          <div className="cta-banner-inner">
+            <div className="cta-banner-text">
+              <h3 className="cta-banner-heading">Ready to get started?</h3>
+              <p className="cta-banner-sub">Browse our full range of air conditioning deals.</p>
+            </div>
+            <Link to="/products" className="cta-banner-btn">View All Our Deals</Link>
+          </div>
         </div>
-        <div className='mt-3'>
-        <MideaProducts />
-        </div>
+
       </div>
-      <Footer />
-    </section>
+
+    </Layout>
   );
 };
 
@@ -275,8 +444,8 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData(
               layout: CONSTRAINED
-              width: 500
-              height: 500
+              width: 700
+              height: 700
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )
@@ -292,12 +461,6 @@ export const query = graphql`
         data {
           textAbout
         }
-      }
-    }
-
-    heroImage: file(relativePath: { eq: "homecomfort-2.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH placeholder: BLURRED formats: [AUTO, WEBP, AVIF])
       }
     }
   }

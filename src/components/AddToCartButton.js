@@ -87,7 +87,7 @@ const AddToCartButton = ({ product, className = '', onCartAdd }) => {
         </Link>
       )}
 
-      <style jsx>{`
+      <style>{`
         .success-message {
           animation: slideIn 0.3s ease-out;
         }

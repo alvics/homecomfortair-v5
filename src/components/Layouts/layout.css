@@ -2582,10 +2582,6 @@ gatsby-image-wrapper {
 .search-icon {
   width: 18px;
   height: 18px;
-  background-image: url('/path/to/your/search-icon.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   filter: brightness(0) invert(1); /* Makes the icon white */
 }
 
@@ -3200,6 +3196,13 @@ gatsby-image-wrapper {
     right: 10px !important;
     margin-left: -15px !important;
   }
+}
+
+/* Override the legacy width-specific nudges above for search bars that
+   aren't the old mobile hero form (e.g. the 404 page hero search). */
+.notfound-search .input-search {
+  margin-left: 0 !important;
+  right: 5px !important;
 }
 
 @media (min-width: 765px) and (max-width: 991px) {

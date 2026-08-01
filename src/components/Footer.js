@@ -76,7 +76,9 @@ const Footer = () => {
                   { label: "Ducted Air Conditioning", to: "/ducted-systems" },
                   { label: "Multi-Head Systems", to: "/multi-head-systems" },
                   { label: "Service & Maintenance", to: "/service" },
+                  { label: "Home Comfort Club", to: "/home-comfort-club" },
                   { label: "Shop All Units", to: "/products" },
+                  { label: "Installation Gallery", to: "/gallery" },
                 ].map(({ label, to }) => (
                   <li key={to}>
                     <Link to={to} style={{ color: "#94a3b8", textDecoration: "none", fontSize: 14, transition: "color 0.2s" }}

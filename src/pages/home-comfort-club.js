@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react"
+import React, { Fragment, useState, useEffect } from "react"
 import Layout from "../components/Layouts/layout"
 import Seo from "../components/SEO-2"
 import Schema from "../components/Schema-2"
@@ -211,9 +211,35 @@ const TcAccordion = ({ title, body }) => {
   )
 }
 
+// This page's inline <style> block pulls in a Google Font via @import, and
+// mounts a lot of content above the fold. That late layout settling can
+// trigger the browser's scroll anchoring and drag the viewport away from the
+// top after Gatsby's own scroll-to-top runs. Force it back onto the hero for
+// a few frames (and once more after the font/layout settles) so a fresh
+// visit to this page always lands at the top, regardless of what pulled it
+// down.
+const useScrollToTopOnMount = () => {
+  useEffect(() => {
+    if (typeof window === "undefined" || window.location.hash) return
+    const toTop = () => window.scrollTo(0, 0)
+    toTop()
+    const raf1 = requestAnimationFrame(() => {
+      toTop()
+      requestAnimationFrame(toTop)
+    })
+    const lateTimer = setTimeout(toTop, 350)
+    return () => {
+      cancelAnimationFrame(raf1)
+      clearTimeout(lateTimer)
+    }
+  }, [])
+}
+
 const HomeComfortClubPage = () => {
   const [activeTab, setActiveTab] = useState("hiwall")
   const plans = activeTab === "hiwall" ? hiwallPlans : ductedPlans
+
+  useScrollToTopOnMount()
 
   return (
   <Layout>
@@ -788,7 +814,9 @@ const HomeComfortClubPage = () => {
         </p>
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 4 }}>
           <a
-            href="#quote"
+            href="https://club.homecomfortair.net.au/plans"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: "inline-block",
               background: "rgb(0, 196, 179)",
@@ -860,7 +888,9 @@ const HomeComfortClubPage = () => {
             </ul>
 
             <a
-              href="#quote"
+              href="https://club.homecomfortair.net.au/plans"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`hcc-cta-btn${plan.highlight ? " hcc-cta-btn-solid" : " hcc-cta-btn-outline"}`}
             >
               {plan.cta}

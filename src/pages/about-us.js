@@ -4,8 +4,14 @@ import Layout from "../components/Layouts/layout"
 import Schema from "../components/Schema-2"
 import StaticImage from "../components/StaticQueryImages"
 import FeatureBubble from "../components/FeatureBubble"
-import { WorkPhotos } from "../components/About/WorkPhotos"
+import { WorkPhotos, allWorkPhotos } from "../components/About/WorkPhotos"
 import GoogleReviewsCarousel from "../components/Sections/GoogleReviews"
+
+const aboutWorkPhotosPreview = [
+  "Heritage Park", "Coombabah", "Nerang", "Hope Island", "Newport",
+  "Ashmore", "Runaway Bay", "Robina", "Arundel", "Paradise Point",
+  "Springfield Lakes", "Redland Bay", "Bellmere", "Southport", "Tanah Merah", "Karalee",
+].map(label => allWorkPhotos.find(p => p.label === label)).filter(Boolean)
 
 export const Head = () => (
   <Fragment>
@@ -186,13 +192,13 @@ const AboutPage = () => {
                   <Link to="/ipswich-air-conditioning/" style={{ color: "#0075C9" }}>Ipswich</Link> and{" "}
                   <Link to="/tweed-heads-air-conditioning/" style={{ color: "#0075C9" }}>Tweed Heads</Link> for over a decade.
 
-                  Our family is dedicated to helping local families stay comfortable year-round with everything from
+                  We're dedicated to helping local families stay comfortable year-round with everything from
                     <Link to="/products/split-system-air-conditioning" style={{ color: "#0075C9" }}> high wall split</Link> and{" "}
                   <Link to="/multi-head-systems" style={{ color: "#0075C9" }}>multi head systems </Link> 
                   
                    to full residential and commercial ducted solutions.
 </p>
-                 <p> We partner with major brands—including
+                 <p style={{ fontSize: 17, color: "#1f2937", lineHeight: 1.9, marginBottom: 20 }}> We partner with major brands—including
                   <Link to="/products/daikin-split-system-air-conditioning/" style={{ color: "#0075C9" }}> Daikin</Link>,{" "}
                   <Link to="/products/haier-split-system-air-conditioning/" style={{ color: "#0075C9" }}>Haier</Link>,{" "}
                   <Link to="/products/toshiba-split-system-air-conditioning/" style={{ color: "#0075C9" }}>Toshiba</Link>,{" "}
@@ -315,7 +321,23 @@ const AboutPage = () => {
                 Follow us on Facebook
               </a>
             </div>
-            <WorkPhotos />
+            <WorkPhotos photos={aboutWorkPhotosPreview} className="about-work-preview" />
+            <div style={{ textAlign: "center", marginTop: 32 }}>
+              <Link
+                to="/gallery"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  color: "#0075C9",
+                  fontWeight: 700,
+                  fontSize: 15,
+                  textDecoration: "none",
+                }}
+              >
+                View Full Gallery ({allWorkPhotos.length} photos) →
+              </Link>
+            </div>
           </section>
 
         </div>
