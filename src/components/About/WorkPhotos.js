@@ -63,6 +63,28 @@ export const allWorkPhotos = [
   { file: "serviceArea/Tanah Merah.jpeg", label: "Tanah Merah", brand: "Daikin" },
   { file: "serviceArea/Wishart.jpeg", label: "Wishart", brand: "Midea" },
   { file: "serviceArea/upper coomera-1.jpeg", label: "Upper Coomera", brand: "Mitsubishi Electric" },
+  // Added 2026-08-15
+  { file: "gallery/Bahrs_Scrub.jpeg", label: "Bahrs Scrub", brand: "Midea" },
+  { file: "gallery/Beaudesert_midea.jpeg", label: "Beaudesert", brand: "Midea" },
+  { file: "gallery/Biggera_Waters_Daikin.jpeg", label: "Biggera Waters", brand: "Daikin" },
+  { file: "gallery/Caboolture.jpeg", label: "Caboolture", brand: "Midea" },
+  { file: "gallery/Clear_island_waters_ME_indoor.jpeg", label: "Clear Island Waters", brand: "Mitsubishi Electric" },
+  { file: "gallery/Crestmead.jpeg", label: "Crestmead", brand: "Mitsubishi Electric" },
+  { file: "gallery/Currumbin_Waters-Midea_2.jpeg", label: "Currumbin Waters", brand: "Midea" },
+  { file: "gallery/Currumbin_Waters_ME-6.jpeg", label: "Currumbin Waters", brand: "Mitsubishi Electric" },
+  { file: "gallery/Kenmore.jpeg", label: "Kenmore", brand: "Haier" },
+  { file: "gallery/Molendinar_Midea.jpeg", label: "Molendinar", brand: "Midea" },
+  { file: "gallery/Nerang_Midea_wall_bracket.jpeg", label: "Nerang", brand: "Midea" },
+  { file: "gallery/Redbank_Plains_Toshiba.jpeg", label: "Redbank Plains", brand: "Toshiba" },
+  { file: "gallery/Robina_Daikin.jpeg", label: "Robina", brand: "Daikin" },
+  { file: "gallery/Rochedale_south.jpeg", label: "Rochedale South", brand: "Haier" },
+  { file: "gallery/Runaway_Bay_toshiba_lift.jpeg", label: "Runaway Bay", brand: "Toshiba" },
+  { file: "gallery/Southport-midea-2.jpeg", label: "Southport", brand: "Midea" },
+  { file: "gallery/Sunnybank-Hills.jpeg", label: "Sunnybank Hills", brand: "Midea" },
+  { file: "gallery/Tallebudgera_Daikin.jpeg", label: "Tallebudgera", brand: "Daikin" },
+  { file: "gallery/Tweed_Heads_Daikin-5.jpeg", label: "Tweed Heads", brand: "Daikin" },
+  { file: "gallery/Tweed_Heads_ME.jpeg", label: "Tweed Heads", brand: "Mitsubishi Electric" },
+  { file: "gallery/warner.jpeg", label: "Warner", brand: "Mitsubishi Electric" },
 ]
 
 export const WorkPhotos = ({ photos = allWorkPhotos, className = "" } = {}) => {

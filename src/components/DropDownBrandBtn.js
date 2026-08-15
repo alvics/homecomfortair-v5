@@ -43,6 +43,7 @@ const DropdownBrandBtn = ({ onNavigate }) => {
             ["/products/daikin-split-system-air-conditioning", "Daikin Air Conditioning"],
             ["/products/mitsubishi-electric-split-system-air-conditioning/", "Mitsubishi Electric"],
             ["/products/mhi-split-system-air-conditioning", "Mitsubishi Heavy Industries"],
+            ["/products/fujitsu-split-system-air-conditioning", "Fujitsu Air Conditioning"],
           ].map(([to, label]) => (
             <li key={to} style={{ borderBottom: '1px solid #f0f4f8' }}>
               <Link

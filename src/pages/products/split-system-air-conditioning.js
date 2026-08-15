@@ -18,6 +18,7 @@ import ToshibaProducts    from "../../components/Products/ToshibaSplitSystems"
 import MHIProducts        from "../../components/Products/MHISplitSytems"
 import MitsubishiProducts from "../../components/Products/MitsubishiElectricSplits"
 import DaikinProducts     from "../../components/Products/DaikinSplitSytems"
+import FujitsuProducts    from "../../components/Products/FujitsuSplitSystems"
 
 import heroServiceImg from "../../images/hero-3.jpg"
 
@@ -30,6 +31,7 @@ const BRANDS = [
   { id: "mhi",        label: "Mitsubishi Heavy",    shortLabel: "MHI",        color: "#e31f26" },
   { id: "mitsubishi", label: "Mitsubishi Electric", shortLabel: "Mitsubishi", color: "#cc0000" },
   { id: "daikin",     label: "Daikin",              shortLabel: "Daikin",     color: "#00a1e5" },
+  { id: "fujitsu",    label: "Fujitsu",             shortLabel: "Fujitsu",    color: "#EA0000" },
 ]
 
 export const Head = () => (
@@ -619,6 +621,12 @@ const ProductsPage = () => {
             <section id="daikin" className="mb-12">
               <BrandHeading label="Daikin" color="#00a1e5" />
               <DaikinProducts />
+            </section>
+
+            {/* ── Fujitsu ─────────────────────────────────────────────── */}
+            <section id="fujitsu" className="mb-12">
+              <BrandHeading label="Fujitsu" color="#EA0000" />
+              <FujitsuProducts />
             </section>
           </>
         )}

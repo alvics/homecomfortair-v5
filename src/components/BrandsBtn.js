@@ -9,6 +9,7 @@ import samsungLogo      from '../images/brands/samsung-logo-2.png'
 import toshibaLogo      from '../images/toshiba.jpg'
 import hitachiLogo      from '../images/brands/Hitachi-logo.png'
 import mhiLogo          from '../images/MHI-Logo.jpg'
+import fujitsuLogo      from '../images/products/Haier/fujistsu/logo-fujitsu.svg'
 
 const brands = [
   { src: haierLogo,      alt: "Haier",                      to: "/products/haier-split-system-air-conditioning" },
@@ -19,6 +20,7 @@ const brands = [
   { src: toshibaLogo,    alt: "Toshiba",                    to: "/products/toshiba-split-system-air-conditioning" },
   { src: hitachiLogo,    alt: "Hitachi",                    to: "/products/hitachi-split-system-air-conditioning" },
   { src: mhiLogo,        alt: "Mitsubishi Heavy Industries", to: "/products/mhi-split-system-air-conditioning" },
+  { src: fujitsuLogo,    alt: "Fujitsu",                    to: "/products/fujitsu-split-system-air-conditioning" },
 ]
 
 const BrandsBtn = () => (

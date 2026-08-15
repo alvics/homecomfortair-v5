@@ -10,6 +10,7 @@ const brands = [
   { label: "Toshiba",             to: "/products/toshiba-split-system-air-conditioning" },
   { label: "Hitachi",             to: "/products/hitachi-split-system-air-conditioning" },
   { label: "Mitsubishi Heavy",    to: "/products/mhi-split-system-air-conditioning" },
+  { label: "Fujitsu",             to: "/products/fujitsu-split-system-air-conditioning" },
 ]
 
 const GoogleIcon = () => (

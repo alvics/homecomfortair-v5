@@ -9,7 +9,7 @@ import daikinImg   from '../../images/brands/daikin.jpg'
 import mitsuImg    from '../../images/brands/mitsubishi-electric.jpg'
 import mhiImg      from '../../images/MHI-Logo.jpg'
 import hitachiImg  from '../../images/brands/Hitachi-logo.png'
-import carrierImg  from '../../images/brands/carrier.png'
+import fujitsuImg  from '../../images/products/Haier/fujistsu/logo-fujitsu.svg'
 
 const BRANDS = [
   { to: '/products/midea-split-system-air-conditioning',              label: 'Midea',               img: mideaImg },
@@ -20,7 +20,7 @@ const BRANDS = [
   { to: '/products/mitsubishi-electric-split-system-air-conditioning',label: 'Mitsubishi Electric', img: mitsuImg },
   { to: '/products/mhi-split-system-air-conditioning',                label: 'Mitsubishi Heavy',    img: mhiImg },
   { to: '/products/hitachi-split-system-air-conditioning',            label: 'Hitachi',             img: hitachiImg, imgStyle: { maxWidth: '110%', maxHeight: '110%' } },
-  { to: '/products/carrier-split-system-air-conditioning',            label: 'Carrier',             img: carrierImg, imgStyle: { maxWidth: '70%', maxHeight: '70%' } },
+  { to: '/products/fujitsu-split-system-air-conditioning',            label: 'Fujitsu',             img: fujitsuImg, imgStyle: { maxWidth: '70%', maxHeight: '70%' } },
 ]
 
 // Panel content — rendered in DesktopNav directly inside the fixed header
