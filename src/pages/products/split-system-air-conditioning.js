@@ -21,6 +21,8 @@ import DaikinProducts     from "../../components/Products/DaikinSplitSytems"
 import FujitsuProducts    from "../../components/Products/FujitsuSplitSystems"
 
 import heroServiceImg from "../../images/hero-3.jpg"
+import backToBackImg from "../../images/back_to_back_installation.png"
+import upAndOverImg from "../../images/up_and_over_installation.png"
 
 const BRANDS = [
   { id: "midea",      label: "Midea",              shortLabel: "Midea",      color: "#0099cc" },
@@ -137,125 +139,6 @@ const WhyChooseUs = () => (
   </div>
 )
 
-const FanIcon = ({ cx, cy, r }) => (
-  <>
-    <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth="2"/>
-    <circle cx={cx} cy={cy} r={r * 0.6} fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
-    <line x1={cx} y1={cy - r} x2={cx} y2={cy + r} stroke="rgba(255,255,255,0.2)" strokeWidth="2"/>
-    <line x1={cx - r} y1={cy} x2={cx + r} y2={cy} stroke="rgba(255,255,255,0.2)" strokeWidth="2"/>
-    <line x1={cx - r * 0.7} y1={cy - r * 0.7} x2={cx + r * 0.7} y2={cy + r * 0.7} stroke="rgba(255,255,255,0.12)" strokeWidth="1.5"/>
-    <line x1={cx + r * 0.7} y1={cy - r * 0.7} x2={cx - r * 0.7} y2={cy + r * 0.7} stroke="rgba(255,255,255,0.12)" strokeWidth="1.5"/>
-    <circle cx={cx} cy={cy} r={r * 0.18} fill="rgba(255,255,255,0.32)"/>
-  </>
-)
-
-const BackToBackSVG = () => (
-  <svg viewBox="0 0 500 310" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
-    {/* Ground */}
-    <rect x="0" y="278" width="500" height="32" fill="#f1f5f9"/>
-    <line x1="0" y1="278" x2="500" y2="278" stroke="#d1d5db" strokeWidth="1.5"/>
-
-    {/* House interior (cross-section) */}
-    <rect x="42" y="118" width="224" height="160" fill="#f8fafc" stroke="#d1d5db" strokeWidth="1.5"/>
-
-    {/* Roof */}
-    <polygon points="26,118 154,34 282,118" fill="#e2e8f0" stroke="#c8d0d8" strokeWidth="1.5"/>
-
-    {/* Ceiling line */}
-    <line x1="42" y1="118" x2="266" y2="118" stroke="#d1d5db" strokeWidth="1"/>
-
-    {/* External wall — brick-textured, right side of house */}
-    <rect x="266" y="118" width="52" height="160" fill="#c4cdd6"/>
-    <line x1="266" y1="148" x2="318" y2="148" stroke="#adb5bd" strokeWidth="0.9"/>
-    <line x1="266" y1="178" x2="318" y2="178" stroke="#adb5bd" strokeWidth="0.9"/>
-    <line x1="266" y1="208" x2="318" y2="208" stroke="#adb5bd" strokeWidth="0.9"/>
-    <line x1="266" y1="238" x2="318" y2="238" stroke="#adb5bd" strokeWidth="0.9"/>
-    <line x1="292" y1="118" x2="292" y2="148" stroke="#adb5bd" strokeWidth="0.9"/>
-    <line x1="279" y1="148" x2="279" y2="178" stroke="#adb5bd" strokeWidth="0.9"/>
-    <line x1="305" y1="148" x2="305" y2="178" stroke="#adb5bd" strokeWidth="0.9"/>
-    <line x1="292" y1="178" x2="292" y2="208" stroke="#adb5bd" strokeWidth="0.9"/>
-    <line x1="279" y1="208" x2="279" y2="238" stroke="#adb5bd" strokeWidth="0.9"/>
-    <line x1="305" y1="208" x2="305" y2="238" stroke="#adb5bd" strokeWidth="0.9"/>
-    <line x1="292" y1="238" x2="292" y2="278" stroke="#adb5bd" strokeWidth="0.9"/>
-
-    {/* Indoor Unit — slim, mounted on interior side of external wall */}
-    <rect x="58" y="150" width="5" height="40" fill="#b8cce0" rx="1"/>
-    <rect x="63" y="148" width="188" height="38" fill="#0075C9" rx="6"/>
-    <line x1="73"  y1="159" x2="243" y2="159" stroke="rgba(255,255,255,0.22)" strokeWidth="1.5"/>
-    <line x1="73"  y1="168" x2="243" y2="168" stroke="rgba(255,255,255,0.22)" strokeWidth="1.5"/>
-    <line x1="73"  y1="177" x2="243" y2="177" stroke="rgba(255,255,255,0.22)" strokeWidth="1.5"/>
-    <text x="154" y="172" textAnchor="middle" fill="white" fontSize="11" fontWeight="700" fontFamily="Nunito Sans, sans-serif">Indoor Unit</text>
-
-    {/* Pipe route: through wall → down exterior wall → into outdoor unit */}
-    {/* Horizontal through wall */}
-    <rect x="251" y="160" width="67" height="8" fill="#00c4b3" opacity="0.9"/>
-    {/* Down exterior wall */}
-    <rect x="310" y="160" width="8" height="118" fill="#00c4b3" opacity="0.9"/>
-
-    {/* "pipe run" label */}
-    <text x="335" y="218" fill="#00c4b3" fontSize="9.5" fontWeight="700" fontFamily="Nunito Sans, sans-serif">pipe run</text>
-
-    {/* Outdoor Unit — sits on the ground directly against the external wall */}
-    <rect x="318" y="168" width="112" height="110" fill="#1e3a5f" rx="7"/>
-    <line x1="318" y1="188" x2="430" y2="188" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
-    <line x1="318" y1="208" x2="430" y2="208" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
-    <FanIcon cx={374} cy={222} r={34}/>
-    <text x="374" y="294" textAnchor="middle" fill="#94a3b8" fontSize="10.5" fontFamily="Nunito Sans, sans-serif">Outdoor Unit</text>
-  </svg>
-)
-
-const UpOverSVG = () => (
-  <svg viewBox="0 0 500 310" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
-    {/* Ground */}
-    <rect x="0" y="278" width="500" height="32" fill="#f1f5f9"/>
-    <line x1="0" y1="278" x2="500" y2="278" stroke="#d1d5db" strokeWidth="1.5"/>
-
-    {/* House walls (cross-section) */}
-    <rect x="42" y="130" width="270" height="148" fill="#f8fafc" stroke="#d1d5db" strokeWidth="1.5"/>
-
-    {/* Roof */}
-    <polygon points="26,130 177,42 314,130" fill="#e2e8f0" stroke="#c8d0d8" strokeWidth="1.5"/>
-
-    {/* Ceiling line */}
-    <line x1="42" y1="130" x2="312" y2="130" stroke="#d1d5db" strokeWidth="1"/>
-
-    {/* Indoor Unit — slim, high on the left interior wall */}
-    {/* Wall bracket */}
-    <rect x="55" y="162" width="158" height="5" fill="#b8cce0" rx="2"/>
-    {/* Unit body — slim/realistic proportions */}
-    <rect x="60" y="167" width="148" height="38" fill="#0075C9" rx="6"/>
-    <line x1="70" y1="178" x2="200" y2="178" stroke="rgba(255,255,255,0.22)" strokeWidth="1.5"/>
-    <line x1="70" y1="187" x2="200" y2="187" stroke="rgba(255,255,255,0.22)" strokeWidth="1.5"/>
-    <line x1="70" y1="196" x2="200" y2="196" stroke="rgba(255,255,255,0.22)" strokeWidth="1.5"/>
-    <text x="134" y="191" textAnchor="middle" fill="white" fontSize="10.5" fontWeight="700" fontFamily="Nunito Sans, sans-serif">Indoor Unit</text>
-
-    {/* Pipe route: UP → OVER ceiling space → DOWN outside */}
-    {/* Segment 1: UP inside wall from unit to ceiling */}
-    <line x1="208" y1="170" x2="208" y2="130" stroke="#00c4b3" strokeWidth="2.5" strokeDasharray="6,4" strokeLinecap="round"/>
-    {/* Connect to horizontal above ceiling */}
-    <line x1="208" y1="130" x2="208" y2="116" stroke="#00c4b3" strokeWidth="2.5" strokeDasharray="6,4" strokeLinecap="round"/>
-    {/* Segment 2: ACROSS horizontally above ceiling (through attic/roof space) */}
-    <line x1="208" y1="116" x2="374" y2="116" stroke="#00c4b3" strokeWidth="2.5" strokeDasharray="6,4" strokeLinecap="round"/>
-    {/* Segment 3: DOWN outside the right wall to outdoor unit */}
-    <line x1="374" y1="116" x2="374" y2="168" stroke="#00c4b3" strokeWidth="2.5" strokeDasharray="6,4" strokeLinecap="round"/>
-
-    {/* "copper pipe run" label */}
-    <text x="291" y="106" textAnchor="middle" fill="#00c4b3" fontSize="9.5" fontWeight="700" fontFamily="Nunito Sans, sans-serif">copper pipe run</text>
-
-    {/* Direction arrows */}
-    <polygon points="208,132 203,144 213,144" fill="#00c4b3" opacity="0.75"/>
-    <polygon points="348,116 338,111 338,121" fill="#00c4b3" opacity="0.75"/>
-    <polygon points="374,152 369,142 379,142" fill="#00c4b3" opacity="0.75"/>
-
-    {/* Outdoor Unit — realistic squarish box on ground, outside right wall */}
-    <rect x="326" y="168" width="110" height="110" fill="#1e3a5f" rx="7"/>
-    <line x1="326" y1="190" x2="436" y2="190" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
-    <line x1="326" y1="210" x2="436" y2="210" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
-    <FanIcon cx={381} cy={218} r={30}/>
-    <text x="381" y="294" textAnchor="middle" fill="#94a3b8" fontSize="10.5" fontFamily="Nunito Sans, sans-serif">Outdoor Unit</text>
-  </svg>
-)
-
 const BrandHeading = ({ label, color }) => (
   <div style={{ display: "flex", alignItems: "stretch", gap: 14, marginBottom: 20 }}>
     <div style={{ width: 4, borderRadius: 4, background: color, flexShrink: 0 }} />
@@ -352,6 +235,7 @@ const ProductsPage = () => {
   const [filterKw, setFilterKw] = useState(null)
   const [calcKey, setCalcKey] = useState(0)
   const [calcOpen, setCalcOpen] = useState(false)
+  const [installModal, setInstallModal] = useState(null)
 
   const handleBrandClick = (id) => {
     setFilterKw(null)
@@ -738,7 +622,7 @@ const ProductsPage = () => {
               </div>
             </div>
 
-            {/* Right: SVG diagrams side by side */}
+            {/* Right: installation diagrams side by side, click to enlarge */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
               <div style={{ border: "1px solid #e2e8f0", borderRadius: 12, overflow: "hidden", background: "#fff", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
                 <div style={{ padding: "8px 14px", background: "#0075C9" }}>
@@ -746,9 +630,13 @@ const ProductsPage = () => {
                     Back-to-Back
                   </p>
                 </div>
-                <div style={{ padding: "12px 12px 8px" }}>
-                  <BackToBackSVG />
-                </div>
+                <button
+                  onClick={() => setInstallModal({ src: backToBackImg, label: "Back-to-Back" })}
+                  aria-label="View larger Back-to-Back installation diagram"
+                  style={{ display: "block", width: "100%", padding: "12px 12px 8px", border: "none", background: "none", cursor: "zoom-in" }}
+                >
+                  <img src={backToBackImg} alt="Back-to-back split system installation diagram" style={{ width: "100%", height: "auto", display: "block" }} />
+                </button>
               </div>
 
               <div style={{ border: "1px solid #e2e8f0", borderRadius: 12, overflow: "hidden", background: "#fff", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
@@ -757,9 +645,13 @@ const ProductsPage = () => {
                     Up &amp; Over
                   </p>
                 </div>
-                <div style={{ padding: "12px 12px 8px" }}>
-                  <UpOverSVG />
-                </div>
+                <button
+                  onClick={() => setInstallModal({ src: upAndOverImg, label: "Up & Over" })}
+                  aria-label="View larger Up & Over installation diagram"
+                  style={{ display: "block", width: "100%", padding: "12px 12px 8px", border: "none", background: "none", cursor: "zoom-in" }}
+                >
+                  <img src={upAndOverImg} alt="Up and over split system installation diagram" style={{ width: "100%", height: "auto", display: "block" }} />
+                </button>
               </div>
             </div>
 
@@ -872,6 +764,58 @@ const ProductsPage = () => {
         </section>
 
       </div>
+
+      {installModal && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${installModal.label} installation diagram — full size`}
+          onClick={() => setInstallModal(null)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            background: "rgba(4,21,33,0.92)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "64px 20px",
+          }}
+        >
+          <button
+            onClick={() => setInstallModal(null)}
+            aria-label="Close"
+            style={{
+              position: "fixed",
+              top: 20,
+              right: 20,
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              border: "none",
+              background: "rgba(255,255,255,0.12)",
+              color: "#fff",
+              fontSize: 20,
+              lineHeight: 1,
+              cursor: "pointer",
+            }}
+          >
+            ×
+          </button>
+          <div onClick={e => e.stopPropagation()} style={{ maxWidth: 900, width: "100%" }}>
+            <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 24px 60px rgba(0,0,0,0.4)" }}>
+              <img
+                src={installModal.src}
+                alt={`${installModal.label} split system installation diagram`}
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
+            </div>
+            <p style={{ color: "#fff", textAlign: "center", marginTop: 16, fontSize: 15, fontWeight: 600 }}>
+              {installModal.label}
+            </p>
+          </div>
+        </div>
+      )}
     </Layout>
   )
 }

@@ -17,7 +17,6 @@ import Accordion from 'react-bootstrap/Accordion';
 import GoogleReviewsCarousel from '../components/Sections/GoogleReviewsCarousel';
 import Form from "../components/QuoteForm";
 import StaticImage from "../components/StaticQueryImages";
-import MHIProducts from "../components/Products/MHISplitSytems";
 import MideaPDF from "../images/Midea.pdf";
 import HaierPDF from "../images/haier-tempo.pdf";
 import SamsungPDF from "../images/bedarra.pdf";
@@ -28,20 +27,28 @@ import MitsubishiPDF from "../images/Mitsubishi-electric-Brochure-2025.pdf";
 import HitachiPDF from "../images/hitachi.pdf";
 import MhiPDF from "../images/MHI.pdf";
 import Ciara from "../images/Ciara.pdf"
-import MideaProducts from "../components/Products/MideaSplitsSystems";
-import CarrierProducts from "../components/Products/CarrierSplitSystems";
-import SamsungProducts from "../components/Products/SamsungSplitSystems";
-import ToshibaProducts from "../components/Products/ToshibaSplitSystems";
-import DaikinProducts from "../components/Products/DaikinSplitSytems";
-import HaierProducts from "../components/Products/HaierSplitSystems";
-import HitachiProducts from '../components/Products/HitachiSplitSystems';
-import MitsubishiProducts from "../components/Products/MitsubishiElectricSplits";
+import Product from "../components/Products/Product";
+import { snapToStandard } from "../components/RoomSizeCalculator";
 import BrandsBtn from "../components/BrandsBtn";
 import Schema from "../components/Schema-2";
 import Seo from "../components/SEO-2";
 import AddToCartButton from '../components/AddToCartButton';
 import CartAddedCard from '../components/CartAddedCard';
 import { buildProductSchema } from '../utils/productSchema';
+
+// Colours for the brand pill shown on each "Also recommended for you" card —
+// keyed by the exact sub_categories title stored in Strapi.
+const BRAND_ACCENT_COLORS = {
+  "mitsubishi heavy industries": "#e31f26",
+  "midea": "#7DCDFF",
+  "daikin": "#00a1e5",
+  "samsung": "#212529",
+  "toshiba": "#D01C22",
+  "fujitsu": "#EA0000",
+  "haier": "rgb(0, 90, 171)",
+  "hitachi": "rgb(195, 0, 47)",
+  "mitsubishi electric": "#ff0000",
+};
 
 // Using the Head API to dynamically set the title for SEO
 export const Head = ({ data }) => {
@@ -105,6 +112,20 @@ const SingleProduct = ({ data }) => {
    const { title, price, heat_capacity, room_size, model, cool_capacity } = data.strapiProduct;
    const brand = data.strapiProduct.sub_categories[0]?.title || '';
    const currentCategory = product.categories[0]?.title || '';
+
+   // "Also recommended for you" — other brands' systems in the same size class
+   // as this product, cheapest first.
+   const filterKw = snapToStandard(parseFloat(cool_capacity));
+   const DISCONTINUED_BRANDS = ["carrier", "aura"];
+   const recommendedProducts = data.relatedProducts.nodes
+     .filter(p =>
+       p.id !== product.id &&
+       p.sub_categories[0]?.title !== brand &&
+       !DISCONTINUED_BRANDS.includes(p.sub_categories[0]?.title) &&
+       p.categories[0]?.title === currentCategory &&
+       snapToStandard(parseFloat(p.cool_capacity)) === filterKw
+     )
+     .sort((a, b) => a.price - b.price);
 
 
     // Prepare images for the Carousel component
@@ -437,76 +458,23 @@ const SingleProduct = ({ data }) => {
               <div className="img-wrapper-e mb-3" style={{borderRadius:8}}><StaticImage filename="splits-add-11-pow-lg.png" alt="home comfort air image" /></div>
               <div className='sp-quote-form'><Form productTitle={title} compact /></div>
               <hr />
-              <h5 className="mt-5 h6" style={{ fontWeight: `600` }}>Also recommended for you</h5>
+              <h5 className="mt-5 h6" style={{ fontWeight: `600` }}>Also other {filterKw}kW's recommended for you</h5>
 
-              {brand === "mitsubishi heavy industries" && (
-              <div className="mb-2">
-                <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#e31f26` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install MHI<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
-                <MHIProducts />
-              </div>
-              )}
-
-              {brand === "midea" && (
-              <div className="mb-2">
-                <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#7DCDFF` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Midea<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
-                <MideaProducts />
-              </div>
-              )}
-
-              {brand === "daikin" && (
-              <div className="mb-2">
-                <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#00a1e5` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Daikin<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
-                <DaikinProducts />
-              </div>
-              )}
-
-              {brand === "carrier" && (
+              {recommendedProducts.length > 0 ? (
                 <div className="mb-2">
-                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#004178` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Carrier<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
-                  <CarrierProducts />
+                  <div className="product-grid cross-brand-recommend">
+                    {recommendedProducts.map(p => (
+                      <Product
+                        key={p.id}
+                        {...p}
+                        brandLabel={p.sub_categories[0]?.title}
+                        brandColor={BRAND_ACCENT_COLORS[p.sub_categories[0]?.title]}
+                      />
+                    ))}
+                  </div>
                 </div>
-              )}
-
-              {brand === "samsung" && (
-                <div className="mb-2">
-                  <div className="mb-2"><div className="text-center border rounded bg-dark"><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Samsung<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
-                  <SamsungProducts />
-                </div>
-              )}
-
-              {brand === "toshiba" && (
-                <div className="mb-2">
-                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#D01C22` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Toshiba<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
-                  <ToshibaProducts />
-                </div>
-              )}
-
-              {brand === "haier" && (
-                <div className="mb-2">
-                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `rgb(0, 90, 171)` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Haier<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
-                  <HaierProducts />
-                </div>
-              )}
-
-              {brand === "hitachi" && (
-                <div className="mb-2">
-                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `rgb(195, 0, 47)` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Hitachi<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
-                  <HitachiProducts />
-                </div>
-              )}
-
-              {brand === "mitsubishi electric" && (
-                <div className="mb-2">
-                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#ff0000` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Mitsubishi<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
-                  <MitsubishiProducts />
-                </div>
-              )}
-
-              {brand === "aura" && (
-                <div className="mb-2">
-                  <div className="mb-2"><div className="text-center border rounded" style={{ backgroundColor: `#004178` }}><h3 className="h6 fw-600 cap mt-2 text-white" style={{ padding: `1.3rem 0` }}>Supply and Install Carrier<br /><span className="lead cam text-white"><small>Split Systems</small></span></h3></div></div>
-                  <CarrierProducts />
-                </div>
+              ) : (
+                <p style={{ fontSize: 13, color: '#6b7280' }}>No similar-size systems from other brands available right now.</p>
               )}
             </div>
           </div>
@@ -557,6 +525,9 @@ query GetSingleProduct($slug: String) {
       price
       slug
       cool_capacity
+      image {
+        url
+      }
       sub_categories {
         title
       }

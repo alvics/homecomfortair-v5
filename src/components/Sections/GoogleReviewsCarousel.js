@@ -392,6 +392,7 @@ const GoogleReviewsCarousel = ({ mode }) => {
       {/* Carousel — 2 cards per slide */}
       <Carousel
         autoPlay
+        interval={8000}
         infiniteLoop
         useKeyboardArrows
         swipeable
