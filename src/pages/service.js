@@ -53,6 +53,23 @@ const benefits = [
   },
 ]
 
+const deepCleanFeatures = [
+  "Hygienic deep clean that kills mould & bacteria on surfaces",
+  "Remove outer casing of the air con head unit and clean thoroughly",
+  "Extensive deep clean of the fins, vents & coils",
+  "Deep clean & disinfect the drip tray",
+  "Sanitise using our hospital-grade, non-toxic solution",
+  "Inspect & clean the outdoor compressor unit",
+  "Check the operation of the air con unit",
+]
+
+const CheckIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
+    <circle cx="10" cy="10" r="10" fill="#0075c9" fillOpacity="0.12" />
+    <path d="M6 10l3 3 5-5" stroke="#0075c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
 const ServicePage = () => (
   <Layout>
 
@@ -171,6 +188,86 @@ const ServicePage = () => (
         </div>
       </section>
 
+      {/* Deep Clean & Strip pricing */}
+      <section style={{ marginBottom: 72 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0075C9", marginBottom: 12 }}>
+          Add-On Service
+        </p>
+        <h2 className="section-title" style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#1f2937", marginBottom: 16, lineHeight: 1.3 }}>
+          Air Con Deep Clean & Strip
+        </h2>
+        <p style={{ fontSize: 16, color: "#374151", lineHeight: 1.7, marginBottom: 32, maxWidth: 640 }}>
+          A hospital-grade sanitising deep clean that goes beyond a standard service — ideal for mould, odours, allergies or a system that hasn't been stripped down in a while.
+        </p>
+        <div style={{ maxWidth: 400, margin: "0 auto" }}>
+          <div style={{
+            background: "#fff",
+            borderRadius: 20,
+            padding: "36px 28px 32px",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+            border: "2px solid #eef4fb",
+          }}>
+            <p style={{ fontSize: "0.78rem", fontWeight: 800, letterSpacing: 2, textTransform: "uppercase", color: "#0075C9", margin: "0 0 10px" }}>
+              Split System Strip & Clean
+            </p>
+            <div style={{ fontSize: "2.8rem", fontWeight: 900, color: "#1a1a1a", lineHeight: 1, marginBottom: 4 }}>$250</div>
+            <div style={{ fontSize: "0.88rem", color: "#777", fontWeight: 600, marginBottom: 6 }}>first unit + GST</div>
+            <span style={{
+              display: "inline-block",
+              background: "#e8f4fd",
+              color: "#0075C9",
+              fontSize: "0.78rem",
+              fontWeight: 700,
+              padding: "4px 12px",
+              borderRadius: 50,
+              marginBottom: 24,
+            }}>
+              $214.50 each additional unit
+            </span>
+
+            <hr style={{ border: "none", borderTop: "1px solid #eef0f3", marginBottom: 20 }} />
+
+            <ul style={{ listStyle: "none", margin: "0 0 28px", padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+              {deepCleanFeatures.map((f) => (
+                <li key={f} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <CheckIcon />
+                  <span style={{ fontSize: "0.92rem", color: "#444", fontWeight: 600, lineHeight: 1.5 }}>{f}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="#quote"
+              onClick={() => {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "deep_clean_click", { link_location: "service_page_pricing_card" });
+                }
+              }}
+              style={{
+                display: "block",
+                width: "100%",
+                padding: 14,
+                borderRadius: 12,
+                fontSize: "1rem",
+                fontWeight: 800,
+                textAlign: "center",
+                textDecoration: "none",
+                background: "transparent",
+                border: "2px solid #0075C9",
+                color: "#0075C9",
+                boxSizing: "border-box",
+              }}
+            >
+              Book This Service
+            </a>
+
+            <p style={{ marginTop: 10, fontSize: "0.72rem", color: "#9ca3af", textAlign: "center", lineHeight: 1.4 }}>
+              Prices include GST
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Home Comfort Club promo banner */}
       <section style={{ marginBottom: 72 }}>
         <div style={{
@@ -215,7 +312,7 @@ const ServicePage = () => (
       </section>
 
       {/* CTA / Quote */}
-      <section style={{
+      <section id="quote" style={{
         background: "linear-gradient(135deg, #0075C9 0%, #005fa3 100%)",
         borderRadius: 20,
         padding: "48px 40px",
