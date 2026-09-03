@@ -67,7 +67,16 @@ const DuctedSingleProduct = ({ data }) => {
 
   const [showCartCard, setShowCartCard] = useState(false);
   const [cardProduct, setCardProduct] = useState(null);
-  const handleShowCartCard = (product) => { setCardProduct(product); setShowCartCard(true); };
+  const handleShowCartCard = (product) => {
+      if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'quote_cart_add', {
+              product_name: title,
+              value: price,
+          });
+      }
+      setCardProduct(product);
+      setShowCartCard(true);
+  };
   const closeCartCard = () => { setShowCartCard(false); setCardProduct(null); };
 
   // Add-ons state
@@ -419,7 +428,19 @@ const DuctedSingleProduct = ({ data }) => {
               {/* Home Comfort Club */}
               <div style={{ marginBottom: 16 }}>
                 <div
-                  onClick={() => { setClubSelected(s => !s); if (clubSelected) setClubTier(null); }}
+                  onClick={() => {
+                    setClubSelected(s => {
+                        const next = !s;
+                        if (next && typeof window !== 'undefined' && window.gtag) {
+                            window.gtag('event', 'add_on_select', {
+                                add_on_name: 'Home Comfort Club',
+                                product_name: title,
+                            });
+                        }
+                        return next;
+                    });
+                    if (clubSelected) setClubTier(null);
+                  }}
                   style={{
                     display: 'flex', alignItems: 'flex-start', gap: 10,
                     padding: '10px 12px',
@@ -479,6 +500,13 @@ const DuctedSingleProduct = ({ data }) => {
                 )}
                 <Link
                         to="/home-comfort-club/"
+                        onClick={() => {
+                            if (typeof window !== 'undefined' && window.gtag) {
+                                window.gtag('event', 'club_learn_more_click', {
+                                    product_name: title,
+                                });
+                            }
+                        }}
                         style={{ fontSize: 11, color: '#0075C9', display: 'inline-block', marginTop: 6 }}
                       >
                         Learn more about the Home Comfort Club →

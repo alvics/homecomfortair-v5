@@ -22,7 +22,15 @@ const Footer = () => {
                 Queensland's trusted air conditioning specialists. 5-year workmanship warranty on all new installations.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 8, fontSize: 14 }}>
-                <a href="tel:0731050421" style={{ color: "#00c4b3", textDecoration: "none", fontWeight: 600 }}>
+                <a
+                  href="tel:0731050421"
+                  style={{ color: "#00c4b3", textDecoration: "none", fontWeight: 600 }}
+                  onClick={() => {
+                    if (typeof window !== "undefined" && window.gtag) {
+                      window.gtag("event", "call_click", { link_location: "footer" });
+                    }
+                  }}
+                >
                   📞 0404 602 657
                 </a>
                 <a href="mailto:info@homecomfortair.net.au" style={{ color: "#94a3b8", textDecoration: "none" }}>

@@ -141,7 +141,18 @@ const Products = () => {
   }, []);
 
   // ── Handlers ───────────────────────────────────────────
+  const trackFilterSelect = (filterType, filterValue, filterState) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "filter_select", {
+        filter_type: filterType,
+        filter_value: filterValue,
+        filter_state: filterState,
+      });
+    }
+  };
+
   const handleCategoryChange = cat => {
+    trackFilterSelect("category", cat, "select");
     setSelectedCategory(cat);
     setSelectedBrands([]);
     setSelectedCoolingCapacities([]);
@@ -149,22 +160,31 @@ const Products = () => {
     setActiveSortBrand("All");
   };
 
-  const handleBrandFilter = brand =>
+  const handleBrandFilter = brand => {
+    trackFilterSelect("brand", brand, selectedBrands.includes(brand) ? "deselect" : "select");
     setSelectedBrands(prev =>
       prev.includes(brand) ? prev.filter(b => b !== brand) : [...prev, brand]
     );
+  };
 
-  const handleCoolingCapacityFilter = range =>
+  const handleCoolingCapacityFilter = range => {
+    const isSelected = selectedCoolingCapacities.some(r => r.min === range.min && r.max === range.max);
+    trackFilterSelect("kw_range", `${range.min.toFixed(1)}-${range.max.toFixed(1)}kW`, isSelected ? "deselect" : "select");
     setSelectedCoolingCapacities(prev => {
       const idx = prev.findIndex(r => r.min === range.min && r.max === range.max);
       return idx !== -1 ? prev.filter((_, i) => i !== idx) : [...prev, range];
     });
+  };
 
-  const handlePriceRangeFilter = range =>
+  const handlePriceRangeFilter = range => {
+    const isSelected = selectedPriceRanges.some(r => r.min === range.min && r.max === range.max);
+    const label = `$${range.min}-${range.max === 999999 ? "Above" : "$" + range.max}`;
+    trackFilterSelect("price_range", label, isSelected ? "deselect" : "select");
     setSelectedPriceRanges(prev => {
       const idx = prev.findIndex(r => r.min === range.min && r.max === range.max);
       return idx !== -1 ? prev.filter((_, i) => i !== idx) : [...prev, range];
     });
+  };
 
   const handleClearFilters = () => {
     setSelectedBrands([]);

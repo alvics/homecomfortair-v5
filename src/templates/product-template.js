@@ -95,6 +95,12 @@ const SingleProduct = ({ data }) => {
   const [cardProduct, setCardProduct] = useState(null);
 
   const handleShowCartCard = (product) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'quote_cart_add', {
+          product_name: title,
+          value: price,
+      });
+  }
   setCardProduct(product);
   setShowCartCard(true);
 };
@@ -412,7 +418,19 @@ const SingleProduct = ({ data }) => {
  <p className="sp-size-label" style={{ marginBottom: 10 }}>Add ons:</p>
                     <div style={{ marginBottom: 16 }}>
                         <div
-                            onClick={() => { setClubSelected(s => !s); if (clubSelected) setClubTier(null); }}
+                            onClick={() => {
+                                setClubSelected(s => {
+                                    const next = !s;
+                                    if (next && typeof window !== 'undefined' && window.gtag) {
+                                        window.gtag('event', 'add_on_select', {
+                                            add_on_name: 'Home Comfort Club',
+                                            product_name: title,
+                                        });
+                                    }
+                                    return next;
+                                });
+                                if (clubSelected) setClubTier(null);
+                            }}
                             style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '10px 12px', border: `1.5px solid ${clubSelected ? '#0075C9' : '#e0e0e0'}`, borderRadius: 8, cursor: 'pointer', background: clubSelected ? '#f0f7ff' : '#fff', transition: 'border-color 0.15s, background 0.15s', userSelect: 'none' }}
                         >
                             <div style={{ flexShrink: 0, width: 16, height: 16, marginTop: 2, borderRadius: '50%', border: `2px solid ${clubSelected ? '#0075C9' : '#aaa'}`, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -443,6 +461,13 @@ const SingleProduct = ({ data }) => {
                         )}
                         <Link
                         to="/home-comfort-club/"
+                        onClick={() => {
+                            if (typeof window !== 'undefined' && window.gtag) {
+                                window.gtag('event', 'club_learn_more_click', {
+                                    product_name: title,
+                                });
+                            }
+                        }}
                         style={{ fontSize: 11, color: '#0075C9', display: 'inline-block', marginTop: 6 }}
                       >
                         Learn more about the Home Comfort Club →
