@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const StaticImage = ({ filename, alt }) => {
+const StaticImage = ({ filename, alt, style, imgStyle, contain }) => {
   const data = useStaticQuery(graphql`
     query {
       images: allFile {
@@ -26,7 +26,21 @@ const StaticImage = ({ filename, alt }) => {
 
   if (!image || !image.node.childImageSharp) return null
 
-  return <Img alt={alt} fluid={image.node.childImageSharp.fluid} />
+  const fluid = image.node.childImageSharp.fluid
+
+  if (contain) {
+    return (
+      <img
+        alt={alt}
+        src={fluid.src}
+        srcSet={fluid.srcSet}
+        sizes={fluid.sizes}
+        style={{ objectFit: "contain", ...style }}
+      />
+    )
+  }
+
+  return <Img alt={alt} fluid={fluid} style={style} imgStyle={imgStyle} />
 }
 
 export default StaticImage

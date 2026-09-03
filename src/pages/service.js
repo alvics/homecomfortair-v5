@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useState } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/Layouts/layout"
 import Seo from "../components/SEO-2"
@@ -70,8 +70,44 @@ const CheckIcon = () => (
   </svg>
 )
 
-const ServicePage = () => (
+const deepCleanChecks = [
+  { num: 1, title: "Hygienic Deep Clean", desc: "Kills mould & bacteria on all interior surfaces." },
+  { num: 2, title: "Casing Removal & Clean", desc: "Outer casing of the air con head unit removed and cleaned thoroughly." },
+  { num: 3, title: "Fins, Vents & Coils", desc: "Extensive deep clean of the fins, vents & coils." },
+  { num: 4, title: "Drip Tray Clean", desc: "Deep clean & disinfect the drip tray." },
+  { num: 5, title: "Hospital-Grade Sanitising", desc: "Sanitise using our hospital-grade, non-toxic solution." },
+  { num: 6, title: "Outdoor Unit Inspection", desc: "Inspect & clean the outdoor compressor unit." },
+  { num: 7, title: "Operation Check", desc: "Check the full operation of the air con unit." },
+]
+
+const standardChecks = [
+  { num: 8, title: "Condenser Coil Clean", desc: "Remove debris/leaves that make the unit work harder." },
+  { num: 9, title: "Refrigerant Level Check", desc: "Monitor gas levels to ensure peak cooling efficiency." },
+  { num: 10, title: "Electrical Terminal Tightening", desc: "Check for loose wires caused by vibrations." },
+  { num: 11, title: "Compressor Amp Draw", desc: "Measure power usage to catch potential failures early." },
+  { num: 12, title: "Fan Motor Lubrication", desc: "Check bearings and seals for smooth operation." },
+  { num: 13, title: "Vibration Check", desc: "Ensure the unit is stable and not making excess noise." },
+  { num: 14, title: "Corrosion & Rust Check", desc: "(Crucial for coastal areas!) Inspect the casing for salt-air damage." },
+  { num: 15, title: "System Operation Cycle", desc: "A full test run to ensure the system reaches temperature quickly." },
+]
+
+const deepCleanGallery = [
+  { filename: "CLEAN-A:C-1.jpeg", alt: "Air con head unit casing removed for deep clean" },
+  { filename: "CLEAN-A:C-2.jpeg", alt: "Split system fins, vents and coils being deep cleaned" },
+  { filename: "CLEAN-A:C-3.jpeg", alt: "Hospital-grade sanitising solution applied to air con unit" },
+  { filename: "CLEAN-A:C-4.jpeg", alt: "Air con drip tray cleaned and disinfected" },
+]
+
+const ServicePage = () => {
+  const [lightboxIndex, setLightboxIndex] = useState(null)
+  const showPrev = () => setLightboxIndex((i) => (i - 1 + deepCleanGallery.length) % deepCleanGallery.length)
+  const showNext = () => setLightboxIndex((i) => (i + 1) % deepCleanGallery.length)
+
+  return (
   <Layout>
+    <style>{`
+      .lightbox-nav-btn { color: #fff !important; }
+    `}</style>
 
     {/* ── Hero ── */}
     <section className="full-bleed" style={{
@@ -199,6 +235,37 @@ const ServicePage = () => (
         <p style={{ fontSize: 16, color: "#374151", lineHeight: 1.7, marginBottom: 32, maxWidth: 640 }}>
           A hospital-grade sanitising deep clean that goes beyond a standard service — ideal for mould, odours, allergies or a system that hasn't been stripped down in a while.
         </p>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gap: 16,
+          marginBottom: 40,
+        }}>
+          {deepCleanGallery.map((img, i) => (
+            <button
+              key={img.filename}
+              onClick={() => setLightboxIndex(i)}
+              aria-label={`View larger image: ${img.alt}`}
+              style={{
+                borderRadius: 12,
+                overflow: "hidden",
+                boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+                border: "none",
+                padding: 0,
+                cursor: "zoom-in",
+                display: "block",
+              }}
+            >
+              <StaticImage
+                filename={img.filename}
+                alt={img.alt}
+                imgStyle={i === 1 ? { objectPosition: "50% 0%" } : undefined}
+              />
+            </button>
+          ))}
+        </div>
+
         <div style={{ maxWidth: 400, margin: "0 auto" }}>
           <div style={{
             background: "#fff",
@@ -264,6 +331,66 @@ const ServicePage = () => (
             <p style={{ marginTop: 10, fontSize: "0.72rem", color: "#9ca3af", textAlign: "center", lineHeight: 1.4 }}>
               Prices include GST
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Deep Clean 15-Point Check */}
+      <section style={{ marginBottom: 72 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0075C9", marginBottom: 12 }}>
+          Every Deep Clean, Every Time
+        </p>
+        <h2 className="section-title" style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#1f2937", marginBottom: 16, lineHeight: 1.3 }}>
+          The Deep Clean 15-Point Check 🧼
+        </h2>
+        <p style={{ fontSize: 16, color: "#374151", lineHeight: 1.7, marginBottom: 40, maxWidth: 640 }}>
+          A Deep Clean & Strip includes our specialised sanitising steps, plus the same rigorous 8-point inspection your system gets during a standard service — 15 points covered every time.
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 32 }}>
+          <div style={{
+            background: "#fff",
+            border: "1px solid #e8eef5",
+            borderRadius: 16,
+            padding: "28px 24px",
+            boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+          }}>
+            <div style={{ fontSize: "1rem", fontWeight: 800, color: "#0075C9", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 20, display: "flex", alignItems: "center", gap: 8 }}>
+              <span>🧴</span> Deep Clean Steps
+            </div>
+            {deepCleanChecks.map((item) => (
+              <div key={item.num} style={{ display: "flex", gap: 14, marginBottom: 16, alignItems: "flex-start" }}>
+                <div style={{ width: 28, height: 28, borderRadius: "50%", background: "#0075C9", color: "#fff", fontSize: "0.75rem", fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  {item.num}
+                </div>
+                <div>
+                  <h4 style={{ fontSize: "0.92rem", fontWeight: 700, color: "#1a1a1a", margin: "0 0 2px" }}>{item.title}</h4>
+                  <p style={{ fontSize: "0.83rem", color: "#666", margin: 0, lineHeight: 1.5 }}>{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{
+            background: "#fff",
+            border: "1px solid #e8eef5",
+            borderRadius: 16,
+            padding: "28px 24px",
+            boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+          }}>
+            <div style={{ fontSize: "1rem", fontWeight: 800, color: "#0075C9", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 20, display: "flex", alignItems: "center", gap: 8 }}>
+              <span>⚙️</span> Standard Performance Check
+            </div>
+            {standardChecks.map((item) => (
+              <div key={item.num} style={{ display: "flex", gap: 14, marginBottom: 16, alignItems: "flex-start" }}>
+                <div style={{ width: 28, height: 28, borderRadius: "50%", background: "#0075C9", color: "#fff", fontSize: "0.75rem", fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  {item.num}
+                </div>
+                <div>
+                  <h4 style={{ fontSize: "0.92rem", fontWeight: 700, color: "#1a1a1a", margin: "0 0 2px" }}>{item.title}</h4>
+                  <p style={{ fontSize: "0.83rem", color: "#666", margin: 0, lineHeight: 1.5 }}>{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -363,7 +490,117 @@ const ServicePage = () => (
       </p>
 
     </div>
+
+    {lightboxIndex !== null && (
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={() => setLightboxIndex(null)}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") setLightboxIndex(null)
+          if (e.key === "ArrowLeft") showPrev()
+          if (e.key === "ArrowRight") showNext()
+        }}
+        style={{
+          position: "fixed",
+          inset: 0,
+          background: "rgba(0,0,0,0.9)",
+          zIndex: 1000,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "24px 16px",
+          cursor: "zoom-out",
+        }}
+      >
+        <button
+          onClick={() => setLightboxIndex(null)}
+          aria-label="Close"
+          className="lightbox-nav-btn"
+          style={{
+            position: "absolute",
+            top: 20,
+            right: 24,
+            background: "transparent",
+            border: "none",
+            color: "#fff",
+            fontSize: 32,
+            fontWeight: 700,
+            lineHeight: 1,
+            cursor: "pointer",
+            zIndex: 1002,
+            filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.9))",
+          }}
+        >
+          ✕
+        </button>
+
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, maxWidth: "100%" }}>
+          <button
+            onClick={(e) => { e.stopPropagation(); showPrev(); }}
+            aria-label="Previous image"
+            className="lightbox-nav-btn"
+            style={{
+              flexShrink: 0,
+              background: "transparent",
+              border: "none",
+              color: "#fff",
+              fontSize: 48,
+              fontWeight: 700,
+              lineHeight: 1,
+              cursor: "pointer",
+              zIndex: 1002,
+              filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.9))",
+            }}
+          >
+            ‹
+          </button>
+
+          <div style={{ maxWidth: 900, maxHeight: "85vh", display: "flex" }} onClick={(e) => e.stopPropagation()}>
+            <StaticImage
+              filename={deepCleanGallery[lightboxIndex].filename}
+              alt={deepCleanGallery[lightboxIndex].alt}
+              contain
+              style={{ maxWidth: "100%", maxHeight: "85vh", width: "auto", height: "auto", borderRadius: 12 }}
+            />
+          </div>
+
+          <button
+            onClick={(e) => { e.stopPropagation(); showNext(); }}
+            aria-label="Next image"
+            className="lightbox-nav-btn"
+            style={{
+              flexShrink: 0,
+              background: "transparent",
+              border: "none",
+              color: "#fff",
+              fontSize: 48,
+              fontWeight: 700,
+              lineHeight: 1,
+              cursor: "pointer",
+              zIndex: 1002,
+              filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.9))",
+            }}
+          >
+            ›
+          </button>
+        </div>
+
+        <div style={{
+          position: "absolute",
+          bottom: 24,
+          left: "50%",
+          transform: "translateX(-50%)",
+          color: "rgba(255,255,255,0.7)",
+          fontSize: 14,
+          fontWeight: 600,
+        }}>
+          {lightboxIndex + 1} / {deepCleanGallery.length}
+        </div>
+      </div>
+    )}
   </Layout>
-)
+  )
+}
 
 export default ServicePage
