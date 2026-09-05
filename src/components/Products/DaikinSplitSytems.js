@@ -6,15 +6,14 @@ import { graphql, useStaticQuery } from "gatsby"
 import { snapToStandard } from "../RoomSizeCalculator"
 // import styles from "../../css/products.module.css"
 
-const DaikinSplitSystems = ({ filterKw }) => {
+const DaikinSplitSystems = ({ filterKw, model }) => {
   const {
     allStrapiProduct: { nodes: allProducts },
   } = useStaticQuery(query)
 
-  const splitProducts = allProducts.filter(p => !p.slug?.includes("ducted"))
-  const products = filterKw
-    ? splitProducts.filter(p => snapToStandard(parseFloat(p.cool_capacity)) === filterKw)
-    : splitProducts
+  let products = allProducts.filter(p => !p.slug?.includes("ducted"))
+  if (model) products = products.filter(p => p.model === model)
+  if (filterKw) products = products.filter(p => snapToStandard(parseFloat(p.cool_capacity)) === filterKw)
 
   if (filterKw && products.length === 0) return null
 
@@ -44,6 +43,7 @@ export const query = graphql`
         title
         price
         slug
+        model
         cool_capacity
         description {
           data {

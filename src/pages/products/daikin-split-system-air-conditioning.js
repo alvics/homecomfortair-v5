@@ -21,6 +21,13 @@ export const Head = () => (
   </Fragment>
 )
 
+const daikinSplitRanges = [
+  { model: "Cora", blurb: "Daikin's best-selling residential split system — whisper-quiet, efficient, and built for Australian conditions." },
+  { model: "Alira X", blurb: "Daikin's newest range, adding Heat Boost Technology and Long Time Heat Technology for faster warm-up and steadier heating through winter." },
+  { model: "Zena", blurb: "A designer hi-wall unit available in White Hair Line or Black Wood finish, with a Grid Eye sensor to spread comfort evenly around the room." },
+  { model: "XL Series", blurb: "Daikin's high-capacity range for larger rooms and open-plan living areas." },
+]
+
 const daikinSplitFeatures = [
   { title: "Inverter Technology", desc: "Continuously adjusts output for maximum efficiency.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> },
   { title: "Quiet Operation", desc: "Among the quietest units available on the market.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg> },
@@ -81,10 +88,10 @@ const DaikinProductsPage = () => (
               <StaticImage filename="brands/daikin.jpg" alt="Daikin logo" />
             </div>
             <h2 className="section-title" style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#1f2937", marginBottom: 16, lineHeight: 1.3 }}>
-              Daikin Cora Series
+              Daikin Split Systems
             </h2>
             <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.9, marginBottom: 16 }}>
-              Daikin is a globally recognised leader in air conditioning — known for high-performance inverter technology, exceptional energy efficiency, and whisper-quiet operation. The Cora series is Daikin's best-selling residential split system, engineered to keep Australian homes comfortable across all four seasons.
+              Daikin is a globally recognised leader in air conditioning — known for high-performance inverter technology, exceptional energy efficiency, and whisper-quiet operation. Choose from four residential ranges below, each engineered to keep Australian homes comfortable across all four seasons.
             </p>
             <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.9 }}>
               Every system is backed by a 5-year manufacturer warranty, and our <Link to="/installation-warranty" style={{ color: "#0075C9" }}>5-year installation warranty</Link> for complete peace of mind.
@@ -96,13 +103,20 @@ const DaikinProductsPage = () => (
 
       {/* ── Products ── */}
       <section style={{ borderTop: "1px solid #e8eef5", paddingTop: 40, paddingBottom: 8 }}>
-        <div style={{ background: "#0075C9", borderRadius: 10, padding: "18px 24px", marginBottom: 24 }}>
-          <h2 style={{ color: "#fff", fontWeight: 700, fontSize: 18, margin: 0 }}>
-            Supplied &amp; Installed — Daikin Systems
-          </h2>
-        </div>
-        <DaikinProducts />
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 16 }}>
+        {daikinSplitRanges.map((range, i) => (
+          <div key={range.model} style={{ marginBottom: 40 }}>
+            <div style={{ background: "#0075C9", borderRadius: 10, padding: "18px 24px", marginBottom: 12 }}>
+              <h2 style={{ color: "#fff", fontWeight: 700, fontSize: 18, margin: 0 }}>
+                Daikin {range.model} — Supplied &amp; Installed
+              </h2>
+            </div>
+            <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.7, marginBottom: 20, maxWidth: 760 }}>
+              {range.blurb}
+            </p>
+            <DaikinProducts model={range.model} />
+          </div>
+        ))}
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8 }}>
           <span style={{ fontSize: 14, color: "#6b7280" }}>Daikin brochure</span>
           <a href={DaikinPDF} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 600, color: "#0075C9", textDecoration: "none", border: "1px solid #e8eef5", borderRadius: 8, padding: "5px 12px" }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0075C9" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5z"/></svg>

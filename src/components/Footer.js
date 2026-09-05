@@ -23,7 +23,7 @@ const Footer = () => {
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 8, fontSize: 14 }}>
                 <a
-                  href="tel:0731050421"
+                  href="tel:0404602657"
                   style={{ color: "#00c4b3", textDecoration: "none", fontWeight: 600 }}
                   onClick={() => {
                     if (typeof window !== "undefined" && window.gtag) {

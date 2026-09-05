@@ -391,7 +391,8 @@ const SingleProduct = ({ data }) => {
                         {data.relatedProducts.nodes
                             .filter(p =>
                                 p.sub_categories[0]?.title === brand &&
-                                p.categories[0]?.title === currentCategory
+                                p.categories[0]?.title === currentCategory &&
+                                p.model === model
                             )
                             .map((p) => {
                                 const isActive = pathname.includes(p.slug);
@@ -550,6 +551,7 @@ query GetSingleProduct($slug: String) {
       price
       slug
       cool_capacity
+      model
       image {
         url
       }

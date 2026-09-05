@@ -92,10 +92,10 @@ const standardChecks = [
 ]
 
 const deepCleanGallery = [
-  { filename: "CLEAN-A:C-1.jpeg", alt: "Air con head unit casing removed for deep clean" },
-  { filename: "CLEAN-A:C-2.jpeg", alt: "Split system fins, vents and coils being deep cleaned" },
-  { filename: "CLEAN-A:C-3.jpeg", alt: "Hospital-grade sanitising solution applied to air con unit" },
-  { filename: "CLEAN-A:C-4.jpeg", alt: "Air con drip tray cleaned and disinfected" },
+  { filename: "CLEAN-AC-1.jpeg", alt: "Air con head unit casing removed for deep clean" },
+  { filename: "CLEAN-AC-2.jpeg", alt: "Split system fins, vents and coils being deep cleaned" },
+  { filename: "CLEAN-AC-3.jpeg", alt: "Hospital-grade sanitising solution applied to air con unit" },
+  { filename: "CLEAN-AC-4.jpeg", alt: "Air con drip tray cleaned and disinfected" },
 ]
 
 const ServicePage = () => {

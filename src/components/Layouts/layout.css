@@ -4840,6 +4840,42 @@ button:hover {
   padding: 10px;
 }
 
+.description-container h1,
+.description-container h2,
+.description-container h3,
+.description-container h4,
+.description-container h5,
+.description-container h6 {
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  color: #0075C9 !important;
+  margin: 28px 0 10px !important;
+}
+
+.description-container > *:first-child {
+  margin-top: 0 !important;
+}
+
+.description-container p {
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  color: #374151 !important;
+  margin: 0 0 8px !important;
+}
+
+.description-container ul,
+.description-container ol {
+  margin: 0 0 8px !important;
+  padding-left: 20px !important;
+}
+
+.description-container li {
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  color: #374151 !important;
+  margin-bottom: 4px !important;
+}
+
 .breadcrumb-item {
   font-size: 12px !important;
   text-transform: capitalize !important;
