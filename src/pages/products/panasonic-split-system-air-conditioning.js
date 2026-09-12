@@ -3,35 +3,36 @@ import { Link } from "gatsby"
 import Layout from "../../components/Layouts/layout"
 import Seo from '../../components/SEO-2'
 import Schema from '../../components/Schema-2'
-import StaticImage from "../../components/StaticQueryImages"
 import Form from "../../components/QuoteForm"
 import FeatureBubble from "../../components/FeatureBubble"
 import BrandPageNav from "../../components/BrandPageNav"
 import BrandFeatures from "../../components/BrandFeatures"
 import WhyHCA from "../../components/WhyHCA"
-import ToshibaProducts from '../../components/Products/ToshibaSplitSystems'
-import ToshibaPDF from "../../images/Toshiba.pdf"
-import toshibaInstallImg from "../../images/gallery/Redbank_Plains_Toshiba.jpeg"
+import PanasonicProducts from '../../components/Products/PanasonicSplitSystems'
+import panasonicLogo from "../../images/Panasonic/logo-cropped.png"
+import panasonicHeroImg from "../../images/Panasonic/hero.jpg"
+import PanasonicPDF from "../../images/Panasonic/PANASONIC_RZ-SERIES.pdf"
+import panasonicInstallImg from "../../images/Panasonic/panasonic_install_home_comfort_air.jpeg"
 
 export const Head = () => (
   <Fragment>
-    <title>Supplied and Installed Toshiba Split System Air Conditioner</title>
-    <meta name="description" content="Browse Toshiba split system air conditioning supplied & installed pricing for your home or space. Supplied & installed from $1299 inc GST" />
+    <title>Supplied and Installed Panasonic Split System Air Conditioning</title>
+    <meta name="description" content="Explore our supplied and installed Panasonic RZ Series split system air conditioning, cool and heat your home with Panasonic air conditioner." />
     <Seo />
     <Schema />
   </Fragment>
 )
 
-const toshibaFeatures = [
-  { title: "Inverter Technology", desc: "Magic Coil® for superior efficiency and longevity.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> },
-  { title: "Quiet Operation", desc: "Ultra-quiet operation from as low as 20dBA.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg> },
-  { title: "Wi-Fi Control", desc: "Smart control via the Toshiba AC app.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M10.54 16a6 6 0 0 1 2.92 0"/><circle cx="12" cy="20" r="1"/></svg> },
-  { title: "Heating & Cooling", desc: "Reliable reverse cycle across all seasons.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg> },
-  { title: "High Energy Rating", desc: "Top energy star ratings for reduced bills.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> },
-  { title: "7yr Warranty", desc: "Toshiba's industry-leading manufacturer warranty.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> },
+const panasonicSplitFeatures = [
+  { title: "Inverter Technology", desc: "R32 inverter compressor adjusts output for efficient, steady comfort.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> },
+  { title: "Multi-Protection Filter", desc: "Anti-bacterial, anti-virus, anti-allergen and anti-mould filtration.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> },
+  { title: "AEROWINGS Airflow", desc: "Dual-flap design projects air further across the room.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M10.54 16a6 6 0 0 1 2.92 0"/><circle cx="12" cy="20" r="1"/></svg> },
+  { title: "Smart App Control", desc: "Comfort Cloud App control via optional network adaptor.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg> },
+  { title: "ECO Mode with A.I.", desc: "Learns your room and saves up to 20% more energy.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> },
+  { title: "Built for Coastal Air", desc: "Blue Fin condenser and corrosion-resistant outdoor coating.", icon: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0075C9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> },
 ]
 
-const ToshibaProductsPage = () => (
+const PanasonicProductsPage = () => (
   <Layout>
 
     {/* ── Hero ── */}
@@ -52,10 +53,10 @@ const ToshibaProductsPage = () => (
             Supplied &amp; Installed
           </p>
           <h1 style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", fontWeight: 800, color: "#fff", marginBottom: 16, lineHeight: 1.2 }}>
-            Toshiba Split Systems
+            Panasonic Split Systems
           </h1>
           <p style={{ fontSize: 22, color: "rgba(255,255,255,0.85)", marginBottom: 40, lineHeight: 1.5, fontFamily: "'Caveat', cursive" }}>
-            Quiet, Efficient, and Built to Last
+            Comfort Cooling &amp; Heating, All Year Round
           </p>
           <Link to="/contact" style={{
             display: "inline-block", background: "#00c4b3", color: "#fff",
@@ -65,12 +66,12 @@ const ToshibaProductsPage = () => (
           </Link>
         </div>
         <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 24px 48px rgba(0,0,0,0.25)" }}>
-          <StaticImage filename="brands/Hero/toshiba-hero.jpg" alt="Toshiba split system air conditioner" />
+          <img src={panasonicHeroImg} alt="Panasonic RZ Series split system air conditioner" style={{ width: "100%", display: "block" }} />
         </div>
       </div>
     </section>
 
-    <BrandPageNav currentBrand="Toshiba" />
+    <BrandPageNav currentBrand="Panasonic" />
 
     <div className="body-wrapper ducted-systems p-3">
 
@@ -79,16 +80,16 @@ const ToshibaProductsPage = () => (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 40, alignItems: "center" }}>
           <div>
             <div style={{ maxWidth: 220, marginBottom: 20 }}>
-              <StaticImage filename="brands/toshiba.jpg" alt="Toshiba logo" />
+              <img src={panasonicLogo} alt="Panasonic logo" style={{ width: "100%", display: "block" }} />
             </div>
             <h2 className="section-title" style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#1f2937", marginBottom: 16, lineHeight: 1.3 }}>
-              Toshiba SEIYA Classic Series
+              Panasonic RZ Series Split Systems
             </h2>
             <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.9, marginBottom: 16 }}>
-              Toshiba is a well-known and respected brand in the air conditioning industry, renowned for high-performance, energy-efficient systems and some of the longest warranties on the market. The SEIYA Classic features advanced inverter technology and HEPA-grade air filtration — ideal for Australian homes year-round.
+              Panasonic's RZ Series brings dependable, efficient cooling and heating to any room, backed by a multi-protection air filter and a design built to handle Australian conditions — from coastal salt air to peak summer heat.
             </p>
             <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.9 }}>
-              Backed by a 7-year manufacturer warranty, and our <Link to="/installation-warranty" style={{ color: "#0075C9" }}>5-year installation warranty</Link> for complete peace of mind.
+              Every system is backed by Panasonic's manufacturer warranty, and our <Link to="/installation-warranty" style={{ color: "#0075C9" }}>5-year installation warranty</Link> for complete peace of mind.
             </p>
           </div>
           <WhyHCA />
@@ -97,57 +98,62 @@ const ToshibaProductsPage = () => (
 
       {/* ── Products ── */}
       <section style={{ borderTop: "1px solid #e8eef5", paddingTop: 40, paddingBottom: 8 }}>
-        <div style={{ background: "#0075C9", borderRadius: 10, padding: "18px 24px", marginBottom: 24 }}>
-          <h2 style={{ color: "#fff", fontWeight: 700, fontSize: 18, margin: 0 }}>
-            Supplied &amp; Installed — Toshiba Systems
-          </h2>
-        </div>
-        <ToshibaProducts />
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 16 }}>
-          <span style={{ fontSize: 14, color: "#6b7280" }}>Toshiba brochure</span>
-          <a href={ToshibaPDF} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 600, color: "#0075C9", textDecoration: "none", border: "1px solid #e8eef5", borderRadius: 8, padding: "5px 12px" }}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0075C9" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5z"/></svg>
-            Download PDF
-          </a>
+        <div style={{ marginBottom: 40 }}>
+          <div style={{ background: "#0075C9", borderRadius: 10, padding: "18px 24px", marginBottom: 12 }}>
+            <h2 style={{ color: "#fff", fontWeight: 700, fontSize: 18, margin: 0 }}>
+              Panasonic RZ Series — Supplied &amp; Installed
+            </h2>
+          </div>
+          <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.7, marginBottom: 20, maxWidth: 760 }}>
+            One reliable reverse-cycle range spanning 2.5kW to 9.5kW — from single bedrooms through to large open-plan living areas.
+          </p>
+          <PanasonicProducts />
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8 }}>
+            <span style={{ fontSize: 14, color: "#6b7280" }}>Panasonic brochure</span>
+            <a href={PanasonicPDF} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 600, color: "#0075C9", textDecoration: "none", border: "1px solid #e8eef5", borderRadius: 8, padding: "5px 12px" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0075C9" viewBox="0 0 16 16"><path fillRule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5z"/></svg>
+              Download PDF
+            </a>
+          </div>
         </div>
       </section>
 
       {/* ── Key Features ── */}
-      <BrandFeatures features={toshibaFeatures} heading="Key Features of Toshiba Split Systems" />
+      <BrandFeatures features={panasonicSplitFeatures} heading="Key Features of Panasonic Split Systems" />
 
       {/* ── Why Choose Section ── */}
       <section style={{ paddingTop: 48, paddingBottom: 48, borderTop: "1px solid #e8eef5" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 40, alignItems: "start" }}>
           <div>
-            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0075C9", marginBottom: 12 }}>Why Toshiba?</p>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0075C9", marginBottom: 12 }}>Why Panasonic?</p>
             <h2 className="section-title" style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#1f2937", marginBottom: 20, lineHeight: 1.3 }}>
-              Industry-leading warranty, whisper-quiet performance
+              Reliable comfort, engineered to last
             </h2>
             <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.9, marginBottom: 16 }}>
-              Toshiba's inverter compressor automatically adjusts cooling and heating output to match the ambient temperature, delivering efficient performance and lower energy consumption. The Magic Coil® technology improves longevity and maintains energy ratings over the unit's lifetime.
+              Panasonic pairs R32 inverter efficiency with a filtration system that keeps the air in your home cleaner — deactivating up to 99% of captured bacteria, allergens and viruses. The outdoor unit is built to shrug off heat, humidity and salt air for years of reliable performance.
             </p>
             <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.9 }}>
-              With advanced HEPA-grade air filtration, Toshiba is an excellent choice for allergy and asthma sufferers. Explore our <Link to="/ducted-systems" style={{ color: "#0075C9" }}>ducted systems</Link> or <Link to="/multi-head-systems" style={{ color: "#0075C9" }}>multi-head options</Link> for whole-home comfort.
+              With optional Wi-Fi connectivity via the Comfort Cloud App, Panasonic systems are a smart long-term investment. Explore our <Link to="/ducted-systems" style={{ color: "#0075C9" }}>ducted systems</Link> or <Link to="/multi-head-systems" style={{ color: "#0075C9" }}>multi-head options</Link> for whole-home comfort.
             </p>
           </div>
           <div>
             <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.08)", marginBottom: 20, maxWidth: 320 }}>
               <img
-                src={toshibaInstallImg}
-                alt="Toshiba outdoor unit installed by Home Comfort Air in Redbank Plains"
+                src={panasonicInstallImg}
+                alt="Panasonic outdoor unit installed by Home Comfort Air in Paradise Point"
                 style={{ width: "100%", display: "block" }}
               />
               <div style={{ padding: "10px 14px", background: "#f8fafc" }}>
                 <div style={{ fontSize: 13, fontWeight: 600, color: "#6b7280" }}>
-                  Redbank Plains<span style={{ fontWeight: 500, color: "#9ca3af" }}> · Toshiba</span>
+                  Paradise Point<span style={{ fontWeight: 500, color: "#9ca3af" }}> · Panasonic</span>
                 </div>
               </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {[
-                { q: "What warranty does Toshiba offer?", a: "Toshiba offers a 7-year parts and labour warranty on many residential split systems — among the longest in the market. We also back every installation with our own 5-year workmanship warranty." },
-                { q: "How quiet is a Toshiba unit?", a: "Toshiba's SEIYA Classic operates from as low as 20dBA — quieter than a whisper. This makes it ideal for bedrooms, living rooms, and open-plan spaces." },
-                { q: "Does Toshiba have Wi-Fi control?", a: "Yes. The Toshiba AC app lets you control your system remotely, set schedules, and adjust temperature from anywhere via iOS or Android." },
+                { q: "Is Panasonic a reliable air conditioner brand?", a: "Yes. Panasonic has decades of experience in inverter air conditioning and is known for dependable, long-lasting units backed by strong manufacturer support." },
+                { q: "Does Panasonic have Wi-Fi control?", a: "Yes. With the optional network adaptor, you can control your system through the Panasonic Comfort Cloud App — including voice assistant integration." },
+                { q: "What warranty does Panasonic offer?", a: "Panasonic split systems carry a manufacturer's warranty on parts and labour, plus our own 5-year installation warranty." },
               ].map((item, i) => (
                 <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
                   <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
@@ -170,7 +176,7 @@ const ToshibaProductsPage = () => (
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", marginBottom: 12 }}>Get A Quote</p>
               <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#fff", marginBottom: 16, lineHeight: 1.3 }}>
-                Toshiba Split System Quote
+                Panasonic Split System Quote
               </h2>
               <p style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", lineHeight: 1.7, marginBottom: 20 }}>
                 New installation or replacement — submit your details and we'll get back to you shortly.
@@ -193,8 +199,8 @@ const ToshibaProductsPage = () => (
               </a>
             </div>
             <div style={{ background: "#fff", borderRadius: 16, padding: "32px 28px", boxShadow: "0 16px 40px rgba(0,0,0,0.2)", maxWidth: 520, marginLeft: "auto" }}>
-              <style>{`.toshiba_split_form .hca-wrapper { background: transparent; box-shadow: none; border: none !important; padding: 0; border-radius: 0 !important; max-width: 100%; }`}</style>
-              <div className="toshiba_split_form"><Form hideTitle /></div>
+              <style>{`.panasonic_split_form .hca-wrapper { background: transparent; box-shadow: none; border: none !important; padding: 0; border-radius: 0 !important; max-width: 100%; }`}</style>
+              <div className="panasonic_split_form"><Form hideTitle /></div>
             </div>
           </div>
         </div>
@@ -204,4 +210,4 @@ const ToshibaProductsPage = () => (
   </Layout>
 )
 
-export default ToshibaProductsPage
+export default PanasonicProductsPage

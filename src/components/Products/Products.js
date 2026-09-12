@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef, Fragment } from "react";
 import Product from "./Product";
 import { graphql, useStaticQuery } from "gatsby";
 
+const titleCase = str =>
+  (str || "").replace(/\w\S*/g, w => w[0].toUpperCase() + w.slice(1));
+
 const Products = () => {
   const query = useStaticQuery(graphql`
     { allStrapiProduct(
@@ -16,6 +19,7 @@ const Products = () => {
         image { url }
         sub_categories { title }
         cool_capacity
+        model
       }
     } }
   `);
@@ -239,6 +243,31 @@ const Products = () => {
     ).length;
     return acc;
   }, {});
+
+  // ── Group by model when viewing a single brand with multiple model lines ──
+  // Prevents different model ranges (e.g. Daikin Cora / Alira X / Zena / XL)
+  // from interleaving by price instead of sitting together. Only kicks in when
+  // EVERY model value groups multiple sizes together (a real line name) — for
+  // brands like Midea where "model" is a near-unique per-size SKU, most groups
+  // would be singletons (a stray duplicate SKU isn't enough to count as a
+  // line), so we fall back to the flat grid instead.
+  const filteredBrands = new Set(filteredProducts.map(p => p.sub_categories?.[0]?.title));
+  const filteredModels = new Set(filteredProducts.map(p => p.model).filter(Boolean));
+  const rawModelGroups = (filteredBrands.size === 1 && filteredModels.size > 1)
+    ? Object.values(
+        filteredProducts.reduce((acc, p) => {
+          const key = p.model || "Other";
+          if (!acc[key]) acc[key] = { model: key, items: [] };
+          acc[key].items.push(p);
+          return acc;
+        }, {})
+      )
+    : null;
+  const modelGroups = (rawModelGroups && rawModelGroups.every(g => g.items.length > 1))
+    ? rawModelGroups
+        .map(group => ({ ...group, items: [...group.items].sort((a, b) => a.price - b.price) }))
+        .sort((a, b) => a.items[0].price - b.items[0].price)
+    : null;
 
   const isBrandSelected    = b => selectedBrands.includes(b);
   const isKwSelected       = r => selectedCoolingCapacities.some(s => s.min === r.min && s.max === r.max);
@@ -632,11 +661,49 @@ const Products = () => {
             </div>
 
             {/* Product grid */}
-            <div className="product-grid">
-              {filteredProducts.map(product => (
-                <Product key={product.id} {...product} />
-              ))}
-            </div>
+            {modelGroups ? (
+              modelGroups.map(group => (
+                <div key={group.model} style={{
+                  marginBottom: 24, background: "#fff",
+                  border: "1px solid #e8eef5", borderRadius: 16,
+                  padding: 20,
+                }}>
+                  <div style={{
+                    display: "flex", alignItems: "center", gap: 12,
+                    marginBottom: 16, paddingBottom: 10,
+                    borderBottom: "1px solid #e8eef5",
+                  }}>
+                    <span style={{ width: 4, height: 22, borderRadius: 2, background: "#0075C9", flexShrink: 0 }} />
+                    <div>
+                      <p style={{ fontSize: 10, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", color: "#9ca3af", margin: "0 0 2px" }}>
+                        {titleCase(group.items[0].sub_categories?.[0]?.title)}
+                      </p>
+                      <h3 style={{ fontSize: 16, fontWeight: 800, color: "#041521", margin: 0, lineHeight: 1.2 }}>
+                        {group.model}
+                      </h3>
+                    </div>
+                    <span style={{
+                      fontSize: 11, fontWeight: 700, color: "#0075C9",
+                      background: "rgba(0,117,201,0.08)", borderRadius: 20,
+                      padding: "3px 10px", marginLeft: "auto", whiteSpace: "nowrap",
+                    }}>
+                      {group.items.length} {group.items.length === 1 ? "option" : "options"}
+                    </span>
+                  </div>
+                  <div className="product-grid">
+                    {group.items.map(product => (
+                      <Product key={product.id} {...product} />
+                    ))}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="product-grid">
+                {filteredProducts.map(product => (
+                  <Product key={product.id} {...product} />
+                ))}
+              </div>
+            )}
           </div>
 
 

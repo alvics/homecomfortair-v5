@@ -11,7 +11,6 @@ import FeatureBubble from "../../components/FeatureBubble"
 
 import AllFilteredProducts from "../../components/Products/AllFilteredProducts"
 import MideaProducts      from "../../components/Products/MideaSplitsSystems"
-import HitachiProducts    from "../../components/Products/HitachiSplitSystems"
 import HaierProducts      from "../../components/Products/HaierSplitSystems"
 import SamsungProducts    from "../../components/Products/SamsungSplitSystems"
 import ToshibaProducts    from "../../components/Products/ToshibaSplitSystems"
@@ -19,14 +18,21 @@ import MHIProducts        from "../../components/Products/MHISplitSytems"
 import MitsubishiProducts from "../../components/Products/MitsubishiElectricSplits"
 import DaikinProducts     from "../../components/Products/DaikinSplitSytems"
 import FujitsuProducts    from "../../components/Products/FujitsuSplitSystems"
+import PanasonicProducts  from "../../components/Products/PanasonicSplitSystems"
 
 import heroServiceImg from "../../images/hero-3.jpg"
 import backToBackImg from "../../images/back_to_back_installation.png"
 import upAndOverImg from "../../images/up_and_over_installation.png"
 
+const DAIKIN_MODELS = [
+  { model: "Cora", blurb: "Daikin's best-selling residential split system — whisper-quiet, efficient, and built for Australian conditions." },
+  { model: "Alira X", blurb: "Daikin's newest range, adding Heat Boost Technology and Long Time Heat Technology for faster warm-up and steadier heating through winter." },
+  { model: "Zena", blurb: "A designer hi-wall unit available in White Hair Line or Black Wood finish, with a Grid Eye sensor to spread comfort evenly around the room." },
+  { model: "XL Series", blurb: "Daikin's high-capacity range for larger rooms and open-plan living areas." },
+]
+
 const BRANDS = [
   { id: "midea",      label: "Midea",              shortLabel: "Midea",      color: "#0099cc" },
-  { id: "hitachi",    label: "Hitachi",             shortLabel: "Hitachi",    color: "#c3002f" },
   { id: "haier",      label: "Haier",               shortLabel: "Haier",      color: "#005AAB" },
   { id: "samsung",    label: "Samsung",             shortLabel: "Samsung",    color: "#1428A0" },
   { id: "toshiba",    label: "Toshiba",             shortLabel: "Toshiba",    color: "#D01C22" },
@@ -34,6 +40,7 @@ const BRANDS = [
   { id: "mitsubishi", label: "Mitsubishi Electric", shortLabel: "Mitsubishi", color: "#cc0000" },
   { id: "daikin",     label: "Daikin",              shortLabel: "Daikin",     color: "#00a1e5" },
   { id: "fujitsu",    label: "Fujitsu",             shortLabel: "Fujitsu",    color: "#EA0000" },
+  { id: "panasonic",  label: "Panasonic",           shortLabel: "Panasonic",  color: "#003DA5" },
 ]
 
 export const Head = () => (
@@ -136,6 +143,15 @@ const WhyChooseUs = () => (
       </div>
 
     </div>
+  </div>
+)
+
+const ModelSubHeading = ({ label, color }) => (
+  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+    <span style={{ width: 8, height: 8, borderRadius: "50%", background: color, flexShrink: 0 }} />
+    <p style={{ fontSize: 13, fontWeight: 700, color: "#041521", margin: 0 }}>
+      Daikin {label}
+    </p>
   </div>
 )
 
@@ -465,12 +481,6 @@ const ProductsPage = () => {
               <MideaProducts />
             </section>
 
-            {/* ── Hitachi ─────────────────────────────────────────────── */}
-            <section id="hitachi" className="mb-12">
-              <BrandHeading label="Hitachi" color="#c3002f" />
-              <HitachiProducts />
-            </section>
-
             {/* ── Haier ───────────────────────────────────────────────── */}
             <section id="haier" className="mb-12">
               <BrandHeading label="Haier" color="#005AAB" />
@@ -504,13 +514,24 @@ const ProductsPage = () => {
             {/* ── Daikin ──────────────────────────────────────────────── */}
             <section id="daikin" className="mb-12">
               <BrandHeading label="Daikin" color="#00a1e5" />
-              <DaikinProducts />
+              {DAIKIN_MODELS.map(range => (
+                <div key={range.model} style={{ marginBottom: 28 }}>
+                  <ModelSubHeading label={range.model} color="#00a1e5" />
+                  <DaikinProducts model={range.model} />
+                </div>
+              ))}
             </section>
 
             {/* ── Fujitsu ─────────────────────────────────────────────── */}
             <section id="fujitsu" className="mb-12">
               <BrandHeading label="Fujitsu" color="#EA0000" />
               <FujitsuProducts />
+            </section>
+
+            {/* ── Panasonic ───────────────────────────────────────────── */}
+            <section id="panasonic" className="mb-12">
+              <BrandHeading label="Panasonic" color="#003DA5" />
+              <PanasonicProducts />
             </section>
           </>
         )}

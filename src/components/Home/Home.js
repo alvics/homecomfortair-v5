@@ -416,7 +416,7 @@ const Home = () => {
               <details className="faq-item">
                 <summary className="faq-question">What brands do you supply and install?</summary>
                 <div className="faq-answer">
-                  <p>We supply and install all major brands including Daikin, Mitsubishi Electric, Midea, Samsung, Haier, Hitachi, MHI and Toshiba. We'll help you choose the best brand and model for your needs and budget.</p>
+                  <p>We supply and install all major brands including Daikin, Mitsubishi Electric, Midea, Samsung, Haier, MHI and Toshiba. We'll help you choose the best brand and model for your needs and budget.</p>
                 </div>
               </details>
 

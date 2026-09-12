@@ -11,6 +11,7 @@ import BrandFeatures from "../../components/BrandFeatures"
 import WhyHCA from "../../components/WhyHCA"
 import HaierProducts from '../../components/Products/HaierSplitSystems'
 import HaierPDF from "../../images/haier-tempo.pdf"
+import haierInstallImg from "../../images/serviceArea/oxenford.jpeg"
 
 export const Head = () => (
   <Fragment>
@@ -129,17 +130,31 @@ const HaierProductsPage = () => (
               Wi-Fi control comes standard on Haier's Tempo series. For multi-room solutions, explore our <Link to="/multi-head-systems" style={{ color: "#0075C9" }}>multi-head systems</Link> or <Link to="/ducted-systems" style={{ color: "#0075C9" }}>ducted options</Link>.
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {[
-              { q: "Is Haier a reliable brand?", a: "Yes. Haier is one of the world's largest appliance manufacturers. We've installed their systems for over 10 years and find them consistently reliable." },
-              { q: "What warranty does Haier offer?", a: "Haier offers a 5-year parts and labour warranty on the Tempo series, backed by our own 5-year installation warranty." },
-              { q: "Does Haier have Wi-Fi control?", a: "Yes. Haier Tempo units include built-in Wi-Fi for control via the Haier app — set schedules, monitor energy, and adjust from anywhere." },
-            ].map((item, i) => (
-              <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
-                <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
-                <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+          <div>
+            <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.08)", marginBottom: 20, maxWidth: 320 }}>
+              <img
+                src={haierInstallImg}
+                alt="Haier outdoor unit installed by Home Comfort Air in Oxenford"
+                style={{ width: "100%", display: "block" }}
+              />
+              <div style={{ padding: "10px 14px", background: "#f8fafc" }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#6b7280" }}>
+                  Oxenford<span style={{ fontWeight: 500, color: "#9ca3af" }}> · Haier</span>
+                </div>
               </div>
-            ))}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {[
+                { q: "Is Haier a reliable brand?", a: "Yes. Haier is one of the world's largest appliance manufacturers. We've installed their systems for over 10 years and find them consistently reliable." },
+                { q: "What warranty does Haier offer?", a: "Haier offers a 5-year parts and labour warranty on the Tempo series, backed by our own 5-year installation warranty." },
+                { q: "Does Haier have Wi-Fi control?", a: "Yes. Haier Tempo units include built-in Wi-Fi for control via the Haier app — set schedules, monitor energy, and adjust from anywhere." },
+              ].map((item, i) => (
+                <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
+                  <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
+                  <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

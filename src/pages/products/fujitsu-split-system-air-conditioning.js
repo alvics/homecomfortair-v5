@@ -11,6 +11,7 @@ import WhyHCA from "../../components/WhyHCA"
 import FujitsuProducts from '../../components/Products/FujitsuSplitSystems'
 import fujitsuLogo from "../../images/products/Haier/fujistsu/logo-fujitsu.svg"
 import fujitsuHero from "../../images/products/Haier/fujistsu/fujitsu-comfort-series-indoor-unit.webp"
+import fujitsuInstallImg from "../../images/Arundel_fujitsu.jpeg"
 
 export const Head = () => (
   <Fragment>
@@ -126,17 +127,31 @@ const FujitsuProductsPage = () => (
               The Comfort Series covers everything from single bedrooms to large open-plan living areas. For multi-room solutions, explore our <Link to="/multi-head-systems" style={{ color: "#0075C9" }}>multi-head systems</Link> or <Link to="/ducted-systems" style={{ color: "#0075C9" }}>ducted options</Link>.
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {[
-              { q: "Is Fujitsu a reliable brand?", a: "Yes. Fujitsu General has been manufacturing air conditioning since 1936 and is one of the most trusted names in the industry. We've installed their systems for years and find them consistently reliable." },
-              { q: "What warranty does Fujitsu offer?", a: "Fujitsu offers a 5-year parts and labour warranty on the Comfort Series, backed by our own 5-year installation warranty." },
-              { q: "What refrigerant does the Comfort Series use?", a: "The Comfort Series uses R32 refrigerant, which has a lower environmental impact and delivers efficient heating and cooling performance." },
-            ].map((item, i) => (
-              <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
-                <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
-                <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+          <div>
+            <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.08)", marginBottom: 20, maxWidth: 320 }}>
+              <img
+                src={fujitsuInstallImg}
+                alt="Fujitsu outdoor unit installed by Home Comfort Air in Arundel"
+                style={{ width: "100%", display: "block" }}
+              />
+              <div style={{ padding: "10px 14px", background: "#f8fafc" }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#6b7280" }}>
+                  Arundel<span style={{ fontWeight: 500, color: "#9ca3af" }}> · Fujitsu</span>
+                </div>
               </div>
-            ))}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {[
+                { q: "Is Fujitsu a reliable brand?", a: "Yes. Fujitsu General has been manufacturing air conditioning since 1936 and is one of the most trusted names in the industry. We've installed their systems for years and find them consistently reliable." },
+                { q: "What warranty does Fujitsu offer?", a: "Fujitsu offers a 5-year parts and labour warranty on the Comfort Series, backed by our own 5-year installation warranty." },
+                { q: "What refrigerant does the Comfort Series use?", a: "The Comfort Series uses R32 refrigerant, which has a lower environmental impact and delivers efficient heating and cooling performance." },
+              ].map((item, i) => (
+                <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
+                  <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
+                  <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

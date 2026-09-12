@@ -11,6 +11,7 @@ import BrandFeatures from "../../components/BrandFeatures"
 import WhyHCA from "../../components/WhyHCA"
 import SamsungProducts from "../../components/Products/SamsungSplitSystems"
 import SamsungPDF from "../../images/bedarra.pdf"
+import samsungInstallImg from "../../images/serviceArea/underwood.jpeg"
 
 export const Head = () => (
   <Fragment>
@@ -129,17 +130,31 @@ const SamsungSplitSystem = () => (
               The built-in Auto Clean function dries the heat exchanger after use, preventing mould and keeping air fresh. For whole-home comfort, explore our <Link to="/ducted-systems" style={{ color: "#0075C9" }}>ducted systems</Link> or <Link to="/multi-head-systems" style={{ color: "#0075C9" }}>multi-head options</Link>.
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {[
-              { q: "What is Aero™ cooling?", a: "Aero™ disperses cool air through 23,000 micro air holes — no direct cold draught, just even, gentle comfort throughout the room." },
-              { q: "Does Samsung have Wi-Fi control?", a: "Yes. Samsung units connect via the SmartThings app for remote control, scheduling, and energy monitoring from your smartphone." },
-              { q: "What warranty does Samsung offer?", a: "Samsung offers 5–10 year manufacturer warranties depending on the model. We also include our own 5-year installation warranty." },
-            ].map((item, i) => (
-              <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
-                <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
-                <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+          <div>
+            <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.08)", marginBottom: 20, maxWidth: 320 }}>
+              <img
+                src={samsungInstallImg}
+                alt="Samsung outdoor units installed by Home Comfort Air in Underwood"
+                style={{ width: "100%", display: "block" }}
+              />
+              <div style={{ padding: "10px 14px", background: "#f8fafc" }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#6b7280" }}>
+                  Underwood<span style={{ fontWeight: 500, color: "#9ca3af" }}> · Samsung</span>
+                </div>
               </div>
-            ))}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {[
+                { q: "What is Aero™ cooling?", a: "Aero™ disperses cool air through 23,000 micro air holes — no direct cold draught, just even, gentle comfort throughout the room." },
+                { q: "Does Samsung have Wi-Fi control?", a: "Yes. Samsung units connect via the SmartThings app for remote control, scheduling, and energy monitoring from your smartphone." },
+                { q: "What warranty does Samsung offer?", a: "Samsung offers 5–10 year manufacturer warranties depending on the model. We also include our own 5-year installation warranty." },
+              ].map((item, i) => (
+                <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
+                  <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
+                  <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

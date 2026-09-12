@@ -11,6 +11,7 @@ import BrandFeatures from "../../components/BrandFeatures"
 import WhyHCA from "../../components/WhyHCA"
 import DaikinProducts from '../../components/Products/DaikinSplitSytems'
 import DaikinPDF from "../../images/daikin.pdf"
+import daikinInstallImg from "../../images/serviceArea/redbank-plains.jpeg"
 
 export const Head = () => (
   <Fragment>
@@ -143,17 +144,31 @@ const DaikinProductsPage = () => (
               With optional Wi-Fi connectivity and advanced air filtration, Daikin systems are a smart long-term investment. Explore our <Link to="/ducted-systems" style={{ color: "#0075C9" }}>ducted systems</Link> or <Link to="/multi-head-systems" style={{ color: "#0075C9" }}>multi-head options</Link> for whole-home comfort.
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {[
-              { q: "Is Daikin better than Mitsubishi?", a: "Both are premium Japanese brands. Daikin leads in energy efficiency ratings; Mitsubishi Electric is known for ultra-quiet operation. We install both and can advise based on your home." },
-              { q: "Does Daikin have Wi-Fi control?", a: "Yes. Daikin's optional Wi-Fi adaptor lets you control your system via the Daikin Controller app — set schedules, check energy usage, and adjust from anywhere." },
-              { q: "What warranty does Daikin offer?", a: "Daikin offers a 5-year parts and labour warranty on residential split systems, plus our own 5-year installation warranty." },
-            ].map((item, i) => (
-              <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
-                <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
-                <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+          <div>
+            <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.08)", marginBottom: 20, maxWidth: 320 }}>
+              <img
+                src={daikinInstallImg}
+                alt="Daikin outdoor unit installed by Home Comfort Air in Redbank Plains"
+                style={{ width: "100%", display: "block" }}
+              />
+              <div style={{ padding: "10px 14px", background: "#f8fafc" }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#6b7280" }}>
+                  Redbank Plains<span style={{ fontWeight: 500, color: "#9ca3af" }}> · Daikin</span>
+                </div>
               </div>
-            ))}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {[
+                { q: "Is Daikin better than Mitsubishi?", a: "Both are premium Japanese brands. Daikin leads in energy efficiency ratings; Mitsubishi Electric is known for ultra-quiet operation. We install both and can advise based on your home." },
+                { q: "Does Daikin have Wi-Fi control?", a: "Yes. Daikin's optional Wi-Fi adaptor lets you control your system via the Daikin Controller app — set schedules, check energy usage, and adjust from anywhere." },
+                { q: "What warranty does Daikin offer?", a: "Daikin offers a 5-year parts and labour warranty on residential split systems, plus our own 5-year installation warranty." },
+              ].map((item, i) => (
+                <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
+                  <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
+                  <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

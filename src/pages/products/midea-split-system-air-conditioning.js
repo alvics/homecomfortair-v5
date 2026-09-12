@@ -12,6 +12,7 @@ import WhyHCA from "../../components/WhyHCA"
 import MideaProducts from '../../components/Products/MideaSplitsSystems'
 import mideaLogo from "../../images/brands/midea-logo.png"
 import MideaPDF from "../../images/Midea.pdf"
+import mideaInstallImg from "../../images/serviceArea/coombabah.jpeg"
 
 export const Head = () => (
   <Fragment>
@@ -128,17 +129,31 @@ const MideaProductsPage = () => (
               With a 10-year manufacturer warranty and competitive pricing, Midea delivers exceptional long-term value. Need to cool multiple rooms? See our <Link to="/multi-head-systems" style={{ color: "#0075C9" }}>multi-head systems</Link> or <Link to="/ducted-systems" style={{ color: "#0075C9" }}>ducted options</Link>.
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {[
-              { q: "Is Midea a good brand?", a: "Yes. Midea is the world's largest home appliance manufacturer and one of Australia's fastest-growing AC brands, known for quality at an accessible price." },
-              { q: "What warranty does Midea offer?", a: "Midea offers an industry-leading 10-year manufacturer warranty on their Athena series — longer than most competitors." },
-              { q: "Does Midea have Wi-Fi control?", a: "Yes. All Midea Athena units include built-in Wi-Fi for control via the Midea app — schedule, monitor, and adjust from anywhere." },
-            ].map((item, i) => (
-              <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
-                <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
-                <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+          <div>
+            <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.08)", marginBottom: 20, maxWidth: 320 }}>
+              <img
+                src={mideaInstallImg}
+                alt="Midea outdoor units installed by Home Comfort Air in Coombabah"
+                style={{ width: "100%", display: "block" }}
+              />
+              <div style={{ padding: "10px 14px", background: "#f8fafc" }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#6b7280" }}>
+                  Coombabah<span style={{ fontWeight: 500, color: "#9ca3af" }}> · Midea</span>
+                </div>
               </div>
-            ))}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {[
+                { q: "Is Midea a good brand?", a: "Yes. Midea is the world's largest home appliance manufacturer and one of Australia's fastest-growing AC brands, known for quality at an accessible price." },
+                { q: "What warranty does Midea offer?", a: "Midea offers an industry-leading 10-year manufacturer warranty on their Athena series — longer than most competitors." },
+                { q: "Does Midea have Wi-Fi control?", a: "Yes. All Midea Athena units include built-in Wi-Fi for control via the Midea app — schedule, monitor, and adjust from anywhere." },
+              ].map((item, i) => (
+                <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
+                  <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
+                  <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

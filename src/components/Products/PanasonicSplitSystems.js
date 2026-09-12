@@ -1,25 +1,24 @@
-// GET all Hitachi products Query from strapi
+// GET all Panasonic products Query from strapi
 
 import React from "react"
 import Product from "./Product"
 import { graphql, useStaticQuery } from "gatsby"
 import { snapToStandard } from "../RoomSizeCalculator"
-// import styles from "../../css/products.module.css"
 
-const HitachiProducts = ({ filterKw }) => {
+const PanasonicSplitSystems = ({ filterKw, model }) => {
   const {
     allStrapiProduct: { nodes: allProducts },
   } = useStaticQuery(query)
 
-  const products = filterKw
-    ? allProducts.filter(p => snapToStandard(parseFloat(p.cool_capacity)) === filterKw)
-    : allProducts
+  let products = allProducts.filter(p => !p.slug?.includes("ducted"))
+  if (model) products = products.filter(p => p.model === model)
+  if (filterKw) products = products.filter(p => snapToStandard(parseFloat(p.cool_capacity)) === filterKw)
 
   if (filterKw && products.length === 0) return null
 
   return (
     <section>
-      <div className="product-grid midea p-2">
+      <div className="product-grid midea">
         {products.map(product => (
           <Product key={product.id} {...product} />
         ))}
@@ -31,7 +30,7 @@ const HitachiProducts = ({ filterKw }) => {
 export const query = graphql`
   {
     allStrapiProduct(
-      filter: {sub_categories: {elemMatch: {title: {eq: "hitachi"}}}}
+      filter: {sub_categories: {elemMatch: {title: {eq: "panasonic"}}}}
       sort: {price: ASC}
     ) {
       nodes {
@@ -39,10 +38,10 @@ export const query = graphql`
         image {
           url
         }
-        
         title
         price
         slug
+        model
         cool_capacity
         description {
           data {
@@ -53,7 +52,5 @@ export const query = graphql`
     }
   }
 `
-;
 
-
-export default HitachiProducts
+export default PanasonicSplitSystems

@@ -1,26 +1,26 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import mideaImg    from '../../images/brands/midea-logo.png'
-import haierImg    from '../../images/brands/2560px-Haier_logo..png'
-import samsungImg  from '../../images/brands/samsung-logo-2.png'
-import toshibaImg  from '../../images/toshiba.jpg'
-import daikinImg   from '../../images/brands/daikin.jpg'
-import mitsuImg    from '../../images/brands/mitsubishi-electric.jpg'
-import mhiImg      from '../../images/MHI-Logo.jpg'
-import hitachiImg  from '../../images/brands/Hitachi-logo.png'
+import mideaImg    from '../../images/brands/cropped/midea.png'
+import haierImg    from '../../images/brands/cropped/haier.png'
+import samsungImg  from '../../images/brands/cropped/samsung.png'
+import toshibaImg  from '../../images/brands/cropped/toshiba.png'
+import daikinImg   from '../../images/brands/cropped/daikin.png'
+import mitsuImg    from '../../images/brands/cropped/mitsubishi-electric.png'
+import mhiImg      from '../../images/brands/cropped/mhi.png'
 import fujitsuImg  from '../../images/products/Haier/fujistsu/logo-fujitsu.svg'
+import panasonicImg from '../../images/Panasonic/logo-cropped.png'
 
 const BRANDS = [
   { to: '/products/midea-split-system-air-conditioning',              label: 'Midea',               img: mideaImg },
-  { to: '/products/haier-split-system-air-conditioning',              label: 'Haier',               img: haierImg,   imgStyle: { maxWidth: '70%', maxHeight: '70%' } },
+  { to: '/products/haier-split-system-air-conditioning',              label: 'Haier',               img: haierImg },
   { to: '/products/samsung-split-system-air-conditioning',            label: 'Samsung',             img: samsungImg },
   { to: '/products/toshiba-split-system-air-conditioning',            label: 'Toshiba',             img: toshibaImg },
   { to: '/products/daikin-split-system-air-conditioning',             label: 'Daikin',              img: daikinImg },
   { to: '/products/mitsubishi-electric-split-system-air-conditioning',label: 'Mitsubishi Electric', img: mitsuImg },
   { to: '/products/mhi-split-system-air-conditioning',                label: 'Mitsubishi Heavy',    img: mhiImg },
-  { to: '/products/hitachi-split-system-air-conditioning',            label: 'Hitachi',             img: hitachiImg, imgStyle: { maxWidth: '110%', maxHeight: '110%' } },
-  { to: '/products/fujitsu-split-system-air-conditioning',            label: 'Fujitsu',             img: fujitsuImg, imgStyle: { maxWidth: '70%', maxHeight: '70%' } },
+  { to: '/products/fujitsu-split-system-air-conditioning',            label: 'Fujitsu',             img: fujitsuImg, imgStyle: { maxWidth: '80%', maxHeight: '80%' } },
+  { to: '/products/panasonic-split-system-air-conditioning',          label: 'Panasonic',           img: panasonicImg },
 ]
 
 // Panel content — rendered in DesktopNav directly inside the fixed header

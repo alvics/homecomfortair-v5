@@ -11,6 +11,7 @@ import BrandFeatures from "../../components/BrandFeatures"
 import WhyHCA from "../../components/WhyHCA"
 import MitsubishiProducts from '../../components/Products/MitsubishiElectricSplits'
 import MitsubishiPDF from "../../images/mitsubishi.pdf"
+import mitsubishiInstallImg from "../../images/serviceArea/heritage-park.jpeg"
 
 export const Head = () => (
   <Fragment>
@@ -129,17 +130,31 @@ const MitsubishiProductsPage = () => (
               With optional Wi-Fi via the MELCloud adapter, you can schedule, monitor, and control your system remotely. If you're looking for whole-home comfort, explore our <Link to="/ducted-systems" style={{ color: "#0075C9" }}>ducted systems</Link> or <Link to="/multi-head-systems" style={{ color: "#0075C9" }}>multi-head options</Link>.
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {[
-              { q: "How long do Mitsubishi splits last?", a: "With regular servicing, a Mitsubishi split system typically lasts 10–15 years." },
-              { q: "Is Mitsubishi better than Daikin?", a: "Both are premium brands. Mitsubishi excels in ultra-quiet operation; Daikin is known for energy efficiency. We install both — happy to advise." },
-              { q: "What does installation cost?", a: "Standard single split installation starts from $300. See our full guide on split AC installation costs." },
-            ].map((item, i) => (
-              <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
-                <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
-                <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+          <div>
+            <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.08)", marginBottom: 20, maxWidth: 320 }}>
+              <img
+                src={mitsubishiInstallImg}
+                alt="Mitsubishi Electric outdoor units installed by Home Comfort Air in Heritage Park"
+                style={{ width: "100%", display: "block" }}
+              />
+              <div style={{ padding: "10px 14px", background: "#f8fafc" }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#6b7280" }}>
+                  Heritage Park<span style={{ fontWeight: 500, color: "#9ca3af" }}> · Mitsubishi Electric</span>
+                </div>
               </div>
-            ))}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {[
+                { q: "How long do Mitsubishi splits last?", a: "With regular servicing, a Mitsubishi split system typically lasts 10–15 years." },
+                { q: "Is Mitsubishi better than Daikin?", a: "Both are premium brands. Mitsubishi excels in ultra-quiet operation; Daikin is known for energy efficiency. We install both — happy to advise." },
+                { q: "What does installation cost?", a: "Standard single split installation starts from $300. See our full guide on split AC installation costs." },
+              ].map((item, i) => (
+                <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
+                  <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
+                  <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

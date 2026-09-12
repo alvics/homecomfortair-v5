@@ -11,6 +11,7 @@ import BrandFeatures from "../../components/BrandFeatures"
 import WhyHCA from "../../components/WhyHCA"
 import MHIProducts from '../../components/Products/MHISplitSytems'
 import MHIPDF from "../../images/MHI.pdf"
+import mhiInstallImg from "../../images/serviceArea/Ormeau Hills.jpeg"
 
 export const Head = () => (
   <Fragment>
@@ -129,17 +130,31 @@ const MHIProductsPage = () => (
               You can depend on MHI to deliver comfort all year round. Explore our <Link to="/ducted-systems" style={{ color: "#0075C9" }}>ducted systems</Link> or <Link to="/multi-head-systems" style={{ color: "#0075C9" }}>multi-head options</Link> for whole-home coverage.
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {[
-              { q: "What's the difference between Ciara® and Bronte®?", a: "The Ciara® is best for small to medium rooms and includes Clean Air Technology for air purification. The Bronte® is designed for larger spaces with an 18+ metre airflow reach in 7.1–9.5kW models." },
-              { q: "Does MHI have Wi-Fi control?", a: "Yes. MHI's app provides remote control, scheduling, and energy monitoring from your iOS or Android smartphone — keeping you in control from anywhere." },
-              { q: "What warranty does MHI offer?", a: "MHI residential split systems include a manufacturer parts and labour warranty. We also back every installation with our own 5-year workmanship warranty." },
-            ].map((item, i) => (
-              <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
-                <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
-                <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+          <div>
+            <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.08)", marginBottom: 20, maxWidth: 320 }}>
+              <img
+                src={mhiInstallImg}
+                alt="MHI outdoor unit installed by Home Comfort Air in Ormeau Hills"
+                style={{ width: "100%", display: "block" }}
+              />
+              <div style={{ padding: "10px 14px", background: "#f8fafc" }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#6b7280" }}>
+                  Ormeau Hills<span style={{ fontWeight: 500, color: "#9ca3af" }}> · MHI</span>
+                </div>
               </div>
-            ))}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {[
+                { q: "What's the difference between Ciara® and Bronte®?", a: "The Ciara® is best for small to medium rooms and includes Clean Air Technology for air purification. The Bronte® is designed for larger spaces with an 18+ metre airflow reach in 7.1–9.5kW models." },
+                { q: "Does MHI have Wi-Fi control?", a: "Yes. MHI's app provides remote control, scheduling, and energy monitoring from your iOS or Android smartphone — keeping you in control from anywhere." },
+                { q: "What warranty does MHI offer?", a: "MHI residential split systems include a manufacturer parts and labour warranty. We also back every installation with our own 5-year workmanship warranty." },
+              ].map((item, i) => (
+                <div key={i} style={{ background: "#f8fafc", border: "1px solid #e8eef5", borderRadius: 12, padding: "16px 20px" }}>
+                  <strong style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", display: "block", marginBottom: 6 }}>{item.q}</strong>
+                  <span style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{item.a}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

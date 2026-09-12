@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from "gatsby"
 
-import haierLogo        from '../images/haier.jpg'
-import daikinLogo       from '../images/brands/daikin.jpg'
-import mitsubishiLogo   from '../images/brands/mitsubishi-electric.jpg'
-import mideaLogo        from '../images/brands/midea-logo.png'
-import samsungLogo      from '../images/brands/samsung-logo-2.png'
-import toshibaLogo      from '../images/toshiba.jpg'
-import hitachiLogo      from '../images/brands/Hitachi-logo.png'
-import mhiLogo          from '../images/MHI-Logo.jpg'
+import haierLogo        from '../images/brands/cropped/haier.png'
+import daikinLogo       from '../images/brands/cropped/daikin.png'
+import mitsubishiLogo   from '../images/brands/cropped/mitsubishi-electric.png'
+import mideaLogo        from '../images/brands/cropped/midea.png'
+import samsungLogo      from '../images/brands/cropped/samsung.png'
+import toshibaLogo      from '../images/brands/cropped/toshiba.png'
+import mhiLogo          from '../images/brands/cropped/mhi.png'
 import fujitsuLogo      from '../images/products/Haier/fujistsu/logo-fujitsu.svg'
+import panasonicLogo    from '../images/Panasonic/logo-cropped.png'
 
 const brands = [
   { src: haierLogo,      alt: "Haier",                      to: "/products/haier-split-system-air-conditioning" },
@@ -18,16 +18,16 @@ const brands = [
   { src: mideaLogo,      alt: "Midea",                      to: "/products/midea-split-system-air-conditioning" },
   { src: samsungLogo,    alt: "Samsung",                    to: "/products/samsung-split-system-air-conditioning" },
   { src: toshibaLogo,    alt: "Toshiba",                    to: "/products/toshiba-split-system-air-conditioning" },
-  { src: hitachiLogo,    alt: "Hitachi",                    to: "/products/hitachi-split-system-air-conditioning" },
   { src: mhiLogo,        alt: "Mitsubishi Heavy Industries", to: "/products/mhi-split-system-air-conditioning" },
-  { src: fujitsuLogo,    alt: "Fujitsu",                    to: "/products/fujitsu-split-system-air-conditioning" },
+  { src: fujitsuLogo,    alt: "Fujitsu",                    to: "/products/fujitsu-split-system-air-conditioning", style: { maxWidth: "80%", maxHeight: "80%" } },
+  { src: panasonicLogo,  alt: "Panasonic",                  to: "/products/panasonic-split-system-air-conditioning" },
 ]
 
 const BrandsBtn = () => (
   <div className="brands-grid">
-    {brands.map(({ src, alt, to }) => (
+    {brands.map(({ src, alt, to, style }) => (
       <Link key={alt} to={to} className="brand-card">
-        <img src={src} alt={alt} className="brand-card-img" />
+        <img src={src} alt={alt} className="brand-card-img" style={style} />
       </Link>
     ))}
   </div>

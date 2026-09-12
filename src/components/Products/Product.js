@@ -5,13 +5,19 @@ import React from "react"
 // import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
+// Long brand names overflow the pill badge on product cards — shorten them here.
+const SHORT_BRAND_LABELS = {
+  "mitsubishi heavy industries": "MHI",
+}
+
 const Product = ({ title, image, price, slug, isOnSpecial, id, brandLabel, brandColor }) => {
+  const pillLabel = brandLabel && (SHORT_BRAND_LABELS[brandLabel.toLowerCase()] || brandLabel)
   return (
     <Link to={`/products/${slug}`} key={id}>
       <article className="product-card">
 
         <div className="product-card-badge-row">
-          {brandLabel && (
+          {pillLabel && (
             <span style={{
               display: "inline-flex",
               alignItems: "center",
@@ -23,8 +29,9 @@ const Product = ({ title, image, price, slug, isOnSpecial, id, brandLabel, brand
               borderRadius: "2em",
               textTransform: "capitalize",
               letterSpacing: "0.04em",
+              whiteSpace: "nowrap",
             }}>
-              {brandLabel}
+              {pillLabel}
             </span>
           )}
           {/* Sale badge — disabled for now, re-enable when the sale is back on

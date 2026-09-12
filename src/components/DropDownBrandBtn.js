@@ -37,13 +37,13 @@ const DropdownBrandBtn = ({ onNavigate }) => {
           {[
             ["/products/midea-split-system-air-conditioning", "Midea Air Conditioning"],
             ["/products/haier-split-system-air-conditioning", "Haier Air Conditioning"],
-            ["/products/hitachi-split-system-air-conditioning", "Hitachi Air Conditioning"],
             ["/products/samsung-split-system-air-conditioning", "Samsung Air Conditioning"],
             ["/products/toshiba-split-system-air-conditioning", "Toshiba Air Conditioning"],
             ["/products/daikin-split-system-air-conditioning", "Daikin Air Conditioning"],
             ["/products/mitsubishi-electric-split-system-air-conditioning/", "Mitsubishi Electric"],
             ["/products/mhi-split-system-air-conditioning", "Mitsubishi Heavy Industries"],
             ["/products/fujitsu-split-system-air-conditioning", "Fujitsu Air Conditioning"],
+            ["/products/panasonic-split-system-air-conditioning", "Panasonic Air Conditioning"],
           ].map(([to, label]) => (
             <li key={to} style={{ borderBottom: '1px solid #f0f4f8' }}>
               <Link

@@ -809,8 +809,43 @@
                 "source": "/products/mitsubishi-msz-ap90-vg-wall-mounted-split-system-air-conditioner/",
                 "destination": "/products/mitsubishi-msz-as90-vg-wall-mounted-split-system-air-conditioner/",
                 "type": 301
+            },
+            {
+                "source": "/products/hitachi-split-system-air-conditioning/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/hitachi-split-system-air-conditioning",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/hitachi-2.5kw-air-home-400-hi-wall-split-system-air-conditioner/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/hitachi-3.5kw-air-home-400-hi-wall-split-system-air-conditioner/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/hitachi-5.0kw-air-home-400-hi-wall-split-system-air-conditioner/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/hitachi-6.0kw-air-home-400-hi-wall-split-system-air-conditioner/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/hitachi-7.0kw-air-home-400-hi-wall-split-system-air-conditioner/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
             }
-              
+
              
              
              

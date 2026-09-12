@@ -24,7 +24,7 @@ const Footer = () => {
               <div style={{ display: "flex", flexDirection: "column", gap: 8, fontSize: 14 }}>
                 <a
                   href="tel:0404602657"
-                  style={{ color: "#00c4b3", textDecoration: "none", fontWeight: 600 }}
+                  style={{ color: "#claude0c4b3", textDecoration: "none", fontWeight: 600 }}
                   onClick={() => {
                     if (typeof window !== "undefined" && window.gtag) {
                       window.gtag("event", "call_click", { link_location: "footer" });

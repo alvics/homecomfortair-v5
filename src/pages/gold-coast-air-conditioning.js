@@ -82,7 +82,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do you supply and install all major brands?",
-    a: "Yes — we supply and install Daikin, Mitsubishi Electric, Samsung, Haier, Midea, Toshiba, Hitachi and Mitsubishi Heavy Industries systems across the Gold Coast.",
+    a: "Yes — we supply and install Daikin, Mitsubishi Electric, Samsung, Haier, Midea, Toshiba and Mitsubishi Heavy Industries systems across the Gold Coast.",
   },
   {
     q: "What warranty comes with a new installation?",
