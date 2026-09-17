@@ -119,6 +119,24 @@ const SingleProduct = ({ data }) => {
    const brand = data.strapiProduct.sub_categories[0]?.title || '';
    const currentCategory = product.categories[0]?.title || '';
 
+   // Detailed specification table (manufacturer datasheet fields) — only shown when present.
+   const detailedSpecs = [
+     ['Indoor Model', product.indoor_model],
+     ['Outdoor Model', product.outdoor_model],
+     ['Power Supply', product.power_supply],
+     ['Max. Current', product.max_current],
+     ['Indoor Unit Weight', product.indoor_weight],
+     ['Outdoor Unit Weight', product.outdoor_weight],
+     ['Indoor Dimensions', product.indoor_dimensions],
+     ['Outdoor Dimensions', product.outdoor_dimensions],
+     ['Refrigerant Liquid Pipe', product.refrigerant_liquid_pipe],
+     ['Refrigerant Gas Pipe', product.refrigerant_gas_pipe],
+     ['Refrigerant Pre-charged Length', product.refrigerant_precharged_length],
+     ['Refrigerant Charge Weight', product.refrigerant_charge_weight],
+     ['Max Pipe Length', product.max_pipe_length],
+     ['Warranty', product.warranty],
+   ].filter(([, value]) => !!value);
+
    // "Also recommended for you" — other brands' systems in the same size class
    // as this product, cheapest first.
    const filterKw = snapToStandard(parseFloat(cool_capacity));
@@ -276,6 +294,21 @@ const SingleProduct = ({ data }) => {
                         <div className="spec-tile"><span className="spec-tile-label">Room Size</span><span className="spec-tile-value">~{room_size}m²</span></div>
                       </div>
 
+                      {detailedSpecs.length > 0 && (
+                        <div className="spec-detail-table-wrap">
+                          <table className="spec-detail-table">
+                            <tbody>
+                              {detailedSpecs.map(([label, value]) => (
+                                <tr key={label}>
+                                  <th scope="row">{label}</th>
+                                  <td>{value}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
+
                       {/* PDF Brochures */}
                       {brand === "toshiba" && (
                         <a className="spec-brochure-btn" href={ToshibaPDF} target="_blank" rel="noreferrer">
@@ -391,8 +424,7 @@ const SingleProduct = ({ data }) => {
                         {data.relatedProducts.nodes
                             .filter(p =>
                                 p.sub_categories[0]?.title === brand &&
-                                p.categories[0]?.title === currentCategory &&
-                                p.model === model
+                                p.categories[0]?.title === currentCategory
                             )
                             .map((p) => {
                                 const isActive = pathname.includes(p.slug);
@@ -529,6 +561,20 @@ query GetSingleProduct($slug: String) {
     heat_capacity
     room_size
     model
+    indoor_model
+    outdoor_model
+    power_supply
+    max_current
+    indoor_weight
+    outdoor_weight
+    indoor_dimensions
+    outdoor_dimensions
+    refrigerant_liquid_pipe
+    refrigerant_gas_pipe
+    refrigerant_precharged_length
+    refrigerant_charge_weight
+    max_pipe_length
+    warranty
     gallery {
       url
     }

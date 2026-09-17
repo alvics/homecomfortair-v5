@@ -4685,6 +4685,43 @@ button:hover {
   }
 }
 
+/* Detailed specification table */
+.spec-detail-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.spec-detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.spec-detail-table tr:not(:last-child) {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.spec-detail-table th,
+.spec-detail-table td {
+  padding: 10px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.spec-detail-table th {
+  font-weight: 600;
+  color: #0075C9;
+  background: #EBF5FF;
+  width: 45%;
+}
+
+.spec-detail-table td {
+  color: #041521;
+  font-weight: 500;
+}
+
 /* Brochure button */
 .spec-brochure-btn {
   display: inline-flex;
