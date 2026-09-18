@@ -6,7 +6,7 @@ import Schema from '../components/Schema-2'
 import StaticImage from "../components/StaticQueryImages"
 import Form from "../components/QuoteForm"
 import FeatureBubble from "../components/FeatureBubble"
-import SamsungProducts from "../components/Products/SamsungSplitSystems"
+import HisenseProducts from "../components/Products/HisenseSplitSystems"
 import MideaProducts from "../components/Products/MideaSplitsSystems"
 
 export const Head = () => (
@@ -283,15 +283,15 @@ export default function SplitAcInstallationCost() {
           </div>
         </section>
 
-        {/* Samsung products */}
+        {/* Hisense products */}
         <section style={{ marginBottom: 64 }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0075C9", marginBottom: 12 }}>
             Current Packages
           </p>
           <h2 className="section-title" style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#1f2937", marginBottom: 32, lineHeight: 1.3 }}>
-            Samsung Split System Packages
+            Hisense J Series Packages
           </h2>
-          <SamsungProducts />
+          <HisenseProducts />
         </section>
 
         {/* Midea products */}

@@ -4628,6 +4628,13 @@ button:hover {
   font-weight: 400;
 }
 
+.sp-price-gst {
+  font-size: 12px;
+  font-weight: 400;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
 .sp-spec-badges {
   display: flex;
   flex-wrap: wrap;
@@ -4683,6 +4690,48 @@ button:hover {
   .spec-tiles {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* Brand feature strip — shown in the Description tab */
+.desc-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.desc-feature-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #f8fafc;
+  border: 1px solid #e8eef5;
+  border-radius: 12px;
+  padding: 20px 16px;
+}
+
+.desc-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #EBF5FF;
+  border-radius: 10px;
+  color: #0075C9;
+  margin-bottom: 2px;
+}
+
+.desc-feature-tile strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #041521;
+}
+
+.desc-feature-tile span {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.4;
 }
 
 /* Detailed specification table */
@@ -5096,6 +5145,13 @@ button .accordion-button::after {
 
 .product-card-srp {
   font-size: 0.65rem;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+.product-card-gst {
+  font-size: 11px;
+  font-weight: 400;
   color: #9ca3af;
   white-space: nowrap;
 }

@@ -503,7 +503,7 @@
 
             {
                 "source": "/products/Haier-8.0kW-Inverter-Reverse-Cycle-Wall-Mount-Split-System/",
-                "destination": "/products/haier-9.0kw-inverter-reverse-cycle-wall-mount-split-system-AS82FFAHRA/",
+                "destination": "/products/haier-9.0kw-inverter-reverse-cycle-wall-mount-split-system-AS90PFDHRA/",
                 "type": 301
             },
 
@@ -711,6 +711,11 @@
                 "type": 301
             },
                 {
+                "source": "/products/haier-9.0kw-inverter-reverse-cycle-wall-mount-split-system-AS82FFAHRA",
+                "destination": "/products/haier-9.0kw-inverter-reverse-cycle-wall-mount-split-system-AS90PFDHRA/",
+                "type": 301
+            },
+                {
                 "source": "/service-areas/advancetown",
                 "destination": "/service-areas/advancetown-air-conditioning/",
                 "type": 301
@@ -844,12 +849,52 @@
                 "source": "/products/hitachi-7.0kw-air-home-400-hi-wall-split-system-air-conditioner/",
                 "destination": "/products/split-system-air-conditioning/",
                 "type": 301
+            },
+            {
+                "source": "/products/samsung-split-system-air-conditioning",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-split-system-air-conditioning/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-2.5kw-ai-smart-aero-reverse-cycle-inverter-hi-wall-split-system-AR09DXFZCWKNSA/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-3.5kw-ai-smart-aero-reverse-cycle-inverter-hi-wall-split-system-AR12DXFZCWKNSA/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-5.0kw-ai-smart-aero-reverse-cycle-inverter-hi-wall-split-system-AR18DXFZCWKNSA/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-6.8kw-ai-smart-aero-reverse-cycle-inverter-hi-wall-split-system-AR24DXFZCWKNSA/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-8.0kw-ai-smart-aero-reverse-cycle-inverter-hi-wall-split-system/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/midea-3.5kw-athena-reverse-cycle-split-system-MFEZ26VA-N/",
+                "destination": "/products/midea-3.5kw-athena-reverse-cycle-split-system-MFEZ35VA-N/",
+                "type": 301
             }
 
-             
-             
-             
-          
+
+
+
+
 
         ]
     }

@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import mideaImg    from '../../images/brands/cropped/midea.png'
 import haierImg    from '../../images/brands/cropped/haier.png'
-import samsungImg  from '../../images/brands/cropped/samsung.png'
+import hisenseImg  from '../../images/Hisense/hisense.png'
 import toshibaImg  from '../../images/brands/cropped/toshiba.png'
 import daikinImg   from '../../images/brands/cropped/daikin.png'
 import mitsuImg    from '../../images/brands/cropped/mitsubishi-electric.png'
@@ -14,7 +14,7 @@ import panasonicImg from '../../images/Panasonic/logo-cropped.png'
 const BRANDS = [
   { to: '/products/midea-split-system-air-conditioning',              label: 'Midea',               img: mideaImg },
   { to: '/products/haier-split-system-air-conditioning',              label: 'Haier',               img: haierImg },
-  { to: '/products/samsung-split-system-air-conditioning',            label: 'Samsung',             img: samsungImg },
+  { to: '/products/hisense-split-system-air-conditioning',            label: 'Hisense',             img: hisenseImg },
   { to: '/products/toshiba-split-system-air-conditioning',            label: 'Toshiba',             img: toshibaImg },
   { to: '/products/daikin-split-system-air-conditioning',             label: 'Daikin',              img: daikinImg },
   { to: '/products/mitsubishi-electric-split-system-air-conditioning',label: 'Mitsubishi Electric', img: mitsuImg },

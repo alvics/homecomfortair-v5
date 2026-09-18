@@ -58,7 +58,7 @@ const getFaqItems = (heading) => ([
   },
   {
     q: 'Do you supply and install all major brands?',
-    a: 'Yes — we supply and install Daikin, Mitsubishi Electric, Samsung, Haier, Midea, Toshiba, Carrier and Mitsubishi Heavy Industries systems.',
+    a: 'Yes — we supply and install Daikin, Mitsubishi Electric, Hisense, Haier, Midea, Toshiba, Carrier and Mitsubishi Heavy Industries systems.',
   },
   {
     q: 'What warranty comes with a new installation?',

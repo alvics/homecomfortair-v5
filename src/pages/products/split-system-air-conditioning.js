@@ -12,7 +12,7 @@ import FeatureBubble from "../../components/FeatureBubble"
 import AllFilteredProducts from "../../components/Products/AllFilteredProducts"
 import MideaProducts      from "../../components/Products/MideaSplitsSystems"
 import HaierProducts      from "../../components/Products/HaierSplitSystems"
-import SamsungProducts    from "../../components/Products/SamsungSplitSystems"
+import HisenseProducts    from "../../components/Products/HisenseSplitSystems"
 import ToshibaProducts    from "../../components/Products/ToshibaSplitSystems"
 import MHIProducts        from "../../components/Products/MHISplitSytems"
 import MitsubishiProducts from "../../components/Products/MitsubishiElectricSplits"
@@ -34,7 +34,7 @@ const DAIKIN_MODELS = [
 const BRANDS = [
   { id: "midea",      label: "Midea",              shortLabel: "Midea",      color: "#0099cc" },
   { id: "haier",      label: "Haier",               shortLabel: "Haier",      color: "#005AAB" },
-  { id: "samsung",    label: "Samsung",             shortLabel: "Samsung",    color: "#1428A0" },
+  { id: "hisense",    label: "Hisense",             shortLabel: "Hisense",    color: "#00A99D" },
   { id: "toshiba",    label: "Toshiba",             shortLabel: "Toshiba",    color: "#D01C22" },
   { id: "mhi",        label: "Mitsubishi Heavy",    shortLabel: "MHI",        color: "#e31f26" },
   { id: "mitsubishi", label: "Mitsubishi Electric", shortLabel: "Mitsubishi", color: "#cc0000" },
@@ -46,10 +46,10 @@ const BRANDS = [
 export const Head = () => (
   <Fragment>
     <title>Split System Air Conditioning — Supplied &amp; Installed | Home Comfort Air</title>
-    <meta name="description" content="Browse split system air conditioners from Daikin, Mitsubishi, Samsung, Haier, Midea & more. Supplied and installed on the Gold Coast & Brisbane." />
+    <meta name="description" content="Browse split system air conditioners from Daikin, Mitsubishi, Hisense, Haier, Midea & more. Supplied and installed on the Gold Coast & Brisbane." />
     <Seo
       title="Split System Air Conditioning — Supplied & Installed | Home Comfort Air"
-      description="Browse split system air conditioners from Daikin, Mitsubishi, Samsung, Haier, Midea & more. Supplied and installed on the Gold Coast & Brisbane."
+      description="Browse split system air conditioners from Daikin, Mitsubishi, Hisense, Haier, Midea & more. Supplied and installed on the Gold Coast & Brisbane."
       url="https://homecomfortair.net.au/products/split-system-air-conditioning/"
     />
     <Schema />
@@ -298,7 +298,7 @@ const ProductsPage = () => {
               Split System Air Conditioning
             </h1>
             <p style={{ fontSize: 18, color: "rgba(255,255,255,0.85)", marginBottom: 32, lineHeight: 1.5 }}>
-              Supplied &amp; Installed — from leading brands including Daikin, Mitsubishi, Samsung, Haier &amp; more.
+              Supplied &amp; Installed — from leading brands including Daikin, Mitsubishi, Hisense, Haier &amp; more.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <Link to="/contact" style={{
@@ -487,10 +487,10 @@ const ProductsPage = () => {
               <HaierProducts />
             </section>
 
-            {/* ── Samsung ─────────────────────────────────────────────── */}
-            <section id="samsung" className="mb-12">
-              <BrandHeading label="Samsung" color="#1428A0" />
-              <SamsungProducts />
+            {/* ── Hisense ─────────────────────────────────────────────── */}
+            <section id="hisense" className="mb-12">
+              <BrandHeading label="Hisense" color="#00A99D" />
+              <HisenseProducts />
             </section>
 
             {/* ── Toshiba ─────────────────────────────────────────────── */}

@@ -54,6 +54,7 @@ const Product = ({ title, image, price, slug, isOnSpecial, id, brandLabel, brand
           {price && isOnSpecial ? (
             <div className="product-card-pricing">
               <span className="product-card-price"><sup>$</sup>{isOnSpecial.toLocaleString()}</span>
+              <span className="product-card-gst">Incl. GST</span>
               {/* SRP — disabled for now, re-enable when the sale is back on
               <span className="product-card-srp"><del>${(price + 100).toLocaleString()}</del></span>
               */}
@@ -61,6 +62,7 @@ const Product = ({ title, image, price, slug, isOnSpecial, id, brandLabel, brand
           ) : (
             <div className="product-card-pricing">
               <span className="product-card-price"><sup>$</sup>{price.toLocaleString()}</span>
+              <span className="product-card-gst">Incl. GST</span>
               {/* SRP — disabled for now, re-enable when the sale is back on
               <span className="product-card-srp">SRP <del>${(price + 100).toLocaleString()}</del></span>
               */}

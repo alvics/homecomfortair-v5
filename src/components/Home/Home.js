@@ -4,7 +4,7 @@ import MyForm from "../../components/QuoteForm"
 import StaticImage from "../../components/StaticQueryImages"
 import BrandsBtn from "../../components/BrandsBtn"
 import GoogleReviewsCarousel from "../Sections/GoogleReviews"
-import HaierSplitSystems from "../Products/HaierSplitSystems"
+import HisenseSplitSystems from "../Products/HisenseSplitSystems"
 import AboutSection from "../../components/AboutSection"
 import FeatureBubble from "../../components/FeatureBubble"
 
@@ -218,7 +218,7 @@ const Home = () => {
 
             <div className="section-2-grid">
               <div className="section-2-products">
-                <HaierSplitSystems />
+                <HisenseSplitSystems />
                 <div className="mt-2 mb-2">
                   <p className="fsz-12">*Prices inc GST</p>
                   <Link to="/products" className="btn-- btn-primary--">View All Deals</Link>
@@ -416,7 +416,7 @@ const Home = () => {
               <details className="faq-item">
                 <summary className="faq-question">What brands do you supply and install?</summary>
                 <div className="faq-answer">
-                  <p>We supply and install all major brands including Daikin, Mitsubishi Electric, Midea, Samsung, Haier, MHI and Toshiba. We'll help you choose the best brand and model for your needs and budget.</p>
+                  <p>We supply and install all major brands including Daikin, Mitsubishi Electric, Midea, Hisense, Haier, MHI and Toshiba. We'll help you choose the best brand and model for your needs and budget.</p>
                 </div>
               </details>
 

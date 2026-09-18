@@ -37,7 +37,7 @@ const DropdownBrandBtn = ({ onNavigate }) => {
           {[
             ["/products/midea-split-system-air-conditioning", "Midea Air Conditioning"],
             ["/products/haier-split-system-air-conditioning", "Haier Air Conditioning"],
-            ["/products/samsung-split-system-air-conditioning", "Samsung Air Conditioning"],
+            ["/products/hisense-split-system-air-conditioning", "Hisense Air Conditioning"],
             ["/products/toshiba-split-system-air-conditioning", "Toshiba Air Conditioning"],
             ["/products/daikin-split-system-air-conditioning", "Daikin Air Conditioning"],
             ["/products/mitsubishi-electric-split-system-air-conditioning/", "Mitsubishi Electric"],

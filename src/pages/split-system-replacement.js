@@ -6,7 +6,7 @@ import Schema from '../components/Schema-2'
 import StaticImage from "../components/StaticQueryImages"
 import Form from "../components/QuoteForm"
 import FeatureBubble from "../components/FeatureBubble"
-import SamsungProducts from "../components/Products/SamsungSplitSystems"
+import HisenseProducts from "../components/Products/HisenseSplitSystems"
 import MitsubishiSplits from "../components/Products/MitsubishiElectricSplits"
 
 export const Head = () => (
@@ -38,7 +38,7 @@ const highlights = [
 ]
 
 const steps = [
-  { num: 1, title: "Choose Your New Unit", desc: "We help you select the right capacity and brand for your room size and budget — Daikin, Mitsubishi, Samsung, Haier, Toshiba, Carrier, or Midea." },
+  { num: 1, title: "Choose Your New Unit", desc: "We help you select the right capacity and brand for your room size and budget — Daikin, Mitsubishi, Hisense, Haier, Toshiba, Carrier, or Midea." },
   { num: 2, title: "Turn Off the Power", desc: "Before work begins, we switch off the circuit breaker and make the existing system safe to disconnect." },
   { num: 3, title: "Remove the Old Unit", desc: "We disconnect the refrigerant lines, remove the mounting bracket, and safely dispose of the old unit." },
   { num: 4, title: "Install New Indoor Unit", desc: "The new indoor unit is fitted to the wall bracket and refrigerant lines connected with a tight, secure seal." },
@@ -130,7 +130,7 @@ export default function SplitSystemReplacement() {
             A split system provides years of reliable comfort — but over time, age and wear mean replacement is the smarter choice over repair. At Home Comfort Air, we make the process simple. We install all major brands including{" "}
             <Link to="/products/daikin-split-system-air-conditioning" style={{ color: "#0075C9" }}>Daikin</Link>,{" "}
             <Link to="/products/mitsubishi-electric-split-system-air-conditioning" style={{ color: "#0075C9" }}>Mitsubishi Electric</Link>,{" "}
-            <Link to="/products/samsung-split-system-air-conditioning" style={{ color: "#0075C9" }}>Samsung</Link>,{" "}
+            <Link to="/products/hisense-split-system-air-conditioning" style={{ color: "#0075C9" }}>Hisense</Link>,{" "}
             <Link to="/products/haier-split-system-air-conditioning" style={{ color: "#0075C9" }}>Haier</Link>,{" "}
             <Link to="/products/toshiba-split-system-air-conditioning" style={{ color: "#0075C9" }}>Toshiba</Link>,{" "}
             <Link to="/products/carrier-split-system-air-conditioning" style={{ color: "#0075C9" }}>Carrier</Link> and{" "}
@@ -222,15 +222,15 @@ export default function SplitSystemReplacement() {
           <MitsubishiSplits />
         </section>
 
-        {/* Samsung products */}
+        {/* Hisense products */}
         <section style={{ marginBottom: 72 }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0075C9", marginBottom: 12 }}>
             Also Available
           </p>
           <h2 className="section-title" style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: 800, color: "#1f2937", marginBottom: 32, lineHeight: 1.3 }}>
-            Samsung Aero Packages
+            Hisense J Series Packages
           </h2>
-          <SamsungProducts />
+          <HisenseProducts />
         </section>
 
         {/* CTA / Quote */}

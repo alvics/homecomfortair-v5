@@ -205,7 +205,7 @@ const AboutPage = () => {
                   <Link to="/products/carrier-split-system-air-conditioning/" style={{ color: "#0075C9" }}>Carrier</Link>,{" "}
                   <Link to="/products/midea-split-system-air-conditioning/" style={{ color: "#0075C9" }}>Midea</Link>,{" "}
                   <Link to="/products/mitsubishi-electric-split-system-air-conditioning/" style={{ color: "#0075C9" }}>Mitsubishi</Link> and{" "}
-                  <Link to="/products/samsung-split-system-air-conditioning/" style={{ color: "#0075C9" }}> Samsung </Link>to ensure you get the best technology backed by our personal touch.
+                  <Link to="/products/hisense-split-system-air-conditioning/" style={{ color: "#0075C9" }}> Hisense </Link>to ensure you get the best technology backed by our personal touch.
                 </p>
                 <p style={{ fontSize: 17, color: "#1f2937", lineHeight: 1.9, marginBottom: 20 }}>
                   Our staff are licensed experts when it comes to installations and repairs, and we offer a{" "}

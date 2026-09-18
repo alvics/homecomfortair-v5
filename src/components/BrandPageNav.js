@@ -6,7 +6,7 @@ const brands = [
   { label: "Daikin",              to: "/products/daikin-split-system-air-conditioning" },
   { label: "Mitsubishi Electric", to: "/products/mitsubishi-electric-split-system-air-conditioning" },
   { label: "Midea",               to: "/products/midea-split-system-air-conditioning" },
-  { label: "Samsung",             to: "/products/samsung-split-system-air-conditioning" },
+  { label: "Hisense",             to: "/products/hisense-split-system-air-conditioning" },
   { label: "Toshiba",             to: "/products/toshiba-split-system-air-conditioning" },
   { label: "Mitsubishi Heavy",    to: "/products/mhi-split-system-air-conditioning" },
   { label: "Fujitsu",             to: "/products/fujitsu-split-system-air-conditioning" },

@@ -134,7 +134,7 @@ const Footer = () => {
                 {[
                   { label: "Daikin", to: "/products/daikin-split-system-air-conditioning" },
                   { label: "Toshiba", to: "/products/toshiba-split-system-air-conditioning" },
-                  { label: "Samsung", to: "/products/samsung-split-system-air-conditioning" },
+                  { label: "Hisense", to: "/products/hisense-split-system-air-conditioning" },
                   { label: "Midea", to: "/products/midea-split-system-air-conditioning" },
                   { label: "Haier", to: "/products/haier-split-system-air-conditioning" },
                 ].map(({ label, to }) => (
