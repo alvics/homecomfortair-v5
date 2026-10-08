@@ -1,5 +1,18 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import StaticImage from "../components/StaticQueryImages"
+import Seo from "../components/SEO-2"
+
+export const Head = () => (
+  <Fragment>
+    <title>Privacy Policy | Home Comfort Air</title>
+    <meta name="description" content="Read Home Comfort Air's Privacy Policy to learn how we collect, use and protect your personal information when you visit or use our website." />
+    <Seo
+      title="Privacy Policy | Home Comfort Air"
+      description="Read Home Comfort Air's Privacy Policy to learn how we collect, use and protect your personal information when you visit or use our website."
+      url="https://homecomfortair.net.au/privacy-policy/"
+    />
+  </Fragment>
+)
 
 export default function privacyPolicy() {
 

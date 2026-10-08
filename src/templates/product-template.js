@@ -36,6 +36,8 @@ import Seo from "../components/SEO-2";
 import AddToCartButton from '../components/AddToCartButton';
 import CartAddedCard from '../components/CartAddedCard';
 import { buildProductSchema } from '../utils/productSchema';
+import zipLogo from '../images/ZIP_pay.svg';
+import cardLogos from '../images/card-logos-clean.png';
 
 // Colours for the brand pill shown on each "Also recommended for you" card —
 // keyed by the exact sub_categories title stored in Strapi.
@@ -592,6 +594,36 @@ const SingleProduct = ({ data }) => {
 
                     <div className="product-actions"><AddToCartButton product={productForCart} className="sp-add-to-cart" onCartAdd={handleShowCartCard} /></div>
                     <CartAddedCard product={cardProduct} isVisible={showCartCard} onClose={closeCartCard} />
+
+                    <div className="sp-finance-box">
+                        <div className="sp-finance-main">
+                            <img src={zipLogo} alt="Zip" className="sp-finance-logo" />
+                            <div className="sp-finance-copy">
+                                <strong>Finance available</strong>
+                                <span>Split the cost into smaller payments with Zip.</span>
+                                <a
+                                    href="https://zip.co/au/how-zip-works"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="sp-finance-link"
+                                    onClick={() => {
+                                        if (typeof window !== 'undefined' && window.gtag) {
+                                            window.gtag('event', 'zip_finance_learn_more_click', {
+                                                product_name: title,
+                                            });
+                                        }
+                                    }}
+                                >
+                                    See how Zip works →
+                                </a>
+                            </div>
+                        </div>
+                        <div className="sp-finance-also-accept">
+                            <span>Also accepted:</span>
+                            <img src={cardLogos} alt="Visa and Mastercard accepted" className="sp-finance-cards" />
+                            <span>&amp; bank transfer</span>
+                        </div>
+                    </div>
                 </div>
                 <Modal />
             </div>

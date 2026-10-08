@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from "gatsby"
 import TopNavBar from '../Ui/topDesktopNavMenu'
+import hcaLogo from '../../images/Home-Comfort-Air-COL-1000.png'
 
 export default function NavbarMain() {
   return (
@@ -12,7 +13,7 @@ export default function NavbarMain() {
           <div id="logo" className="reverse">
             <div className="logo">
               <Link id="logo-header" to="/">
-                <img src="https://res.cloudinary.com/ewebdesigns/image/upload/v1686111136/Home-Comfort-Air-logo-650_ecewcq.png" alt="logo" />
+                <img src={hcaLogo} alt="Home Comfort Air logo" />
               </Link>
             </div>
           </div>

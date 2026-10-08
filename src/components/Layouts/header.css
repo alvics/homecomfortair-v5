@@ -34,18 +34,19 @@ nav.fixed-top {
     margin: 88px 0px 0px 20px;
 }
 
-@media (min-width: 992px) and (max-width: 1399px) {
+@media (min-width: 992px) {
     #logo {
-        display: block;
-        margin-top: 60px !important;
+        display: flex;
+        align-items: center;
+        margin-top: 0 !important;
+        height: 100%;
     }
 }
 
-@media (min-width: 1400px) {
-    #logo {
-        display: block;
-        margin-top: 55px !important;
-    }
+#logo .logo img {
+    max-height: 44px;
+    width: auto;
+    display: block;
 }
 
 .logo span {
@@ -642,7 +643,6 @@ product-page-description{
 /* Logo */
 .hca-nav-logo {
   flex-shrink: 0;
-  width: 260px;
   margin-right: 32px;
   display: flex;
   align-items: center;
@@ -651,11 +651,12 @@ product-page-description{
   padding: 6px 0;
 }
 
-.hca-nav-logo .gatsby-image-wrapper {
-  width: 260px !important;
-  max-width: 260px !important;
-  margin: 0 !important;
-  padding: 0 !important;
+.hca-nav-logo img {
+  height: 38px;
+  width: auto;
+  max-width: none;
+  display: block;
+  margin: 0;
 }
 
 /* Primary nav links */

@@ -306,19 +306,19 @@ const Home = () => {
                   Most Popular
                 </span>
                 <p style={{ fontSize: 13, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 4px" }}>
-                  Family Comfort Plan
+                  Basic Saver Plan
                 </p>
                 <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 20 }}>
-                  <span style={{ fontSize: 40, fontWeight: 900, color: "#1a1a1a", lineHeight: 1 }}>$25</span>
+                  <span style={{ fontSize: 40, fontWeight: 900, color: "#1a1a1a", lineHeight: 1 }}>$15</span>
                   <span style={{ fontSize: 14, color: "#777", fontWeight: 600 }}>/mo + GST</span>
                 </div>
                 <hr style={{ border: "none", borderTop: "1px solid #eef0f3", marginBottom: 20 }} />
                 <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 24 }}>
                   {[
-                    "2x services per year",
-                    "Front-of-line priority booking",
-                    "10% off all repairs",
+                    "1x comprehensive service per year",
+                    "5% off all repairs",
                     "Online member portal & reminders",
+                    "Service reminder notifications",
                   ].map((text, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
                       <span style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(0,117,201,0.12)", color: "#0075C9", fontWeight: 700, fontSize: 12, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>✓</span>

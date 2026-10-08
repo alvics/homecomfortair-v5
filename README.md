@@ -8,8 +8,148 @@
         ],
         "redirects": [
             {
+                "source": "/products/fujitsu-2.5kw-comfort-series-reverse-cycle-split-system-asth09knca",
+                "destination": "/products/fujitsu-2.5kw-comfort-series-reverse-cycle-split-system-ASTH09KNCA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-2.5kw-comfort-series-reverse-cycle-split-system-asth09knca/",
+                "destination": "/products/fujitsu-2.5kw-comfort-series-reverse-cycle-split-system-ASTH09KNCA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-3.5kw-comfort-series-reverse-cycle-split-system-asth12knca",
+                "destination": "/products/fujitsu-3.5kw-comfort-series-reverse-cycle-split-system-ASTH12KNCA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-3.5kw-comfort-series-reverse-cycle-split-system-asth12knca/",
+                "destination": "/products/fujitsu-3.5kw-comfort-series-reverse-cycle-split-system-ASTH12KNCA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-4.2kw-comfort-series-reverse-cycle-split-system-asth14knca",
+                "destination": "/products/fujitsu-4.2kw-comfort-series-reverse-cycle-split-system-ASTH14KNCA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-4.2kw-comfort-series-reverse-cycle-split-system-asth14knca/",
+                "destination": "/products/fujitsu-4.2kw-comfort-series-reverse-cycle-split-system-ASTH14KNCA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-5.0kw-comfort-series-reverse-cycle-split-system-asth18knta",
+                "destination": "/products/fujitsu-5.0kw-comfort-series-reverse-cycle-split-system-ASTH18KNTA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-5.0kw-comfort-series-reverse-cycle-split-system-asth18knta/",
+                "destination": "/products/fujitsu-5.0kw-comfort-series-reverse-cycle-split-system-ASTH18KNTA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-6.0kw-comfort-series-reverse-cycle-split-system-asth22knta",
+                "destination": "/products/fujitsu-6.0kw-comfort-series-reverse-cycle-split-system-ASTH22KNTA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-6.0kw-comfort-series-reverse-cycle-split-system-asth22knta/",
+                "destination": "/products/fujitsu-6.0kw-comfort-series-reverse-cycle-split-system-ASTH22KNTA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-7.1kw-comfort-series-reverse-cycle-split-system-asth24knta",
+                "destination": "/products/fujitsu-7.1kw-comfort-series-reverse-cycle-split-system-ASTH24KNTA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-7.1kw-comfort-series-reverse-cycle-split-system-asth24knta/",
+                "destination": "/products/fujitsu-7.1kw-comfort-series-reverse-cycle-split-system-ASTH24KNTA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-8.5kw-comfort-series-reverse-cycle-split-system-asth30knta",
+                "destination": "/products/fujitsu-8.5kw-comfort-series-reverse-cycle-split-system-ASTH30KNTA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-8.5kw-comfort-series-reverse-cycle-split-system-asth30knta/",
+                "destination": "/products/fujitsu-8.5kw-comfort-series-reverse-cycle-split-system-ASTH30KNTA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-9.5kw-comfort-series-reverse-cycle-split-system-asth34knta",
+                "destination": "/products/fujitsu-9.5kw-comfort-series-reverse-cycle-split-system-ASTH34KNTA/",
+                "type": 301
+            },
+            {
+                "source": "/products/fujitsu-9.5kw-comfort-series-reverse-cycle-split-system-asth34knta/",
+                "destination": "/products/fujitsu-9.5kw-comfort-series-reverse-cycle-split-system-ASTH34KNTA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-2.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV20W",
+                "destination": "/products/daikin-2.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV20WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-2.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV20W/",
+                "destination": "/products/daikin-2.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV20WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-2.5kw-cora-reverse-cycle-hi-wall-split-system-FTXV25W",
+                "destination": "/products/daikin-2.5kw-cora-reverse-cycle-hi-wall-split-system-FTXV25WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-2.5kw-cora-reverse-cycle-hi-wall-split-system-FTXV25W/",
+                "destination": "/products/daikin-2.5kw-cora-reverse-cycle-hi-wall-split-system-FTXV25WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-3.5kw-cora-reverse-cycle-hi-wall-split-system-FTXV35W",
+                "destination": "/products/daikin-3.5kw-cora-reverse-cycle-hi-wall-split-system-FTXV35WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-3.5kw-cora-reverse-cycle-hi-wall-split-system-FTXV35W/",
+                "destination": "/products/daikin-3.5kw-cora-reverse-cycle-hi-wall-split-system-FTXV35WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-5.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV50W",
+                "destination": "/products/daikin-5.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV50WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-5.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV50W/",
+                "destination": "/products/daikin-5.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV50WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-6.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV60W",
+                "destination": "/products/daikin-6.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV60WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-6.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV60W/",
+                "destination": "/products/daikin-6.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV60WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-7.1kw-cora-reverse-cycle-hi-wall-split-system-FTXV71W",
+                "destination": "/products/daikin-7.1kw-cora-reverse-cycle-hi-wall-split-system-FTXV71WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-7.1kw-cora-reverse-cycle-hi-wall-split-system-FTXV71W/",
+                "destination": "/products/daikin-7.1kw-cora-reverse-cycle-hi-wall-split-system-FTXV71WVMA/",
+                "type": 301
+            },
+            {
                 "source": "/products/daikin-2.0kW-cora-reverse-cycle-hi-wall-split-system-hca20",
-                "destination": "/products/daikin-2.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV20W/",
+                "destination": "/products/daikin-2.0kw-cora-reverse-cycle-hi-wall-split-system-FTXV20WVMA/",
                 "type": 301
             },
 
@@ -125,23 +265,33 @@
 
             {
                 "source": "/products/daikin-8.5k-w-xl-premium-reverse-cycle-hi-wall-split-system/",
-                "destination": "/products/daikin-8.5kW-cora-reverse-cycle-hi-wall-split-system-FTXV85LVMA",
+                "destination": "/products/daikin-8.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXM85WVMA/",
                 "type": 301
             },
             {
                 "source": "/products/daikin-8.5kW-cora-Inverter-hi-wall-split-system-FTXV85LVMA",
-                "destination": "/products/daikin-8.5kW-cora-reverse-cycle-hi-wall-split-system-FTXV85LVMA",
+                "destination": "/products/daikin-8.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXM85WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-8.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXV85LVMA",
+                "destination": "/products/daikin-8.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXM85WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-8.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXV85LVMA/",
+                "destination": "/products/daikin-8.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXM85WVMA/",
                 "type": 301
             },
             {
                 "source": "/products/daikin-8.5kW-cora-reverse-cycle-hi-wall-split-system-FTXV85LVMA",
-                "destination": "/products/daikin-8.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXV85LVMA/",
+                "destination": "/products/daikin-8.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXM85WVMA/",
                 "type": 301
             },
 
             {
                 "source": "/products/daikin-8.5kW-cora-reverse-cycle-hi-wall-split-system-FTXV85LVMA",
-                "destination": "/products/daikin-8.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXV85LVMA/",
+                "destination": "/products/daikin-8.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXM85WVMA/",
                 "type": 301
             },
             {
@@ -335,22 +485,27 @@
             },
             {
                 "source": "/products/daikin-9.5kw-xl-premium-reverse-cycle-hi-wall-split-system",
-                "destination": "/products/daikin-9.5kW-cora-reverse-cycle-hi-wall-split-system-FTXV95LVMA",
+                "destination": "/products/daikin-9.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXM95WVMA/",
                 "type": 301
             },
             {
                 "source": "/products/daikin-9.5kW-cora-Inverter-hi-wall-split-system-FTXV95LVMA",
-                "destination": "/products/daikin-9.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXV95LVMA/",
+                "destination": "/products/daikin-9.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXM95WVMA/",
                 "type": 301
             },
             {
                 "source": "/products/daikin-9.5kW-cora-reverse-cycle-hi-wall-split-system-FTXV95LVMA",
-                "destination": "/products/daikin-9.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXV95LVMA/",
+                "destination": "/products/daikin-9.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXM95WVMA/",
                 "type": 301
             },
             {
-                "source": "/products/daikin-9.5kW-cora-reverse-cycle-hi-wall-split-system-FTXV95LVMA",
-                "destination": "/products/daikin-9.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXV95LVMA/",
+                "source": "/products/daikin-9.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXV95LVMA",
+                "destination": "/products/daikin-9.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXM95WVMA/",
+                "type": 301
+            },
+            {
+                "source": "/products/daikin-9.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXV95LVMA/",
+                "destination": "/products/daikin-9.5kw-xl-premium-reverse-cycle-hi-wall-split-system-FTXM95WVMA/",
                 "type": 301
             },
             {
@@ -503,7 +658,7 @@
 
             {
                 "source": "/products/Haier-8.0kW-Inverter-Reverse-Cycle-Wall-Mount-Split-System/",
-                "destination": "/products/haier-9.0kw-inverter-reverse-cycle-wall-mount-split-system-AS82FFAHRA/",
+                "destination": "/products/haier-9.0kw-inverter-reverse-cycle-wall-mount-split-system-AS90PFDHRA/",
                 "type": 301
             },
 
@@ -711,6 +866,11 @@
                 "type": 301
             },
                 {
+                "source": "/products/haier-9.0kw-inverter-reverse-cycle-wall-mount-split-system-AS82FFAHRA",
+                "destination": "/products/haier-9.0kw-inverter-reverse-cycle-wall-mount-split-system-AS90PFDHRA/",
+                "type": 301
+            },
+                {
                 "source": "/service-areas/advancetown",
                 "destination": "/service-areas/advancetown-air-conditioning/",
                 "type": 301
@@ -844,12 +1004,52 @@
                 "source": "/products/hitachi-7.0kw-air-home-400-hi-wall-split-system-air-conditioner/",
                 "destination": "/products/split-system-air-conditioning/",
                 "type": 301
+            },
+            {
+                "source": "/products/samsung-split-system-air-conditioning",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-split-system-air-conditioning/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-2.5kw-ai-smart-aero-reverse-cycle-inverter-hi-wall-split-system-AR09DXFZCWKNSA/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-3.5kw-ai-smart-aero-reverse-cycle-inverter-hi-wall-split-system-AR12DXFZCWKNSA/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-5.0kw-ai-smart-aero-reverse-cycle-inverter-hi-wall-split-system-AR18DXFZCWKNSA/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-6.8kw-ai-smart-aero-reverse-cycle-inverter-hi-wall-split-system-AR24DXFZCWKNSA/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/samsung-8.0kw-ai-smart-aero-reverse-cycle-inverter-hi-wall-split-system/",
+                "destination": "/products/split-system-air-conditioning/",
+                "type": 301
+            },
+            {
+                "source": "/products/midea-3.5kw-athena-reverse-cycle-split-system-MFEZ26VA-N/",
+                "destination": "/products/midea-3.5kw-athena-reverse-cycle-split-system-MFEZ35VA-N/",
+                "type": 301
             }
 
-             
-             
-             
-          
+
+
+
+
 
         ]
     }

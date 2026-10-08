@@ -39,8 +39,8 @@ const hiwallPlans = [
     price: "$15",
     period: "/mo + GST",
     frequency: "1x Per Year",
-    highlight: false,
-    badge: null,
+    highlight: true,
+    badge: "Most Popular",
     features: [
       { label: "Comprehensive Tune-up", included: true },
       { label: "Priority Scheduling", included: false },
@@ -56,8 +56,8 @@ const hiwallPlans = [
     price: "$25",
     period: "/mo + GST",
     frequency: "2x Per Year",
-    highlight: true,
-    badge: "Most Popular",
+    highlight: false,
+    badge: null,
     features: [
       { label: "Comprehensive Tune-up", included: true },
       { label: "Priority Scheduling", value: "Front of Line ⚡" },
@@ -93,8 +93,8 @@ const ductedPlans = [
     price: "$20",
     period: "/mo + GST",
     frequency: "1x Per Year",
-    highlight: false,
-    badge: null,
+    highlight: true,
+    badge: "Most Popular",
     features: [
       { label: "Full System Inspection", included: true },
       { label: "Priority Scheduling", included: false },
@@ -110,8 +110,8 @@ const ductedPlans = [
     price: "$35",
     period: "/mo + GST",
     frequency: "2x Per Year",
-    highlight: true,
-    badge: "Most Popular",
+    highlight: false,
+    badge: null,
     features: [
       { label: "Full System Inspection", included: true },
       { label: "Priority Scheduling", value: "Front of Line ⚡" },
@@ -124,17 +124,17 @@ const ductedPlans = [
   },
 ]
 
-const internalChecks = [
-  { num: 1, title: "Filter Deep Clean", desc: "Remove, wash, and sanitize filters to ensure 100% airflow." },
+const hiwallInternalChecks = [
+  { num: 1, title: "Filter Deep Clean", desc: "Remove, wash, and sanitise filters to ensure 100% airflow." },
   { num: 2, title: "Evaporator Coil Inspection", desc: "Check for dust/mould build-up that can block cooling." },
   { num: 3, title: "Condensate Drain Flush", desc: "Clear any algae or blockages to prevent indoor water leaks." },
   { num: 4, title: "Blower Fan Check", desc: "Inspect the fan blade for balance and dust accumulation." },
-  { num: 5, title: "Sanitization Spray", desc: "Apply a hospital-grade antibacterial spray to the coils." },
+  { num: 5, title: "Sanitisation Spray", desc: "Apply a hospital-grade antibacterial spray to the coils." },
   { num: 6, title: "Thermostat Calibration", desc: "Ensure your controls are accurately reading the room temp." },
   { num: 7, title: "Louvre & Housing Wipe", desc: 'Clean the exterior of the unit for a "like new" look.' },
 ]
 
-const externalChecks = [
+const hiwallExternalChecks = [
   { num: 8, title: "Condenser Coil Clean", desc: "Remove debris/leaves that make the unit work harder." },
   { num: 9, title: "Refrigerant Level Check", desc: "Monitor gas levels to ensure peak cooling efficiency." },
   { num: 10, title: "Electrical Terminal Tightening", desc: "Check for loose wires caused by vibrations." },
@@ -142,6 +142,27 @@ const externalChecks = [
   { num: 12, title: "Fan Motor Lubrication", desc: "Check bearings and seals for smooth operation." },
   { num: 13, title: "Vibration Check", desc: "Ensure the unit is stable and not making excess noise." },
   { num: 14, title: "Corrosion & Rust Check", desc: "(Crucial for coastal areas!) Inspect the casing for salt-air damage." },
+  { num: 15, title: "System Operation Cycle", desc: "A full test run to ensure the system reaches temperature quickly." },
+]
+
+const ductedInternalChecks = [
+  { num: 1, title: "Filter Deep Clean", desc: "Return air grille mesh wash & sanitise." },
+  { num: 2, title: "Evaporator Coil Inspection", desc: "Check via plenum/access hatch for buildup." },
+  { num: 3, title: "Condensate Drain Flush", desc: "Clear algae/sludge; test drain flow." },
+  { num: 4, title: "Indoor Blower Fan Inspection", desc: "Check wheel balance, dust build, & motor mount integrity." },
+  { num: 5, title: "Antibacterial Coil Treatment", desc: "Apply sanitising spray to return air & coil face." },
+  { num: 6, title: "Thermostat & Controller Calibration", desc: "Verify sensor accuracy vs. ambient room temp." },
+  { num: 7, title: "Supply Vent & Grille Clean", desc: "Wipe down exterior diffusers and return air frame." },
+  { num: 8, title: "Zone Controller & Damper Test", desc: "Test motor open/close actuation for all zones." },
+  { num: 9, title: "Duct Integrity Check", desc: "Inspect flexible ductwork for tears or disconnections." },
+]
+
+const ductedExternalChecks = [
+  { num: 10, title: "Condenser Coil Clean", desc: "Clear debris/leaves blocking outdoor fins." },
+  { num: 11, title: "Refrigerant Pressure & Temp Checks", desc: "Measure running pressures & temp split." },
+  { num: 12, title: "Electrical Connections Check", desc: "Tighten terminals; check contactors & capacitors." },
+  { num: 13, title: "Compressor & Fan Amp Draw", desc: "Test operating current against nameplate rating." },
+  { num: 14, title: "Fan Motor & Bearing Inspection", desc: "Check bearings, shaft alignment, & vibration isolators." },
   { num: 15, title: "System Operation Cycle", desc: "A full test run to ensure the system reaches temperature quickly." },
 ]
 
@@ -238,6 +259,8 @@ const useScrollToTopOnMount = () => {
 const HomeComfortClubPage = () => {
   const [activeTab, setActiveTab] = useState("hiwall")
   const plans = activeTab === "hiwall" ? hiwallPlans : ductedPlans
+  const internalChecks = activeTab === "hiwall" ? hiwallInternalChecks : ductedInternalChecks
+  const externalChecks = activeTab === "hiwall" ? hiwallExternalChecks : ductedExternalChecks
 
   useScrollToTopOnMount()
 
@@ -298,7 +321,7 @@ const HomeComfortClubPage = () => {
         grid-template-columns: 1fr;
         gap: 24px;
         max-width: 1100px;
-        margin: -40px auto 0;
+        margin: 10px auto 0;
         padding: 0 20px 60px;
         position: relative;
         z-index: 2 !important;

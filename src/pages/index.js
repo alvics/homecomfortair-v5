@@ -5,6 +5,7 @@ import HeroSection from "../components/Sections/Hero"
 import MyForm from "../components/QuoteForm";
 import Seo from "../components/SEO-2";
 import Schema from "../components/Schema-2";
+import zipLogo from "../images/ZIP_pay.svg";
 
 export const Head = () => (
 
@@ -68,6 +69,16 @@ const TrustBar = () => (
         <div>
           <strong>Servicing</strong>
           <span>Gold Coast · Brisbane · Ipswich</span>
+        </div>
+      </div>
+
+      <div className="trust-divider" />
+
+      <div className="trust-item">
+        <img src={zipLogo} alt="Zip" className="trust-icon trust-icon-logo" />
+        <div>
+          <strong>Finance Available</strong>
+          <span>Buy now, pay later with Zip</span>
         </div>
       </div>
 

@@ -5,6 +5,8 @@ import { Link } from 'gatsby';
 import Layout from '../components/Layouts/layout';
 import { useCart } from '../contexts/CartContext';
 import FeatureBubble from '../components/FeatureBubble';
+import zipLogo from '../images/ZIP_pay.svg';
+import cardLogos from '../images/card-logos-clean.png';
 
 export const Head = () => (
   <Fragment>
@@ -514,6 +516,22 @@ const CartContent = () => {
                 <p style={{ fontSize: 11, color: "#9ca3af", marginTop: 6, lineHeight: 1.4 }}>
                   Final price confirmed after site inspection. Includes supply &amp; installation.
                 </p>
+              </div>
+
+              <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid #e8eef5" }}>
+                <p style={{ fontSize: 11, fontWeight: 700, color: "#374151", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 8 }}>
+                  How you'll pay
+                </p>
+                <ol style={{ margin: 0, paddingLeft: 18, fontSize: 12, color: "#6b7280", lineHeight: 1.7 }}>
+                  <li>Request your quote below</li>
+                  <li>We'll send you a personalised estimate</li>
+                  <li>Approve &amp; book — your invoice includes 3 easy payment options</li>
+                </ol>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 10 }}>
+                  <img src={zipLogo} alt="Zip" style={{ height: 22, width: "auto", margin: 0, borderRadius: 5, boxShadow: "0 0 0 1px #e8eef5" }} />
+                  <img src={cardLogos} alt="Visa and Mastercard" style={{ height: 14, width: "auto", margin: 0 }} />
+                  <span style={{ fontSize: 11, color: "#9ca3af" }}>+ bank transfer</span>
+                </div>
               </div>
 
               <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 10 }}>

@@ -1,31 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'gatsby'
-import { graphql, useStaticQuery } from 'gatsby'
-import Image from 'gatsby-image'
 import Search from '../Search'
 import CartIcon from '../CartIcon'
 import ServicesMegaMenu, { ServicesMegaPanel } from './ServicesMegaMenu'
 import BrandsMegaMenu, { BrandsMegaPanel } from './BrandsMegaMenu'
+import hcaLogo from '../../images/Home-Comfort-Air-COL-1000.png'
 
 const DesktopNav = () => {
   const [searchOpen, setSearchOpen]   = useState(false)
   const [activeMenu, setActiveMenu]   = useState(null) // 'services' | 'brands' | null
   const navRef  = useRef(null)
   const timerRef = useRef(null)
-
-  const data = useStaticQuery(graphql`
-    {
-      fluid: file(relativePath: { eq: "Home-Comfort-Air-logo-650.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 240, quality: 100) {
-            src
-            ...GatsbyImageSharpFluid
-            ...GatsbyImageSharpFluidLimitPresentationSize
-          }
-        }
-      }
-    }
-  `)
 
   // ── Helpers ──────────────────────────────────────────────
   const openMenu = (name) => {
@@ -65,7 +50,7 @@ const DesktopNav = () => {
 
           {/* Logo */}
           <Link to="/" className="hca-nav-logo" onClick={() => setActiveMenu(null)}>
-            <Image fluid={data.fluid.childImageSharp.fluid} alt="Home Comfort Air" />
+            <img src={hcaLogo} alt="Home Comfort Air" />
           </Link>
 
           {/* Primary links */}

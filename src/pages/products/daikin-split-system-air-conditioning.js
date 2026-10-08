@@ -26,7 +26,8 @@ const daikinSplitRanges = [
   { model: "Cora", blurb: "Daikin's best-selling residential split system — whisper-quiet, efficient, and built for Australian conditions." },
   { model: "Alira X", blurb: "Daikin's newest range, adding Heat Boost Technology and Long Time Heat Technology for faster warm-up and steadier heating through winter." },
   { model: "Zena", blurb: "A designer hi-wall unit available in White Hair Line or Black Wood finish, with a Grid Eye sensor to spread comfort evenly around the room." },
-  { model: "XL Series", blurb: "Daikin's high-capacity range for larger rooms and open-plan living areas." },
+  { model: "XL Premium", blurb: "Powerful performance and premium features meet sophisticated design to deliver ultimate comfort for open-plan living." },
+  { model: "XL", blurb: "Combining high-capacity performance with a sleek design to ensure comfort in open-plan living environments." },
 ]
 
 const daikinSplitFeatures = [
