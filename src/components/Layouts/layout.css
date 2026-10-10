@@ -4405,6 +4405,12 @@ button:hover {
   line-height: 1.5;
 }
 
+.sp-sg-calculator {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f2f5;
+}
+
 /* Quote form in sidebar */
 .sp-quote-form {
   margin-top: 20px;

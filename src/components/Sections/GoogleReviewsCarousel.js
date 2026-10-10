@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import RoomSizeCalculator from '../RoomSizeCalculator';
+import AllFilteredProducts from '../Products/AllFilteredProducts';
 
 const GOOGLE_URL = 'https://www.google.com/search?q=home+comfort+air#lrd=0x6b914f51f3fca14b:0xf7e3f0a4a4b4e4a4,1';
 
@@ -315,6 +317,12 @@ const STATIC_REVIEWS = [
 
 const GoogleReviewsCarousel = ({ mode }) => {
   const guide = mode === 'ducted' ? DUCTED_SIZE_GUIDE : SIZE_GUIDE;
+  const [calcArea, setCalcArea] = useState(null);
+  const [calcKey, setCalcKey] = useState(0);
+  const handleCalcClear = () => {
+    setCalcArea(null);
+    setCalcKey(k => k + 1);
+  };
   const data = useStaticQuery(graphql`
     query {
       allGoogleReview {
@@ -452,6 +460,27 @@ const GoogleReviewsCarousel = ({ mode }) => {
           ))}
         </div>
         <p className="sp-sg-note">* Approximate guide only. {mode === 'ducted' ? 'Number of outlets, home layout, and insulation affect the ideal system size.' : 'Insulation, ceiling height, and sun exposure affect the ideal size.'}</p>
+
+        {mode !== 'ducted' && (
+          <div className="sp-sg-calculator">
+            <div className="sp-size-guide-header" style={{ marginBottom: 12 }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(0,117,201)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/>
+              </svg>
+              <span>Not sure this size is right? Calculate your room</span>
+            </div>
+            <RoomSizeCalculator key={calcKey} onResult={setCalcArea} />
+
+            {calcArea && (
+              <div style={{ marginTop: 20, paddingTop: 20, borderTop: '1px solid #f0f2f5' }}>
+                <p style={{ fontSize: 13, fontWeight: 700, color: '#041521', margin: '0 0 12px' }}>
+                  Systems that fit ~{Math.round(calcArea)}m² across all brands
+                </p>
+                <AllFilteredProducts area={calcArea} onClear={handleCalcClear} />
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Override carousel's global img { width: 100% } for avatars */}

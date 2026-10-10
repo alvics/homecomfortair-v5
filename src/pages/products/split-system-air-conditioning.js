@@ -248,13 +248,13 @@ const FaqAccordion = ({ items = FAQ_ITEMS }) => {
 const NAV_HEIGHT = 68
 
 const ProductsPage = () => {
-  const [filterKw, setFilterKw] = useState(null)
+  const [filterArea, setFilterArea] = useState(null)
   const [calcKey, setCalcKey] = useState(0)
   const [calcOpen, setCalcOpen] = useState(false)
   const [installModal, setInstallModal] = useState(null)
 
   const handleBrandClick = (id) => {
-    setFilterKw(null)
+    setFilterArea(null)
     setCalcKey(k => k + 1)
     setTimeout(() => {
       const el = document.getElementById(id)
@@ -264,14 +264,14 @@ const ProductsPage = () => {
     }, 50)
   }
 
-  const handleCalcResult = (kw) => {
-    setFilterKw(kw)
-    if (kw && !calcOpen) setCalcOpen(true)
+  const handleCalcResult = (area) => {
+    setFilterArea(area)
+    if (area && !calcOpen) setCalcOpen(true)
   }
 
   return (
     <Layout>
-      <StickyBrandNav brands={BRANDS} onBrandClick={filterKw ? handleBrandClick : undefined} />
+      <StickyBrandNav brands={BRANDS} onBrandClick={filterArea ? handleBrandClick : undefined} />
 
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="full-bleed" style={{
@@ -380,7 +380,7 @@ const ProductsPage = () => {
               <span style={{ fontSize: 13, color: "#6b7280", fontWeight: 400 }}>
                 — Use our room size calculator
               </span>
-              {filterKw && (
+              {filterArea && (
                 <span style={{
                   background: "#0075C9",
                   color: "#fff",
@@ -390,7 +390,7 @@ const ProductsPage = () => {
                   borderRadius: "2em",
                   letterSpacing: "0.05em",
                 }}>
-                  {filterKw}kW filtered
+                  ~{Math.round(filterArea)}m² filtered
                 </span>
               )}
             </div>
@@ -416,13 +416,13 @@ const ProductsPage = () => {
                 Enter your room dimensions and we'll recommend the right kW size — and filter the products below to match.
               </p>
               <RoomSizeCalculator key={calcKey} onResult={handleCalcResult} />
-              {filterKw && (
+              {filterArea && (
                 <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid #f1f5f9", display: "flex", alignItems: "center", gap: 12 }}>
                   <span style={{ fontSize: 13, color: "#6b7280" }}>
-                    Showing <strong style={{ color: "#0075C9" }}>{filterKw}kW</strong> products across all brands
+                    Showing products that fit <strong style={{ color: "#0075C9" }}>~{Math.round(filterArea)}m²</strong> across all brands
                   </span>
                   <button
-                    onClick={() => { setFilterKw(null); setCalcKey(k => k + 1) }}
+                    onClick={() => { setFilterArea(null); setCalcKey(k => k + 1) }}
                     style={{ fontSize: 12, color: "#6b7280", background: "none", border: "1px solid #e2e8f0", borderRadius: "2em", padding: "4px 12px", cursor: "pointer", fontWeight: 600 }}
                   >
                     Clear filter
@@ -436,7 +436,7 @@ const ProductsPage = () => {
         <hr style={{ border: "none", borderTop: "1px solid #f1f5f9", margin: "0 0 40px" }} />
 
         {/* ── Products: filtered (merged) or by brand ───────────────── */}
-        {filterKw ? (
+        {filterArea ? (
           <section className="mb-12">
             <div style={{
               display: "flex",
@@ -451,11 +451,11 @@ const ProductsPage = () => {
                   Filtered Results
                 </p>
                 <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#041521", margin: 0, lineHeight: 1.2 }}>
-                  {filterKw}kW Split Systems — All Brands
+                  Split Systems for ~{Math.round(filterArea)}m² — All Brands
                 </h2>
               </div>
               <button
-                onClick={() => { setFilterKw(null); setCalcKey(k => k + 1) }}
+                onClick={() => { setFilterArea(null); setCalcKey(k => k + 1) }}
                 style={{
                   background: "none",
                   border: "1px solid #e2e8f0",
@@ -471,7 +471,7 @@ const ProductsPage = () => {
                 ← Show all brands
               </button>
             </div>
-            <AllFilteredProducts filterKw={filterKw} onClear={() => { setFilterKw(null); setCalcKey(k => k + 1) }} />
+            <AllFilteredProducts area={filterArea} onClear={() => { setFilterArea(null); setCalcKey(k => k + 1) }} />
           </section>
         ) : (
           <>

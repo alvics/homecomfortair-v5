@@ -1,7 +1,35 @@
 import React, { useState, useMemo, useEffect } from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 export const STANDARD_SIZES = [2.5, 3.5, 5.0, 6.0, 7.1, 8.0, 9.0, 10.0, 12.5]
+
+// Brands we no longer stock — kept in sync with DISCONTINUED_BRANDS in product-template.js
+const DISCONTINUED_BRANDS = ["carrier", "aura", "samsung"]
+
+const CATALOG_QUERY = graphql`
+  query RoomSizeCalculatorCatalog {
+    allStrapiProduct(
+      filter: { sub_categories: { elemMatch: { title: { ne: "carrier" } } } }
+    ) {
+      nodes {
+        slug
+        cool_capacity
+        room_size
+        sub_categories {
+          title
+        }
+      }
+    }
+  }
+`
+
+// Product room_size is stored as a plain "min-max" string, e.g. "55-92"
+function parseRoomRange(roomSize) {
+  if (!roomSize) return null
+  const [min, max] = roomSize.split("-").map(s => parseFloat(s))
+  if (Number.isNaN(min) || Number.isNaN(max)) return null
+  return { min, max }
+}
 
 const SunShaded = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -71,18 +99,32 @@ export function snapToStandard(kw) {
   )
 }
 
-function getBarWidth(kw) {
-  const min = STANDARD_SIZES[0]
-  const max = STANDARD_SIZES[STANDARD_SIZES.length - 1]
-  return Math.min(100, Math.max(8, ((kw - min) / (max - min)) * 100))
-}
-
 const RoomSizeCalculator = ({ onResult }) => {
   const [length,  setLength]  = useState("")
   const [width,   setWidth]   = useState("")
   const [sun,     setSun]     = useState("normal")
   const [room,    setRoom]    = useState("living")
   const [ceiling, setCeiling] = useState("standard")
+
+  const { allStrapiProduct: { nodes: allProducts } } = useStaticQuery(CATALOG_QUERY)
+
+  // Real products we actually sell, each with its real room-size coverage —
+  // this is what recommendations get matched against, instead of a made-up kW grid.
+  const catalog = useMemo(() => {
+    return allProducts
+      .filter(p => !p.slug?.includes("ducted"))
+      .filter(p => !DISCONTINUED_BRANDS.includes(p.sub_categories?.[0]?.title))
+      .map(p => {
+        const range = parseRoomRange(p.room_size)
+        const cool = parseFloat(p.cool_capacity)
+        return range && !Number.isNaN(cool) ? { cool, min: range.min, max: range.max } : null
+      })
+      .filter(Boolean)
+  }, [allProducts])
+
+  const catalogMin = useMemo(() => catalog.length ? Math.min(...catalog.map(p => p.min)) : 2.5, [catalog])
+  const catalogMax = useMemo(() => catalog.length ? Math.max(...catalog.map(p => p.max)) : 10, [catalog])
+  const catalogSizes = useMemo(() => Array.from(new Set(catalog.map(p => p.cool))).sort((a, b) => a - b), [catalog])
 
   const result = useMemo(() => {
     const l = parseFloat(length)
@@ -94,15 +136,32 @@ const RoomSizeCalculator = ({ onResult }) => {
     const roomFactor    = ROOM_OPTIONS.find(o => o.value === room)?.factor    ?? 1
     const ceilingFactor = CEILING_OPTIONS.find(o => o.value === ceiling)?.factor ?? 1
 
-    const rawKw   = area * 0.15 * sunFactor * roomFactor * ceilingFactor
-    const recommended = snapToStandard(rawKw)
-    const barWidth     = getBarWidth(rawKw)
+    // Sun/room/ceiling conditions effectively shrink how much real floor area a system can handle
+    const effectiveArea = area * sunFactor * roomFactor * ceilingFactor
 
-    return { area: area.toFixed(1), rawKw: rawKw.toFixed(2), recommended, barWidth }
-  }, [length, width, sun, room, ceiling])
+    const matches = catalog.filter(p => effectiveArea >= p.min && effectiveArea <= p.max)
+    const matchSizes = Array.from(new Set(matches.map(p => p.cool))).sort((a, b) => a - b)
+
+    const tooLarge = !matches.length && effectiveArea > catalogMax
+    const tooSmall = !matches.length && effectiveArea < catalogMin
+    const recommended = matchSizes.length ? matchSizes[0] : (tooSmall ? catalogSizes[0] ?? null : null)
+
+    const barWidth = Math.min(100, Math.max(4, ((effectiveArea - catalogMin) / (catalogMax - catalogMin)) * 100))
+
+    return {
+      area: area.toFixed(1),
+      effectiveArea,
+      recommended,
+      matchSizes,
+      matchCount: matches.length,
+      tooLarge,
+      tooSmall,
+      barWidth,
+    }
+  }, [length, width, sun, room, ceiling, catalog, catalogMin, catalogMax, catalogSizes])
 
   useEffect(() => {
-    onResult?.(result?.recommended ?? null)
+    onResult?.(result?.effectiveArea ?? null)
   }, [result]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -244,15 +303,23 @@ const RoomSizeCalculator = ({ onResult }) => {
 
               {/* Main result card */}
               <div className="rounded-xl p-4 text-white" style={{ background: "linear-gradient(135deg, #0075C9 0%, #005fa3 100%)" }}>
-                <p className="text-xs font-bold uppercase tracking-widest text-blue-200 mb-1">Recommended Size</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-blue-200 mb-1">
+                  {result.tooLarge ? "Space Too Large For One System" : "Recommended Size"}
+                </p>
                 <div className="flex items-end gap-2 mb-3">
-                  <span className="text-5xl font-black">{result.recommended}</span>
-                  <span className="text-xl font-bold text-blue-200 mb-1">kW</span>
+                  {result.tooLarge || result.recommended == null ? (
+                    <span className="text-2xl font-black leading-tight">Multiple systems needed</span>
+                  ) : (
+                    <>
+                      <span className="text-5xl font-black">{result.recommended}</span>
+                      <span className="text-xl font-bold text-blue-200 mb-1">kW</span>
+                    </>
+                  )}
                   <span className="text-xs text-blue-200 mb-1.5 ml-1">{result.area} m²</span>
                 </div>
                 <div className="flex justify-between text-xs text-blue-300 mb-1">
-                  <span>2.5kW</span>
-                  <span>12.5kW</span>
+                  <span>{catalogMin}kW</span>
+                  <span>{catalogMax}kW</span>
                 </div>
                 <div className="w-full h-1.5 bg-blue-800 rounded-full overflow-hidden">
                   <div
@@ -260,26 +327,43 @@ const RoomSizeCalculator = ({ onResult }) => {
                     style={{ width: `${result.barWidth}%`, background: "#00c4b3" }}
                   />
                 </div>
+                {result.matchCount > 0 && (
+                  <p className="text-xs text-blue-100 mt-2">
+                    {result.matchCount} system{result.matchCount === 1 ? "" : "s"} across our brands fit this room.
+                  </p>
+                )}
+                {result.tooSmall && (
+                  <p className="text-xs text-blue-100 mt-2">
+                    Smaller than our smallest listed unit — a {result.recommended}kW system will still comfortably cool this space.
+                  </p>
+                )}
+                {result.tooLarge && (
+                  <p className="text-xs text-blue-100 mt-2">
+                    This is bigger than any single split system we stock covers ({catalogMax}m² max) — you'll likely need a ducted system or multiple split systems. Get in touch and we'll size it properly.
+                  </p>
+                )}
               </div>
 
               {/* Size chips */}
-              <div className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
-                <div className="flex flex-wrap gap-1.5">
-                  {STANDARD_SIZES.map(size => (
-                    <span
-                      key={size}
-                      className={`px-2.5 py-1 rounded-full text-xs font-bold ${
-                        size === result.recommended
-                          ? "text-white"
-                          : "bg-white border border-gray-200 text-gray-400"
-                      }`}
-                      style={size === result.recommended ? { background: "#0075C9" } : {}}
-                    >
-                      {size}kW
-                    </span>
-                  ))}
+              {catalogSizes.length > 0 && (
+                <div className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
+                  <div className="flex flex-wrap gap-1.5">
+                    {catalogSizes.map(size => (
+                      <span
+                        key={size}
+                        className={`px-2.5 py-1 rounded-full text-xs font-bold ${
+                          result.matchSizes.includes(size)
+                            ? "text-white"
+                            : "bg-white border border-gray-200 text-gray-400"
+                        }`}
+                        style={result.matchSizes.includes(size) ? { background: "#0075C9" } : {}}
+                      >
+                        {size}kW
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Disclaimer */}
               <p className="text-xs text-amber-700 bg-amber-50 border border-amber-100 rounded-lg px-3 py-2 leading-relaxed">

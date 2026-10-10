@@ -1,14 +1,24 @@
 import React from "react"
 import Product from "./Product"
 import { graphql, useStaticQuery } from "gatsby"
-import { snapToStandard } from "../RoomSizeCalculator"
 
-const AllFilteredProducts = ({ filterKw, onClear }) => {
+// Product.room_size is stored as a plain "min-max" string, e.g. "55-92"
+function parseRoomRange(roomSize) {
+  if (!roomSize) return null
+  const [min, max] = roomSize.split("-").map(s => parseFloat(s))
+  if (Number.isNaN(min) || Number.isNaN(max)) return null
+  return { min, max }
+}
+
+const AllFilteredProducts = ({ area, onClear }) => {
   const { allStrapiProduct: { nodes: allProducts } } = useStaticQuery(query)
 
   const products = allProducts
     .filter(p => !p.slug?.includes("ducted"))
-    .filter(p => snapToStandard(parseFloat(p.cool_capacity)) === filterKw)
+    .filter(p => {
+      const range = parseRoomRange(p.room_size)
+      return range && area >= range.min && area <= range.max
+    })
 
   if (products.length === 0) {
     return (
@@ -20,10 +30,10 @@ const AllFilteredProducts = ({ filterKw, onClear }) => {
         color: "#6b7280",
       }}>
         <p style={{ fontWeight: 700, fontSize: 16, color: "#1f2937", marginBottom: 8 }}>
-          No {filterKw}kW systems currently available
+          No systems currently sized for ~{Math.round(area)}m²
         </p>
         <p style={{ fontSize: 14, marginBottom: 20 }}>
-          We may be able to source one for you — or try a different size.
+          This space may need a ducted or multi-head system — or try a different room size.
         </p>
         <button
           onClick={onClear}
@@ -65,6 +75,7 @@ export const query = graphql`
         price
         slug
         cool_capacity
+        room_size
         image { url }
       }
     }
